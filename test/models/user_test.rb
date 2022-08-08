@@ -33,7 +33,7 @@ class UserTest < ActiveSupport::TestCase
   foo@bar_baz.com foo@bar+baz.com foo@barbaz...com]
     invalid_adresses.each do |invalid_address|
       @user.email = address
-      assert_not user.valid?, , "#{invalid_address.inspect} should be invalid"
+      assert_not user.valid?, "#{invalid_address.inspect} should be invalid"
     end
   end
 
@@ -43,44 +43,44 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
 
-  test "email adresses should be saved as lower case"
+  test "email adresses should be saved as lower case" do
     mixed_case_email = "AnThOnY@GMAil.COm"
     @user.email = mixed_case_email
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
   end
 
-  test "password should be present"
+  test "password should be present" do
     @user.password = @user.password_confirmation =  " " * 6
     assert_not user.valid?
   end
 
-  test "password should have minimum length"
+  test "password should have minimum length" do
     @user.password = @user.password_confirmation =  "a" * 5
     assert_not user.valid?
   end
 
-  test "hp should be set to 50 hp"
+  test "hp should be set to 50 hp" do
     @user.save
     assert_equal @user.reload.hp, 50
   end
 
-  test "gold should be set to 0"
+  test "gold should be set to 0" do
     @user.save
     assert_equal @user.reload.gold, 0
   end
 
-  test "gem should be set to 0"
+  test "gem should be set to 0" do
     @user.save
     assert_equal @user.reload.gem, 0
   end
 
-  test "xp should be set to 0"
+  test "xp should be set to 0" do
     @user.save
     assert_equal @user.reload.xp, 0
   end
 
-  test "lvl should be set to 1"
+  test "lvl should be set to 1" do
     @user.save
     assert_equal @user.reload.level, 0
   end
