@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_09_143550) do
+ActiveRecord::Schema.define(version: 2022_08_09_145833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,24 @@ ActiveRecord::Schema.define(version: 2022_08_09_143550) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_category_progresses_on_category_id"
     t.index ["user_id"], name: "index_category_progresses_on_user_id"
+  end
+
+  create_table "flashcards", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "unlocked"
+    t.text "trick"
+    t.boolean "editable"
+    t.float "easyness_factor"
+    t.integer "repetition"
+    t.integer "interval"
+    t.datetime "day_of_last_repetition"
+    t.datetime "day_of_next_repetition"
+    t.integer "mistake_count"
+    t.bigint "question_answer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_answer_id"], name: "index_flashcards_on_question_answer_id"
+    t.index ["user_id"], name: "index_flashcards_on_user_id"
   end
 
   create_table "question_answers", force: :cascade do |t|
@@ -176,6 +194,8 @@ ActiveRecord::Schema.define(version: 2022_08_09_143550) do
   add_foreign_key "categories", "subthemes"
   add_foreign_key "category_progresses", "categories"
   add_foreign_key "category_progresses", "users"
+  add_foreign_key "flashcards", "question_answers"
+  add_foreign_key "flashcards", "users"
   add_foreign_key "question_answers", "quizzs"
   add_foreign_key "quizz_answers", "quizzs"
   add_foreign_key "quizz_answers", "users"

@@ -1,0 +1,12 @@
+flashcard_1:
+  user: anthony
+  unlocked: false
+  trick: "A good trick"
+  editable: boolean
+  easyness_factor: 1.2
+  repetition: 1
+  interval: 2
+  day_of_last_repetition: Time.now
+  day_of_next_repetition: Time.now + 3.days
+  mistake_count: 4
+  question_answer: question_answer_1
