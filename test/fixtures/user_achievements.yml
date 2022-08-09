@@ -1,0 +1,9 @@
+user_achievement_1:
+  achievement: achievement_1
+  unlocked: true
+  user: anthony
+
+user_achievement_2:
+  achievement: achievement_2
+  unlocked: false
+  user: anthony

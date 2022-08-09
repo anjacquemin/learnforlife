@@ -1,0 +1,9 @@
+achievement_1:
+  name: Roi de la connexion
+  description: 5 jours de suite
+  xp_to_win: 10
+
+achievement_2:
+  name: Boss de la connexion
+  description: 10 jours de suite
+  xp_to_win: 10

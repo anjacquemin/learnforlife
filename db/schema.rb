@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_09_145833) do
+ActiveRecord::Schema.define(version: 2022_08_09_153259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "achievements", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "xp_to_win"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.bigint "subtheme_id", null: false
@@ -163,6 +171,16 @@ ActiveRecord::Schema.define(version: 2022_08_09_145833) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_achievements", force: :cascade do |t|
+    t.bigint "achievement_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "unlocked"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["achievement_id"], name: "index_user_achievements_on_achievement_id"
+    t.index ["user_id"], name: "index_user_achievements_on_user_id"
+  end
+
   create_table "user_answers", force: :cascade do |t|
     t.string "answer"
     t.bigint "quizz_answer_id", null: false
@@ -213,6 +231,8 @@ ActiveRecord::Schema.define(version: 2022_08_09_145833) do
   add_foreign_key "theme_level_progresses", "theme_levels"
   add_foreign_key "theme_level_progresses", "users"
   add_foreign_key "theme_levels", "themes"
+  add_foreign_key "user_achievements", "achievements"
+  add_foreign_key "user_achievements", "users"
   add_foreign_key "user_answers", "question_answers"
   add_foreign_key "user_answers", "quizz_answers"
 end
