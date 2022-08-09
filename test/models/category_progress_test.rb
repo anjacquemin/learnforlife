@@ -19,7 +19,7 @@ class CategoryProgressTest < ActiveSupport::TestCase
     assert_not @categorie_progress_1.valid?
   end
 
-  test "europe progress should have 1 theme : geography" do
+  test "category progress should have 1 theme : geography" do
     assert_equal @categorie_progress_1.theme.name, "geography"
   end
 

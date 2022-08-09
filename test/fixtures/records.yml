@@ -1,0 +1,13 @@
+record_1:
+  user: anthony
+  quizz_level: europe_capitales_1_quizz_level_1
+  duration: Time.new(2014,1) - Time.new(2013,1)
+  crown_or_sphere: crown
+  completion: 1
+
+record_2:
+  user: mickael
+  quizz_level: europe_capitales_1_quizz_level_1
+  duration: Time.new(2014,1) - Time.new(2013,1)
+  crown_or_sphere: crown
+  completion: 1

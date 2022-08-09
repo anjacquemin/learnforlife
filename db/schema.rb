@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_09_114939) do
+ActiveRecord::Schema.define(version: 2022_08_09_143550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,73 @@ ActiveRecord::Schema.define(version: 2022_08_09_114939) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_category_progresses_on_category_id"
     t.index ["user_id"], name: "index_category_progresses_on_user_id"
+  end
+
+  create_table "question_answers", force: :cascade do |t|
+    t.string "question"
+    t.string "answer"
+    t.bigint "quizz_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quizz_id"], name: "index_question_answers_on_quizz_id"
+  end
+
+  create_table "quizz_answers", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "quizz_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quizz_id"], name: "index_quizz_answers_on_quizz_id"
+    t.index ["user_id"], name: "index_quizz_answers_on_user_id"
+  end
+
+  create_table "quizz_level_progresses", force: :cascade do |t|
+    t.boolean "unlocked"
+    t.bigint "user_id", null: false
+    t.bigint "quizz_level_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quizz_level_id"], name: "index_quizz_level_progresses_on_quizz_level_id"
+    t.index ["user_id"], name: "index_quizz_level_progresses_on_user_id"
+  end
+
+  create_table "quizz_levels", force: :cascade do |t|
+    t.bigint "quizz_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quizz_id"], name: "index_quizz_levels_on_quizz_id"
+  end
+
+  create_table "quizz_progresses", force: :cascade do |t|
+    t.bigint "quizz_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "unlocked"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quizz_id"], name: "index_quizz_progresses_on_quizz_id"
+    t.index ["user_id"], name: "index_quizz_progresses_on_user_id"
+  end
+
+  create_table "quizzs", force: :cascade do |t|
+    t.bigint "category_id", null: false
+    t.string "name"
+    t.integer "ordering"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_quizzs_on_category_id"
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "quizz_level_id", null: false
+    t.time "duration"
+    t.integer "completion"
+    t.string "crown_or_sphere"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quizz_level_id"], name: "index_records_on_quizz_level_id"
+    t.index ["user_id"], name: "index_records_on_user_id"
   end
 
   create_table "subtheme_progresses", force: :cascade do |t|
@@ -78,6 +145,16 @@ ActiveRecord::Schema.define(version: 2022_08_09_114939) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_answers", force: :cascade do |t|
+    t.string "answer"
+    t.bigint "quizz_answer_id", null: false
+    t.bigint "question_answer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_answer_id"], name: "index_user_answers_on_question_answer_id"
+    t.index ["quizz_answer_id"], name: "index_user_answers_on_quizz_answer_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -99,10 +176,23 @@ ActiveRecord::Schema.define(version: 2022_08_09_114939) do
   add_foreign_key "categories", "subthemes"
   add_foreign_key "category_progresses", "categories"
   add_foreign_key "category_progresses", "users"
+  add_foreign_key "question_answers", "quizzs"
+  add_foreign_key "quizz_answers", "quizzs"
+  add_foreign_key "quizz_answers", "users"
+  add_foreign_key "quizz_level_progresses", "quizz_levels"
+  add_foreign_key "quizz_level_progresses", "users"
+  add_foreign_key "quizz_levels", "quizzs"
+  add_foreign_key "quizz_progresses", "quizzs"
+  add_foreign_key "quizz_progresses", "users"
+  add_foreign_key "quizzs", "categories"
+  add_foreign_key "records", "quizz_levels"
+  add_foreign_key "records", "users"
   add_foreign_key "subtheme_progresses", "subthemes"
   add_foreign_key "subtheme_progresses", "users"
   add_foreign_key "subthemes", "theme_levels"
   add_foreign_key "theme_level_progresses", "theme_levels"
   add_foreign_key "theme_level_progresses", "users"
   add_foreign_key "theme_levels", "themes"
+  add_foreign_key "user_answers", "question_answers"
+  add_foreign_key "user_answers", "quizz_answers"
 end

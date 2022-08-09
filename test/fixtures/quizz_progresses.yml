@@ -1,0 +1,9 @@
+capitale_progress_1:
+  user: anthony
+  quizz: europe_capitales_1
+  unlocked: false
+
+capitale_progress_2:
+  user: mickael
+  quizz: europe_capitales_1
+  unlocked: true
