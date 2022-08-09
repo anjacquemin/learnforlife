@@ -1,0 +1,9 @@
+subtheme_progress_1:
+  user: anthony
+  subtheme: europe
+  unlocked: false
+
+subtheme_progress_2:
+  user: mickael
+  subtheme: europe
+  unlocked: true

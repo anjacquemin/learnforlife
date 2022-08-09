@@ -1,0 +1,9 @@
+theme_level_progress_1:
+  user: anthony
+  theme_level: level_1
+  unlocked: false
+
+theme_level_progress_2:
+  user: mickael
+  theme_level: level_1
+  unlocked: true

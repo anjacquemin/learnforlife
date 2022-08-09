@@ -1,0 +1,9 @@
+europe_capitales:
+  subtheme: europe
+  name: capitale
+  objective: obtenez la medaille de bronze au quizz europe master pour débloquer le badge capitale
+
+europe_flags:
+  subtheme: europe
+  name: flags
+  objective: obtenez la medaille de bronze au quizz europe master pour débloquer le badge drapeau

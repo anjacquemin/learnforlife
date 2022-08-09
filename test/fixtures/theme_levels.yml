@@ -1,0 +1,12 @@
+level_1:
+  name: Niveau_1
+  level: 1
+  objective: aucun
+  theme: geography
+
+
+level_2:
+  name: Niveau_2
+  level: 2
+  objective: récupérer les couronnes du niveau 1 dans chacune des catégories
+  theme: geography
