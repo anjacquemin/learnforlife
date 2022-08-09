@@ -33,4 +33,8 @@ class AchievementTest < ActiveSupport::TestCase
     assert_not @achievement.valid?
   end
 
+  test "achievement should have several user_achievements" do
+    assert @achievement.user_achievements
+  end
+
 end

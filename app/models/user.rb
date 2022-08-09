@@ -6,6 +6,16 @@ class User < ApplicationRecord
 
 
   has_many :theme_level_progresses
+  has_many :subtheme_progresses
+  has_many :flashcards
+  has_many :category_progresses
+  has_many :quizz_level_progresses
+  has_many :quizz_progresses
+  has_many :records
+  has_many :quizz_answers
+  has_many :user_answers
+  has_many :achievements
+  has_many :user_achievements
 
 
 

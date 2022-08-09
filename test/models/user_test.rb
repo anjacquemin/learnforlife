@@ -7,6 +7,7 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = User.new(name: "anthony",email: "anthony@mail.com" , password: "foobar" , password_confirmation: "foobar" )
+    @user2 = users(:anthony)
   end
 
   test "should be valid" do
@@ -84,4 +85,47 @@ class UserTest < ActiveSupport::TestCase
     assert_equal @user.reload.level, 1
   end
 
+  test "user should have flashcards" do
+    assert @user.flashcards
+  end
+
+  test "user should have theme_level_progresses" do
+    assert @user.theme_level_progresses
+  end
+
+  test "user should have subtheme_progresses" do
+    assert @user.subtheme_progresses
+  end
+
+  test "user should have category_progresses" do
+    assert @user.category_progresses
+  end
+
+  test "user should have quizz_progresses" do
+    assert @user.quizz_progresses
+  end
+
+  test "user should have quizz_level_progresses" do
+    assert @user.quizz_level_progresses
+  end
+
+  test "user should have records" do
+    assert @user.records
+  end
+
+  test "user should have quizz_answers" do
+    assert @user.records
+  end
+
+  test "user should have user_answers" do
+    assert @user.user_answers
+  end
+
+  test "user should have several achievements" do
+    assert @user.achievements
+  end
+
+  test "user should have several user_achievements" do
+    assert @user.user_achievements
+  end
 end
