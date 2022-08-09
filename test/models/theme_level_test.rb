@@ -1,14 +1,9 @@
 require "test_helper"
 
 class ThemeLevelTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
 
   def setup
-    @theme = Theme.new(name: "Geography")
-    @theme_level = ThemeLevel.new(name: "Niveau 1", objective: "Gagner la medaille de bronze", level: 1)
-    @theme_level.theme = @theme
+    @theme_level = theme_levels(:level_1)
   end
 
   test "theme level should be valid" do
@@ -28,6 +23,14 @@ class ThemeLevelTest < ActiveSupport::TestCase
   test "objective length should be less than 140 characters" do
     @theme_level.objective = "a" * 141
     assert_not @theme_level.valid?
+  end
+
+  test "Theme level should have 2 subtheme" do
+    assert_equal @theme_level.subthemes.count, 2
+  end
+
+  test "Theme level should have 2 theme level progress" do
+    assert_equal @theme_level.theme_level_progresses.count, 2
   end
 
 end

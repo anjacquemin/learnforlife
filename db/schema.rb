@@ -10,10 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_08_194740) do
+ActiveRecord::Schema.define(version: 2022_08_09_114939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.bigint "subtheme_id", null: false
+    t.string "name"
+    t.text "objective"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subtheme_id"], name: "index_categories_on_subtheme_id"
+  end
+
+  create_table "category_progresses", force: :cascade do |t|
+    t.boolean "unlocked"
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_category_progresses_on_category_id"
+    t.index ["user_id"], name: "index_category_progresses_on_user_id"
+  end
+
+  create_table "subtheme_progresses", force: :cascade do |t|
+    t.bigint "subtheme_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "unlocked"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subtheme_id"], name: "index_subtheme_progresses_on_subtheme_id"
+    t.index ["user_id"], name: "index_subtheme_progresses_on_user_id"
+  end
+
+  create_table "subthemes", force: :cascade do |t|
+    t.bigint "theme_level_id", null: false
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["theme_level_id"], name: "index_subthemes_on_theme_level_id"
+  end
 
   create_table "theme_level_progresses", force: :cascade do |t|
     t.boolean "unlocked"
@@ -59,6 +96,12 @@ ActiveRecord::Schema.define(version: 2022_08_08_194740) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "subthemes"
+  add_foreign_key "category_progresses", "categories"
+  add_foreign_key "category_progresses", "users"
+  add_foreign_key "subtheme_progresses", "subthemes"
+  add_foreign_key "subtheme_progresses", "users"
+  add_foreign_key "subthemes", "theme_levels"
   add_foreign_key "theme_level_progresses", "theme_levels"
   add_foreign_key "theme_level_progresses", "users"
   add_foreign_key "theme_levels", "themes"

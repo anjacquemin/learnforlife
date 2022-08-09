@@ -1,0 +1,9 @@
+europe_progress_1:
+  user: anthony
+  category: europe_capitales
+  unlocked: false
+
+europe_progress_2:
+  user: mickael
+  category: europe_capitales
+  unlocked: true

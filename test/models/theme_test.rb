@@ -6,7 +6,7 @@ class ThemeTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @theme = Theme.new(name: "geography" )
+    @theme = themes(:geography)
   end
 
   test "theme should be valid" do
@@ -18,12 +18,12 @@ class ThemeTest < ActiveSupport::TestCase
     assert_not @theme.valid?
   end
 
-  test "theme should have several theme_levels" do
-    (1..3).each do |i|
-      theme_level = ThemeLevel.new(name: "Niveau #{i}", objective: "Gagner la medaille de bronze #{i}", level: i, theme: @theme)
-      theme_level.save
-    end
-    assert_equal @theme.theme_levels.count, 3
+  test "theme should have 2 theme_levels" do
+    assert_equal @theme.theme_levels.count, 2
+  end
+
+  test "theme should have 2 subthemes" do
+    assert_equal @theme.subthemes.count, 2
   end
 
 
