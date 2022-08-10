@@ -1,15 +1,23 @@
-.theme-quizz-card {
+@mixin box_properties {
   height: 80px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
   border-radius: $border-radius-lg;
   margin:10px;
   padding: 5px 10px;
   height: 50%;
+  font-weight: 600;
 
   .theme-title{
     display: flex;
+    align-items: center;
     margin: 5px, 10px;
+
+    p{
+      margin-bottom: 0;
+      font-size: 16px;
+      border-bottom: 2px solid $purple;
+    }
   }
 
   .theme-progress{
@@ -17,61 +25,72 @@
     justify-content: space-between;
     align-items: center;
     margin: 5px, 10px;
-
-    .percentage-details{
-      display: flex;
-      align-items: center;
-      flex-grow: 0.9;
-    }
-  }
-
-  a{
-    text-decoration: none;
-    color:black;
-    font-size: 20px;
-    border-bottom: 2px solid $purple;
-  }
-
-  p{
-    margin-bottom: 0;
   }
 }
 
-.theme-flaschard-card {
-  height: 80px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: $border-radius-lg;
-  margin:10px;
-  padding: 5px 10px;
-  height: 50%;
+a{
+  display: block;
+  text-decoration: none;
+  color: black
+}
 
-  .quizz-title{
-    display: flex;
-    margin: 5px, 10px;
-  }
+.theme-quizz-card {
+  @include box_properties;
 
-  .theme-progress{
+  .achievement_count{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin: 5px, 10px;
+    img{
+      height: 15px;
+    }
+  }
+}
 
-    .percentage-details{
-      display: flex;
-      align-items: center;
-      flex-grow: 0.9;
+.theme-flashcard-card {
+  @include box_properties;
+
+  display: flex;
+  align-items: center;
+  .flashcard-count {
+    border-left: 2px solid $purple;
+    padding-left: 8px;
+
+    h2{
+      font-size: $subtitle-size;
+      margin: 0px;
+      border-bottom: none;
+    }
+
+    p {
+      margin: 0px;
+      font-weight: 400;
     }
   }
 
-  a{
-    text-decoration: none;
-    color:black;
-    font-size: 20px;
-    border-bottom: 2px solid $purple;
+  .separator {
+    flex-grow: 1;
+  }
+}
+
+
+.theme-quizz-card:hover, .theme-flashcard-card:hover{
+  background-color: $purple;
+  color: white;
+
+  .theme-title p {
+    color:white;
+    border-bottom: 2px solid white;
   }
 
-  p{
-    margin-bottom: 0;
+  .progressbar{
+    background-color: white;
+  }
+
+  .progressbar-wrapper{
+    background-color: $purple;
+  }
+
+  .flashcard-count{
+    border-left: 2px solid $white;
   }
 }
