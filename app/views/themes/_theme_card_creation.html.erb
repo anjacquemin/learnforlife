@@ -3,10 +3,10 @@
     <div class="theme-quizz-card">
       <div class="theme-title">
         <p>geo ico</p>
-        <div><%=link_to theme.name, theme_path(theme)%></div>
+        <div><%=link_to theme.name.upcase, theme_path(theme)%></div>
       </div>
       <div class="theme-progress">
-        <%= render "progress_bar" %>
+        <%= render "progress_bar", value: "10/50"  %>
         <% if defined?(quizz) && quizz %>
           <p>cr 10</p>
           <p> sp 0</p>

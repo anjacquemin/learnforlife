@@ -1,26 +1,22 @@
 <div class="row">
-  <div class="theme-block-list col-sm-6">
+  <div class="theme-block-list col-md-6">
     <div class="banner">
-      <div class="title">
-        <p>QUIZZ</p>
-      </div>
+      <h2><strong>QUIZZ</strong></h2>
       <div class="tabs">
-        <p>categorie</p>
-        <p>leaderboard</p>
+        <p class="active-tab">Categorie</p>
+        <p>Leaderboard</p>
       </div>
     </div>
     <%= render "theme_card_creation", quizz: true %>
   </div>
-  <div class="theme-block-list col-sm-6">
+  <div class="theme-block-list col-md-6">
     <div class="banner">
-      <div class="title">
-        <p>FLASHCARDS</p>
-      </div>
+        <h2><strong>FLASHCARDS</strong></h2>
       <div class="tabs">
-        <p>nouvelle(50)</p>
-        <p>réviser(50)</p>
+        <p class="active-tab">Nuvelle(50)</p>
+        <p>Réviser(50)</p>
       </div>
     </div>
-    <%= render "theme_card_creation", quizz: false %>
+    <%= render "theme_flashcard_card_creation", quizz: false %>
   </div>
 </div>

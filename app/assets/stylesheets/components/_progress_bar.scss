@@ -1,6 +1,12 @@
+.percentage-details{
+  display: flex;
+  align-items: center;
+  flex-grow: 0.9;
+}
+
 .progressbar-wrapper {
   background-color: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
   border-radius: $border-radius-lg;
   width: 50%;
   height: 80%;
@@ -14,4 +20,12 @@
   background-color: $blue;
   padding: 5px;
   border-radius: $border-radius-lg;
+}
+
+.character-xp .progressbar {
+  background-color: $orange;
+}
+
+.character-health .progressbar {
+  background-color: $red;
 }

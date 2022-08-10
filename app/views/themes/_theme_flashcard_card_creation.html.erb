@@ -1,0 +1,19 @@
+<div class="themes-list">
+  <% @themes.each do |theme| %>
+    <div class="theme-flashcard-card">
+      <div class="separator">
+        <div class="theme-title">
+          <p>geo ico</p>
+          <div><%=link_to theme.name.upcase, theme_path(theme)%></div>
+        </div>
+        <div class="theme-progress">
+          <%= render "progress_bar", value: "10/50"  %>
+        </div>
+      </div>
+      <div class="flashcard-count">
+        <h2>15</h2>
+        <p>restante</p>
+      </div>
+    </div>
+  <% end %>
+</div>

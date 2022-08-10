@@ -5,11 +5,11 @@
   <div class="character_description">
     <p>Préhistoire</p>
     <p>Lvl <%= @user.level %> - Homme de cro-magnon </p>
-    <div class="character_health">
-      <p><%= @user.hp %>/100</p>
+    <div class="character-health">
+      <%= render "progress_bar", value: "#{@user.hp}/100"  %>
     </div>
-    <div class="character_xp">
-      <p><%= @user.xp %>/25</p>
+    <div class="character-xp">
+      <%= render "progress_bar", value: "#{@user.xp}/50"  %>
     </div>
   </div>
 </div>
