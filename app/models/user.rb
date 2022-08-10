@@ -5,17 +5,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
-  has_many :theme_level_progresses
-  has_many :subtheme_progresses
-  has_many :flashcards
-  has_many :category_progresses
-  has_many :quizz_level_progresses
-  has_many :quizz_progresses
+  has_many :theme_level_progresses, dependent: :destroy
+  has_many :subtheme_progresses, dependent: :destroy
+  has_many :flashcards, dependent: :destroy
+  has_many :category_progresses, dependent: :destroy
+  has_many :quizz_level_progresses, dependent: :destroy
+  has_many :quizz_progresses, dependent: :destroy
   has_many :records
   has_many :quizz_answers
   has_many :user_answers
   has_many :achievements
-  has_many :user_achievements
+  has_many :user_achievements, dependent: :destroy
 
 
 
