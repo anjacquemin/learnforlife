@@ -1,17 +1,25 @@
 <div class="themes-list">
   <% @themes.each do |theme| %>
-    <div class="theme-quizz-card">
-      <div class="theme-title">
-        <p>geo ico</p>
-        <div><%=link_to theme.name.upcase, theme_path(theme)%></div>
+    <%=link_to  theme_path(theme) do%>
+      <div class="theme-quizz-card">
+        <div class="theme-title">
+          <p>ico</p>
+          <p><%=theme.name.upcase%></p>
+        </div>
+        <div class="theme-progress">
+          <%= render "progress_bar", value: "10/50"  %>
+          <% if defined?(quizz) && quizz %>
+            <div class="achievement_count">
+              <%= image_tag 'crown' %>
+              <p>10</p>
+            </div>
+            <div class="achievement_count">
+              <%= image_tag 'sphere' %>
+              <p>10</p>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <div class="theme-progress">
-        <%= render "progress_bar", value: "10/50"  %>
-        <% if defined?(quizz) && quizz %>
-          <p>cr 10</p>
-          <p> sp 0</p>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

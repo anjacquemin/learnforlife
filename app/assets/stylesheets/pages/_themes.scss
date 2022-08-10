@@ -1,14 +1,19 @@
 h2 {
   font-size: $subtitle-size;
+  font-weight: 600;
+  margin-bottom: 0;
 }
 
 .theme-block-list {
+
   p{
     margin: 5px;
   }
   .banner{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
   }
   .tabs {
     display: flex;
@@ -18,9 +23,22 @@ h2 {
 .themes-list {
   background-color: $light-gray;
   border-radius: $border-radius-lg;
-  padding: 30px 20px;
+  margin: 0 5px;
+  padding: 30px 10px;
 }
 
 .active-tab{
   border-bottom: 3px solid $purple;
+  font-weight: 600;
+}
+
+
+
+@media(max-width: 992px) {
+  .themes-list {
+    padding: 30px 5px;
+  }
+  .banner {
+    padding: 0 5px
+  }
 }
