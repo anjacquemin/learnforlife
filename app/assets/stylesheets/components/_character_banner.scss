@@ -1,0 +1,25 @@
+.character_banner {
+  background-color: $light_purple;
+  height: 120px;
+  display: flex;
+  align-items: center;
+
+  .character_sprite {
+    margin: 20px;
+  }
+
+  .character_description {
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  p {
+    color: white;
+    margin-bottom: 0
+  }
+
+
+}

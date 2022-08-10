@@ -16,8 +16,17 @@ Subtheme.destroy_all
 ThemeLevel.destroy_all
 Theme.destroy_all
 
-geography = Theme.new(name: "geography")
+geography = Theme.new(name: "Geographie")
 geography.save!
+
+history = Theme.new(name: "Histoire")
+history.save!
+
+mnemotechnique = Theme.new(name: "Mnemotechnie")
+mnemotechnique.save!
+
+sports = Theme.new(name: "Sports")
+sports.save!
 
 # Geography levels
 
