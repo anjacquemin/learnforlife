@@ -1,0 +1,27 @@
+<div class="subthemes-display my-3">
+  <% theme_level.subthemes.each do |subtheme| %>
+    <%=link_to subtheme_path(subtheme) do%>
+      <div class="subtheme-card">
+        <% if @subtheme_unlocked = @user.subtheme_progresses.find_by(subtheme: subtheme).unlocked  %>
+          <%@subtheme_blur = 2 %>
+        <% end %>
+        <div class="subtheme-card-banner" style='filter: blur(<%=@level_blur%>px)'>
+          <h2> <%= subtheme.name %> </h2>
+          <div class="quizz-cards-count">
+            <%= image_tag "cards" %>
+            <p>59</p>
+          </div>
+        </div>
+        <div class="subtheme-card-progress">
+          <% if @subtheme_unlocked %>
+            <% subtheme.categories.each do |category| %>
+              <%= cl_image_tag category.photo.key, height: 40, crop: :fill, style: "opacity:0.3" %>
+            <% end %>
+          <% else %>
+            <%= image_tag "cadenas", height: 50 %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
