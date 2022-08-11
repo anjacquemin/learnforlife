@@ -1,0 +1,34 @@
+.theme-show{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .theme-title{
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+.theme-level{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.theme-objective{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  p{
+    margin-left: 15px;
+    margin-bottom: 0;
+  }
+}
+
+.subthemes-display{
+  margin: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px
+}

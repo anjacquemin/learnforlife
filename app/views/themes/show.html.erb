@@ -1,0 +1,35 @@
+<div class="container mt-5 theme-show">
+  <div class="theme-title">
+    <p>ico</p>
+    <%=@theme.name%>
+  </div>
+
+  <div class="theme-level">
+    <% @theme.theme_levels.order(:level).each do |theme_level| %>
+      <h2 class="mt-5"><%= theme_level.name %></h2>
+      <div class="theme-objective">
+        <%= image_tag "quest" %>
+        <p> <%=theme_level.objective%> </p>
+      </div>
+      <div class="subthemes-display">
+        <% theme_level.subthemes.each do |subtheme| %>
+          <%=link_to  subtheme_path(subtheme) do%>
+            <div class="subtheme-card">
+              <div class="subtheme-card-banner">
+                <h2> <%= subtheme.name %> </h2>
+                <div class="quizz-cards-count">
+                  <%= image_tag "cards" %>
+                  <p>59</p>
+                </div>
+              </div>
+              <div class="subtheme-card-progress">
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+
+</div>

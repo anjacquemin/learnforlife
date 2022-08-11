@@ -16,7 +16,7 @@
     p{
       margin-bottom: 0;
       font-size: 16px;
-      border-bottom: 2px solid $purple;
+      border-bottom: 2px solid black;
     }
   }
 
@@ -52,7 +52,7 @@ a{
   display: flex;
   align-items: center;
   .flashcard-count {
-    border-left: 2px solid $purple;
+    border-left: 2px solid black;
     padding-left: 8px;
 
     h2{
@@ -92,5 +92,31 @@ a{
 
   .flashcard-count{
     border-left: 2px solid $white;
+  }
+}
+
+
+.subtheme-card{
+  height: 150px;
+  width: 200px;
+  background: white;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  border-radius: $border-radius-lg;
+  font-weight: 600;
+  padding: 10px;
+
+  .subtheme-card-banner{
+    border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p{
+      margin-bottom: 0;
+      text-align: center;
+    }
+    img{
+      height: 20px;
+    }
   }
 }
