@@ -1,0 +1,2 @@
+class SubthemesController < ApplicationController
+end

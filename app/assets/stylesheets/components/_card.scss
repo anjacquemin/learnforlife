@@ -11,12 +11,12 @@
   .theme-title{
     display: flex;
     align-items: center;
-    margin: 5px, 10px;
+    margin-bottom:10px;
 
     p{
       margin-bottom: 0;
       font-size: 16px;
-      border-bottom: 2px solid $purple;
+      border-bottom: 2px solid black;
     }
   }
 
@@ -52,7 +52,7 @@ a{
   display: flex;
   align-items: center;
   .flashcard-count {
-    border-left: 2px solid $purple;
+    border-left: 2px solid black;
     padding-left: 8px;
 
     h2{
@@ -83,14 +83,73 @@ a{
   }
 
   .progressbar{
-    background-color: white;
+    background-color: $light_purple;
   }
 
   .progressbar-wrapper{
-    background-color: $purple;
+    background-color: white;
   }
 
   .flashcard-count{
     border-left: 2px solid $white;
   }
+}
+
+
+.subtheme-card{
+  height: 140px;
+  width: 200px;
+  background: white;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  border-radius: $border-radius-lg;
+  font-weight: 600;
+  padding: 10px 10px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .subtheme-card-banner{
+    border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p{
+      margin-bottom: 0;
+      text-align: center;
+    }
+    img{
+      height: 20px;
+    }
+  }
+}
+
+.subtheme-card:hover{
+  background-color: $purple;
+  color: white;
+  .subtheme-card-banner{
+    border-bottom: 2px solid white;
+  }
+}
+
+
+
+.card-objective{
+  border-radius: $border-radius-lg;
+  background-color: $yellow;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 0 10%;
+  p{
+    margin-bottom:0;
+    margin-left: 20px;
+  }
+}
+
+.subtheme-card-progress{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex:1;
 }
