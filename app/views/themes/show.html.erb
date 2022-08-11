@@ -1,17 +1,20 @@
-<div class="container mt-5 theme-show">
-  <div class="theme-title">
-    <p>ico</p>
-    <%=@theme.name%>
+<div class="container theme-show">
+  <div class="theme-title my-5">
+    <%= cl_image_tag @theme.photo.key, height: 50, crop: :fill %>
+    <h1><%=@theme.name%></h1>
   </div>
-
   <div class="theme-level">
     <% @theme.theme_levels.order(:level).each do |theme_level| %>
-      <h2 class="mt-5"><%= theme_level.name %></h2>
-      <div class="theme-objective">
+      <div class="theme-level-separator my-5">
+        <%# <div class="separator"></div> %>
+        <h2><%= theme_level.name.upcase %></h2>
+        <%# <div class="line">.</div> %>
+      </div>
+      <div class="card-objective mb-3">
         <%= image_tag "quest" %>
         <p> <%=theme_level.objective%> </p>
       </div>
-      <div class="subthemes-display">
+      <div class="subthemes-display my-3">
         <% theme_level.subthemes.each do |subtheme| %>
           <%=link_to  subtheme_path(subtheme) do%>
             <div class="subtheme-card">
@@ -23,6 +26,13 @@
                 </div>
               </div>
               <div class="subtheme-card-progress">
+                <% if @user.subtheme_progresses.find_by(subtheme: subtheme).unlocked  %>
+                  <% subtheme.categories.each do |category| %>
+                    <%= cl_image_tag category.photo.key, height: 40, crop: :fill, style: "opacity:0.3" %>
+                  <% end %>
+                <% else %>
+                  <%= image_tag "cadenas", height: 50 %>
+                <% end %>
               </div>
             </div>
           <% end %>
@@ -30,6 +40,4 @@
       </div>
     <% end %>
   </div>
-
-
 </div>

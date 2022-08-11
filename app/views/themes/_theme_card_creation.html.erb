@@ -1,9 +1,9 @@
 <div class="themes-list">
   <% @themes.each do |theme| %>
-    <%=link_to  theme_path(theme) do%>
+    <%=link_to theme_path(theme) do%>
       <div class="theme-quizz-card">
         <div class="theme-title">
-          <p>ico</p>
+          <%= cl_image_tag theme.photo.key, height: 20, crop: :fill %>
           <p><%=theme.name.upcase%></p>
         </div>
         <div class="theme-progress">

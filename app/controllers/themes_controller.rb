@@ -6,5 +6,6 @@ class ThemesController < ApplicationController
 
   def show
     @theme = Theme.find(params[:id])
+    @user = current_user
   end
 end

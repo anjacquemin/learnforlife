@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+_IMAGE_DIR_ = "/home/anthony/code/anjacquemin/learnforlife/app/assets/images/"
+
+
+puts 'seed'
+
 Record.destroy_all
 User.destroy_all
 QuestionAnswer.destroy_all
@@ -17,15 +22,19 @@ ThemeLevel.destroy_all
 Theme.destroy_all
 
 geography = Theme.new(name: "Geographie")
+geography.photo.attach(io: File.open(_IMAGE_DIR_ + 'globe.png'), filename:"globe.png")
 geography.save!
 
 history = Theme.new(name: "Histoire")
+history.photo.attach(io: File.open(_IMAGE_DIR_ + 'livre-dhistoire.png'), filename:"histoire.png")
 history.save!
 
 mnemotechnique = Theme.new(name: "Mnemotechnie")
+mnemotechnique.photo.attach(io: File.open(_IMAGE_DIR_ + 'creatif.png'), filename:"creatif.png")
 mnemotechnique.save!
 
 sports = Theme.new(name: "Sports")
+sports.photo.attach(io: File.open(_IMAGE_DIR_ + 'des-sports.png'), filename:"sports.png")
 sports.save!
 
 # Geography levels
@@ -83,13 +92,15 @@ world.save!
 #categories
 
 capitale = Category.new(subtheme: europe, name: "Capitales", objective: "Obtiens 2 couronnes au quizz 'Capitale Europe Master' niveau moyen pour obtenir le badge capitale")
+capitale.photo.attach(io: File.open(_IMAGE_DIR_ + 'tour-eiffel.png'), filename:"capitale.png")
 capitale.save!
 
 localization = Category.new(subtheme: europe, name: "Localisation", objective: "Obtiens 2 couronnes au quizz 'Localisation Europe Master' niveau moyen pour obtenir le badge localisation")
+localization.photo.attach(io: File.open(_IMAGE_DIR_ + 'map.png'), filename:"map.png")
 localization.save!
 
 flag = Category.new(subtheme: europe, name: "Capitales", objective: "Obtiens 2 couronnes au quizz 'Drapeaux Europe Master' niveau moyen pour obtenir le badge drapeau")
-
+flag.photo.attach(io: File.open(_IMAGE_DIR_ + 'flag.png'), filename:"flag.png")
 flag.save!
 
 #capitales quizz
