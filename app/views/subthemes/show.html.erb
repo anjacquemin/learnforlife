@@ -1,0 +1,54 @@
+<div class="container subtheme-show">
+  <div class="theme-title my-5">
+    <h1><%=@subtheme.name%></h1>
+  </div>
+  <div class="category">
+    <% @subtheme.categories.each do |category| %>
+      <div class="category-separator my-5">
+        <h2><%= category.name.upcase %></h2>
+      </div>
+      <div class="card-objective mb-3">
+        <%= image_tag "quest" %>
+        <p> <%=category.objective%> </p>
+      </div>
+
+      <div class="quizzs-display">
+        <% category.quizzs.each_with_index do |quizz, index| %>
+          <div class="quizz-card">
+            <div class="quizz-card-banner">
+              <h2> <%= quizz.name %> </h2>
+              <div class="quizz-cards-count">
+                <%= image_tag "cards" %>
+                <p>59</p>
+              </div>
+            </div>
+            <div class="levels-display">
+              <% quizz.quizz_levels.each do |level| %>
+                <%=link_to quizz_level_path(level) do%>
+                  <div class="level">
+                    <div>
+                      <div class="stars">
+                        <%= image_tag 'star' %>
+                      </div>
+                      <%= level.name %>
+                    </div>
+                    <div class="crown">
+                      <%# <%= @completion = @user.records.find_by(quizz_level: level).completion %>
+                      <% 3.times do  %>
+                        <%= image_tag 'crown' %>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <% if index != category.quizzs.size - 1 %>
+            <%= image_tag 'quizz-separator-purple', style:"height:20px" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
