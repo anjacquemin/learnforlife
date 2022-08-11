@@ -1,0 +1,108 @@
+.subtheme-show{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // overflow-x: hidden;
+
+  .theme-title{
+    display: flex;
+    align-items: center;
+    h1{
+      font-weight: 600;
+      margin-bottom: 0;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+}
+
+
+.category{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.category-separator{
+  // display: flex;
+  // align-items: center;
+  // .line {
+  //   flex:1;
+  //   height: 3px;
+  //   background-color: $purple;
+  //   margin-top: 30px;
+  // }
+  h2 {
+    text-align: center;
+  }
+  h2:before,
+  h2:after {
+    background-color: #000;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+  }
+
+  h2:before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+
+  h2:after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+}
+
+.quizzs-display{
+  background-color: $light-gray;
+  padding: 30px;
+  border-radius: $border-radius-lg;
+  display: flex;
+  width: 900px;
+  // grid-template-columns: 1fr 1fr;
+  // grid-gap: 16px;
+  overflow-x: scroll;
+  // overflow-x: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.quizzs-display::-webkit-scrollbar {
+  display: none;
+  // height: 50px;
+  // width: 5px;
+  // height: 0px; /* If value is 0px, the horizontal bar will disappear but still works*/
+}
+
+
+@media(max-width: 992px) {
+  .quizzs-display, .subtheme-show .card-objective{
+    width: 740px;
+  }
+}
+
+
+@media(max-width: 768px) {
+  .quizzs-display, .subtheme-show .card-objective{
+    width: 540px;
+  }
+}
+
+@media(max-width: 576px) {
+  .quizzs-display, .subtheme-show .card-objective{
+    width: 350px;
+  }
+  .quizz-card{
+    width: 300px;
+  }
+  .level {
+    width: 80px;
+  }
+  .crown img{
+    height: 16px;
+  }
+}

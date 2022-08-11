@@ -153,3 +153,70 @@ a{
   justify-content: space-around;
   flex:1;
 }
+
+
+.quizz-card{
+  height: 200px;
+  width: 380px;
+  background: white;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  border-radius: $border-radius-lg;
+  font-weight: 600;
+  padding: 10px 10px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 2;
+
+  .quizz-card-banner{
+    border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    padding-left: 10px;
+
+    p{
+      margin-bottom: 0;
+      text-align: center;
+    }
+    img{
+      height: 20px;
+    }
+  }
+}
+
+.levels-display{
+  display: flex;
+  justify-content: space-around;
+}
+
+.level{
+  height: 100px;
+  width: 100px;
+  background: white;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  border-radius: $border-radius-lg;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 10px;
+  &:hover{
+    background-color: $purple;
+    color: white;
+    .subtheme-card-banner{
+      border-bottom: 2px solid white;
+    }
+  }
+}
+
+.stars{
+  display: flex;
+  justify-content: space-around;
+}
+
+.crown img{
+  height:24px;
+}

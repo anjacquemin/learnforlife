@@ -3,7 +3,7 @@
     <%=link_to subtheme_path(subtheme) do%>
       <div class="subtheme-card">
         <% if @subtheme_unlocked = @user.subtheme_progresses.find_by(subtheme: subtheme).unlocked  %>
-          <%@subtheme_blur = 2 %>
+          <%@subtheme_blur = 3 %>
         <% end %>
         <div class="subtheme-card-banner" style='filter: blur(<%=@level_blur%>px)'>
           <h2> <%= subtheme.name %> </h2>
@@ -18,7 +18,7 @@
               <%= cl_image_tag category.photo.key, height: 40, crop: :fill, style: "opacity:0.3" %>
             <% end %>
           <% else %>
-            <%= image_tag "cadenas", height: 50 %>
+            <%= image_tag "cadenas", height: 50, style: "opacity:0.4" %>
           <% end %>
         </div>
       </div>
