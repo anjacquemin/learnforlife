@@ -189,6 +189,9 @@ a{
 .levels-display{
   display: flex;
   justify-content: space-around;
+  a:hover{
+    color: black;
+  }
 }
 
 .level{

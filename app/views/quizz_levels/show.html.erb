@@ -1,0 +1,42 @@
+<div class="container level-show">
+  <div class="mt-5 mb-3 level-show-banner">
+    <%= cl_image_tag @quizz.category.photo.key, height: 50 %>
+    <div class="quizz-level-title">
+      <h2><%= "#{@quizz.name.upcase} - #{@quizz_level.name.capitalize}" %></h2>
+      <% @stars_count.times do %>
+        <%= image_tag 'star' %>
+      <% end %>
+    </div>
+  </div>
+  <hr class="horizontal-divider">
+  <div class="questions_count mt-2">
+    <div class="card-count-details">
+      <div class="card-progressbar-wrapper">
+        <div title="card-count" class="progressbar card-completion"></div>
+      </div>
+      <div>
+        <p>1/10</p>
+      </div>
+    </div>
+    <div class="timer">
+      <%= image_tag 'sablier', height: 32 %>
+      <p> 25.54s </p>
+    </div>
+  </div>
+  <div class="questions my-4">
+    <%@quizz.question_answers.each do |question_answer| %>
+      <div class = "card-question">
+        <h2><%=question_answer.question %></h2>
+        <hr class="horizontal-divider-light">
+        <div class="answer">
+          <div class="card-answer">
+            <h2>FRANCE</h2>
+          </div>
+          <div class="card-answer">
+            <h2>DUBLIN</h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
