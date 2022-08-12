@@ -23,9 +23,10 @@
       <p> 25.54s </p>
     </div>
   </div>
-  <div class="questions my-4">
-    <%@quizz.question_answers.each do |question_answer| %>
-      <div class = "card-question">
+  <div class="questions my-5">
+    <%@quizz.question_answers.each_with_index do |question_answer, index| %>
+
+      <div class = "card-question", style=<%= '"display:none"'.html_safe if index !=1 %>>
         <h2><%=question_answer.question %></h2>
         <hr class="horizontal-divider-light">
         <div class="answer">
