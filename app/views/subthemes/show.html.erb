@@ -8,7 +8,7 @@
         <h2><%= category.name.upcase %></h2>
       </div>
       <div class="card-objective mb-3">
-        <%= image_tag "quest" %>
+        <%= image_tag "quest2.png" %>
         <p> <%=category.objective%> </p>
       </div>
 
@@ -18,7 +18,7 @@
             <div class="quizz-card-banner">
               <h2> <%= quizz.name %> </h2>
               <div class="quizz-cards-count">
-                <%= image_tag "cards" %>
+                <%= image_tag "cards.png" %>
                 <p>59</p>
               </div>
             </div>
@@ -28,14 +28,14 @@
                   <div class="level">
                     <div>
                       <div class="stars">
-                        <%= image_tag 'star' %>
+                        <%= image_tag 'star.png' %>
                       </div>
                       <%= level.name %>
                     </div>
                     <div class="crown">
                       <%# <%= @completion = @user.records.find_by(quizz_level: level).completion %>
                       <% 3.times do  %>
-                        <%= image_tag 'crown' %>
+                        <%= image_tag 'crown.png' %>
                       <% end %>
                     </div>
                   </div>
@@ -44,7 +44,7 @@
             </div>
           </div>
           <% if index != category.quizzs.size - 1 %>
-            <%= image_tag 'quizz-separator-purple', style:"height:20px" %>
+            <%= image_tag 'quizz-separator-purple.png', style:"height:20px" %>
           <% end %>
         <% end %>
       </div>
