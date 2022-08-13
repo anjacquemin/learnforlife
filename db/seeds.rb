@@ -26,7 +26,7 @@ geography.photo.attach(io: File.open(_IMAGE_DIR_ + 'globe.png'), filename:"globe
 geography.save!
 
 history = Theme.new(name: "Histoire")
-history.photo.attach(io: File.open(_IMAGE_DIR_ + 'livre-dhistoire.png'), filename:"histoire.png")
+history.photo.attach(io: File.open(_IMAGE_DIR_ + 'livre-d'histoire.png'), filename:"histoire.png")
 history.save!
 
 mnemotechnique = Theme.new(name: "Mnemotechnie")

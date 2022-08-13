@@ -12,7 +12,7 @@
         <h2><%= theme_level.name.upcase %></h2>
       </div>
       <div class="card-objective mb-3" style='filter: blur(<%=@level_blur%>px)'>
-        <%= image_tag "quest" %>
+        <%= image_tag "quest.png" %>
         <p> <%=theme_level.objective%> </p>
       </div>
       <%= render 'subthemes_display', theme_level: theme_level %>
