@@ -4,7 +4,7 @@
     <div class="quizz-level-title">
       <h2><%= "#{@quizz.name.upcase} - #{@quizz_level.name.capitalize}" %></h2>
       <% @stars_count.times do %>
-        <%= image_tag 'star' %>
+        <%= image_tag 'star1.png' %>
       <% end %>
     </div>
   </div>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="timer">
-      <%= image_tag 'sablier', height: 32 %>
+      <%= image_tag 'sablier1.png', height: 32 %>
       <p data-quizz-answer-target="seconds">00</p>
       <%# <p>:</p> %>
       <p class="d-none"data-quizz-answer-target="tens"></p>
