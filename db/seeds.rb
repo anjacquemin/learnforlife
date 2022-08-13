@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-_IMAGE_DIR_ = "/home/anthony/code/anjacquemin/learnforlife/app/assets/images/"
+_IMAGE_DIR_ = "./app/assets/images/"
 
 
 puts 'seed'
