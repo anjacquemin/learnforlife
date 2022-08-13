@@ -8,14 +8,30 @@ export default class extends Controller {
 
 
   connect() {
+
     console.log("Hello from our first Stimulus controller")
-    window.seconds = 0;
-    window.tens = 0;
-    window.appendTens = this.tensTarget;
-    window.appendSeconds = this.secondsTarget;
+
     var Interval
     clearInterval(Interval);
-    Interval = setInterval(startTimer, 10);
+
+    // if the user leave the quizz and then come back, only call 1 time setInterval
+    var counter_page_loaded = parseInt(this.element.dataset.stimulusConnectCount);
+    counter_page_loaded ++;
+    this.element.dataset.stimulusConnectCount = counter_page_loaded
+
+    if (counter_page_loaded === 1) {
+      window.seconds = 0;
+      window.tens = 0;
+      window.appendTens = this.tensTarget;
+      window.appendSeconds = this.secondsTarget;
+      Interval = setInterval(startTimer, 10);
+    } else {
+      // if back and force on the page, set all the value to their value
+      window.seconds = parseInt(this.secondsTarget.innerHTML);
+      window.tens = parseInt(this.tensTarget.innerHTML);
+      window.appendTens = this.tensTarget;
+      window.appendSeconds = this.secondsTarget;
+    }
   }
 
   checkAnswer(event) {
@@ -64,6 +80,7 @@ function delay(time) {
 
 function startTimer() {
   tens++;
+
 
   if(tens <= 9){
     // appendTens.innerHTML = "0" + tens;
