@@ -8,7 +8,7 @@
         <div class="subtheme-card-banner" style='filter: blur(<%=@level_blur%>px)'>
           <h2> <%= subtheme.name %> </h2>
           <div class="quizz-cards-count">
-            <%= image_tag "cards" %>
+            <%= image_tag "cards.png" %>
             <p>59</p>
           </div>
         </div>
@@ -18,7 +18,7 @@
               <%= cl_image_tag category.photo.key, height: 40, crop: :fill, style: "opacity:0.3" %>
             <% end %>
           <% else %>
-            <%= image_tag "cadenas", height: 50, style: "opacity:0.4" %>
+            <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4" %>
           <% end %>
         </div>
       </div>

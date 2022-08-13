@@ -6,13 +6,13 @@
   <div class="theme-level">
     <% @theme.theme_levels.order(:level).each do |theme_level| %>
       <% if !@user.theme_level_progresses.find_by(theme_level: theme_level).unlocked %>
-        <% @level_blur = 3 %>
+        <% @level_blur = 2 %>
       <% end %>
       <div class="theme-level-separator my-5">
         <h2><%= theme_level.name.upcase %></h2>
       </div>
       <div class="card-objective mb-3" style='filter: blur(<%=@level_blur%>px)'>
-        <%= image_tag "quest.png" %>
+        <%= image_tag "quest1.png" %>
         <p> <%=theme_level.objective%> </p>
       </div>
       <%= render 'subthemes_display', theme_level: theme_level %>
