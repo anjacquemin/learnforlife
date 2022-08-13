@@ -51,6 +51,7 @@
   height: 80%;
   margin-right: 5px;
   .card-completion{
-    width: 30%;
+    width: 0%;
+    transition: width 1s
   }
 }

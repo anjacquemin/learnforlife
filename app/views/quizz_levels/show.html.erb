@@ -12,15 +12,18 @@
   <div class="questions_count mt-2">
     <div class="card-count-details">
       <div class="card-progressbar-wrapper">
-        <div title="card-count" class="progressbar card-completion"></div>
+        <div title="card-count" class="progressbar card-completion"  data-quizz-answer-target = "cardCountBar"></div>
       </div>
       <div>
-        <p>1/10</p>
+        <p data-quizz-answer-target = "cardCountNumber">1/10</p>
       </div>
     </div>
     <div class="timer">
       <%= image_tag 'sablier', height: 32 %>
-      <p> 25.54s </p>
+      <p data-quizz-answer-target="seconds">00</p>
+      <%# <p>:</p> %>
+      <p class="d-none"data-quizz-answer-target="tens"></p>
+      <p>s</p>
     </div>
   </div>
   <div class="questions my-5">
@@ -30,20 +33,21 @@
       <% else %>
         <% question_class = 'class = "card-question"' %>
       <% end %>
-      <div <%= question_class.html_safe %>
-            data-quizz-answer-target = <%="questionCard#{index}"%>>
+      <div <%= question_class.html_safe %> data-quizz-answer-target = <%="questionCard#{index}"%>>
         <h2><%=question_answer.question %></h2>
         <hr class="horizontal-divider-light">
         <div class="answer"
-            data-quizz-answer-target = <%="goodAnswer"%>
             data-good-answer-id = <%= question_answer.id %>
-            data-question-id = <%=index%>>
+            data-question-id = <%=question_answer.id%>
+            data-question-number = <%=index%>
+            data-total-questions = <%=@quizz.question_answers.count%>>
           <div class="card-answer"
+            data-quizz-answer-target="answer1"
             data-action="click->quizz-answer#checkAnswer"
             data-user-answer-id = <%= question_answer.id%>>
             <h2>FRANCE</h2>
           </div>
-          <div class="card-answer" data-user-answer-id = 2 data-action="click->quizz-answer#checkAnswer">
+          <div class="card-answer" data-user-answer-id = 2 data-quizz-answer-target="answer2" data-action="click->quizz-answer#checkAnswer">
             <h2>DUBLIN</h2>
           </div>
         </div>
