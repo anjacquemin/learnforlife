@@ -15,7 +15,7 @@
         <div title="card-count" class="progressbar card-completion"  data-quizz-answer-target = "cardCountBar"></div>
       </div>
       <div>
-        <p data-quizz-answer-target = "cardCountNumber">1/10</p>
+        <p data-quizz-answer-target = "cardCountNumber">0/10</p>
       </div>
     </div>
     <div class="timer">
@@ -41,15 +41,14 @@
             data-question-id = <%=question_answer.id%>
             data-question-number = <%=index%>
             data-total-questions = <%=@quizz.question_answers.count%>>
-          <div class="card-answer"
-            data-quizz-answer-target="answer1"
-            data-action="click->quizz-answer#checkAnswer"
-            data-user-answer-id = <%= question_answer.id%>>
-            <h2>FRANCE</h2>
-          </div>
-          <div class="card-answer" data-user-answer-id = 2 data-quizz-answer-target="answer2" data-action="click->quizz-answer#checkAnswer">
-            <h2>DUBLIN</h2>
-          </div>
+          <% @suggested_question_answers_id[question_answer.id.to_s.to_sym].each do |suggested_question_answer_id| %>
+            <div class="card-answer"
+              data-quizz-answer-target="answer1"
+              data-action="click->quizz-answer#checkAnswer"
+              data-user-answer-id = <%= suggested_question_answer_id %>>
+              <h2><%= @quizz.question_answers.find(suggested_question_answer_id).answer %></h2>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
