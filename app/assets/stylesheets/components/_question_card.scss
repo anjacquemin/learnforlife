@@ -1,5 +1,5 @@
 .card-question{
-  height: 270px;
+  height: 400px;
   background: white;
   box-shadow: 1.95px 1.95px 4.6px rgba(0, 0, 0, 0.20);
   border-radius: $border-radius-lg;
@@ -21,6 +21,8 @@
   justify-content: space-evenly;
   width: 100%;
   margin: 20px 0;
+  flex-grow: 1;
+  align-items: center;
 }
 
 .card-answer{
