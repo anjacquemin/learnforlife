@@ -1,14 +1,14 @@
 // src/controllers/disable_button_controller.js
 
 import { Controller } from "@hotwired/stimulus"
+import {questionTargets} from  "./_question_targets_constant.js"
+
 
 export default class extends Controller {
 
-  static targets = ["userAnswer", "questionId", "questionCard0","questionCard1", "questionCard2", "questionCard3", "questionCard4", "cardCountBar", "cardCountNumber", "answer1", "answer2", "seconds", "tens"]
-
+  static targets = ["userAnswer", "questionId", "cardCountBar", "cardCountNumber", "answer1", "answer2", "seconds", "tens"].concat(questionTargets)
 
   connect() {
-
     console.log("Hello from our first Stimulus controller")
 
     var Interval
@@ -20,6 +20,7 @@ export default class extends Controller {
     this.element.dataset.stimulusConnectCount = counter_page_loaded
 
     if (counter_page_loaded === 1) {
+      console.log("fisrt time connected")
       window.seconds = 0;
       window.tens = 0;
       window.appendTens = this.tensTarget;
@@ -65,13 +66,12 @@ export default class extends Controller {
 
     const self = this
 
-    delay(2000).then(() => {
+    delay(1000).then(() => {
       eval(`self.questionCard${question_number}Target.classList.add("d-none")`)
       eval(`self.questionCard${next_question_number}Target.classList.remove("d-none")`)
     });
   }
 }
-
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
@@ -92,7 +92,7 @@ function startTimer() {
   }
 
   if (tens > 99) {
-    console.log("seconds");
+    // console.log("seconds");
     seconds++;
     appendSeconds.innerHTML = "0" + seconds;
     tens = 0;

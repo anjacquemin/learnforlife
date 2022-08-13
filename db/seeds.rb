@@ -200,6 +200,28 @@ quizz_capitale_europe_1_QA_4.save!
 
 
 
+
+
+quizz_capitale_europe_1_QA_5 = QuestionAnswer.new(question: "quelle est la cpitale du Royaume unis?", answer: "Londres", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_5.save!
+
+quizz_capitale_europe_1_QA_6 = QuestionAnswer.new(question: "quelle est la cpitale du Portugal ?", answer: "Lisbonne", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_6.save!
+
+quizz_capitale_europe_1_QA_7 = QuestionAnswer.new(question: "quelle est la cpitale de l'Italie' ?", answer: "Rome", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_7.save!
+
+
+quizz_capitale_europe_1_QA_8 = QuestionAnswer.new(question: "quelle est la cpitale de la Suède' ?", answer: "Stockolm", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_8.save!
+
+
+quizz_capitale_europe_1_QA_9 = QuestionAnswer.new(question: "quelle est la cpitale de l'Irlande ?", answer: "Dublin", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_9.save!
+
+quizz_capitale_europe_1_QA_10 = QuestionAnswer.new(question: "quelle est la cpitale de la Suisse' ?", answer: "Berne", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_10.save!
+
 # Pour quizz faire par ordre de populalation pour créer les paquets
 
 
