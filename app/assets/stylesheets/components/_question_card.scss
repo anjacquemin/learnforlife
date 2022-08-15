@@ -55,8 +55,10 @@
 
 .green-background{
   background-color: $green;
+  transition: background-color 0.7s;
 }
 
 .red-background{
   background-color: $red;
+  transition: background-color 0.7s;
 }

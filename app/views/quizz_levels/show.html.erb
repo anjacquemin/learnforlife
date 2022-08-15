@@ -43,7 +43,7 @@
             data-total-questions = <%=@quizz.question_answers.count%>>
           <% @suggested_question_answers_id[question_answer.id.to_s.to_sym].each do |suggested_question_answer_id| %>
             <div class="card-answer"
-              data-quizz-answer-target="answer1"
+              <%= "data-quizz-answer-target = 'goodAnswer#{index}'".html_safe if suggested_question_answer_id == question_answer.id %>
               data-action="click->quizz-answer#checkAnswer"
               data-user-answer-id = <%= suggested_question_answer_id %>>
               <h2><%= @quizz.question_answers.find(suggested_question_answer_id).answer %></h2>

@@ -1,12 +1,13 @@
 // src/controllers/disable_button_controller.js
 
 import { Controller } from "@hotwired/stimulus"
+import { goodAnswerTargets } from "./_good_answer_targets_constant.js"
 import {questionTargets} from  "./_question_targets_constant.js"
 
 
 export default class extends Controller {
 
-  static targets = ["userAnswer", "questionId", "cardCountBar", "cardCountNumber", "answer1", "answer2", "seconds", "tens"].concat(questionTargets)
+  static targets = ["userAnswer", "questionId", "cardCountBar", "cardCountNumber", "seconds", "tens", "goodAnswer"].concat(questionTargets).concat(goodAnswerTargets)
 
   connect() {
     console.log("Hello from our first Stimulus controller")
@@ -62,11 +63,12 @@ export default class extends Controller {
         corrected_target.classList.add("green-background")
     } else {
         corrected_target.classList.add("red-background")
+        eval(`this.goodAnswer${question_number}Target.classList.add("green-background")`)
     }
 
     const self = this
 
-    delay(1000).then(() => {
+    delay(1500).then(() => {
       eval(`self.questionCard${question_number}Target.classList.add("d-none")`)
       eval(`self.questionCard${next_question_number}Target.classList.remove("d-none")`)
     });
