@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_11_134835) do
+ActiveRecord::Schema.define(version: 2022_08_14_145222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,10 +99,10 @@ ActiveRecord::Schema.define(version: 2022_08_11_134835) do
 
   create_table "quizz_answers", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "quizz_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["quizz_id"], name: "index_quizz_answers_on_quizz_id"
+    t.bigint "quizz_level_id"
+    t.index ["quizz_level_id"], name: "index_quizz_answers_on_quizz_level_id"
     t.index ["user_id"], name: "index_quizz_answers_on_user_id"
   end
 
@@ -245,7 +245,7 @@ ActiveRecord::Schema.define(version: 2022_08_11_134835) do
   add_foreign_key "flashcards", "question_answers"
   add_foreign_key "flashcards", "users"
   add_foreign_key "question_answers", "quizzs"
-  add_foreign_key "quizz_answers", "quizzs"
+  add_foreign_key "quizz_answers", "quizz_levels"
   add_foreign_key "quizz_answers", "users"
   add_foreign_key "quizz_level_progresses", "quizz_levels"
   add_foreign_key "quizz_level_progresses", "users"
