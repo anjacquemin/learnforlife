@@ -2,7 +2,7 @@
   <% theme_level.subthemes.each do |subtheme| %>
     <%=link_to subtheme_path(subtheme) do%>
       <div class="subtheme-card">
-        <% if @subtheme_unlocked = @user.subtheme_progresses.find_by(subtheme: subtheme).unlocked  %>
+        <% if subtheme && @subtheme_unlocked = @user.subtheme_progresses.find_by(subtheme: subtheme).unlocked  %>
           <%@subtheme_blur = 3 %>
         <% end %>
         <div class="subtheme-card-banner" style='filter: blur(<%=@level_blur%>px)'>

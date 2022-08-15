@@ -2,6 +2,9 @@ class QuizzLevelsController < ApplicationController
     def show
       @quizz_level = QuizzLevel.find(params[:id])
       @quizz = @quizz_level.quizz
+      @quizz_answer = QuizzAnswer.new(user: current_user, quizz_level: @quizz_level)
+      @quizz_answer.save!
+
       if @quizz_level.name == "Facile"
         number_of_suggested_answer = 2
         @stars_count = 1

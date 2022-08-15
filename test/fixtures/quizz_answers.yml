@@ -1,7 +1,8 @@
 quizz_answer_1:
   user: anthony
-  quizz: europe_capitales_1
+  quizz_level: europe_capitales_1_quizz_level_1
+
 
 quizz_answer_2:
   user: anthony
-  quizz: europe_capitales_1
+  quizz_level: europe_capitales_1_quizz_level_1

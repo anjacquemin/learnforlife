@@ -23,10 +23,6 @@ class QuizzTest < ActiveSupport::TestCase
     assert_equal @quizz.quizz_levels.count, 2
   end
 
-  test "quizz should have 2 quizz answers" do
-    assert_equal @quizz.quizz_answers.count, 2
-  end
-
   test "quizz should have 2 question answers" do
     assert_equal @quizz.question_answers.count, 2
   end

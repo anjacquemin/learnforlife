@@ -39,13 +39,19 @@
         <div class="answer"
             data-good-answer-id = <%= question_answer.id %>
             data-question-id = <%=question_answer.id%>
+            data-quizz-answer-id = <%=@quizz_answer.id%>
             data-question-number = <%=index%>
-            data-total-questions = <%=@quizz.question_answers.count%>>
+            data-total-questions = <%=@quizz.question_answers.count%>
+            data-answer-url = <%= quizz_answer_user_answers_url(@quizz_answer) %>
+            data-record-url = <%= quizz_answer_records_url(@quizz_answer) %>
+            >
           <% @suggested_question_answers_id[question_answer.id.to_s.to_sym].each do |suggested_question_answer_id| %>
             <div class="card-answer"
               <%= "data-quizz-answer-target = 'goodAnswer#{index}'".html_safe if suggested_question_answer_id == question_answer.id %>
               data-action="click->quizz-answer#checkAnswer"
-              data-user-answer-id = <%= suggested_question_answer_id %>>
+              data-user-answer-id = <%= suggested_question_answer_id %>
+              data-user-answer = <%= @quizz.question_answers.find(suggested_question_answer_id).answer %>
+              >
               <h2><%= @quizz.question_answers.find(suggested_question_answer_id).answer %></h2>
             </div>
           <% end %>
