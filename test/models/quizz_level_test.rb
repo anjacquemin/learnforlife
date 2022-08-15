@@ -31,4 +31,8 @@ class QuizzLevelTest < ActiveSupport::TestCase
     assert_equal @quizz_level.theme.name, "geography"
   end
 
+  test "quizz should have 2 quizz answers" do
+    assert_equal @quizz_level.quizz_answers.count, 2
+  end
+
 end

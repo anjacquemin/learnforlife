@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_14_145222) do
+ActiveRecord::Schema.define(version: 2022_08_15_144209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -146,11 +146,15 @@ ActiveRecord::Schema.define(version: 2022_08_14_145222) do
   create_table "records", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "quizz_level_id", null: false
-    t.time "duration"
     t.integer "completion"
     t.string "crown_or_sphere"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "score_percentage"
+    t.integer "seconds_duration"
+    t.integer "milliseconds_duration"
+    t.bigint "quizz_answer_id"
+    t.index ["quizz_answer_id"], name: "index_records_on_quizz_answer_id"
     t.index ["quizz_level_id"], name: "index_records_on_quizz_level_id"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
@@ -215,6 +219,7 @@ ActiveRecord::Schema.define(version: 2022_08_14_145222) do
     t.bigint "question_answer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "answer_id"
     t.index ["question_answer_id"], name: "index_user_answers_on_question_answer_id"
     t.index ["quizz_answer_id"], name: "index_user_answers_on_quizz_answer_id"
   end
@@ -253,6 +258,7 @@ ActiveRecord::Schema.define(version: 2022_08_14_145222) do
   add_foreign_key "quizz_progresses", "quizzs"
   add_foreign_key "quizz_progresses", "users"
   add_foreign_key "quizzs", "categories"
+  add_foreign_key "records", "quizz_answers"
   add_foreign_key "records", "quizz_levels"
   add_foreign_key "records", "users"
   add_foreign_key "subtheme_progresses", "subthemes"

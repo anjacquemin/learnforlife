@@ -5,7 +5,7 @@
   </div>
   <div class="theme-level">
     <% @theme.theme_levels.order(:level).each do |theme_level| %>
-      <% if !@user.theme_level_progresses.find_by(theme_level: theme_level).unlocked %>
+      <% unless @user.theme_level_progresses.find_by(theme_level: theme_level)&.unlocked %>
         <% @level_blur = 2 %>
       <% end %>
       <div class="theme-level-separator my-5">
