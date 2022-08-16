@@ -14,43 +14,78 @@
 
       <div class="quizzs-display">
         <% category.quizzs.each_with_index do |quizz, index| %>
+
+          <% user_quizz_progress = current_user.quizz_progresses.find_by(quizz: quizz) %>
+
           <div class="quizz-card">
-            <div class="quizz-card-banner">
+            <% unless user_quizz_progress &.unlocked %>
+              <% @quizz_blur_style = 'style="filter: blur(2px); opacity:0.4"'.html_safe%>
+              <%= image_tag "cadenas.png", class:"unlocked-cadenas unlocked-cadenas-lg" %>
+            <% end %>
+
+            <div class="quizz-card-banner" <%= @quizz_blur_style %>>
               <h2> <%= quizz.name %> </h2>
               <div class="quizz-cards-count">
                 <%= image_tag "cards.png" %>
-                <p>59</p>
+                <p><%= quizz.question_answers.count %></p>
               </div>
             </div>
-            <div class="levels-display">
-              <% quizz.quizz_levels.each do |level| %>
-                <%=link_to quizz_level_path(level) do%>
-                  <div class="level">
-                    <div>
-                      <div class="stars">
-                        <%if level.name == "Facile"%>
-                          <%@stars_count = 1%>
-                        <%elsif level.name == "Moyen"%>
-                          <%@stars_count = 2%>
-                        <%else level.name == "Difficile"%>
-                          <%@stars_count = 3%>
-                        <%end%>
-                        <% @stars_count.times do %>
-                          <%= image_tag 'star1.png' %>
+
+              <div class="levels-display">
+                <% quizz.quizz_levels.each do |level| %>
+                  <% user_quizz_level_progress = current_user.quizz_level_progresses.find_by(quizz_level: level) %>
+
+                  <% if user_quizz_progress &.unlocked && user_quizz_level_progress &.unlocked%>
+                    <%@level_path = quizz_level_path(level)  %>
+                    <%@level_hovering = 'class= "level level-hovering"' %>
+                  <% else %>
+                    <% @level_path = "" %>
+                    <% @level_hovering = 'class= "level"' %>
+                  <% end %>
+
+
+                  <%=link_to @level_path do%>
+                    <div <%=@level_hovering.html_safe%>>
+
+                      <% unless user_quizz_level_progress &.unlocked || !(user_quizz_progress &.unlocked) %>
+                        <% @level_blur_style = 'style="filter: blur(2px); opacity:0.4"'.html_safe%>
+                        <%= image_tag "cadenas.png", class:"unlocked-cadenas unlocked-cadenas-md" %>
+                      <% end %>
+
+                      <div  <%= @level_blur_style %>>
+                        <div class="stars">
+                          <%if level.name == "Facile"%>
+                            <%@stars_count = 1%>
+                          <%elsif level.name == "Moyen"%>
+                            <%@stars_count = 2%>
+                          <%else level.name == "Difficile"%>
+                            <%@stars_count = 3%>
+                          <%end%>
+                          <% @stars_count.times do %>
+                            <%= image_tag 'star1.png' %>
+                          <% end %>
+                        </div>
+                        <%= level.name %>
+                      </div>
+                      <div class="level_crowns" <%= @level_blur_style %>>
+                        <% max_completion = level.records.maximum(:completion)%>
+                        <% if max_completion %>
+                          <% max_completion.times do  %>
+                            <%= image_tag 'crown.png', class:"completed_crown" %>
+                          <% end %>
+                          <% (3-max_completion).times do  %>
+                            <%= image_tag 'crown.png', class:"uncompleted-crown" %>
+                          <% end %>
+                        <% else %>
+                          <% (3).times do  %>
+                            <%= image_tag 'crown.png', class:"uncompleted-crown" %>
+                          <% end %>
                         <% end %>
                       </div>
-                      <%= level.name %>
                     </div>
-                    <div class="crown">
-                      <%# <%= @completion = @user.records.find_by(quizz_level: level).completion %>
-                      <% 3.times do  %>
-                        <%= image_tag 'crown.png' %>
-                      <% end %>
-                    </div>
-                  </div>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
+              </div>
           </div>
           <% if index != category.quizzs.size - 1 %>
             <%= image_tag 'quizz-separator-purple.png', style:"height:20px" %>
