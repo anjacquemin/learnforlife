@@ -8,7 +8,7 @@ import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
 
-  static targets = ["userAnswer", "questionId", "cardCountBar", "cardCountNumber", "seconds", "tens", "goodAnswer"].concat(questionTargets).concat(goodAnswerTargets)
+  static targets = ["userAnswer", "questionId", "cardCountBar", "cardCountNumber", "seconds", "tens", "goodAnswer", "endButtonDisplay", "endButton"].concat(questionTargets).concat(goodAnswerTargets)
 
   connect() {
     console.log("Hello from our first Stimulus controller")
@@ -103,6 +103,15 @@ export default class extends Controller {
           method: "POST",
           headers: { "Accept": "application/json", "X-CSRF-Token": csrfToken() },
           body: data
+        })
+        .then(response => response.json())
+        .then((data) => {
+          if (data.inserted_item){
+            console.log(data)
+            console.log(data.inserted_item)
+            this.endButtonDisplayTarget.insertAdjacentHTML("beforeend", data.inserted_item)
+            this.endButtonTarget.click()
+          }
         })
       }
     });

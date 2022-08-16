@@ -1,0 +1,17 @@
+.btn-purple{
+  height: 55px;
+  width: 150px;
+  background: $purple;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  border-radius: $border-radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+
+  &:hover{
+    background-color: white;
+    color: $purple
+  }
+}
