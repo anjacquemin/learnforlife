@@ -2,14 +2,17 @@
   <% theme_level.subthemes.each do |subtheme| %>
     <%=link_to subtheme_path(subtheme) do%>
       <div class="subtheme-card">
-        <% if subtheme && @subtheme_unlocked = @user.subtheme_progresses.find_by(subtheme: subtheme).unlocked  %>
+
+        <% subtheme_progress = @user.subtheme_progresses.find_by(subtheme: subtheme) %>
+
+        <% if subtheme && @subtheme_unlocked = (subtheme_progress &.unlocked)  %>
           <%@subtheme_blur = 3 %>
         <% end %>
         <div class="subtheme-card-banner" style='filter: blur(<%=@level_blur%>px)'>
           <h2> <%= subtheme.name %> </h2>
           <div class="quizz-cards-count">
             <%= image_tag "cards.png" %>
-            <p>59</p>
+            <p><%= subtheme.question_answers.count %></p>
           </div>
         </div>
         <div class="subtheme-card-progress">

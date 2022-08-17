@@ -1,0 +1,12 @@
+<% blur = 'style="filter: blur(2px); opacity:0.4"'.html_safe %>
+<% lock_classes = "unlocked-cadenas " %>
+
+<% if for_ == "quizz" %>
+  <% @quizz_blur_style = blur %>
+  <% lock_classes += "unlocked-cadenas-lg" %>
+<% elsif for_ == "quizz_level" %>
+  <% @level_blur_style = blur%>
+  <% lock_classes += "unlocked-cadenas-md" %>
+<% end %>
+
+<%= image_tag "cadenas.png", class:lock_classes %>

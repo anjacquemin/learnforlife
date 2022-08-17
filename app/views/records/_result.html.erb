@@ -1,7 +1,9 @@
-<h1>dzajodzajopzaopj</h1>
 
-<%# <%= @synthesis.each do |answer_synthesis|%> %>
-<%# <p>question : <%= answer_synthesis[:question] %></p> %>
-<%# <p>answer : <%= answer_synthesis[:question_answer] %></p> %>
-<%# <p>user answer : <%= answer_synthesis[:user_answer] %></p> %>
-<%# <% end %> %>
+
+<a data-quizz-answer-target="endButton" href="/records/<%=@record.id%>"></a>
+
+
+
+<%# NOT WORKING WITH HYPHEN %>
+
+<%# <%= link_to "endgame", record_path(@record), data_quizz_answer_target: 'endButton' %>

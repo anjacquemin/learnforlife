@@ -7,17 +7,19 @@
           <p><%=theme.name.upcase%></p>
         </div>
         <div class="theme-progress">
-          <%= render "progress_bar", value: "10/50"  %>
-          <% if defined?(quizz) && quizz %>
-            <div class="achievement_count">
-              <%= image_tag 'crown.png' %>
-              <p>9</p>
-            </div>
-            <div class="achievement_count">
-              <%= image_tag 'sphere.png' %>
-              <p>10</p>
-            </div>
-          <% end %>
+          <%  @total_crowns = Record.where(user: current_user, crown_or_sphere: "crown").joins(:theme).where(themes: {name: theme.name}).group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
+          <%  @total_spheres = Record.where(user_id: current_user, crown_or_sphere: "sphere").joins(:theme).where(themes: {name: "Geographie"}).group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
+          <% @total = @total_crowns + @total_spheres %>
+          <% @progress = (@total.zero? ? 0 : theme.quizz_levels.count / @total)%>
+          <%= render "progress_bar", value: @progress  %>
+          <div class="achievement_count">
+            <%= image_tag 'crown.png' %>
+            <p></p>
+          </div>
+          <div class="achievement_count">
+            <%= image_tag 'sphere.png' %>
+            <p></p>
+          </div>
         </div>
       </div>
     <% end %>

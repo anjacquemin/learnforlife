@@ -1,0 +1,7 @@
+<% if index != 0 %>
+  <% if @user_quizz_progress_unlocked %>
+    <%= image_tag 'quizz-separator-purple.png', style:"height:20px" %>
+  <% else %>
+    <%= image_tag 'quizz-separator-full-dotted-purple.png', style:"height:20px; opacity: 0.4" %>
+  <% end %>
+<% end %>

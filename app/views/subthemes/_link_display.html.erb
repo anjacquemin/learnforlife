@@ -1,0 +1,7 @@
+<% if @user_quizz_progress_unlocked && @user_quizz_level_progress_unlocked%>
+  <%@level_path = quizz_level_path(level)  %>
+  <%@level_hovering = 'class= "level level-hovering"' %>
+<% else %>
+  <% @level_path = "" %>
+  <% @level_hovering = 'class= "level"' %>
+<% end %>

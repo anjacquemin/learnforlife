@@ -167,6 +167,23 @@ a{
   flex-direction: column;
   justify-content: space-around;
   z-index: 2;
+  position: relative;
+
+  .unlocked-cadenas{
+    position: absolute;
+    margin: auto;
+    align-self: center;
+    z-index: 4;
+    opacity: 0.5;
+  }
+
+  .unlocked-cadenas-lg{
+    height: 130px;
+  }
+
+  .unlocked-cadenas-md{
+    height: 50px;
+  }
 
   .quizz-card-banner{
     border-bottom: 2px solid black;
@@ -206,12 +223,14 @@ a{
   align-items: center;
   justify-content: space-evenly;
   margin: 10px;
-  &:hover{
-    background-color: $purple;
-    color: white;
-    .subtheme-card-banner{
-      border-bottom: 2px solid white;
-    }
+  position: relative;
+}
+
+.level-hovering:hover{
+  background-color: $purple;
+  color: white;
+  .subtheme-card-banner{
+    border-bottom: 2px solid white;
   }
 }
 
@@ -220,6 +239,10 @@ a{
   justify-content: space-around;
 }
 
-.crown img{
+.level_crowns img{
   height:24px;
+}
+
+.uncompleted-crown{
+  opacity: 0.3;
 }
