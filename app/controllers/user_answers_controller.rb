@@ -13,6 +13,6 @@ class UserAnswersController < ApplicationController
     user_answer = UserAnswer.new(question_answer_id:  data["question_id"], answer_id: data["user_answer_id"], quizz_answer_id: data["quizz_answer_id"], answer: data["user_answer"])
     user_answer.save!
 
-
+    
   end
 end

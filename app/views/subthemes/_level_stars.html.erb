@@ -1,0 +1,12 @@
+<div class="stars">
+  <%if level.name == "Facile"%>
+    <%@stars_count = 1%>
+  <%elsif level.name == "Moyen"%>
+    <%@stars_count = 2%>
+  <%else level.name == "Difficile"%>
+    <%@stars_count = 3%>
+  <%end%>
+  <% @stars_count.times do %>
+    <%= image_tag 'star1.png' %>
+  <% end %>
+</div>
