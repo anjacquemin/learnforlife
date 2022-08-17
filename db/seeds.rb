@@ -11,6 +11,8 @@ _IMAGE_DIR_ = "./app/assets/images/"
 
 puts 'seed'
 
+UserAnswer.destroy_all
+QuizzAnswer.destroy_all
 Record.destroy_all
 User.destroy_all
 QuestionAnswer.destroy_all
