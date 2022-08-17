@@ -10,8 +10,13 @@ class RecordsController < ApplicationController
     @synthesis = synthesis(user_answers)
 
     @is_new_record = (find_best_user_record(quizz_level) == @record)
-    @xp_win = xp_win_calculation(@record, @is_new_record, quizz_level)
 
+    @unlocked_items = unlocked_items_calculation(@record) if @is_new_record
+
+    @xp_win = xp_win_calculation(@record, @is_new_record, quizz_level)
+    @gold_win = gold_win_calculation(@record)
+    current_user.gold += @gold_win
+    current_user.xp += @xp_win
   end
 
   def create
@@ -117,15 +122,6 @@ class RecordsController < ApplicationController
       current_user.records.where(quizz_level: quizz_level).order(completion: :desc, seconds_duration: :asc, milliseconds_duration: :asc).limit(1).offset(1)[0]
     end
 
-    # def is_new_record?(record, best_user_record)
-    #   return true if record.completion > best_user_record.completion
-
-    #   record_time = time_to_ms(record.seconds_duration, record.milliseconds_duration)
-    #   best_user_record_time = time_to_ms(best_user_record.seconds_duration, best_user_record.milliseconds_duration)
-
-    #   (record.completion == best_user_record.completion) && (record_time < best_user_record_time)
-    # end
-
     def xp_win_calculation(record, is_new_record, quizz_level)
       # no xp if no more crowns won
       record_completion = record.completion
@@ -147,9 +143,63 @@ class RecordsController < ApplicationController
       crown_coefs = [1, 2, 3]
       total_coef = 0
 
+      # If several stars difference with pas record, add all coef
       total_coef = crown_coefs[past_best_record_completion, record_completion - 1].sum
-
       total_coef *= difficulty_coefs[record.quizz_level.name.to_sym]
 
+      total_coef * record.question_answers.count
+    end
+
+    def gold_win_calculation(record)
+      difficulty_coefs = {Facile: 1, Moyen: 2, Difficile: 5}
+      crown_coefs = [1, 2, 3, 5]
+      # crown * difficulty * score_percentage * number_of_questions
+      (crown_coefs[record.completion] * difficulty_coefs[record.quizz_level.name.to_sym] * record.question_answers.count * record.score_percentage / 100).round
+    end
+
+    def unlocked_items_calculation(record)
+
+      #nothing unlocked if no crown
+      nil if record.completion == 0
+
+      quizz_level_name = record.quizz_level.name
+      #Nothing unlock for level "difficile"
+      if quizz_level_name == "Facile" || quizz_level_name == "Moyen"
+        quizz = record.quizz
+        quizz_level_name_to_unlock = (quizz_level_name == "Facile" ? "Moyen" : "Difficile")
+        quizz_level_to_unlock = QuizzLevel.find_by(quizz: quizz, name: quizz_level_name_to_unlock)
+        quizz_level_progress_to_unlock = current_user.quizz_level_progresses.find_by(quizz_level: quizz_level_to_unlock)
+        if !quizz_level_progress_to_unlock.unlocked
+          quizz_level_progress_to_unlock.unlocked = true
+          quizz_level_progress_to_unlock.save
+        end
+
+
+        if quizz_level_name == "Moyen" && record.completion >= 2
+            all_category_quizzs = quizz.category.quizzs
+            number_of_quizzs = all_category_quizzs.count
+
+            # check if it is the last quizz of the category
+            if quizz.ordering != number_of_quizzs
+              quizz_to_unlock = quizz.category.quizzs.find_by(ordering: quizz.ordering + 1)
+              quizz_progress_to_unlock = current_user.quizz_progresses.find_by(quizz: quizz_to_unlock)
+
+              if !quizz_progress_to_unlock.unlocked
+                quizz_progress_to_unlock.unlocked = true
+                quizz_progress_to_unlock.save
+              end
+
+              # also unlock level 1 of the unlocked quizz
+              quizz_level_to_unlock = QuizzLevel.find_by(quizz: quizz_to_unlock, name: "Facile")
+
+              quizz_level_progress_to_unlock = current_user.quizz_level_progresses.find_by(quizz_level: quizz_level_to_unlock)
+              if !quizz_level_progress_to_unlock.unlocked
+                quizz_level_progress_to_unlock.unlocked = true
+                quizz_level_progress_to_unlock.save
+              end
+            end
+        end
+
+      end
     end
 end

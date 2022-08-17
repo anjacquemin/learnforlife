@@ -94,8 +94,8 @@ export default class extends Controller {
 
     delay(100).then(() => {
       if(next_question_number < total_questions){
-      eval(`self.questionCard${question_number}Target.classList.add("d-none")`)
-      eval(`self.questionCard${next_question_number}Target.classList.remove("d-none")`)
+        eval(`self.questionCard${question_number}Target.classList.add("d-none")`)
+        eval(`self.questionCard${next_question_number}Target.classList.remove("d-none")`)
       } else if (question_number < total_questions) {
         console.log("send end quizz data")
         const data = endQuizzBuilding(quizz_answer_id)
@@ -109,6 +109,8 @@ export default class extends Controller {
           if (data.inserted_item){
             console.log(data)
             console.log(data.inserted_item)
+            // even for last answer, d-none the div, to avoid to see it, if the quizz is redone
+            eval(`self.questionCard${question_number}Target.classList.add("d-none")`)
             this.endButtonDisplayTarget.insertAdjacentHTML("beforeend", data.inserted_item)
             this.endButtonTarget.click()
           }
