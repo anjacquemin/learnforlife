@@ -11,9 +11,10 @@ _IMAGE_DIR_ = "./app/assets/images/"
 
 puts 'seed'
 
+QuizzLevelProgress.destroy_all
 UserAnswer.destroy_all
-QuizzAnswer.destroy_all
 Record.destroy_all
+QuizzAnswer.destroy_all
 User.destroy_all
 QuestionAnswer.destroy_all
 QuizzLevel.destroy_all
@@ -101,7 +102,7 @@ localization = Category.new(subtheme: europe, name: "Localisation", objective: "
 localization.photo.attach(io: File.open(_IMAGE_DIR_ + 'map.png'), filename:"map.png")
 localization.save!
 
-flag = Category.new(subtheme: europe, name: "Capitales", objective: "Obtiens 2 couronnes au quizz 'Drapeaux Europe Master' niveau moyen pour obtenir le badge drapeau")
+flag = Category.new(subtheme: europe, name: "Drapeaux", objective: "Obtiens 2 couronnes au quizz 'Drapeaux Europe Master' niveau moyen pour obtenir le badge drapeau")
 flag.photo.attach(io: File.open(_IMAGE_DIR_ + 'flag.png'), filename:"flag.png")
 flag.save!
 
@@ -162,11 +163,11 @@ quizz_level_hard_capitale_europe_1.save!
 quizz_level_easy_capitale_europe_2 = QuizzLevel.new(name: "Facile", quizz: quizz_capitale_europe_2)
 quizz_level_easy_capitale_europe_2.save!
 
-quizz_level_medium__capitale_europe_2 = QuizzLevel.new(name: "Moyen", quizz: quizz_capitale_europe_2)
-quizz_level_medium__capitale_europe_2.save!
+quizz_level_medium_capitale_europe_2 = QuizzLevel.new(name: "Moyen", quizz: quizz_capitale_europe_2)
+quizz_level_medium_capitale_europe_2.save!
 
-quizz_level_hard__capitale_europe_3 = QuizzLevel.new(name: "Difficile", quizz: quizz_capitale_europe_2)
-quizz_level_hard__capitale_europe_3.save!
+quizz_level_hard_capitale_europe_2 = QuizzLevel.new(name: "Difficile", quizz: quizz_capitale_europe_2)
+quizz_level_hard_capitale_europe_2.save!
 
 quizz_level_easy_capitale_europe_3 = QuizzLevel.new(name: "Facile", quizz: quizz_capitale_europe_3)
 quizz_level_easy_capitale_europe_3.save!
@@ -188,40 +189,40 @@ quizz_level_hard_capitale_europe_4.save!
 
 #questions / answers
 
-quizz_capitale_europe_1_QA_1 = QuestionAnswer.new(question: "quelle est la cpitale de la France ?", answer: "Paris", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_1 = QuestionAnswer.new(question: "quelle est la capitale de la France ?", answer: "Paris", quizz: quizz_capitale_europe_1)
 quizz_capitale_europe_1_QA_1.save!
 
-quizz_capitale_europe_1_QA_2 = QuestionAnswer.new(question: "quelle est la cpitale de l'Ireland' ?", answer: "Dublin", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_2 = QuestionAnswer.new(question: "quelle est la capitale de l'Ireland' ?", answer: "Dublin", quizz: quizz_capitale_europe_1)
 quizz_capitale_europe_1_QA_2.save!
 
-quizz_capitale_europe_1_QA_3 = QuestionAnswer.new(question: "quelle est la cpitale de l'Allemagne ?", answer: "Berlin", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_3 = QuestionAnswer.new(question: "quelle est la capitale de l'Allemagne ?", answer: "Berlin", quizz: quizz_capitale_europe_1)
 quizz_capitale_europe_1_QA_3.save!
 
-quizz_capitale_europe_1_QA_4 = QuestionAnswer.new(question: "quelle est la cpitale de l'Espagne' ?", answer: "Madrid", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_4 = QuestionAnswer.new(question: "quelle est la capitale de l'Espagne' ?", answer: "Madrid", quizz: quizz_capitale_europe_1)
 quizz_capitale_europe_1_QA_4.save!
 
 
 
 
 
-quizz_capitale_europe_1_QA_5 = QuestionAnswer.new(question: "quelle est la cpitale du Royaume unis?", answer: "Londres", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_5 = QuestionAnswer.new(question: "quelle est la capitale du Royaume unis?", answer: "Londres", quizz: quizz_capitale_europe_1)
 quizz_capitale_europe_1_QA_5.save!
 
-quizz_capitale_europe_1_QA_6 = QuestionAnswer.new(question: "quelle est la cpitale du Portugal ?", answer: "Lisbonne", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_6 = QuestionAnswer.new(question: "quelle est la capitale du Portugal ?", answer: "Lisbonne", quizz: quizz_capitale_europe_1)
 quizz_capitale_europe_1_QA_6.save!
 
-quizz_capitale_europe_1_QA_7 = QuestionAnswer.new(question: "quelle est la cpitale de l'Italie' ?", answer: "Rome", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_7 = QuestionAnswer.new(question: "quelle est la capitale de l'Italie' ?", answer: "Rome", quizz: quizz_capitale_europe_1)
 quizz_capitale_europe_1_QA_7.save!
 
 
-quizz_capitale_europe_1_QA_8 = QuestionAnswer.new(question: "quelle est la cpitale de la Suède' ?", answer: "Stockolm", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_8 = QuestionAnswer.new(question: "quelle est la capitale de la Suède' ?", answer: "Stockolm", quizz: quizz_capitale_europe_1)
 quizz_capitale_europe_1_QA_8.save!
 
 
-quizz_capitale_europe_1_QA_9 = QuestionAnswer.new(question: "quelle est la cpitale de l'Irlande ?", answer: "Dublin", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_9 = QuestionAnswer.new(question: "quelle est la capitale des pys bas ?", answer: "Amsterdam", quizz: quizz_capitale_europe_1)
 quizz_capitale_europe_1_QA_9.save!
 
-quizz_capitale_europe_1_QA_10 = QuestionAnswer.new(question: "quelle est la cpitale de la Suisse' ?", answer: "Berne", quizz: quizz_capitale_europe_1)
+quizz_capitale_europe_1_QA_10 = QuestionAnswer.new(question: "quelle est la capitale de la Suisse' ?", answer: "Berne", quizz: quizz_capitale_europe_1)
 quizz_capitale_europe_1_QA_10.save!
 
 # Pour quizz faire par ordre de populalation pour créer les paquets
@@ -298,7 +299,7 @@ anthony_flag_europe_progress.save!
 anthony_quizz_capitale_europe_1_progress = QuizzProgress.new(user: anthony, quizz: quizz_capitale_europe_1, unlocked: true)
 anthony_quizz_capitale_europe_1_progress.save!
 
-anthony_quizz_capitale_europe_2_progress = QuizzProgress.new(user: anthony, quizz: quizz_capitale_europe_2, unlocked: true)
+anthony_quizz_capitale_europe_2_progress = QuizzProgress.new(user: anthony, quizz: quizz_capitale_europe_2, unlocked: false)
 anthony_quizz_capitale_europe_2_progress.save!
 
 anthony_quizz_capitale_europe_3_progress = QuizzProgress.new(user: anthony, quizz: quizz_capitale_europe_3, unlocked: false)
@@ -313,22 +314,21 @@ anthony_quizz_capitale_europe_4_progress.save!
 anthony_quizz_capitale_europe_1_easy_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_easy_capitale_europe_1, unlocked: true)
 anthony_quizz_capitale_europe_1_easy_progress.save!
 
-anthony_quizz_capitale_europe_1_medium_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_easy_capitale_europe_1, unlocked: true)
+anthony_quizz_capitale_europe_1_medium_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_medium_capitale_europe_1, unlocked: false)
 anthony_quizz_capitale_europe_1_medium_progress.save!
 
-anthony_quizz_capitale_europe_1_hard_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_easy_capitale_europe_1, unlocked: false)
+anthony_quizz_capitale_europe_1_hard_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_hard_capitale_europe_1, unlocked: false)
 anthony_quizz_capitale_europe_1_hard_progress.save!
 
-#quizz level records
-anthony_quizz_capitale_europe_1_easy_record = Record.new(user: anthony, quizz_level: quizz_level_easy_capitale_europe_1, crown_or_sphere: "crown", completion: 2)
-anthony_quizz_capitale_europe_1_easy_record.save!
 
+anthony_quizz_capitale_europe_2_easy_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_easy_capitale_europe_2, unlocked: false)
+anthony_quizz_capitale_europe_2_easy_progress.save!
 
-anthony_quizz_capitale_europe_1_medium_record = Record.new(user: anthony, quizz_level: quizz_level_easy_capitale_europe_1, crown_or_sphere: "crown", completion: 1)
-anthony_quizz_capitale_europe_1_medium_record.save!
+anthony_quizz_capitale_europe_2_medium_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_medium_capitale_europe_2, unlocked: false)
+anthony_quizz_capitale_europe_2_medium_progress.save!
 
-
-
+anthony_quizz_capitale_europe_2_hard_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_hard_capitale_europe_2, unlocked: false)
+anthony_quizz_capitale_europe_2_hard_progress.save!
 
 #Flashcards for anthony
 

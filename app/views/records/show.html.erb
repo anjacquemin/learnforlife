@@ -3,23 +3,25 @@
     <%= image_tag "congratulation.png"%>
     <h2>NOUVEAU RECORD</h2>
     <div class = "crowns-display">
-      <% 3.times do  %>
-        <%= image_tag 'crown.png' %>
-      <% end %>
+      <%= render "shared/crowns", crown_class: "completed-crown", number: @record.completion %>
+      <%= render "shared/crowns", crown_class: "uncompleted-crown", number: 3-@record.completion %>
     </div>
     <hr class="horizontal-divider my-4">
     <div class="results-display">
       <div class="good-answer-count">
         <%= image_tag 'verifie.png' %>
-        <p>5</p>
+        <p><%= @record.score_percentage * @number_of_questions / 100%></p>
       </div>
       <div class="bad-answer-count">
         <%= image_tag 'annuler.png' %>
-        <p>5</p>
+        <p><%= ((100-@record.score_percentage) * @number_of_questions) / 100%></p>
       </div>
       <div class="duration">
         <%= image_tag 'sablier1.png' %>
-        <p>5</p>
+        <div class="time">
+          <p><%= @record.seconds_duration%>s</p>
+          <p id="second_duration"><%= @record.milliseconds_duration%></p>
+        </div>
       </div>
       <div class="details">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -32,11 +34,11 @@
       <div class="xp-and-gold-win">
         <div class="gold">
           <%= image_tag 'sablier1.png' %>
-          <p> + 200</p>
+          <p> <%= @gold_win  %> </p>
         </div>
         <div class="xp">
           <%= image_tag 'sablier1.png' %>
-          <p> + 200</p>
+          <p> <%= @xp_win  %> </p>
         </div>
       </div>
       <div class="leader-board">

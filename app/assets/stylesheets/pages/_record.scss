@@ -32,6 +32,14 @@
   }
 }
 
+.time{
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+}
+
 .details>.btn{
   outline: none;
   background-color: transparent;
