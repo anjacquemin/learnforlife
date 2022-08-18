@@ -4,8 +4,12 @@
     <%= render "link_display", level: level %>
     <%=link_to @level_path do%>
       <div <%=@level_hovering.html_safe%>>
-        <% unless @user_quizz_level_progress_unlocked || !@user_quizz_progress_unlocked %>
+        <% if !@user_quizz_level_progress_unlocked && @user_quizz_progress_unlocked %>
           <%= render "set_lock_and_blur", for_: "quizz_level" %>
+        <% elsif !@user_quizz_level_progress_unlocked %>
+            <% @level_blur_style = 'style="filter: blur(2px); opacity:0.4"'.html_safe  %>
+          <% else %>
+            <% @level_blur_style = "" %>
         <% end %>
         <div <%= @level_blur_style %>>
           <%= render "level_stars", level: level %>

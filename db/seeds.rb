@@ -24,6 +24,23 @@ Subtheme.destroy_all
 ThemeLevel.destroy_all
 Theme.destroy_all
 
+######USER#####
+
+anthony = User.new(
+    name: "anthony",
+    email: "anthony@gmail.gmail",
+    password: "foobar",
+    password_confirmation: "foobar",
+    hp: 45,
+    xp: 37,
+    gem: 12,
+    gold: 1100,
+    level: 3
+)
+anthony.save!
+
+##########################
+
 geography = Theme.new(name: "Geographie")
 geography.photo.attach(io: File.open(_IMAGE_DIR_ + 'globe.png'), filename:"globe.png")
 geography.save!
@@ -67,181 +84,39 @@ geography_level_3.save!
 
 
 # Geography subtheme
+subthemes = []
 europe = Subtheme.new(name: "Europe", theme_level: geography_level_1)
 europe.save!
+subthemes << europe
+
 
 america = Subtheme.new(name: "Amérique", theme_level: geography_level_1)
 america.save!
+subthemes << america
 
 africa = Subtheme.new(name: "Afrique", theme_level: geography_level_1)
 africa.save!
+subthemes << africa
 
 asia = Subtheme.new(name: "Asie", theme_level: geography_level_1)
 asia.save!
+subthemes << asia
 
 oceania = Subtheme.new(name: "Océanie", theme_level: geography_level_1)
 oceania.save!
+subthemes << oceania
 
 caraibeean = Subtheme.new(name: "Iles des Caraibes", theme_level: geography_level_2)
 caraibeean.save!
+subthemes << caraibeean
 
 pacifica = Subtheme.new(name: "Iles Pacifiques", theme_level: geography_level_2)
 pacifica.save!
+subthemes << pacifica
 
 world = Subtheme.new(name: "Mondes", theme_level: geography_level_3)
 world.save!
-
-
-#categories
-
-capitale = Category.new(subtheme: europe, name: "Capitales", objective: "Obtiens 2 couronnes au quizz 'Capitale Europe Master' niveau moyen pour obtenir le badge capitale")
-capitale.photo.attach(io: File.open(_IMAGE_DIR_ + 'tour-eiffel.png'), filename:"capitale.png")
-capitale.save!
-
-localization = Category.new(subtheme: europe, name: "Localisation", objective: "Obtiens 2 couronnes au quizz 'Localisation Europe Master' niveau moyen pour obtenir le badge localisation")
-localization.photo.attach(io: File.open(_IMAGE_DIR_ + 'map.png'), filename:"map.png")
-localization.save!
-
-flag = Category.new(subtheme: europe, name: "Drapeaux", objective: "Obtiens 2 couronnes au quizz 'Drapeaux Europe Master' niveau moyen pour obtenir le badge drapeau")
-flag.photo.attach(io: File.open(_IMAGE_DIR_ + 'flag.png'), filename:"flag.png")
-flag.save!
-
-#capitales quizz
-
-quizz_capitale_europe_1 = Quizz.new(category: capitale, name: "Capitale Europe #1", ordering: 1)
-quizz_capitale_europe_1.save!
-
-quizz_capitale_europe_2 = Quizz.new(category: capitale, name: "Capitale Europe #2", ordering: 2)
-quizz_capitale_europe_2.save!
-
-quizz_capitale_europe_3 = Quizz.new(category: capitale, name: "Capitale Europe #3", ordering: 3)
-quizz_capitale_europe_3.save!
-
-quizz_capitale_europe_4 = Quizz.new(category: capitale, name: "Capitale Europe Master", ordering: 4)
-quizz_capitale_europe_4.save!
-
-
-#localization quizz
-
-quizz_localization_europe_1 = Quizz.new(category: localization, name: "Localisation Europe #1", ordering: 1)
-quizz_localization_europe_1.save!
-
-quizz_localization_europe_2 = Quizz.new(category: localization, name: "Localisation Europe #2", ordering: 2)
-quizz_localization_europe_2.save!
-
-quizz_localization_europe_3 = Quizz.new(category: localization, name: "Localisation Europe #3", ordering: 3)
-quizz_localization_europe_3.save!
-
-quizz_localization_europe_4 = Quizz.new(category: localization, name: "Localisation Europe Master", ordering: 4)
-quizz_localization_europe_4.save!
-
-
-#flag quizz
-quizz_flag_europe_1 = Quizz.new(category: flag, name: "Drapeaux Europe #1", ordering: 1)
-quizz_flag_europe_1.save!
-
-quizz_flag_europe_2 = Quizz.new(category: flag, name: "Drapeaux Europe #2", ordering: 2)
-quizz_flag_europe_2.save!
-
-quizz_flag_europe_3 = Quizz.new(category: flag, name: "Drapeaux Europe #3", ordering: 3)
-quizz_flag_europe_3.save!
-
-quizz_flag_europe_4 = Quizz.new(category: flag, name: "Drapeaux Europe Master", ordering: 4)
-quizz_flag_europe_4.save!
-
-
-#quizz level
-quizz_level_easy_capitale_europe_1 = QuizzLevel.new(name: "Facile", quizz: quizz_capitale_europe_1)
-quizz_level_easy_capitale_europe_1.save!
-
-quizz_level_medium_capitale_europe_1 = QuizzLevel.new(name: "Moyen", quizz: quizz_capitale_europe_1)
-quizz_level_medium_capitale_europe_1.save!
-
-quizz_level_hard_capitale_europe_1 = QuizzLevel.new(name: "Difficile", quizz: quizz_capitale_europe_1)
-quizz_level_hard_capitale_europe_1.save!
-
-quizz_level_easy_capitale_europe_2 = QuizzLevel.new(name: "Facile", quizz: quizz_capitale_europe_2)
-quizz_level_easy_capitale_europe_2.save!
-
-quizz_level_medium_capitale_europe_2 = QuizzLevel.new(name: "Moyen", quizz: quizz_capitale_europe_2)
-quizz_level_medium_capitale_europe_2.save!
-
-quizz_level_hard_capitale_europe_2 = QuizzLevel.new(name: "Difficile", quizz: quizz_capitale_europe_2)
-quizz_level_hard_capitale_europe_2.save!
-
-quizz_level_easy_capitale_europe_3 = QuizzLevel.new(name: "Facile", quizz: quizz_capitale_europe_3)
-quizz_level_easy_capitale_europe_3.save!
-
-quizz_level_medium_capitale_europe_3 = QuizzLevel.new(name: "Moyen", quizz: quizz_capitale_europe_3)
-quizz_level_medium_capitale_europe_3.save!
-
-quizz_level_hard_capitale_europe_3 = QuizzLevel.new(name: "Difficile", quizz: quizz_capitale_europe_3)
-quizz_level_hard_capitale_europe_3.save!
-
-quizz_level_easy_capitale_europe_4 = QuizzLevel.new(name: "Facile", quizz: quizz_capitale_europe_4)
-quizz_level_easy_capitale_europe_4.save!
-
-quizz_level_medium_capitale_europe_4 = QuizzLevel.new(name: "Moyen", quizz: quizz_capitale_europe_4)
-quizz_level_medium_capitale_europe_4.save!
-
-quizz_level_hard_capitale_europe_4 = QuizzLevel.new(name: "Difficile", quizz: quizz_capitale_europe_4)
-quizz_level_hard_capitale_europe_4.save!
-
-#questions / answers
-
-quizz_capitale_europe_1_QA_1 = QuestionAnswer.new(question: "quelle est la capitale de la France ?", answer: "Paris", quizz: quizz_capitale_europe_1)
-quizz_capitale_europe_1_QA_1.save!
-
-quizz_capitale_europe_1_QA_2 = QuestionAnswer.new(question: "quelle est la capitale de l'Ireland' ?", answer: "Dublin", quizz: quizz_capitale_europe_1)
-quizz_capitale_europe_1_QA_2.save!
-
-quizz_capitale_europe_1_QA_3 = QuestionAnswer.new(question: "quelle est la capitale de l'Allemagne ?", answer: "Berlin", quizz: quizz_capitale_europe_1)
-quizz_capitale_europe_1_QA_3.save!
-
-quizz_capitale_europe_1_QA_4 = QuestionAnswer.new(question: "quelle est la capitale de l'Espagne' ?", answer: "Madrid", quizz: quizz_capitale_europe_1)
-quizz_capitale_europe_1_QA_4.save!
-
-
-
-
-
-quizz_capitale_europe_1_QA_5 = QuestionAnswer.new(question: "quelle est la capitale du Royaume unis?", answer: "Londres", quizz: quizz_capitale_europe_1)
-quizz_capitale_europe_1_QA_5.save!
-
-quizz_capitale_europe_1_QA_6 = QuestionAnswer.new(question: "quelle est la capitale du Portugal ?", answer: "Lisbonne", quizz: quizz_capitale_europe_1)
-quizz_capitale_europe_1_QA_6.save!
-
-quizz_capitale_europe_1_QA_7 = QuestionAnswer.new(question: "quelle est la capitale de l'Italie' ?", answer: "Rome", quizz: quizz_capitale_europe_1)
-quizz_capitale_europe_1_QA_7.save!
-
-
-quizz_capitale_europe_1_QA_8 = QuestionAnswer.new(question: "quelle est la capitale de la Suède' ?", answer: "Stockolm", quizz: quizz_capitale_europe_1)
-quizz_capitale_europe_1_QA_8.save!
-
-
-quizz_capitale_europe_1_QA_9 = QuestionAnswer.new(question: "quelle est la capitale des pys bas ?", answer: "Amsterdam", quizz: quizz_capitale_europe_1)
-quizz_capitale_europe_1_QA_9.save!
-
-quizz_capitale_europe_1_QA_10 = QuestionAnswer.new(question: "quelle est la capitale de la Suisse' ?", answer: "Berne", quizz: quizz_capitale_europe_1)
-quizz_capitale_europe_1_QA_10.save!
-
-# Pour quizz faire par ordre de populalation pour créer les paquets
-
-
-######USER#####
-
-anthony = User.new(
-    name: "anthony",
-    email: "anthony@gmail.gmail",
-    password: "foobar",
-    password_confirmation: "foobar",
-    hp: 45,
-    xp: 37,
-    gem: 12,
-    gold: 1100,
-    level: 3
-)
-anthony.save!
+subthemes << world
 
 
 #Level progress geography for anthony
@@ -256,8 +131,10 @@ anthony_geography_level_3_progress.save!
 
 
 #Subtheme progression for anthony, level 1 geography
+subtheme_progress = []
 anthony_europe_progress = SubthemeProgress.new(user: anthony, subtheme: europe, unlocked: true)
 anthony_europe_progress.save!
+
 
 anthony_africa_progress = SubthemeProgress.new(user: anthony, subtheme: africa, unlocked: true)
 anthony_africa_progress.save!
@@ -274,75 +151,166 @@ anthony_asia_progress.save!
 anthony_caraibeean_progress = SubthemeProgress.new(user: anthony, subtheme: caraibeean, unlocked: false)
 anthony_caraibeean_progress.save!
 
-
 anthony_pacifica_progress = SubthemeProgress.new(user: anthony, subtheme: pacifica, unlocked: false)
 anthony_pacifica_progress.save!
-
 
 anthony_world_progress = SubthemeProgress.new(user: anthony, subtheme: world, unlocked: false)
 anthony_world_progress.save!
 
 
-#category progression for anthony, level 1 geography
-anthony_capitale_europe_progress = CategoryProgress.new(user: anthony, category: capitale, unlocked: true)
-anthony_capitale_europe_progress.save!
+#categories
 
-anthony_localization_europe_progress = CategoryProgress.new(user: anthony, category: localization, unlocked: true)
-anthony_localization_europe_progress.save!
+categories = []
 
-anthony_flag_europe_progress = CategoryProgress.new(user: anthony, category: flag, unlocked: true)
-anthony_flag_europe_progress.save!
+subthemes.each do |subtheme|
+  capitale = Category.new(subtheme: subtheme, name: "Capitales", objective: "Obtiens 2 couronnes au quizz 'Capitale #{subtheme.name} Master' niveau moyen pour obtenir le badge capitale")
+  capitale.photo.attach(io: File.open(_IMAGE_DIR_ + 'tour-eiffel.png'), filename:"capitale.png")
+  capitale.save!
+  categories << capitale
+
+  localization = Category.new(subtheme: subtheme, name: "Localisation", objective: "Obtiens 2 couronnes au quizz 'Localisation #{subtheme.name} Master' niveau moyen pour obtenir le badge localisation")
+  localization.photo.attach(io: File.open(_IMAGE_DIR_ + 'map.png'), filename:"map.png")
+  localization.save!
+  categories << localization
+
+  flag = Category.new(subtheme: subtheme, name: "Drapeaux", objective: "Obtiens 2 couronnes au quizz 'Drapeaux #{subtheme.name} Master' niveau moyen pour obtenir le badge drapeau")
+  flag.photo.attach(io: File.open(_IMAGE_DIR_ + 'flag.png'), filename:"flag.png")
+  flag.save!
+  categories << flag
+end
+
+quizzs = []
+
+categories.each do |category|
+    category_progress = CategoryProgress.new(user: anthony, category: category, unlocked: false)
+    category_progress.save!
+
+    (1..2).each do |i|
+      quizz = Quizz.new(category: category, name: "#{category.name} #{category.subtheme.name} ##{i}", ordering: i)
+      quizz.save!
+      quizzs << quizz
+    end
+
+    quizz = Quizz.new(category: category, name: "Capitale #{category.subtheme.name} Master", ordering: 3)
+    quizz.save!
+    quizzs << quizz
+end
 
 
-#quizz progression for anthony, europe capitale
+#localization quizz
+quizz_levels = []
+quizzs.each do |quizz|
+  unlocked = (quizz.ordering == 1 && quizz.theme_level.level == 1)
+  quizz_progress = QuizzProgress.new(user: anthony, quizz: quizz, unlocked: unlocked)
+  quizz_progress.save!
 
-anthony_quizz_capitale_europe_1_progress = QuizzProgress.new(user: anthony, quizz: quizz_capitale_europe_1, unlocked: true)
-anthony_quizz_capitale_europe_1_progress.save!
+  ["Facile", "Moyen", "Difficile"].each do |level|
+    quizz_level = QuizzLevel.new(name: level, quizz: quizz)
+    quizz_level.save!
+    quizz_levels << quizz_level
+  end
+end
 
-anthony_quizz_capitale_europe_2_progress = QuizzProgress.new(user: anthony, quizz: quizz_capitale_europe_2, unlocked: false)
-anthony_quizz_capitale_europe_2_progress.save!
+quizz_levels.each do |quizz_level|
+  unlocked = (quizz_level.quizz.ordering == 1 && quizz_level.quizz.theme_level.level == 1 && quizz_level.name == "Facile")
+  quizz_level_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level, unlocked: unlocked)
+  quizz_level_progress.save!
+end
 
-anthony_quizz_capitale_europe_3_progress = QuizzProgress.new(user: anthony, quizz: quizz_capitale_europe_3, unlocked: false)
-anthony_quizz_capitale_europe_3_progress.save!
+#questions / answers
 
-anthony_quizz_capitale_europe_4_progress = QuizzProgress.new(user: anthony, quizz: quizz_capitale_europe_4, unlocked: false)
-anthony_quizz_capitale_europe_4_progress.save!
+geo_subthemes = Theme.find_by(name: "Geographie").subthemes
+
+subthemes.each do |subtheme|
+  subtheme.quizzs.each do |quizz|
+    {France: "Paris"}.each do |k, v|
+      question_answer = QuestionAnswer.new(question: "quelle est la capitale de la #{k} ?", answer: v, quizz: quizz)
+      question_answer.save!
+    end
+  end
+end
+
+# SPECIAL INFO FOR ANTHONY USER
+
+ThemeLevel.find_by(level: 1).category_progresses.where(user: anthony).each { |category_progress|
+category_progress.unlocked = true
+category_progress.save!
+}
+
+ThemeLevel.find_by(level: 1).quizz_progresses.where(user: anthony).each { |quizz_progress|
+quizz_progress.unlocked = true
+quizz_progress.save!
+}
+
+anthony = User.first
+ThemeLevel.find_by(level: 1).quizz_level_progresses.where(user: anthony).each { |quizz_level_progress|
+  quizz_level_progress.unlocked = true
+  quizz_level_progress.save!
+}
 
 
-#quizz level progress for anthony, europe capitale _1
+Subtheme.find_by(name: "Océanie").category_progresses.where(user: anthony).each { |category_progress|
+  category_progress.unlocked = false
+  category_progress.save!
+}
 
-anthony_quizz_capitale_europe_1_easy_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_easy_capitale_europe_1, unlocked: true)
-anthony_quizz_capitale_europe_1_easy_progress.save!
+Subtheme.find_by(name: "Océanie").quizz_progresses.where(user: anthony).each { |quizz_progress|
+  unlocked = (quizz_progress.quizz.ordering == 1 && quizz_progress.quizz.theme_level.level == 1 || quizz_progress.quizz.name == "Capitale Océanie Master")
+  quizz_progress.unlocked = unlocked
+  quizz_progress.save!
+}
 
-anthony_quizz_capitale_europe_1_medium_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_medium_capitale_europe_1, unlocked: false)
-anthony_quizz_capitale_europe_1_medium_progress.save!
+anthony = User.first
+Subtheme.find_by(name: "Océanie").quizz_level_progresses.where(user: anthony).each { |quizz_level_progress|
+  unlocked = (quizz_level_progress.quizz_level.quizz.ordering == 1 && quizz_level_progress.quizz_level.quizz.theme_level.level == 1 &&quizz_level_progress.quizz_level.name == "Facile" || quizz_level_progress.quizz_level.quizz.name == "Capitale Océanie Master")
+  quizz_level_progress.unlocked = unlocked
+  quizz_level_progress.save!
+}
 
-anthony_quizz_capitale_europe_1_hard_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_hard_capitale_europe_1, unlocked: false)
-anthony_quizz_capitale_europe_1_hard_progress.save!
 
 
-anthony_quizz_capitale_europe_2_easy_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_easy_capitale_europe_2, unlocked: false)
-anthony_quizz_capitale_europe_2_easy_progress.save!
+# quizz_capitale_europe_1_QA_3 = QuestionAnswer.new(question: "quelle est la capitale de l'Allemagne ?", answer: "Berlin", quizz: quizz_capitale_europe_1)
+# quizz_capitale_europe_1_QA_3.save!
 
-anthony_quizz_capitale_europe_2_medium_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_medium_capitale_europe_2, unlocked: false)
-anthony_quizz_capitale_europe_2_medium_progress.save!
+# quizz_capitale_europe_1_QA_4 = QuestionAnswer.new(question: "quelle est la capitale de l'Espagne' ?", answer: "Madrid", quizz: quizz_capitale_europe_1)
+# quizz_capitale_europe_1_QA_4.save!
 
-anthony_quizz_capitale_europe_2_hard_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level_hard_capitale_europe_2, unlocked: false)
-anthony_quizz_capitale_europe_2_hard_progress.save!
+# quizz_capitale_europe_1_QA_5 = QuestionAnswer.new(question: "quelle est la capitale du Royaume unis?", answer: "Londres", quizz: quizz_capitale_europe_1)
+# quizz_capitale_europe_1_QA_5.save!
 
-#Flashcards for anthony
+# quizz_capitale_europe_1_QA_6 = QuestionAnswer.new(question: "quelle est la capitale du Portugal ?", answer: "Lisbonne", quizz: quizz_capitale_europe_1)
+# quizz_capitale_europe_1_QA_6.save!
 
-flashcard_1 = Flashcard.new(user: anthony, unlocked: true, trick: "penser à la tour", editable: false, easyness_factor: 1.2, repetition: 0, interval: 1, mistake_count: 0, question_answer: quizz_capitale_europe_1_QA_1)
-flashcard_1.save!
+# quizz_capitale_europe_1_QA_7 = QuestionAnswer.new(question: "quelle est la capitale de l'Italie' ?", answer: "Rome", quizz: quizz_capitale_europe_1)
+# quizz_capitale_europe_1_QA_7.save!
 
-flashcard_2 = Flashcard.new(user: anthony, unlocked: true, trick: "penser à la tour", editable: false, easyness_factor: 1.2, repetition: 0, interval: 1, mistake_count: 0, question_answer: quizz_capitale_europe_1_QA_2)
-flashcard_2.save!
 
-flashcard_3 = Flashcard.new(user: anthony, unlocked: true, trick: "penser à la tour", editable: false, easyness_factor: 1.2, repetition: 0, interval: 1, mistake_count: 0, question_answer: quizz_capitale_europe_1_QA_3)
-flashcard_3.save!
+# quizz_capitale_europe_1_QA_8 = QuestionAnswer.new(question: "quelle est la capitale de la Suède' ?", answer: "Stockolm", quizz: quizz_capitale_europe_1)
+# quizz_capitale_europe_1_QA_8.save!
 
-flashcard_4 = Flashcard.new(user: anthony, unlocked: true, trick: "penser à la tour", editable: false, easyness_factor: 1.2, repetition: 0, interval: 1, mistake_count: 0, question_answer: quizz_capitale_europe_1_QA_4)
-flashcard_4.save!
+
+# quizz_capitale_europe_1_QA_9 = QuestionAnswer.new(question: "quelle est la capitale des pys bas ?", answer: "Amsterdam", quizz: quizz_capitale_europe_1)
+# quizz_capitale_europe_1_QA_9.save!
+
+# quizz_capitale_europe_1_QA_10 = QuestionAnswer.new(question: "quelle est la capitale de la Suisse' ?", answer: "Berne", quizz: quizz_capitale_europe_1)
+# quizz_capitale_europe_1_QA_10.save!
+
+# Pour quizz faire par ordre de populalation pour créer les paquets
+
+
+# #Flashcards for anthony
+
+# flashcard_1 = Flashcard.new(user: anthony, unlocked: true, trick: "penser à la tour", editable: false, easyness_factor: 1.2, repetition: 0, interval: 1, mistake_count: 0, question_answer: quizz_capitale_europe_1_QA_1)
+# flashcard_1.save!
+
+# flashcard_2 = Flashcard.new(user: anthony, unlocked: true, trick: "penser à la tour", editable: false, easyness_factor: 1.2, repetition: 0, interval: 1, mistake_count: 0, question_answer: quizz_capitale_europe_1_QA_2)
+# flashcard_2.save!
+
+# flashcard_3 = Flashcard.new(user: anthony, unlocked: true, trick: "penser à la tour", editable: false, easyness_factor: 1.2, repetition: 0, interval: 1, mistake_count: 0, question_answer: quizz_capitale_europe_1_QA_3)
+# flashcard_3.save!
+
+# flashcard_4 = Flashcard.new(user: anthony, unlocked: true, trick: "penser à la tour", editable: false, easyness_factor: 1.2, repetition: 0, interval: 1, mistake_count: 0, question_answer: quizz_capitale_europe_1_QA_4)
+# flashcard_4.save!
 
 
 #achievements

@@ -18,7 +18,13 @@
         <div class="subtheme-card-progress">
           <% if @subtheme_unlocked %>
             <% subtheme.categories.each do |category| %>
-              <%= cl_image_tag category.photo.key, height: 40, crop: :fill, style: "opacity:0.3" %>
+              <% @category_unlock = current_user.category_progresses.find_by(category: category) %>
+              <% if @category_unlock &.unlocked %>
+                <% @opacity = 1  %>
+              <% else %>
+                <% @opacity = 0.15 %>
+              <% end %>
+              <%= cl_image_tag category.photo.key, height: 40, crop: :fill, style: "opacity:#{@opacity}" %>
             <% end %>
           <% else %>
             <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4" %>

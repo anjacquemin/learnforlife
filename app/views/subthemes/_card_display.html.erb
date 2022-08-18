@@ -1,5 +1,7 @@
-<% unless @user_quizz_progress_unlocked %>
+<% if !@user_quizz_progress_unlocked %>
   <%= render "set_lock_and_blur", for_: "quizz" %>
+<% else %>
+  <% @quizz_blur_style = "" %>
 <% end %>
 <div class="quizz-card-banner" <%= @quizz_blur_style %>>
   <h2> <%= quizz.name %> </h2>
