@@ -10,10 +10,16 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "2000", "#", class: "nav-link" %>
+            <div class="gemme">
+              <%= image_tag "gemme1.png", height: 20 %>
+              <%= link_to "2000", "#", class: "nav-link" %>
+            </div>
           </li>
           <li class="nav-item">
-            <%= link_to "10", "#", class: "nav-link" %>
+            <div class="pieces">
+              <%= image_tag "pieces.png", height: 20 %>
+              <%= link_to "10", "#", class: "nav-link" %>
+            </div>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

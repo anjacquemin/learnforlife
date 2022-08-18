@@ -13,3 +13,8 @@
 .navbar .navbar-brand img {
   width: 40px;
 }
+
+.navbar .pieces, .navbar .gemme{
+  display: flex;
+  align-items: center;
+}
