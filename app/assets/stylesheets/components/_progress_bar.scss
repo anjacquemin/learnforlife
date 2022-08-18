@@ -26,6 +26,14 @@
   background-color: $orange;
 }
 
+.character-health{
+  display: flex;
+  align-items: center;
+  img{
+    padding-right: 5px
+  }
+}
+
 .character-health .progressbar {
   background-color: $red;
 }

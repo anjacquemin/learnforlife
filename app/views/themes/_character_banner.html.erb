@@ -6,10 +6,11 @@
     <p>Préhistoire</p>
     <p>Lvl <%= @user.level %> - Homme de cro-magnon ! </p>
     <div class="character-health">
-      <%= render "progress_bar", value: "#{@user.hp}/100"  %>
+      <%= image_tag "heart (1).png", height: 14 %>
+      <%= render "progress_bar", value: (@user.hp.to_f / 100 * 100).round, display_with: "#{@user.hp}/100"   %>
     </div>
     <div class="character-xp">
-      <%= render "progress_bar", value: "#{@user.xp}/50"  %>
+      <%= render "progress_bar", value: (@user.xp.to_f / 50 * 100).round, display_with: "#{@user.xp}/50"   %>
     </div>
   </div>
 </div>

@@ -223,7 +223,7 @@ geo_subthemes = Theme.find_by(name: "Geographie").subthemes
 
 subthemes.each do |subtheme|
   subtheme.quizzs.each do |quizz|
-    {France: "Paris"}.each do |k, v|
+    {France: "Paris", Allemage: "Berlin", Irlande: "Dublin", Espagne: "Madrid"}.each do |k, v|
       question_answer = QuestionAnswer.new(question: "quelle est la capitale de la #{k} ?", answer: v, quizz: quizz)
       question_answer.save!
     end
