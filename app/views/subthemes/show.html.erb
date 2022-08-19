@@ -16,8 +16,8 @@
           <% @user_quizz_progress_unlocked = is_unlocked_for_user?(quizz, "quizz", current_user) %>
           <%= render "quizz_separator", index: index %>
           <div class="quizz-card">
-            <%= render "card_display", quizz: quizz %>
-            <%= render "level_display", quizz: quizz %>
+            <%= render "shared/card_display", quizz: quizz %>
+            <%= render "shared/level_display", quizz: quizz %>
           </div>
         <% end %>
       </div>

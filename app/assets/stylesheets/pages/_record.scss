@@ -104,3 +104,22 @@
 .grid-title{
   font-weight: 600;
 }
+
+
+// MODALS
+
+.unlock_item_display{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  p {
+    text-align: center;
+    margin: 0;
+  }
+
+  > * {
+    margin: 30px;
+  }
+
+}

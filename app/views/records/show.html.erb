@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" data-controller="record" data-total-unlock-items = <%=@total_unlocked_items%>>
   <div class="record-show my-4">
     <%= image_tag "congratulation.png"%>
     <h2>NOUVEAU RECORD</h2>
@@ -46,54 +46,26 @@
       </div>
     </div>
     <%= link_to "continue", themes_path, class: "btn btn-purple my-4" %>
+    <p>ADD SEE UNLOCKED ITEMS</p>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="height: 40px; background-color:black;">
   </div>
+
+  <%# <% @unlocked_items[:quizz_level] = QuizzLevel.first%> %>
+  <% @count = 0 %>
+  <% if @unlocked_items[:quizz_level] %>
+    <% @count += 1 %>
+    <%= render 'achievement_modal',type: "quizz_level", sentence: "Félicitation, vous avez débloquez le niveau #{@unlocked_items[:quizz_level].name} du quizz #{@unlocked_items[:quizz_level].quizz.name}", quizz:@unlocked_items[:quizz_level].quizz%>
+  <% end %>
+
+  <% if @unlocked_items[:quizz] %>
+    <% @count += 1 %>
+    <%= render 'achievement_modal', type: "quizz", sentence: "Félicitation, vous avez débloquez le quizz #{@unlocked_items[:quizz].name}", quizz: @unlocked_items[:quizz]%>
+  <% end %>
+
+  <% if  @unlocked_items[:category] %>
+    <% @count += 1 %>
+    <%= render 'achievement_modal', type: "category", sentence: "Félicitation, vous avez terminé tous les quizz #{@unlocked_items[:category].name} de niveau #{@unlocked_items[:category].subtheme.theme_level.name} ! Et avez débloqué #{@unlocked_items[:theme_level].name} de #{@unlocked_items[:theme_level].theme.name}"%>
+  <% end %>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Détails</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="synthesis">
-          <div class="question-synthese grid-title">
-            <p>Question</p>
-          </div>
-          <div class="question-synthese grid-title">
-            <p>Bonne réponse</p>
-          </div>
-          <div class="question-synthese grid-title">
-            <p>Votre réponse</p>
-          </div>
-          <div class="question-synthese last-grid-column grid-title">
-            <p>Ok ?</p>
-          </div>
-          <% @synthesis.each do |question_synthese| %>
-            <div class="question-synthese">
-              <p> <%=question_synthese[:question]  %> </p>
-            </div>
-            <div class="question-synthese">
-              <p><%=question_synthese[:answer]%></p>
-            </div>
-            <div class="question-synthese">
-              <p><%=question_synthese[:user_answer]%></p>
-            </div>
-            <div class="question-synthese last-grid-column">
-              <% if question_synthese[:is_good] %>
-                <%= image_tag 'verifie.png' %>
-              <% else %>
-                <%= image_tag 'annuler.png' %>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'synthesis_modal' %>
