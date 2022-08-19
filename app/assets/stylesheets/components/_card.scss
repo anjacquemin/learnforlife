@@ -36,6 +36,10 @@ a{
 
 .theme-quizz-card {
   @include box_properties;
+  position: relative;
+  overflow: hidden;
+  z-index:0;
+
 
   .achievement_count{
     display: flex;
@@ -43,6 +47,25 @@ a{
     img{
       height: 15px;
     }
+  }
+
+  // test for hovering
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: $purple;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  &:hover:before {
+    transform: scale(21);
   }
 }
 
@@ -70,10 +93,33 @@ a{
   .separator {
     flex-grow: 1;
   }
+
+  position: relative;
+  overflow: hidden;
+  z-index:0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: $purple;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  &:hover:before {
+    transform: scale(21);
+  }
 }
 
 
 .theme-quizz-card:hover, .theme-flashcard-card:hover{
+  transition: all 0.3s ease-out;
   background-color: $purple;
   color: white;
 
@@ -96,6 +142,9 @@ a{
 }
 
 
+
+
+
 .subtheme-card{
   height: 140px;
   width: 200px;
@@ -113,6 +162,12 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 10px 0 0;
+    padding: 10px 0;
+
+    .quizz-cards-count{
+      display: flex;
+    }
 
     p{
       margin-bottom: 0;
@@ -120,11 +175,36 @@ a{
     }
     img{
       height: 20px;
+      margin-right:5px ;
     }
+  }
+
+
+  position: relative;
+  overflow: hidden;
+  z-index:0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: $purple;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  &:hover:before {
+    transform: scale(21);
   }
 }
 
 .subtheme-card:hover{
+  transition: all 0.3s;
   background-color: $purple;
   color: white;
   .subtheme-card-banner{
@@ -135,6 +215,7 @@ a{
 
 
 .card-objective{
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
   border-radius: $border-radius-lg;
   background-color: $yellow;
   display: flex;
@@ -207,6 +288,7 @@ a{
   display: flex;
   justify-content: space-around;
   a:hover{
+    transition: all 0.3s;
     color: black;
   }
 }
@@ -227,6 +309,7 @@ a{
 }
 
 .level-hovering:hover{
+  transition: all 0.3s;
   background-color: $purple;
   color: white;
   .subtheme-card-banner{
