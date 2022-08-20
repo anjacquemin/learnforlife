@@ -1,33 +1,59 @@
 <div class="subthemes-display my-3">
   <% theme_level.subthemes.each do |subtheme| %>
     <%=link_to subtheme_path(subtheme) do%>
-      <div class="subtheme-card">
+
+
+      <div class="subtheme-card-enhanced">
 
         <% subtheme_progress = @user.subtheme_progresses.find_by(subtheme: subtheme) %>
 
         <% if subtheme && @subtheme_unlocked = (subtheme_progress &.unlocked)  %>
           <%@subtheme_blur = 3 %>
         <% end %>
-        <div class="subtheme-card-banner" style='filter: blur(<%=@level_blur%>px)'>
-          <h2> <%= subtheme.name %> </h2>
-          <div class="quizz-cards-count">
-            <%= image_tag "cards.png" %>
-            <p><%= subtheme.question_answers.count %></p>
+        <div class= "cards-number" style='filter: blur(<%=@level_blur%>px)'>
+          <h2><%= subtheme.question_answers.count %></h2>
+          <p>cartes</p>
+        </div>
+        <div class="content" style='filter: blur(<%=@level_blur%>px)'>
+          <h2><%= subtheme.name %></h2>
+          <div class= "achievement-count" style='filter: blur(<%=@level_blur%>px)'>
+            <%= image_tag "crown.png" %>
+            <p>2 / 35 </p>
           </div>
         </div>
-        <div class="subtheme-card-progress">
+        <div class="circle-container" style='filter: blur(<%=@level_blur%>px)'>
+          <div class="circle-wrap "
+            data-theme-show-target = "circleDiv<%=1%>"
+            data-rotate<%=1%> = <%=3.6%>>
+            <div class="circle">
+              <div class="mask half">
+                <div class="fill" data-theme-show-target= "circle<%=1%>"></div>
+              </div>
+              <div class="mask full" data-theme-show-target= "circle<%=1%>">
+                <div class="fill" data-theme-show-target= "circle<%=1%>"></div>
+              </div>
+              <div class="inside-circle"> <%= 99 %>%</div>
+            </div>
+          </div>
+        </div>
+        <div class="badge-progress">
           <% if @subtheme_unlocked %>
-            <% subtheme.categories.each do |category| %>
-              <% @category_unlock = current_user.category_progresses.find_by(category: category) %>
-              <% if @category_unlock &.unlocked %>
-                <% @opacity = 1  %>
-              <% else %>
-                <% @opacity = 0.15 %>
+            <div class="badge-count">
+              <p>0/3</p>
+            </div>
+            <div class="badge-display">
+              <% subtheme.categories.each do |category| %>
+                <% @category_unlock = current_user.category_progresses.find_by(category: category) %>
+                <% if @category_unlock &.unlocked %>
+                  <% @opacity = 1  %>
+                <% else %>
+                  <% @opacity = 0.15 %>
+                <% end %>
+                <%= cl_image_tag category.photo.key, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>
               <% end %>
-              <%= cl_image_tag category.photo.key, height: 40, crop: :fill, style: "opacity:#{@opacity}" %>
-            <% end %>
-          <% else %>
-            <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4" %>
+            </div>
+            <% else %>
+              <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4" %>
           <% end %>
         </div>
       </div>

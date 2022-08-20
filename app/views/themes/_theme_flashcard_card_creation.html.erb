@@ -1,13 +1,12 @@
 <div class="themes-list">
   <% @themes.each do |theme| %>
     <%=link_to theme_path(theme) do%>
-
-      <div class="theme-flashcard-card">
-        <div class="separator">
-          <div class="theme-title">
-            <%= cl_image_tag theme.photo.key, height: 20, crop: :fill %>
-            <p><%=theme.name.upcase%></p>
-          </div>
+      <div class="card-enhanced flashcard">
+        <div class="icon">
+          <i class="fas fa-atlas"></i>
+        </div>
+        <div class="content">
+          <h2>Geographie</h2>
           <div class="theme-progress">
             <%= render "progress_bar", value: "10/50", display_with: "%"  %>
           </div>

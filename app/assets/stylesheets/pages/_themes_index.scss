@@ -1,3 +1,32 @@
+.banner > h2 {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.quizz {
+  .banner > h2{
+    color: $purple ;
+    background-color: rgba($light_purple, 0.1);
+  }
+  .themes-list{
+    background-color: rgba($light-purple, 0.1);
+  }
+}
+
+.flashcards {
+  .banner > h2{
+    color: $green ;
+    background-color: rgba($green, 0.1);
+  }
+  .themes-list{
+    background-color: rgba($green, 0.1);
+  }
+
+  .active-tab{
+    border-bottom: 3px solid $green;
+  }
+}
+
 h2 {
   font-size: $subtitle-size;
   font-weight: 600;
@@ -21,7 +50,6 @@ h2 {
 }
 
 .themes-list {
-  background-color: $light-gray;
   border-radius: $border-radius-lg;
   margin: 0 5px;
   padding: 30px 10px;

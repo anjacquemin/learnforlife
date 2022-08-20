@@ -10,7 +10,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .card-enhanced .icon {
@@ -52,5 +51,122 @@
   }
   img{
     height: 15px;
+  }
+}
+
+
+.card-enhanced.flashcard{
+  .icon{
+    background-color: rgba($green, 0.1);
+    color: $green;
+    border: 1px solid rgba($green, 0.1);
+  }
+  .flashcard-count{
+    border-left: 2px solid black;
+    padding-left: 8px;
+    p {
+      font-weight: bold;
+    }
+  }
+  .progressbar-wrapper{
+    background-color: rgba($green, 0.1);
+  }
+  .progressbar{
+    background-color: ($green);
+  }
+}
+
+
+.subtheme-card-enhanced {
+  height: 90px;
+  background: white;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  border-radius: $border-radius-lg;
+  margin:10px;
+  width: 400px;
+  border-radius: $border-radius-lg;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+
+  .cards-number{
+    text-align: center;
+    background-color: rgba($light_purple, 0.3);
+    border-radius: $border-radius-lg;
+    color: $purple;
+    margin-right: 8px;
+    height: auto;
+    border: 1px solid rgba($light_purple, 0.1);
+    padding: 10px;
+    font-size: 16px;
+    p{
+      margin-bottom: 0px;
+    }
+  }
+
+  .content{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+    margin-left: 5px
+  }
+
+  .circle-container{
+    width: 80px
+  }
+
+  .achievement-count{
+    display: flex;
+    align-items: center;
+    p{
+      margin-bottom: 0;
+      margin-top: 0;
+      margin-left: 5px;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+    img{
+      height: 15px;
+    }
+  }
+
+  .badge-progress{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 90%;
+    width: 30%;
+    border-left: dotted 1px $purple;
+    .p{
+      position: center;
+      display: flex;
+      align-items: center;
+    }
+    .badge-display{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      img{
+        margin: 0 2px;
+      }
+    }
+    .badge-count{
+      width: 50%;
+      text-align: center;
+      background-color: rgba($green, 0.1);
+      border-radius: $border-radius-lg;
+      color: $green;
+      border: 1px solid rgba($green, 0.1);
+      padding: 2px;
+      font-size: 16px;
+      font-weight: bold;
+      p{
+        margin-bottom: 0;
+      }
+    }
   }
 }

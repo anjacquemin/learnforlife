@@ -1,14 +1,13 @@
+<div class="theme-title theme-show">
+  <h1><i class="fas fa-atlas"></i><%=@theme.name%></h1>
+</div>
 <div class="container theme-show">
-  <div class="theme-title mt-5">
-    <%= cl_image_tag @theme.photo.key, height: 50, crop: :fill %>
-    <h1><%=@theme.name%></h1>
-  </div>
   <div class="theme-level">
     <% @theme.theme_levels.order(:level).each do |theme_level| %>
       <% unless is_unlocked_for_user?(theme_level, "theme_level", @user) %>
         <% @level_blur = 2 %>
       <% end %>
-      <div class="theme-level-separator my-5">
+      <div class="theme-level-separator my-4">
         <h2><%= theme_level.name.upcase %></h2>
       </div>
       <div class="card-objective mb-3" style='filter: blur(<%=@level_blur%>px)'>
