@@ -1,4 +1,4 @@
-<div class="subthemes-display my-3">
+<div class="subthemes-display">
   <% theme_level.subthemes.each do |subtheme| %>
     <%=link_to subtheme_path(subtheme) do%>
       <div class="subtheme-card">
@@ -65,9 +65,9 @@
     </div>
   </div>
   <div class="badge-progress">
-    <div class="badge-count">
+    <%# <div class="badge-count">
       <p>0/3</p>
-    </div>
+    </div> %>
     <div class="badge-display">
         <%= cl_image_tag Category.first.photo.key, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>
         <%= cl_image_tag Category.first.photo.key, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>

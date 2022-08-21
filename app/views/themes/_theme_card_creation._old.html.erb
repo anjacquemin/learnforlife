@@ -1,20 +1,17 @@
 <div class="themes-list">
   <% @themes.each do |theme| %>
     <%=link_to theme_path(theme) do%>
-      <%  @total_crowns = Record.where(user: current_user, crown_or_sphere: "crown").joins(:theme).where(themes: {name: theme.name}).group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
-      <%  @total_spheres = Record.where(user: current_user, crown_or_sphere: "sphere").joins(:theme).where(themes: {name: "Geographie"}).group(:quizz_level_id).maximum(:completion).sum{|k,v| v } %>
-      <% @total = @total_crowns + @total_spheres %>
-      <% @progress = (theme.quizz_levels.count.zero? ? 0 : (@total.to_f / (theme.quizz_levels.count * 3) * 100)).round()%>
-      <%= render "progress_bar", value: @progress, display_with: "#{@progress}%"  %>
-
-
-
       <div class="theme-quizz-card">
         <div class="theme-title">
           <%= cl_image_tag theme.photo.key, height: 20, crop: :fill %>
           <p><%=theme.name.upcase%></p>
         </div>
         <div class="theme-progress">
+          <%  @total_crowns = Record.where(user: current_user, crown_or_sphere: "crown").joins(:theme).where(themes: {name: theme.name}).group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
+          <%  @total_spheres = Record.where(user: current_user, crown_or_sphere: "sphere").joins(:theme).where(themes: {name: "Geographie"}).group(:quizz_level_id).maximum(:completion).sum{|k,v| v } %>
+          <% @total = @total_crowns + @total_spheres %>
+          <% @progress = (theme.quizz_levels.count.zero? ? 0 : (@total.to_f / (theme.quizz_levels.count * 3) * 100)).round()%>
+          <%= render "progress_bar", value: @progress, display_with: "#{@progress}%"  %>
           <div class="achievement_count">
             <%= image_tag 'crown.png' %>
             <p><%= @total_crowns %> </p>

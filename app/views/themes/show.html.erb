@@ -1,5 +1,5 @@
 <div class="theme-title theme-show">
-  <h1><i class="fas fa-atlas"></i><%=@theme.name%></h1>
+  <h1><i class="fas fa-atlas"></i><%=@theme.name.upcase%></h1>
 </div>
 <div class="container theme-show">
   <div class="theme-level">
@@ -7,13 +7,16 @@
       <% unless is_unlocked_for_user?(theme_level, "theme_level", @user) %>
         <% @level_blur = 2 %>
       <% end %>
-      <div class="theme-level-separator my-4">
+      <div class="my-3"></div>
+      <div class="theme-level-separator">
         <h2><%= theme_level.name.upcase %></h2>
       </div>
-      <div class="card-objective mb-3" style='filter: blur(<%=@level_blur%>px)'>
+      <div class="my-3"></div>
+      <div class="card-objective" style='filter: blur(<%=@level_blur%>px)'>
         <%= image_tag "quest2.png" %>
         <p> <%=theme_level.objective%> </p>
       </div>
+      <div class="my-3"></div>
       <%= render 'subthemes_display', theme_level: theme_level %>
     <% end %>
   </div>

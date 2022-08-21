@@ -1,0 +1,12 @@
+<% if !@user_quizz_progress_unlocked %>
+  <%= render "shared/set_lock_and_blur", for_: "quizz" %>
+<% else %>
+  <% @quizz_blur_style = "" %>
+<% end %>
+<div class="quizz-card-banner" <%= @quizz_blur_style %>>
+  <h2> <%= quizz.name %> </h2>
+  <div class="quizz-cards-count">
+    <%= image_tag "cards.png" %>
+    <p><%= quizz.question_answers.count %></p>
+  </div>
+</div>

@@ -1,6 +1,8 @@
 .card-question{
-  height: 400px;
-  background: white;
+  height: 30vh;
+  // background: white;
+  background-color: rgba($purple, 1);
+  color: white;
   box-shadow: 1.95px 1.95px 4.6px rgba(0, 0, 0, 0.20);
   border-radius: $border-radius-lg;
   padding: 20px 10px;

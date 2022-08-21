@@ -1,46 +1,41 @@
-<div class="theme-title subtheme-show">
-  <div class="quizz-level-title">
+<div class="container level-show" data-controller="quizz-answer" data-stimulus-connect-count = 0>
+  <div class="mt-5 mb-3 level-show-banner">
     <%= cl_image_tag @quizz.category.photo.key, height: 50 %>
-    <h2><%= "#{@quizz.name.upcase} - #{@quizz_level.name.capitalize}" %></h2>
-    <% @stars_count.times do %>
-      <%= image_tag 'star1.png' %>
-    <% end %>
+    <div class="quizz-level-title">
+      <h2><%= "#{@quizz.name.upcase} - #{@quizz_level.name.capitalize}" %></h2>
+      <% @stars_count.times do %>
+        <%= image_tag 'star1.png' %>
+      <% end %>
+    </div>
   </div>
-</div>
-<div class="my-3"></div>
-<div class="level-show" data-controller="quizz-answer" data-stimulus-connect-count = 0>
-  <div class="questions_count">
+  <hr class="horizontal-divider">
+  <div class="questions_count mt-2">
     <div class="card-count-details">
       <div class="card-progressbar-wrapper">
         <div title="card-count" class="progressbar card-completion"  data-quizz-answer-target = "cardCountBar"></div>
       </div>
-      <div class= "card-number">
+      <div>
         <p data-quizz-answer-target = "cardCountNumber">0/10</p>
       </div>
     </div>
+    <div class="timer">
+      <%= image_tag 'sablier1.png', height: 32 %>
+      <p data-quizz-answer-target="seconds">00</p>
+      <%# <p>:</p> %>
+      <p class="d-none"data-quizz-answer-target="tens"></p>
+      <p>s</p>
+    </div>
   </div>
-  <div class="my-3"></div>
-  <div class="timer">
-    <p><i class="fa-solid fa-stopwatch"></i></p>
-    <p data-quizz-answer-target="seconds">00</p>
-    <%# <p>:</p> %>
-    <p class="d-none"data-quizz-answer-target="tens"></p>
-    <p>s</p>
-  </div>
-  <div class="my-3"></div>
-  <%@quizz.question_answers.each_with_index do |question_answer, index| %>
-    <% if index !=0 %>
-      <% question_class = 'class = "questions d-none"' %>
-    <% else %>
-      <% question_class = 'class = "questions"' %>
-    <% end %>
-    <div <%= question_class.html_safe %> data-quizz-answer-target = <%="questionCard#{index}"%>>
-      <div class = "card-question">
+  <div class="questions my-5">
+    <%@quizz.question_answers.each_with_index do |question_answer, index| %>
+      <% if index !=0 %>
+        <% question_class = 'class = "card-question d-none"' %>
+      <% else %>
+        <% question_class = 'class = "card-question"' %>
+      <% end %>
+      <div <%= question_class.html_safe %> data-quizz-answer-target = <%="questionCard#{index}"%>>
         <h2><%=question_answer.question %></h2>
-      </div>
-
-      <%# ANSWER DIV %>
-      <div>
+        <hr class="horizontal-divider-light">
         <div class="answer"
             data-good-answer-id = <%= question_answer.id %>
             data-question-id = <%=question_answer.id%>
@@ -61,10 +56,10 @@
             </div>
           <% end %>
         </div>
+      </div>
+    <% end %>
+    <div data-quizz-answer-target = "endButtonDisplay" >
 
-     </div>
     </div>
-  <% end %>
-  <div data-quizz-answer-target = "endButtonDisplay" >
   </div>
 </div>

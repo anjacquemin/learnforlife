@@ -1,4 +1,4 @@
-<div class="subthemes-display my-3">
+<div class="subthemes-display">
   <% theme_level.subthemes.each do |subtheme| %>
     <%=link_to subtheme_path(subtheme) do%>
 
@@ -38,9 +38,9 @@
         </div>
         <div class="badge-progress">
           <% if @subtheme_unlocked %>
-            <div class="badge-count">
+            <%# <div class="badge-count">
               <p>0/3</p>
-            </div>
+            </div> %>
             <div class="badge-display">
               <% subtheme.categories.each do |category| %>
                 <% @category_unlock = current_user.category_progresses.find_by(category: category) %>

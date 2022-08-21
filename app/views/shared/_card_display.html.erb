@@ -4,9 +4,19 @@
   <% @quizz_blur_style = "" %>
 <% end %>
 <div class="quizz-card-banner" <%= @quizz_blur_style %>>
-  <h2> <%= quizz.name %> </h2>
-  <div class="quizz-cards-count">
-    <%= image_tag "cards.png" %>
-    <p><%= quizz.question_answers.count %></p>
+  <div class="cards-number">
+    <h2><%= quizz.question_answers.count %></h2>
+    <p>cartes</p>
+  </div>
+  <div class="content">
+    <h2> QUIZZ #<%= quizz.ordering %> </h2>
+    <div class="achievement-count">
+      <%= image_tag "crown.png" %>
+      <p>3/9</p>
+    </div>
+  </div>
+  <div class="ranking">
+    <h2>0<sup>ème</sup></h2>
+    <p>/150</p>
   </div>
 </div>

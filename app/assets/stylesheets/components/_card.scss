@@ -215,14 +215,20 @@ a{
 .card-objective{
   box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
   border-radius: $border-radius-lg;
-  background-color: $yellow;
+  background-color: rgba($yellow, 0.4);
   display: flex;
   align-items: center;
-  padding: 20px;
-  margin: 0 10%;
+  padding: 10px;
   p{
     margin-bottom:0;
     margin-left: 20px;
+  }
+
+  img{
+    // background-color:rgba($yellow, 0.8);
+    // border: 1px solid rgba($yellow, 0.8);
+    padding: 10px;
+    // border-radius: $border-radius-lg;
   }
 }
 
@@ -235,7 +241,7 @@ a{
 
 
 .quizz-card{
-  height: 200px;
+  height: 220px;
   width: 380px;
   background: white;
   box-shadow: 1.95px 1.95px 4.6px rgba(0, 0, 0, 0.20);
@@ -265,13 +271,9 @@ a{
   }
 
   .quizz-card-banner{
-    border-bottom: 2px solid black;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-right: 10px;
-    padding-left: 10px;
-
     p{
       margin-bottom: 0;
       text-align: center;
@@ -280,6 +282,75 @@ a{
       height: 20px;
     }
   }
+
+  .cards-number{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba($light_purple, 0.1);
+    border-radius: $border-radius-lg;
+    color: $purple;
+    // margin-right: 8px;
+    height: 70px;
+    border: 1px solid rgba($light_purple, 0.1);
+    font-size: 16px;
+    width: 100px;
+    p{
+      margin-bottom: 0px;
+    }
+  }
+
+  .content{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .achievement-count{
+    display: flex;
+    align-items: center;
+    p{
+      margin-bottom: 0;
+      margin-top: 0;
+      margin-left: 5px;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+    img{
+      height: 15px;
+    }
+  }
+
+  .ranking{
+    text-align: center;
+    background-color: rgba($green, 0.1);
+    border-radius: $border-radius-lg;
+    color: $green;
+    // margin-right: 8px;
+    height: auto;
+    border: 1px solid rgba($green, 0.1);
+    padding: 10px;
+    font-size: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 100px;
+    // border-left: dotted 1px $purple;
+    h2 {
+      font-size: 20px
+    }
+    sup{
+      font-size: 16px;
+    }
+  }
+
 }
 
 .levels-display{
