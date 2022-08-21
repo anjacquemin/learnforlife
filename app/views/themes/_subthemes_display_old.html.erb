@@ -1,0 +1,77 @@
+<div class="subthemes-display">
+  <% theme_level.subthemes.each do |subtheme| %>
+    <%=link_to subtheme_path(subtheme) do%>
+      <div class="subtheme-card">
+
+        <% subtheme_progress = @user.subtheme_progresses.find_by(subtheme: subtheme) %>
+
+        <% if subtheme && @subtheme_unlocked = (subtheme_progress &.unlocked)  %>
+          <%@subtheme_blur = 3 %>
+        <% end %>
+        <div class="subtheme-card-banner" style='filter: blur(<%=@level_blur%>px)'>
+          <h2> <%= subtheme.name %> </h2>
+          <div class="quizz-cards-count">
+            <%= image_tag "cards.png" %>
+            <p><%= subtheme.question_answers.count %></p>
+          </div>
+        </div>
+        <div class="subtheme-card-progress">
+          <% if @subtheme_unlocked %>
+            <% subtheme.categories.each do |category| %>
+              <% @category_unlock = current_user.category_progresses.find_by(category: category) %>
+              <% if @category_unlock &.unlocked %>
+                <% @opacity = 1  %>
+              <% else %>
+                <% @opacity = 0.15 %>
+              <% end %>
+              <%= cl_image_tag category.photo.key, height: 40, crop: :fill, style: "opacity:#{@opacity}" %>
+            <% end %>
+          <% else %>
+            <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+<div class="subtheme-card-enhanced">
+  <div class= "cards-number">
+    <h2>600</h2>
+    <p>cartes</p>
+  </div>
+  <div class="content">
+    <h2>Caraibes</h2>
+    <div class= "achievement-count">
+      <%= image_tag "crown.png" %>
+      <p>2 / 35 </p>
+    </div>
+  </div>
+  <div class="circle-container">
+    <div class="circle-wrap "
+      data-theme-show-target = "circleDiv<%=1%>"
+      data-rotate<%=1%> = <%=3.6%>>
+      <div class="circle">
+        <div class="mask half">
+          <div class="fill" data-theme-show-target= "circle<%=1%>"></div>
+        </div>
+        <div class="mask full" data-theme-show-target= "circle<%=1%>">
+          <div class="fill" data-theme-show-target= "circle<%=1%>"></div>
+        </div>
+        <div class="inside-circle"> <%= 99 %>%</div>
+      </div>
+    </div>
+  </div>
+  <div class="badge-progress">
+    <%# <div class="badge-count">
+      <p>0/3</p>
+    </div> %>
+    <div class="badge-display">
+        <%= cl_image_tag Category.first.photo.key, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>
+        <%= cl_image_tag Category.first.photo.key, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>
+        <%= cl_image_tag Category.first.photo.key, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>
+    </div>
+  </div>
+</div>

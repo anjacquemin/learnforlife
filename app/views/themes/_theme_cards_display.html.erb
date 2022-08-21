@@ -1,0 +1,41 @@
+<div class="themes-list" data-controller="theme-show" data-count = <%=Theme.count%>>
+  <% @themes.each_with_index do |theme, index| %>
+    <%  @total_crowns = Record.where(user: current_user, crown_or_sphere: "crown").joins(:theme).where(themes: {name: theme.name}).group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
+    <%  @total_spheres = Record.where(user: current_user, crown_or_sphere: "sphere").joins(:theme).where(themes: {name: "Geographie"}).group(:quizz_level_id).maximum(:completion).sum{|k,v| v } %>
+    <% @total = @total_crowns + @total_spheres %>
+    <% @progress = (theme.quizz_levels.count.zero? ? 0 : (@total.to_f / (theme.quizz_levels.count * 3) * 100)).round()%>
+    <%=link_to theme_path(theme) do%>
+      <div class="card-enhanced">
+        <div class="icon">
+          <i class="fas fa-atlas"></i>
+        </div>
+        <div class="content">
+          <h2>Geographie</h2>
+          <div class="achievements-count">
+            <div class="achievement-count">
+              <%= image_tag 'crown.png' %>
+              <p><%= @total_crowns %> </p>
+            </div>
+            <div class="achievement-count">
+              <%= image_tag 'sphere.png' %>
+              <p><%= @total_spheres %></p>
+            </div>
+          </div>
+        </div>
+        <div class="circle-wrap "
+        data-theme-show-target = "circleDiv<%=index%>"
+        data-rotate<%=index%> = <%=@progress*3.6%>>
+          <div class="circle">
+            <div class="mask half">
+              <div class="fill" data-theme-show-target= "circle<%=index%>"></div>
+            </div>
+            <div class="mask full" data-theme-show-target= "circle<%=index%>">
+              <div class="fill" data-theme-show-target= "circle<%=index%>"></div>
+            </div>
+            <div class="inside-circle"> <%= @progress %>%</div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

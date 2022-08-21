@@ -1,23 +1,27 @@
+<div class="theme-title subtheme-show">
+  <h1><i class="fas fa-atlas"></i><%=@subtheme.name.upcase%></h1>
+</div>
+
 <div class="container subtheme-show">
-  <div class="theme-title my-5">
-    <h1><%=@subtheme.name%></h1>
-  </div>
   <div class="category">
     <% @subtheme.categories.each do |category| %>
-      <div class="category-separator my-5">
+      <div class="my-3"></div>
+      <div class="category-separator">
         <h2><%= category.name.upcase %></h2>
       </div>
-      <div class="card-objective mb-3">
+      <div class="my-3"></div>
+      <div class="card-objective">
         <%= image_tag "quest2.png" %>
         <p> <%=category.objective%> </p>
       </div>
+      <div class="my-3"></div>
       <div class="quizzs-display">
         <% category.quizzs.each_with_index do |quizz, index| %>
           <% @user_quizz_progress_unlocked = is_unlocked_for_user?(quizz, "quizz", current_user) %>
           <%= render "quizz_separator", index: index %>
           <div class="quizz-card">
-            <%= render "card_display", quizz: quizz %>
-            <%= render "level_display", quizz: quizz %>
+            <%= render "shared/card_display", quizz: quizz %>
+            <%= render "shared/level_display", quizz: quizz %>
           </div>
         <% end %>
       </div>

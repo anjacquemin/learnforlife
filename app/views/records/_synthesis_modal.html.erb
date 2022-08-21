@@ -1,0 +1,48 @@
+ <!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Détails</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="synthesis">
+          <div class="question-synthese grid-title">
+            <p>Question</p>
+          </div>
+          <div class="question-synthese grid-title">
+            <p>Bonne réponse</p>
+          </div>
+          <div class="question-synthese grid-title">
+            <p>Votre réponse</p>
+          </div>
+          <div class="question-synthese last-grid-column grid-title">
+            <p>Ok ?</p>
+          </div>
+          <% @synthesis.each do |question_synthese| %>
+            <div class="question-synthese">
+              <p> <%=question_synthese[:question]  %> </p>
+            </div>
+            <div class="question-synthese">
+              <p><%=question_synthese[:answer]%></p>
+            </div>
+            <div class="question-synthese">
+              <p><%=question_synthese[:user_answer]%></p>
+            </div>
+            <div class="question-synthese last-grid-column">
+              <% if question_synthese[:is_good] %>
+                <%= image_tag 'verifie.png' %>
+              <% else %>
+                <%= image_tag 'annuler.png' %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -36,6 +36,10 @@ a{
 
 .theme-quizz-card {
   @include box_properties;
+  position: relative;
+  overflow: hidden;
+  z-index:0;
+
 
   .achievement_count{
     display: flex;
@@ -43,6 +47,25 @@ a{
     img{
       height: 15px;
     }
+  }
+
+  // test for hovering
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: $purple;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  &:hover:before {
+    transform: scale(21);
   }
 }
 
@@ -70,10 +93,33 @@ a{
   .separator {
     flex-grow: 1;
   }
+
+  position: relative;
+  overflow: hidden;
+  z-index:0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: $purple;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  &:hover:before {
+    transform: scale(21);
+  }
 }
 
 
 .theme-quizz-card:hover, .theme-flashcard-card:hover{
+  transition: all 0.3s ease-out;
   background-color: $purple;
   color: white;
 
@@ -96,6 +142,7 @@ a{
 }
 
 
+
 .subtheme-card{
   height: 140px;
   width: 200px;
@@ -113,6 +160,12 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 10px 0 0;
+    padding: 10px 0;
+
+    .quizz-cards-count{
+      display: flex;
+    }
 
     p{
       margin-bottom: 0;
@@ -120,11 +173,36 @@ a{
     }
     img{
       height: 20px;
+      margin-right:5px ;
     }
+  }
+
+
+  position: relative;
+  overflow: hidden;
+  z-index:0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -16px;
+    right: -16px;
+    background: $purple;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  &:hover:before {
+    transform: scale(21);
   }
 }
 
 .subtheme-card:hover{
+  transition: all 0.3s;
   background-color: $purple;
   color: white;
   .subtheme-card-banner{
@@ -135,15 +213,22 @@ a{
 
 
 .card-objective{
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
   border-radius: $border-radius-lg;
-  background-color: $yellow;
+  background-color: rgba($yellow, 0.4);
   display: flex;
   align-items: center;
-  padding: 20px;
-  margin: 0 10%;
+  padding: 10px;
   p{
     margin-bottom:0;
     margin-left: 20px;
+  }
+
+  img{
+    // background-color:rgba($yellow, 0.8);
+    // border: 1px solid rgba($yellow, 0.8);
+    padding: 10px;
+    // border-radius: $border-radius-lg;
   }
 }
 
@@ -156,7 +241,7 @@ a{
 
 
 .quizz-card{
-  height: 200px;
+  height: 220px;
   width: 380px;
   background: white;
   box-shadow: 1.95px 1.95px 4.6px rgba(0, 0, 0, 0.20);
@@ -186,13 +271,9 @@ a{
   }
 
   .quizz-card-banner{
-    border-bottom: 2px solid black;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-right: 10px;
-    padding-left: 10px;
-
     p{
       margin-bottom: 0;
       text-align: center;
@@ -201,12 +282,82 @@ a{
       height: 20px;
     }
   }
+
+  .cards-number{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba($light_purple, 0.1);
+    border-radius: $border-radius-lg;
+    color: $purple;
+    // margin-right: 8px;
+    height: 70px;
+    border: 1px solid rgba($light_purple, 0.1);
+    font-size: 16px;
+    width: 100px;
+    p{
+      margin-bottom: 0px;
+    }
+  }
+
+  .content{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  .achievement-count{
+    display: flex;
+    align-items: center;
+    p{
+      margin-bottom: 0;
+      margin-top: 0;
+      margin-left: 5px;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+    img{
+      height: 15px;
+    }
+  }
+
+  .ranking{
+    text-align: center;
+    background-color: rgba($green, 0.1);
+    border-radius: $border-radius-lg;
+    color: $green;
+    // margin-right: 8px;
+    height: auto;
+    border: 1px solid rgba($green, 0.1);
+    padding: 10px;
+    font-size: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 100px;
+    // border-left: dotted 1px $purple;
+    h2 {
+      font-size: 20px
+    }
+    sup{
+      font-size: 16px;
+    }
+  }
+
 }
 
 .levels-display{
   display: flex;
   justify-content: space-around;
   a:hover{
+    transition: all 0.3s;
     color: black;
   }
 }
@@ -227,6 +378,7 @@ a{
 }
 
 .level-hovering:hover{
+  transition: all 0.3s;
   background-color: $purple;
   color: white;
   .subtheme-card-banner{

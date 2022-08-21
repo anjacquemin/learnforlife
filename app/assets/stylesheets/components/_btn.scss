@@ -11,6 +11,7 @@
   color: white;
 
   &:hover{
+    transition: all 0.3s;
     background-color: white;
     color: $purple
   }

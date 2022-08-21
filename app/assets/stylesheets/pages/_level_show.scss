@@ -14,22 +14,35 @@
 .quizz-level-title{
   display: flex;
   align-items: center;
-  margin-top: 20px;
   h2{
     margin: 0 10px;
   }
 }
 
 .timer{
+  text-align: center;
+  background-color: rgba($orange,0.9);
+  border-radius: $border-radius-lg;
+  color: $white;
+  height: auto;
+  border: 1px solid rgba($orange,1);
+  height: 25px;
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: $orange;
   display: flex;
   align-items: center;
   p{
     margin-bottom: 0;
   }
+  i{
+    margin-right: 5px;
+  };
 }
 
 .questions{
-  width: 50%;
+  width: 90%;
 }
 
 .questions_count{
@@ -37,6 +50,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.card-number{
+  text-align: center;
+  background-color: rgba($purple, 0.1);
+  border-radius: $border-radius-lg;
+  color: $purple;
+  height: auto;
+  border: 1px solid rgba($purple, 0.1);
+  height: 25px;
+  padding: 0 10px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 

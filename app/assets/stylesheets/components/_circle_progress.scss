@@ -1,0 +1,57 @@
+.circle-wrap {
+  width: 58px;
+  height: 58px;
+  background: rgba($light_purple, 0.5);
+  border-radius: 50%;
+  border: 1px solid #cdcbd0;
+}
+
+.circle-wrap .circle .mask,
+.circle-wrap .circle .fill {
+  width: 58px;
+  height: 58px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circle-wrap .circle .mask {
+  clip: rect(0px, 58px, 58px, 29px);
+}
+
+.mask.full,
+.circle .fill {
+  transition: all ease-in-out 3s;
+  transform: rotate(0deg);
+}
+
+.mask .fill {
+  clip: rect(0px, 29px, 58px, 0px);
+  background-color: $purple;
+}
+
+// @keyframes fill{
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   100% {
+//     transform: rotate(135deg);
+//   }
+// }
+
+.circle-wrap .inside-circle {
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  background: #FFF;
+  line-height: 47px;
+  text-align: center;
+  margin-top: 5px;
+  margin-left: 5px;
+  color: $purple;
+  position: absolute;
+  z-index: 100;
+  font-weight: 700;
+  font-size: 1em;
+}
+
+//  https://dev.to/shantanu_jana/circular-progress-bar-using-html-and-css-1oda
