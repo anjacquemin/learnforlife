@@ -3,26 +3,28 @@
   background: white;
   box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
   border-radius: $border-radius-lg;
-  margin:10px;
+  margin:10px 0;
   padding: 5px 10px;
-  width: 300px;
+  width: 100%;
   border-radius: $border-radius-lg;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .icon {
+    background-color: rgba($light_purple, 0.3);
+    border-radius: $border-radius-lg;
+    color: $purple;
+    margin-right: 8px;
+    border: 1px solid rgba($light_purple, 0.1);
+
+    i{
+      padding: 10px;
+      font-size: 35px;
+    }
+  }
 }
 
 .card-enhanced .icon {
-  background-color: rgba($light_purple, 0.3);
-  border-radius: $border-radius-lg;
-  color: $purple;
-  margin-right: 8px;
-  border: 1px solid rgba($light_purple, 0.1);
-
-  i{
-    padding: 10px;
-    font-size: 35px;
-  }
 }
 
 .card-enhanced .content{
@@ -176,7 +178,7 @@
 
 .record-card{
   height: 320px;
-  width: 450px;
+  width: 100%;
   background-color: rgba($light_purple, 0.3);
   box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
   border-radius: $border-radius-lg;
@@ -222,6 +224,7 @@
   width: 100%;
   flex-direction: column;
   align-items: center;
+  padding: 0 20px;
   p {
     margin: 0;
   }

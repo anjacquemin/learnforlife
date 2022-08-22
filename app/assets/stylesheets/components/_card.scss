@@ -34,6 +34,19 @@ a{
   color: black
 }
 
+.themes-list{
+  a {
+    width: 80%;
+  }
+}
+
+@media(max-width: 991px) {
+  .themes-list a{
+    width: 90%
+  }
+}
+
+
 .theme-quizz-card {
   @include box_properties;
   position: relative;

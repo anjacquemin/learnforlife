@@ -19,12 +19,16 @@
   }
 }
 
+
+
 .results-display, .good-answer-count, .bad-answer-count, .duration, .details{
   display: flex;
   align-items: center;
   margin: 0 10px;
   p {
     margin: 0 5px;
+    margin-left: 15px;
+    font-weight: bold;
   }
 
   img{
@@ -118,21 +122,21 @@
 
 // NEW DESIGN
 
-.record-grid {
-  grid-template-columns: 1fr 1fr;
-  display: grid;
-  grid-gap: 16px;
-}
-
 .banner > h2 {
   padding: 5px;
   margin-bottom: 5px;
 }
 
+
 .results {
-  .banner > h2{
-    color: $purple ;
-    background-color: rgba($light_purple, 0.1);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 3%;
+  .banner {
+    display: flex;
+    align-self: start;
+    padding: 0 10px;
   }
   .themes-list{
     background-color: rgba($light-purple, 0.1);
@@ -274,6 +278,18 @@
   }
 }
 
+.answers .record-card {
+  background-color: rgba($yellow, 0.1);
+}
+
+.leaderboard .record-card {
+  background-color: rgba($blue, 0.1);
+}
+
+.unlocked-levels .record-card {
+  background-color: rgba($green, 0.1);
+}
+
 .record-card {
   .percentage-details {
     margin: 10px;
@@ -334,7 +350,7 @@
 
 .question-number{
   text-align: center;
-  background-color: $purple;
+  background-color: $yellow;
   border-radius: $border-radius-lg;
   color: $white;
   margin-right: 8px;
@@ -347,5 +363,42 @@
   font-size: 16px;
   p{
     margin-bottom: 0px;
+  }
+}
+
+.results .banner{
+  > h2{
+    color: $purple ;
+    background-color: rgba($light_purple, 0.1);
+  }
+}
+
+.leaderboard .banner{
+  > h2{
+    color: $blue;
+    background-color: rgba($blue, 0.1);
+  }
+}
+
+.answers .banner{
+  > h2{
+    color: $yellow;
+    background-color: rgba($yellow, 0.1);
+  }
+}
+
+.unlocked-levels .banner{
+  > h2 {
+    color: $green;
+    background-color: rgba($green, 0.1);
+  }
+}
+
+.unlocked-levels .white-container {
+  height: 100%;
+  justify-content: space-around;
+  p {
+    margin: 0;
+    font-weight: bold;
   }
 }
