@@ -33,8 +33,8 @@
 
 <div class="my-5"></div>
 
-
-<div class="record-grid">
+<div class="container">
+  <div class="record-grid">
   <div class="results">
     <div class="banner">
       <h2>Progression</h2>
@@ -46,45 +46,162 @@
             <%= image_tag 'pieces.png' %>
             <p> <%= @gold_win  %> </p>
           </div>
-          <div class="xp">
-            <%= image_tag 'sablier1.png' %>
-            <p> <%= @xp_win  %> </p>
+          <div class= "flashcard-won">
+            <div class="percentage-details">
+            <div>
+              <p>icon</p>
+            </div>
+              <div class="flashcards-count">
+                <div class="flashcards-total">
+                  <div class="progressbar-wrapper">
+                    <div title="theme_completion" class="progressbar theme-completion" style=<%="width:10%"%>></div>
+                  </div>
+                  <div class= "flashcard-number">
+                    <p>0/10</p>
+                  </div>
+                </div>
+                <div class= "thin-line-height">
+                  <p> + XXX </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class= "flashcard-won">
+            <div class="percentage-details">
+            <div>
+              <p>icon</p>
+            </div>
+              <div class="flashcards-count">
+                <div class="flashcards-total">
+                  <div class="progressbar-wrapper">
+                    <div title="theme_completion" class="progressbar theme-completion" style=<%="width:10%"%>></div>
+                  </div>
+                  <div class= "flashcard-number">
+                    <p>0/10</p>
+                  </div>
+                </div>
+                <div class= "thin-line-height">
+                  <p> + XXX </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class= "ranking">
           <h2>0<sup>ème</sup></h2>
-
           <p>/150</p>
         </div>
       </div>
-      <div class="results">
-        <div>
-          <h2>theme</h2>
-          <p>subtheme categorie progress + (classement)</p>
-          <p>quizz progress + (classement)</p>
+      <div class="theme-progress">
+          <% @user = current_user %>
+          <% subtheme =  @record.quizz.category.subtheme%>
+          <div class="subtheme-card-enhanced">
+            <% subtheme_progress = @user.subtheme_progresses.find_by(subtheme: subtheme) %>
+            <% if subtheme && @subtheme_unlocked = (subtheme_progress &.unlocked)  %>
+              <%@subtheme_blur = 3 %>
+            <% end %>
+            <div class="content" style='filter: blur(<%=@level_blur%>px)'>
+              <h2><%= subtheme.name %></h2>
+              <div class= "achievement-count" style='filter: blur(<%=@level_blur%>px)'>
+                <%= image_tag "crown.png" %>
+                <p>2 / 35 </p>
+              </div>
+            </div>
+            <div class="circle-container" style='filter: blur(<%=@level_blur%>px)'>
+              <div class="circle-wrap "
+                data-theme-show-target = "circleDiv<%=1%>"
+                data-rotate<%=1%> = <%=3.6%>>
+                <div class="circle">
+                  <div class="mask half">
+                    <div class="fill" data-theme-show-target= "circle<%=1%>"></div>
+                  </div>
+                  <div class="mask full" data-theme-show-target= "circle<%=1%>">
+                    <div class="fill" data-theme-show-target= "circle<%=1%>"></div>
+                  </div>
+                  <div class="inside-circle"> <%= 99 %>%</div>
+                </div>
+              </div>
+            </div>
+            <div class="badge-progress">
+              <% if @subtheme_unlocked %>
+                <div class="badge-display">
+                  <% subtheme.categories.each do |category| %>
+                    <% @category_unlock = current_user.category_progresses.find_by(category: category) %>
+                    <% if @category_unlock &.unlocked %>
+                      <% @opacity = 1  %>
+                    <% else %>
+                      <% @opacity = 0.15 %>
+                    <% end %>
+                    <%= cl_image_tag category.photo.key, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>
+                  <% end %>
+                </div>
+                <% else %>
+                  <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4" %>
+              <% end %>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="results answers">
+    <div class="banner">
+      <h2>Réponse</h2>
+    </div>
+    <div class="record-card">
+      <div class="white-container">
+        <div class= "result-number">
+          <div class="good-answer-count">
+            <%= image_tag 'verifie.png' %>
+            <p><%= @record.score_percentage * @number_of_questions / 100%></p>
+          </div>
+          <div class="bad-answer-count">
+            <%= image_tag 'annuler.png' %>
+            <p><%= ((100-@record.score_percentage) * @number_of_questions) / 100%></p>
+          </div>
+        </div>
+        <div class="all-answers">
+          <hr class="horizontal-divider-light">
+          <% @synthesis.each_with_index do |question_synthese, index| %>
+            <div class= "unique-answer">
+              <div class= "question-number">
+                <p> <%= index %> </p>
+              </div>
+              <div class = "question-answer">
+                <p> <strong><%=question_synthese[:question]%></strong> </p>
+                <p><%=question_synthese[:answer]%> - Votre réponse : <%=question_synthese[:user_answer]%></p>
+              </div>
+              <%= image_tag 'verifie.png', height: 30 %>
+            </div>
+            <hr class="horizontal-divider-light">
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-  <div class="answer-synthesis record-card">
-    <div class= "result-number">
-      <div class="good-answer-count">
-        <%= image_tag 'verifie.png' %>
-        <p><%= @record.score_percentage * @number_of_questions / 100%></p>
-      </div>
-      <div class="bad-answer-count">
-        <%= image_tag 'annuler.png' %>
-        <p><%= ((100-@record.score_percentage) * @number_of_questions) / 100%></p>
+  <div class="results leaderboard ">
+    <div class="banner">
+      <h2>Réponse</h2>
+    </div>
+    <div class="record-card">
+      <div class="white-container">
       </div>
     </div>
-    <div class="detailed-answers">
+  </div>
+
+  <div class="results unlocked-levels ">
+    <div class="banner">
+      <h2>Réponse</h2>
     </div>
-  </div>
-  <div class="leaderboard record-card">
-  </div>
-  <div class="unlocked-levels record-card">
+    <div class="record-card">
+      <div class="white-container">
+      </div>
+    </div>
   </div>
 </div>
+
+</div>
+
+
 
 
 

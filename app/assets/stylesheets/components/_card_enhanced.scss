@@ -175,8 +175,8 @@
 
 
 .record-card{
-  height: 300px;
-  width: 400px;
+  height: 320px;
+  width: 450px;
   background-color: rgba($light_purple, 0.3);
   box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
   border-radius: $border-radius-lg;
@@ -201,8 +201,12 @@
   .result-number {
     display: flex;
   }
+  .theme-progress {
+    padding:10px;
+  }
 
-  .timer {
+  .subtheme-card-enhanced{
+    margin: 0;
   }
 }
 
@@ -211,4 +215,24 @@
   align-items: center;
   justify-content: center;
 
+}
+
+.all-answers {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+  .unique-answer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .question-answer{
+    flex-grow: 1;
+  }
 }

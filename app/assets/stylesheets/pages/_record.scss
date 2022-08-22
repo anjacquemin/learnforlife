@@ -220,6 +220,20 @@
   }
 }
 
+.theme-progress{
+  background-color: white;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  border-radius: $border-radius-lg;
+  .subtheme-card-enhanced{
+    width: 100%;
+    padding: 5px;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .xp-gold-ranking{
   background-color: white;
   box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
@@ -233,21 +247,6 @@
   .xp-gold{
     width: 60%;
   }
-  // .ranking {
-  //   width: 40%;
-  //   height: 80%;
-  //   display: flex;
-  //   align-items: center;
-  //   border-radius: $border-radius-lg;
-  //   border: 1px solid rgba($green, 0.3);
-  //   background-color: rgba($green, 0.3);
-  //   p {
-  //     text-align: center;
-  //     margin: 0;
-  //     align-self: center;
-  //     color: green;
-  //   }
-  // }
   .ranking{
     text-align: center;
     background-color: rgba($green, 0.1);
@@ -272,5 +271,81 @@
     p {
       margin:0;
     }
+  }
+}
+
+.record-card {
+  .percentage-details {
+    margin: 10px;
+    flex-grow: none;
+    justify-content: space-between;
+    p {
+      margin: 0;
+      color: $purple;
+      font-weight: bold;
+    }
+  }
+  .flashcards-count {
+    flex-grow: 1;
+    margin: 0 10px;
+    p {
+      margin: 0;
+    }
+  }
+  .progressbar-wrapper{
+    width: 100%;
+  }
+  .flashcards-total{
+    display: flex;
+    align-items: center;
+  }
+}
+
+.thin-line-height{
+  line-height: 1;
+}
+
+.result-number{
+  margin: 10px;
+}
+
+.white-container{
+  background-color: white;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  margin:10px;
+  padding: 5px 10px;
+  border-radius: $border-radius-lg;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+}
+
+.answers .white-container{
+  overflow-y: scroll;
+
+}
+
+.white-container::-webkit-scrollbar {
+  display: none;
+}
+
+.question-number{
+  text-align: center;
+  background-color: $purple;
+  border-radius: $border-radius-lg;
+  color: $white;
+  margin-right: 8px;
+  height: 40px;
+  width: 40px;
+  border: 1px solid rgba($light_purple, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  p{
+    margin-bottom: 0px;
   }
 }
