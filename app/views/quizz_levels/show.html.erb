@@ -57,15 +57,21 @@
               data-answer-url = <%= quizz_answer_user_answers_url(@quizz_answer) %>
               data-record-url = <%= quizz_answer_records_url(@quizz_answer) %>
               >
-            <% @suggested_question_answers_id[question_answer.id.to_s.to_sym].each do |suggested_question_answer_id| %>
-              <div class="card-answer"
-                <%= "data-quizz-answer-target = 'goodAnswer#{index}'".html_safe if suggested_question_answer_id == question_answer.id %>
-                data-action="click->quizz-answer#checkAnswer"
-                data-user-answer-id = <%= suggested_question_answer_id %>
-                data-user-answer = <%= @quizz.question_answers.find(suggested_question_answer_id).answer %>
-                >
-                <h2><%= @quizz.question_answers.find(suggested_question_answer_id).answer %></h2>
-              </div>
+            <% if @suggested_question_answers_id %>
+              <% @suggested_question_answers_id[question_answer.id.to_s.to_sym].each do |suggested_question_answer_id| %>
+                <div class="card-answer"
+                  <%= "data-quizz-answer-target = 'goodAnswer#{index}'".html_safe if suggested_question_answer_id == question_answer.id %>
+                  data-action="click->quizz-answer#checkAnswer"
+                  data-user-answer-id = <%= suggested_question_answer_id %>
+                  data-user-answer = <%= @quizz.question_answers.find(suggested_question_answer_id).answer %>>
+                  <h2><%= @quizz.question_answers.find(suggested_question_answer_id).answer %></h2>
+                </div>
+              <% end %>
+            <% else %>
+              <%= simple_form_for([@quizz_answer,@user_answer], data: {action:"click->quizz-answer#checkAnswer" }) do |f| %>
+                <%= f.input :answer %>
+                <%= f.button :submit %>
+              <% end %>
             <% end %>
           </div>
         </div>

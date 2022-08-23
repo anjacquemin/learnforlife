@@ -38,6 +38,8 @@ export default class extends Controller {
   }
 
   checkAnswer(event) {
+    event.preventDefault()
+
     console.log("click")
 
 
