@@ -79,6 +79,12 @@
   margin: 0.5rem;
 }
 
+.width-80 {
+  margin:0.5rem 0;
+  width: 80%;
+  align-self: center;
+}
+
 @media(max-width: 992px) {
   .questions{
     width: 70%;

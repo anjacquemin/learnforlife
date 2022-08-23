@@ -1,0 +1,226 @@
+@mixin banner-and-record-card($color){
+  .banner {
+    display: flex;
+    align-self: start;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    > h2{
+      padding: 5px;
+      color: $color ;
+      background-color: rgba($color, 0.1);
+    }
+  }
+  .record-card {
+    height: 320px;
+    background-color: rgba($color, 0.1);
+    box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+    border-radius: $border-radius-lg;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    .subtheme-card-enhanced{
+      margin: 0;
+    }
+    .results{
+      @include white-background-box;
+      margin:10px;
+      padding: 20px 3%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+  }
+}
+
+.progression {
+  @include banner-and-record-card($purple);
+}
+
+.answers {
+  @include banner-and-record-card($yellow);
+}
+
+.leaderboard {
+  @include banner-and-record-card($blue);
+}
+
+.unlocked-levels {
+  @include banner-and-record-card($green);
+}
+
+.white-container{
+  background-color: white;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  margin:10px;
+  padding: 5px 10px;
+  border-radius: $border-radius-lg;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+// SPECIFICITY FOR EACH OF THE FOUR CARDS (progression, answer, leaderboard, unlocked-levels)
+
+
+// Specific to progression card
+.progression .theme-progress{
+  @include white-background-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:10px;
+  width: 100%;
+  .subtheme-card-enhanced{
+    width: 100%;
+    padding: 5px;
+  }
+}
+
+.progression .xp-gold-ranking{
+  @include white-background-box;
+  margin: 10px;
+  padding: 5px 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  p {
+    margin: 0;
+  }
+  .xp-gold{
+    width: 60%;
+  }
+  .ranking{
+    background-color: rgba($green, 0.1);
+    border-radius: $border-radius-lg;
+    border: 1px solid rgba($green, 0.1);
+    padding: 10px;
+    font-size: 16px;
+    color: $green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 80%;
+    width: 30%;
+    // border-left: dotted 1px $purple;
+    h2 {
+      font-size: 20px
+    }
+    sup{
+      font-size: 16px;
+    }
+  }
+}
+
+.progression {
+  .percentage-details {
+    margin: 10px;
+    flex-grow: none;
+    justify-content: space-between;
+    p {
+      color: $purple;
+      font-weight: bold;
+    }
+  }
+  .flashcards-count {
+    flex-grow: 1;
+    margin: 0 10px;
+  }
+  .progressbar-wrapper{
+    width: 100%;
+  }
+  .flashcards-total{
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+// Specific to answer card
+.record-card .result-number {
+  display: flex;
+}
+
+.good-answer-count, .bad-answer-count{
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  p {
+    margin: 0 5px;
+    margin-left: 15px;
+    font-weight: bold;
+  }
+  img{
+    height: 40px;
+  }
+}
+
+.all-answers {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  p {
+    margin: 0;
+  }
+  .unique-answer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .question-answer{
+    flex-grow: 1;
+  }
+}
+
+.question-number{
+  text-align: center;
+  background-color: $yellow;
+  border-radius: $border-radius-lg;
+  color: $white;
+  margin-right: 8px;
+  height: 40px;
+  width: 40px;
+  border: 1px solid rgba($light_purple, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  p{
+    margin-bottom: 0px;
+  }
+}
+.answers .white-container{
+  overflow-y: scroll;
+}
+
+.white-container::-webkit-scrollbar {
+  display: none;
+}
+
+.thin-line-height{
+  line-height: 1;
+}
+
+.result-number{
+  margin: 10px;
+}
+
+// specific to unlocked card
+.unlocked-levels .white-container {
+  height: 100%;
+  justify-content: space-around;
+  p {
+    margin: 0;
+    font-weight: bold;
+  }
+}

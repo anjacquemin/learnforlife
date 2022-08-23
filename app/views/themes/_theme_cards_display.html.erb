@@ -1,4 +1,4 @@
-<div class="themes-list" data-controller="theme-show" data-count = <%=Theme.count%>>
+<div class="themes-list" data-controller="theme-index" data-count = <%=Theme.count%>>
   <% @themes.each_with_index do |theme, index| %>
     <%  @total_crowns = Record.where(user: current_user, crown_or_sphere: "crown").joins(:theme).where(themes: {name: theme.name}).group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
     <%  @total_spheres = Record.where(user: current_user, crown_or_sphere: "sphere").joins(:theme).where(themes: {name: "Geographie"}).group(:quizz_level_id).maximum(:completion).sum{|k,v| v } %>
@@ -23,14 +23,14 @@
           </div>
         </div>
         <div class="circle-wrap "
-        data-theme-show-target = "circleDiv<%=index%>"
-        data-rotate<%=index%> = <%=@progress*3.6%>>
+        data-theme-index-target = "circleDiv<%=index%>"
+        data-rotate<%=index%> = <%=@progress*1.8%>>
           <div class="circle">
             <div class="mask half">
-              <div class="fill" data-theme-show-target= "circle<%=index%>"></div>
+              <div class="fill" data-theme-index-target= "circle<%=index%>"></div>
             </div>
-            <div class="mask full" data-theme-show-target= "circle<%=index%>">
-              <div class="fill" data-theme-show-target= "circle<%=index%>"></div>
+            <div class="mask full" data-theme-index-target= "circle<%=index%>">
+              <div class="fill" data-theme-index-target= "circle<%=index%>"></div>
             </div>
             <div class="inside-circle"> <%= @progress %>%</div>
           </div>

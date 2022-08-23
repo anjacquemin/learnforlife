@@ -1,0 +1,66 @@
+.subtheme-card-enhanced {
+  @include white-background-box;
+  height: 90px;
+  margin:10px;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  .cards-number{
+    text-align: center;
+    background-color: rgba($light_purple, 0.1);
+    border-radius: $border-radius-lg;
+    color: $purple;
+    margin-right: 8px;
+    height: auto;
+    border: 1px solid rgba($light_purple, 0.1);
+    padding: 10px;
+    font-size: 16px;
+    p{
+      margin-bottom: 0px;
+    }
+  }
+  .content{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+    margin-left: 5px
+  }
+  .circle-container{
+    width: 80px
+  }
+  .achievement-count{
+    display: flex;
+    align-items: center;
+    p{
+      margin-bottom: 0;
+      margin-top: 0;
+      margin-left: 5px;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+    img{
+      height: 15px;
+    }
+  }
+  .badge-progress{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 90%;
+    width: 30%;
+    border-left: dotted 1px $purple;
+    .badge-display{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      img{
+        margin: 0 2px;
+      }
+    }
+  }
+}

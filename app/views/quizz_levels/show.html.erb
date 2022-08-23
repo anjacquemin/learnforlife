@@ -1,6 +1,6 @@
 <div class="theme-title subtheme-show">
   <div class="quizz-level-title">
-    <%= cl_image_tag @quizz.category.photo.key, height: 50 %>
+    <%= cl_image_tag @quizz.category.photo.key, height: 40 %>
     <h2><%= "#{@quizz.name.upcase} - #{@quizz_level.name.capitalize}" %></h2>
     <% @stars_count.times do %>
       <%= image_tag 'star1.png' %>

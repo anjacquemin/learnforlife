@@ -1,3 +1,12 @@
+<% total_quizzs_crowns = quizz.quizz_levels.count * 3 %>
+<% user_total_crowns =  quizz.records.where(user: current_user, crown_or_sphere: "crown").group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
+<% user_total_spheres =  quizz.records.where(user: current_user, crown_or_sphere: "sphere").group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
+<% @user_total = user_total_crowns + user_total_spheres %>
+<% @completion = (quizz.quizz_levels.count.zero? ? 0 : (@user_total.to_f / (total_quizzs_crowns) * 100)).round() %>
+
+
+
+
 <% if !@user_quizz_progress_unlocked %>
   <%= render "shared/set_lock_and_blur", for_: "quizz" %>
 <% else %>
@@ -12,7 +21,7 @@
     <h2> QUIZZ #<%= quizz.ordering %> </h2>
     <div class="achievement-count">
       <%= image_tag "crown.png" %>
-      <p>3/9</p>
+      <p> <%= @user_total %> / <%= total_quizzs_crowns %> </p>
     </div>
   </div>
   <div class="ranking">
@@ -20,3 +29,4 @@
     <p>/150</p>
   </div>
 </div>
+<hr class= "horizontal-divider-light width-80">
