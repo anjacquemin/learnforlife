@@ -169,7 +169,7 @@
                     <p> <%= index %> </p>
                   </div>
                   <div class = "question-answer">
-                    <p> <strong><%=question_synthese[:question]%></strong> </p>
+                    <p> <strong><%=question_synthese[:question].capitalize%></strong> </p>
                     <p><%=question_synthese[:answer]%> - Réponse : <%=question_synthese[:user_answer]%></p>
                   </div>
                   <% if question_synthese[:is_good] %>
