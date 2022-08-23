@@ -1,7 +1,6 @@
 .card-question{
   margin: auto;
   width: 80%;
-  height: 30vh;
   // background: white;
   background-color: rgba($purple, 1);
   color: white;
@@ -26,7 +25,8 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
   justify-content: space-evenly;
-  width: 100%;
+  width: 50%;
+  margin: auto;
   align-items: center;
 }
 

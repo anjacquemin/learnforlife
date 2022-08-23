@@ -1,7 +1,7 @@
 .level-show{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
   background-color: $light-gray;
 }
 
@@ -13,36 +13,51 @@
 
 .quizz-level-title{
   display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-top: 5px;
+  .category-quizz, .level-stars{
+    display: flex;
+    align-items: center;
+  }
+  p {
+    font-size: 20px;
+    margin:0 5px;
+  }
   h2{
+    font-size: 32px;
     margin: 0 10px;
   }
 }
 
 .timer{
-  text-align: center;
-  background-color: rgba($orange,0.9);
-  border-radius: $border-radius-lg;
-  color: $white;
-  height: auto;
-  border: 1px solid rgba($orange,1);
-  height: 25px;
-  padding: 0 10px;
-  font-size: 16px;
   font-weight: bold;
-  background-color: $orange;
   display: flex;
   align-items: center;
+  justify-content: center;
   p{
     margin-bottom: 0;
   }
   i{
     margin-right: 5px;
-  };
+  }
+  .yellow-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 16px;
+    border: 1px solid rgba($orange,1);
+    background-color: $orange;
+    color: $white;
+    border-radius: $border-radius-lg;
+  }
 }
 
 .questions{
-  width: 90%;
+  width: 80%;
+  margin: auto;
 }
 
 .questions_count{

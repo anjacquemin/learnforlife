@@ -18,6 +18,7 @@ class RecordsController < ApplicationController
     @gold_win = gold_win_calculation(@record)
     current_user.gold += @gold_win
     current_user.xp += @xp_win
+    current_user.save
   end
 
   # BACK END CHECK NUMBER OF ANSWER = NUMBER OF QUESTION + TIME  (time_difference_in_milliseconds?)
