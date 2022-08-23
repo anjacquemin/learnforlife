@@ -38,11 +38,13 @@
 }
 
 .quizz {
-  @include theme-block-list($purple, $light-purple)
+  @include theme-block-list($purple, $light-purple);
+  @include card-theme-enhanced($purple, $light-purple);
 }
 
 .flashcards {
-  @include theme-block-list($green, $green)
+  @include theme-block-list($green, $green);
+  @include card-theme-enhanced($green, $green);
 }
 
 @media(max-width: 991px) {

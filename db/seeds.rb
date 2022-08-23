@@ -186,12 +186,12 @@ categories.each do |category|
     category_progress.save!
 
     (1..2).each do |i|
-      quizz = Quizz.new(category: category, name: "#{category.name} #{category.subtheme.name} ##{i}", ordering: i)
+      quizz = Quizz.new(category: category, name: "#{category.subtheme.name} ##{i}", ordering: i)
       quizz.save!
       quizzs << quizz
     end
 
-    quizz = Quizz.new(category: category, name: "Capitale #{category.subtheme.name} Master", ordering: 3)
+    quizz = Quizz.new(category: category, name: "#{category.subtheme.name} Master", ordering: 3)
     quizz.save!
     quizzs << quizz
 end
@@ -262,7 +262,7 @@ Subtheme.find_by(name: "Océanie").quizz_progresses.where(user: anthony).each { 
 
 anthony = User.first
 Subtheme.find_by(name: "Océanie").quizz_level_progresses.where(user: anthony).each { |quizz_level_progress|
-  unlocked = (quizz_level_progress.quizz_level.quizz.ordering == 1 && quizz_level_progress.quizz_level.quizz.theme_level.level == 1 &&quizz_level_progress.quizz_level.name == "Facile" || quizz_level_progress.quizz_level.quizz.name == "Capitale Océanie Master")
+  unlocked = (quizz_level_progress.quizz_level.quizz.ordering == 1 && quizz_level_progress.quizz_level.quizz.theme_level.level == 1 &&quizz_level_progress.quizz_level.name == "Facile" || quizz_level_progress.quizz_level.quizz.name == "Océanie Master")
   quizz_level_progress.unlocked = unlocked
   quizz_level_progress.save!
 }

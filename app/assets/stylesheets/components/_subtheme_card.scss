@@ -1,5 +1,6 @@
 .subtheme-card-enhanced {
   @include white-background-box;
+  @include hovering($purple, $light-purple);
   height: 90px;
   margin:10px;
   width: 400px;

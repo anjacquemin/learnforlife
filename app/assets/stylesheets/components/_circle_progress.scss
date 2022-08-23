@@ -20,7 +20,7 @@
 
 .mask.full,
 .circle .fill {
-  transition: all ease-in-out 10s;
+  transition: transform ease-in-out 3s;
   transform: rotate(0deg);
 }
 

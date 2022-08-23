@@ -3,9 +3,7 @@
     <div class="quizz-level-title">
       <%= cl_image_tag @record.quizz.category.photo.key, height: 40 %>
       <h2><%= "#{@record.quizz.name.upcase} - #{@record.quizz_level.name.capitalize}" %></h2>
-      <% 3.times do %>
-        <%= image_tag 'star1.png' %>
-      <% end %>
+      <%= render "shared/level_stars", level: @record.quizz_level %>
     </div>
     <div class="end-quizz-sentence">
       <p>Tu as fini la session / ou nouveau record ! Bravo ! </p>
@@ -31,7 +29,7 @@
       </div>
     </div>
   </div>
-  <div class="my-5"></div>
+  <%# <div class="my-5"></div> %>
   <div class="container">
     <div class="row">
       <div class="results progression col-lg-6">
@@ -204,11 +202,20 @@
         <div class="record-card">
           <div class="white-container">
             <% if @unlocked_items && @unlocked_items[:quizz_level]  %>
-              <p>Essaye le nouveau quizz débloqué</p>
+              <% sentence = "Niveau #{@unlocked_items[:quizz_level].name}  débloqué !" %>
+              <% quizz_to_display = @unlocked_items[:quizz_level].quizz %>
+              <% if @unlocked_items && @unlocked_items[:quizz] %>
+                <% sentence = "Quizz #{@unlocked_items[:quizz].name}  débloqué !" %>
+                <% quizz_to_display = @unlocked_items[:quizz] %>
+              <% end %>
+              <% if  @unlocked_items && @unlocked_items[:category] %>
+                <% sentence = "Quizz XXX débloqué !" %>
+              <% end %>
+              <p><%= sentence %></p>
               <div class="quizz-card">
                 <% @user_quizz_progress_unlocked = true %>
-                <%= render "shared/card_display", quizz: @record.quizz %>
-                <%= render "shared/level_display", quizz: @record.quizz %>
+                <%= render "shared/card_display", quizz: quizz_to_display %>
+                <%= render "shared/level_display", quizz: quizz_to_display %>
               </div>
             <% else %>
               <p>Rien de nouveau de débloqué, essaye d'améliorer ton record ! </p>
@@ -228,20 +235,40 @@
     <%= link_to "continue", themes_path, class: "btn btn-purple my-4" %>
 
     <% @count = 0 %>
-    <% if @unlocked_items && @unlocked_items[:quizz_level] %>
-      <% @count += 1 %>
-      <%= render 'achievement_modal',type: "quizz_level", sentence: "Félicitation, vous avez débloquez le niveau #{@unlocked_items[:quizz_level].name} du quizz #{@unlocked_items[:quizz_level].quizz.name}", quizz:@unlocked_items[:quizz_level].quizz%>
+    <% if  @unlocked_items && @unlocked_items[:category] %>
+      <% unlocked_category_sentence = "<p> Félicitation !!! </p> Tous les quizz #{@unlocked_items[:category].name.upcase} de #{@unlocked_items[:category].subtheme.theme_level.name} sont terminés\n" %>
+
+      <%if @unlocked_items[:theme_level_and_children]  %>
+        <%if unlocked_theme_level = @unlocked_items[:theme_level_and_children][:theme_level] %>
+          	<% unlocked_category_sentence += "<p>#{unlocked_theme_level.theme.name.upcase} - #{unlocked_theme_level.name.upcase} débloqué ! </p>" %>
+            <% unlocked_subthemes = @unlocked_items[:theme_level_and_children][:subthemes] %>
+            <%= unlocked_category_sentence += " #{unlocked_subthemes.count} nouvelles thématiques : #{unlocked_subthemes.map{|subtheme| subtheme.name}.join(", ")}" %>
+            <% @count += 1 %>
+            <%= render 'achievement_modal', type: "theme_level", sentence: unlocked_category_sentence%>
+        <% end %>
+
+        <%if unlocked_quizz_levels = @unlocked_items[:theme_level_and_children][:quizz_levels] %>
+          <% unlocked_quizz_levels.each do |quizz_level| %>
+            <% @count += 1 %>
+            <%= render 'achievement_modal',type: "quizz_level", sentence: "<p> Félicitation !!! </p> Niveau #{quizz_level.name.upcase} du quizz #{quizz_level.category.name.upcase} - #{quizz_level.quizz.name.upcase}  débloqué", quizz: quizz_level.quizz%>
+          <% end %>
+        <% end %>
+      <% elsif %>
+        <% @count += 1 %>
+        <%= render 'achievement_modal', type: "category", sentence: unlocked_category_sentence%>
+      <% end %>
     <% end %>
 
     <% if @unlocked_items && @unlocked_items[:quizz] %>
       <% @count += 1 %>
-      <%= render 'achievement_modal', type: "quizz", sentence: "Félicitation, vous avez débloquez le quizz #{@unlocked_items[:quizz].name}", quizz: @unlocked_items[:quizz]%>
+      <%= render 'achievement_modal', type: "quizz", sentence: "<p> Félicitation !!! </p> Quizz #{@unlocked_items[:quizz].category.name.upcase} - #{@unlocked_items[:quizz].name.upcase} débloqué !", quizz: @unlocked_items[:quizz]%>
     <% end %>
 
-    <% if  @unlocked_items && @unlocked_items[:category] %>
+    <% if @unlocked_items && @unlocked_items[:quizz_level] %>
       <% @count += 1 %>
-      <%= render 'achievement_modal', type: "category", sentence: "Félicitation, vous avez terminé tous les quizz #{@unlocked_items[:category].name} de niveau #{@unlocked_items[:category].subtheme.theme_level.name} ! Et avez débloqué XXX"%>
+      <%= render 'achievement_modal',type: "quizz_level", sentence: "<p> Félicitation !!! </p> Niveau #{@unlocked_items[:quizz_level].name.upcase} du quizz  #{@unlocked_items[:quizz_level].quizz.name.upcase} débloqué !", quizz: @unlocked_items[:quizz_level].quizz%>
     <% end %>
+
 
   </div>
 </div>

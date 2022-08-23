@@ -1,23 +1,24 @@
-.card-enhanced {
-  @include white-background-box;
-  height: 80px;
-
-  margin:10px 0;
-  padding: 5px 10px;
-  width: 100%;
-  border-radius: $border-radius-lg;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .icon {
-    background-color: rgba($light_purple, 0.3);
-    border-radius: $border-radius-lg;
-    color: $purple;
-    margin-right: 8px;
-    border: 1px solid rgba($light_purple, 0.1);
-    i{
-      padding: 10px;
-      font-size: 35px;
+@mixin card-theme-enhanced($color, $background_color) {
+  .card-enhanced {
+    @include white-background-box;
+    @include hovering($color, $background_color);
+    height: 80px;
+    margin:10px 0;
+    padding: 5px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .icon {
+      background-color: rgba($background_color, 0.3);
+      border-radius: $border-radius-lg;
+      color: $color;
+      margin-right: 8px;
+      border: 1px solid rgba($background_color, 0.1);
+      i{
+        padding: 10px;
+        font-size: 35px;
+      }
     }
   }
 }
@@ -50,11 +51,6 @@
 };
 
 .card-enhanced.flashcard{
-  .icon{
-    background-color: rgba($green, 0.1);
-    color: $green;
-    border: 1px solid rgba($green, 0.1);
-  }
   .flashcard-count{
     border-left: 2px solid black;
     padding-left: 8px;
