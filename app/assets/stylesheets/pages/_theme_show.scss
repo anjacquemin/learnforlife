@@ -84,3 +84,32 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media(max-width: 570px) {
+  .subthemes-display{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 500px) {
+  .subtheme-card-enhanced{
+    width: 380px;
+  }
+  .subthemes-display{
+    padding: 0px;
+  }
+}
+
+
+@media(max-width: 420px) {
+  .subtheme-card-enhanced{
+    padding: 10px 5px;
+    width: 340px;
+    h2 {
+      font-size: 16px;
+    }
+  }
+  .subthemes-display{
+    padding: 0px;
+  }
+}

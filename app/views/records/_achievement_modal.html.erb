@@ -9,14 +9,17 @@
       <div class="modal-body">
         <div class="unlock_item_display">
           <%= image_tag "padlock.png", height: 130 %>
-          <p><%= sentence %></p>
+          <p><%= sentence.html_safe %></p>
           <% if type == "quizz" || type == "quizz_level" %>
             <% @user_quizz_progress_unlocked = true %>
             <div class="quizz-card">
               <%= render "shared/card_display", quizz: quizz %>
               <%= render "shared/level_display", quizz: quizz %>
             </div>
+          <% elsif type == "category" || type == "theme_level" %>
+            <%= cl_image_tag @record.quizz.category.photo.key, height: 100 %>
           <% end %>
+
         </div>
       </div>
       <div class="modal-footer">

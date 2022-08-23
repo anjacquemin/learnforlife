@@ -3,10 +3,13 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+@import "shared_mixins.scss";
 @import "character_banner";
 @import "card";
 @import "progress_bar";
 @import "question_card";
 @import "btn";
 @import "circle_progress";
-@import "card_enhanced"
+@import "theme_card.scss";
+@import "subtheme_card.scss";
+@import "record_card.scss";

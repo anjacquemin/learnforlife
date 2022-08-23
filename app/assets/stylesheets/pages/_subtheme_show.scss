@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   color: $purple;
   padding: 20px 0;
   i{
@@ -34,41 +35,16 @@
 }
 
 .category-separator{
-  // display: flex;
-  // align-items: center;
-  // .line {
-  //   flex:1;
-  //   height: 3px;
-  //   background-color: $purple;
-  //   margin-top: 30px;
-  // }
-  h2 {
-    text-align: center;
-    padding: 20px;
-    color: $purple ;
-    background-color: rgba($light_purple, 0.1);
-    border-radius: $border-radius-lg;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: $purple ;
+  background-color: rgba($light_purple, 0.1);
+  border-radius: $border-radius-lg;
+  img{
+    margin-right: 20px;
   }
-  // h2:before,
-  // h2:after {
-  //   background-color: #000;
-  //   content: "";
-  //   display: inline-block;
-  //   height: 1px;
-  //   position: relative;
-  //   vertical-align: middle;
-  //   width: 50%;
-  // }
-
-  // h2:before {
-  //   right: 0.5em;
-  //   margin-left: -50%;
-  // }
-
-  // h2:after {
-  //   left: 0.5em;
-  //   margin-right: -50%;
-  // }
 }
 
 .quizzs-display{
@@ -77,18 +53,13 @@
   border-radius: $border-radius-lg;
   display: flex;
   width: 900px;
-  // grid-template-columns: 1fr 1fr;
-  // grid-gap: 16px;
   overflow-x: scroll;
-  // overflow-x: hidden;
   display: flex;
   align-items: center;
 }
 
 .quizzs-display::-webkit-scrollbar {
   display: none;
-  // height: 50px;
-  // width: 5px;
   // height: 0px; /* If value is 0px, the horizontal bar will disappear but still works*/
 }
 
@@ -110,7 +81,7 @@
 
 @media(max-width: 576px) {
   .quizzs-display, .subtheme-show .card-objective{
-    width: 350px;
+    width: 450px;
   }
   .quizz-card{
     width: 300px;
@@ -120,5 +91,11 @@
   }
   .level_crowns img{
     height: 16px;
+  }
+}
+
+@media(max-width: 480px) {
+  .quizzs-display, .subtheme-show .card-objective{
+    width: 350px;
   }
 }

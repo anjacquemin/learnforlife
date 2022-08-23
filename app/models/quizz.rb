@@ -7,6 +7,7 @@ class Quizz < ApplicationRecord
   has_one :theme, through: :category
   has_one :theme_level, through: :category
   has_many :quizz_level_progresses, through: :quizz_levels
+  has_many :records, through: :quizz_levels
 
   validates :name, presence: true
 end

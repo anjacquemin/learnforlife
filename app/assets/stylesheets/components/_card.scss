@@ -1,38 +1,22 @@
-@mixin box_properties {
-  height: 80px;
-  background: white;
-  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
-  border-radius: $border-radius-lg;
-  margin:10px;
-  padding: 5px 10px;
-  height: 50%;
-  font-weight: 600;
-
-  .theme-title{
-    display: flex;
-    align-items: center;
-    margin-bottom:10px;
-
-    p{
-      margin-bottom: 0;
-      font-size: 16px;
-      border-bottom: 2px solid black;
-    }
-  }
-
-  .theme-progress{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px, 10px;
-  }
-}
 
 a{
   display: block;
   text-decoration: none;
   color: black
 }
+
+.themes-list{
+  a {
+    width: 80%;
+  }
+}
+
+@media(max-width: 991px) {
+  .themes-list a{
+    width: 90%
+  }
+}
+
 
 .theme-quizz-card {
   @include box_properties;
@@ -223,12 +207,8 @@ a{
     margin-bottom:0;
     margin-left: 20px;
   }
-
   img{
-    // background-color:rgba($yellow, 0.8);
-    // border: 1px solid rgba($yellow, 0.8);
     padding: 10px;
-    // border-radius: $border-radius-lg;
   }
 }
 
@@ -247,10 +227,9 @@ a{
   box-shadow: 1.95px 1.95px 4.6px rgba(0, 0, 0, 0.20);
   border-radius: $border-radius-lg;
   font-weight: 600;
-  padding: 10px 10px 0px 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   z-index: 2;
   position: relative;
 
@@ -274,6 +253,10 @@ a{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 10px;
+    h2 {
+      text-align: center;
+    }
     p{
       margin-bottom: 0;
       text-align: center;
@@ -373,7 +356,7 @@ a{
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  margin: 10px;
+  margin: 0 10px;
   position: relative;
 }
 

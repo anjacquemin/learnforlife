@@ -1,10 +1,15 @@
 <div class="theme-title subtheme-show">
   <div class="quizz-level-title">
-    <%= cl_image_tag @quizz.category.photo.key, height: 50 %>
-    <h2><%= "#{@quizz.name.upcase} - #{@quizz_level.name.capitalize}" %></h2>
-    <% @stars_count.times do %>
-      <%= image_tag 'star1.png' %>
-    <% end %>
+    <div class = "category-quizz">
+      <%= cl_image_tag @quizz.category.photo.key, height: 40 %>
+      <h2><%= @quizz.name.upcase %></h2>
+    </div>
+    <div class = "level-stars">
+      <p><%= @quizz_level.name.capitalize %></p>
+      <% @stars_count.times do %>
+        <%= image_tag 'star1.png' %>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="my-3"></div>
@@ -21,50 +26,58 @@
   </div>
   <div class="my-3"></div>
   <div class="timer">
-    <p><i class="fa-solid fa-stopwatch"></i></p>
-    <p data-quizz-answer-target="seconds">00</p>
-    <%# <p>:</p> %>
-    <p class="d-none"data-quizz-answer-target="tens"></p>
-    <p>s</p>
+    <div class="yellow-container">
+      <p><i class="fa-solid fa-stopwatch"></i></p>
+      <p data-quizz-answer-target="seconds">00</p>
+      <p class="d-none"data-quizz-answer-target="tens"></p>
+      <p>s</p>
+    </div>
   </div>
   <div class="my-3"></div>
-  <%@quizz.question_answers.each_with_index do |question_answer, index| %>
-    <% if index !=0 %>
-      <% question_class = 'class = "questions d-none"' %>
-    <% else %>
-      <% question_class = 'class = "questions"' %>
-    <% end %>
-    <div <%= question_class.html_safe %> data-quizz-answer-target = <%="questionCard#{index}"%>>
-      <div class = "card-question">
-        <h2><%=question_answer.question %></h2>
-      </div>
-
-      <%# ANSWER DIV %>
-      <div>
-        <div class="answer"
-            data-good-answer-id = <%= question_answer.id %>
-            data-question-id = <%=question_answer.id%>
-            data-quizz-answer-id = <%=@quizz_answer.id%>
-            data-question-number = <%=index%>
-            data-total-questions = <%=@quizz.question_answers.count%>
-            data-answer-url = <%= quizz_answer_user_answers_url(@quizz_answer) %>
-            data-record-url = <%= quizz_answer_records_url(@quizz_answer) %>
-            >
-          <% @suggested_question_answers_id[question_answer.id.to_s.to_sym].each do |suggested_question_answer_id| %>
-            <div class="card-answer"
-              <%= "data-quizz-answer-target = 'goodAnswer#{index}'".html_safe if suggested_question_answer_id == question_answer.id %>
-              data-action="click->quizz-answer#checkAnswer"
-              data-user-answer-id = <%= suggested_question_answer_id %>
-              data-user-answer = <%= @quizz.question_answers.find(suggested_question_answer_id).answer %>
-              >
-              <h2><%= @quizz.question_answers.find(suggested_question_answer_id).answer %></h2>
-            </div>
-          <% end %>
+  <div class="container">
+    <%@quizz.question_answers.each_with_index do |question_answer, index| %>
+      <% if index !=0 %>
+        <% question_class = 'class = "questions d-none"' %>
+      <% else %>
+        <% question_class = 'class = "questions"' %>
+      <% end %>
+      <div <%= question_class.html_safe %> data-quizz-answer-target = <%="questionCard#{index}"%>>
+        <div class = "card-question">
+          <h2><%=question_answer.question %></h2>
         </div>
-
-     </div>
+        <div class="my-3"></div>
+        <%# ANSWER DIV %>
+        <div>
+          <div class="answer"
+              data-good-answer-id = <%= question_answer.id %>
+              data-question-id = <%=question_answer.id%>
+              data-quizz-answer-id = <%=@quizz_answer.id%>
+              data-question-number = <%=index%>
+              data-total-questions = <%=@quizz.question_answers.count%>
+              data-answer-url = <%= quizz_answer_user_answers_url(@quizz_answer) %>
+              data-record-url = <%= quizz_answer_records_url(@quizz_answer) %>
+              >
+            <% if @suggested_question_answers_id %>
+              <% @suggested_question_answers_id[question_answer.id.to_s.to_sym].each do |suggested_question_answer_id| %>
+                <div class="card-answer"
+                  <%= "data-quizz-answer-target = 'goodAnswer#{index}'".html_safe if suggested_question_answer_id == question_answer.id %>
+                  data-action="click->quizz-answer#checkAnswer"
+                  data-user-answer-id = <%= suggested_question_answer_id %>
+                  data-user-answer = <%= @quizz.question_answers.find(suggested_question_answer_id).answer %>>
+                  <h2><%= @quizz.question_answers.find(suggested_question_answer_id).answer %></h2>
+                </div>
+              <% end %>
+            <% else %>
+              <%= simple_form_for([@quizz_answer,@user_answer], data: {action:"click->quizz-answer#checkAnswer" }) do |f| %>
+                <%= f.input :answer %>
+                <%= f.button :submit %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div data-quizz-answer-target = "endButtonDisplay" >
     </div>
-  <% end %>
-  <div data-quizz-answer-target = "endButtonDisplay" >
   </div>
 </div>

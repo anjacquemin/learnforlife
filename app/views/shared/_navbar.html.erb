@@ -12,13 +12,13 @@
           <li class="nav-item active">
             <div class="gemme">
               <%= image_tag "gemme1.png", height: 20 %>
-              <%= link_to "2000", "#", class: "nav-link" %>
+              <%= link_to "#{current_user.gem}", "#", class: "nav-link" %>
             </div>
           </li>
           <li class="nav-item">
             <div class="pieces">
               <%= image_tag "pieces.png", height: 20 %>
-              <%= link_to "10", "#", class: "nav-link" %>
+              <%= link_to "#{current_user.gold}", "#", class: "nav-link" %>
             </div>
           </li>
           <li class="nav-item dropdown">

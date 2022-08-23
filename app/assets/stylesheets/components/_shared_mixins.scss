@@ -1,0 +1,93 @@
+@mixin white-background-box{
+  background: white;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  border-radius: $border-radius-lg;
+}
+
+@mixin box_properties {
+  height: 80px;
+  background: white;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  border-radius: $border-radius-lg;
+  margin:10px;
+  padding: 5px 10px;
+  height: 50%;
+  font-weight: 600;
+
+  .theme-title{
+    display: flex;
+    align-items: center;
+    margin-bottom:10px;
+
+    p{
+      margin-bottom: 0;
+      font-size: 16px;
+      border-bottom: 2px solid black;
+    }
+  }
+
+  .theme-progress{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px, 10px;
+  }
+}
+
+
+@mixin hovering($color, $background-color) {
+  position: relative;
+  overflow: hidden;
+  z-index:0;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: 100%;
+    background: $color;
+    height: 32px;
+    width: 32px;
+    border-radius: 32px;
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform 0.25s ease-out;
+  }
+  &:hover:before {
+    transform: scale(50);
+  }
+  &:hover{
+    .icon{
+      background-color: rgba(white, 0.3);
+    }
+    h2, p, .icon {
+      color: white
+    }
+    .flashcard-count {
+      border-left: 2px solid white;
+    }
+    .progressbar{
+      background-color: white;
+    }
+    .progressbarwrapper{
+      background-color: rgba($color, 0.1);
+    }
+    .inside-circle{
+      background: $color;
+      color: white;
+    }
+    .mask .fill{
+      background-color: white;
+    }
+    .circle-wrap{
+      background-color: rgba(white, 0.3);
+    }
+    .badge-progress{
+      border-left: dotted 1px white;
+    }
+    .cards-number{
+      background-color: rgba(white, 0.3);
+      border: 1px solid rgba(white, 0.1);
+    }
+  }
+}

@@ -1,40 +1,9 @@
-.banner > h2 {
-  padding: 5px;
-  margin-bottom: 5px;
-}
-
-.quizz {
-  .banner > h2{
-    color: $purple ;
-    background-color: rgba($light_purple, 0.1);
+@mixin theme-block-list ($h2-color, $background-color) {
+  h2 {
+    font-size: $subtitle-size;
+    font-weight: 600;
+    margin-bottom: 0;
   }
-  .themes-list{
-    background-color: rgba($light-purple, 0.1);
-  }
-}
-
-.flashcards {
-  .banner > h2{
-    color: $green ;
-    background-color: rgba($green, 0.1);
-  }
-  .themes-list{
-    background-color: rgba($green, 0.1);
-  }
-
-  .active-tab{
-    border-bottom: 3px solid $green;
-  }
-}
-
-h2 {
-  font-size: $subtitle-size;
-  font-weight: 600;
-  margin-bottom: 0;
-}
-
-.theme-block-list {
-
   p{
     margin: 5px;
   }
@@ -43,24 +12,40 @@ h2 {
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
+    > h2 {
+      padding: 5px;
+      margin-bottom: 5px;
+      color: $h2-color ;
+      background-color: rgba($background-color, 0.1);
+    }
   }
   .tabs {
     display: flex;
   }
+  .themes-list {
+    background-color: rgba($background-color, 0.1);
+    border-radius: $border-radius-lg;
+    margin: 0 5px;
+    padding: 30px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .active-tab{
+    border-bottom: 3px solid $h2-color;
+    font-weight: 600;
+  }
 }
 
-.themes-list {
-  border-radius: $border-radius-lg;
-  margin: 0 5px;
-  padding: 30px 10px;
+.quizz {
+  @include theme-block-list($purple, $light-purple);
+  @include card-theme-enhanced($purple, $light-purple);
 }
 
-.active-tab{
-  border-bottom: 3px solid $purple;
-  font-weight: 600;
+.flashcards {
+  @include theme-block-list($green, $green);
+  @include card-theme-enhanced($green, $green);
 }
-
-
 
 @media(max-width: 991px) {
   .themes-list {
