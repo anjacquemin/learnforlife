@@ -36,7 +36,7 @@
         <div class="my-5"></div>
         <%# ANSWER DIV %>
         <div>
-          <div <% answer_class = (@suggested_question_answers_id ? "class = 'answer'" : 'class = "answer align-answers"')  %>>
+          <% answer_class = (@suggested_question_answers_id ? "class = 'answer'" : 'class = "answer align-answers"')  %>
           <div <%= answer_class.html_safe %>
               data-good-answer-id = <%= question_answer.id %>
               data-question-id = <%=question_answer.id%>
@@ -63,8 +63,8 @@
                   <%= f.input :answer, label: false, placeholder: 'Votre réponse', input_html: {data: {quizz_answer_target: "form#{index}"}, class: "border-radius"} %>
                   <%= f.button :submit, "Valider", class: "btn btn-purple my-4 margin-auto" %>
                 <% end %>
-              <% end %>
               </div>
+            <% end %>
           </div>
         </div>
       </div>
