@@ -12,6 +12,7 @@ export default class extends Controller {
   static targets = ["userAnswer", "questionId", "cardCountBar", "cardCountNumber", "seconds", "tens", "goodAnswer", "endButtonDisplay", "endButton"].concat(questionTargets).concat(goodAnswerTargets).concat(formTargets)
 
   connect() {
+
     console.log("Hello from our first Stimulus controller")
 
     window.Interval
@@ -101,6 +102,7 @@ export default class extends Controller {
     }
 
     if(quizz_level === "Difficile"){
+
       console.log(quizz_level)
       const user_answer = eval(`this.form${question_number}Target.value`)
 
@@ -148,6 +150,13 @@ export default class extends Controller {
       if(next_question_number < total_questions){
         eval(`self.questionCard${question_number}Target.classList.add("d-none")`)
         eval(`self.questionCard${next_question_number}Target.classList.remove("d-none")`)
+        if (quizz_level == "Difficile") {
+          // focus on text avoiding to re click
+          console.log(eval(`self.form${next_question_number}Target.parentElement.parentElement`))
+          console.log(eval(`self.form${next_question_number}Target.parentElement.parentElement.children[1]`))
+          console.log(eval(`self.form${next_question_number}Target.parentElement.parentElement.children[1].children[0]`))
+          eval(`self.form${next_question_number}Target.parentElement.parentElement.children[1].children[0].focus()`)
+        }
       } else if (question_number < total_questions) {
         console.log("send end quizz data")
         const data = endQuizzBuilding(quizz_answer_id)

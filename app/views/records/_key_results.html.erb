@@ -1,0 +1,25 @@
+<div class="end-quizz-sentence">
+  <% sentence = "Tu as fini le quizz, bien joué !" %>
+  <% sentence = "Bravo ! Nouveau record !"if @is_new_record %>
+  <p><%= sentence %> </p>
+</div>
+<div class="my-2"></div>
+<div class="key-results">
+  <div class = "crowns-display">
+    <%= render "shared/crowns", crown_class: "completed-crown", number: @record.completion %>
+    <%= render "shared/crowns", crown_class: "uncompleted-crown", number: 3-@record.completion %>
+  </div>
+  <div class="sub-key-results">
+    <div class="completion">
+      <i class=""></i>
+      <div class="completion-percentage">
+        <p><%= @record.score_percentage%>%</p>
+      </div>
+    </div>
+    <div class="time-display">
+      <i class="fa-solid fa-stopwatch"></i>
+      <p><%= @record.seconds_duration%>.</p>
+      <p><%= @record.milliseconds_duration%> s</p>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,5 @@
-<div class="theme-title subtheme-show">
-  <div class="quizz-level-title">
-    <div class = "category-quizz">
-      <%= cl_image_tag @quizz.category.photo.key, height: 40 %>
-      <h2><%= @quizz.name.upcase %></h2>
-    </div>
-    <div class = "level-stars">
-      <p><%= @quizz_level.name.capitalize %></p>
-      <% @stars_count.times do %>
-        <%= image_tag 'star1.png' %>
-      <% end %>
-    </div>
-  </div>
-</div>
+<%= render 'shared/title_banner', quizz: @quizz, quizz_level: @quizz_level %>
+
 <div class="my-3"></div>
 <div class="level-show" data-controller="quizz-answer" data-stimulus-connect-count = 0>
   <div class="questions_count">
@@ -48,7 +36,7 @@
         <div class="my-5"></div>
         <%# ANSWER DIV %>
         <div>
-          <% answer_class = (@suggested_question_answers_id ? "class = 'answer'" : 'class = "answer align-answers"')  %>
+          <div <% answer_class = (@suggested_question_answers_id ? "class = 'answer'" : 'class = "answer align-answers"')  %>>
           <div <%= answer_class.html_safe %>
               data-good-answer-id = <%= question_answer.id %>
               data-question-id = <%=question_answer.id%>
@@ -73,7 +61,7 @@
               <div>
                 <%= simple_form_for([@quizz_answer,@user_answer], data: {action:"submit->quizz-answer#checkAnswer"}) do |f| %>
                   <%= f.input :answer, label: false, placeholder: 'Votre réponse', input_html: {data: {quizz_answer_target: "form#{index}"}, class: "border-radius"} %>
-                  <%= f.button :submit, value: "Valider", class: "btn btn-purple my-4 margin-auto" %>
+                  <%= f.button :submit, "Valider", class: "btn btn-purple my-4 margin-auto" %>
                 <% end %>
               <% end %>
               </div>
