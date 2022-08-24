@@ -56,9 +56,22 @@
 .green-background{
   background-color: $green;
   transition: background-color 0.7s;
+  .form-control:focus{
+    background-color: $green;
+    transition: background-color 0.7s;
+  }
 }
 
 .red-background{
   background-color: $red;
   transition: background-color 0.7s;
+}
+
+.redbackground.form-control:focus{
+  background-color: $red;
+  transition: background-color 0.7s;
+}
+
+.form-control:focus{
+  background-color: none !important;
 }

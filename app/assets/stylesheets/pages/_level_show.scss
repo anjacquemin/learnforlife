@@ -100,6 +100,16 @@
   align-self: center;
 }
 
+.align-answers{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.border-radius{
+  border-radius: $border-radius-lg;
+}
+
 @media(max-width: 992px) {
   .questions{
     width: 70%;

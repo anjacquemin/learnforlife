@@ -45,13 +45,15 @@
         <div class = "card-question">
           <h2><%=question_answer.question %></h2>
         </div>
-        <div class="my-3"></div>
+        <div class="my-5"></div>
         <%# ANSWER DIV %>
         <div>
-          <div class="answer"
+          <% answer_class = (@suggested_question_answers_id ? "class = 'answer'" : 'class = "answer align-answers"')  %>
+          <div <%= answer_class.html_safe %>
               data-good-answer-id = <%= question_answer.id %>
               data-question-id = <%=question_answer.id%>
               data-quizz-answer-id = <%=@quizz_answer.id%>
+              data-quizz-level = <%=@quizz_level.name%>
               data-question-number = <%=index%>
               data-total-questions = <%=@quizz.question_answers.count%>
               data-answer-url = <%= quizz_answer_user_answers_url(@quizz_answer) %>
@@ -68,11 +70,13 @@
                 </div>
               <% end %>
             <% else %>
-              <%= simple_form_for([@quizz_answer,@user_answer], data: {action:"click->quizz-answer#checkAnswer" }) do |f| %>
-                <%= f.input :answer %>
-                <%= f.button :submit %>
+              <div>
+                <%= simple_form_for([@quizz_answer,@user_answer], data: {action:"submit->quizz-answer#checkAnswer"}) do |f| %>
+                  <%= f.input :answer, label: false, placeholder: 'Votre réponse', input_html: {data: {quizz_answer_target: "form#{index}"}, class: "border-radius"} %>
+                  <%= f.button :submit, value: "Valider", class: "btn btn-purple my-4 margin-auto" %>
+                <% end %>
               <% end %>
-            <% end %>
+              </div>
           </div>
         </div>
       </div>
