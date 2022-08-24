@@ -1,0 +1,15 @@
+<div class="results unlocked-levels col-lg-6">
+  <div class="banner">
+    <h2>Challenge</h2>
+  </div>
+  <div class="record-card">
+    <div class="white-container">
+      <p><%= @challenge_card_sentence %></p>
+      <div class="quizz-card">
+        <% @user_quizz_progress_unlocked = true %>
+        <%= render "shared/card_display", quizz: @challenge_card_quizz_to_display %>
+        <%= render "shared/level_display", quizz: @challenge_card_quizz_to_display %>
+      </div>
+    </div>
+  </div>
+</div>

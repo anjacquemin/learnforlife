@@ -1,0 +1,39 @@
+<div class="results answers col-lg-6">
+  <div class="banner">
+    <h2>Réponse</h2>
+  </div>
+  <div class="record-card">
+    <div class="white-container">
+      <div class= "result-number">
+        <div class="good-answer-count">
+          <%= image_tag 'verifie.png' %>
+          <p><%= @record.score_percentage * @number_of_questions / 100%></p>
+        </div>
+        <div class="bad-answer-count">
+          <%= image_tag 'annuler.png' %>
+          <p><%= ((100-@record.score_percentage) * @number_of_questions) / 100%></p>
+        </div>
+      </div>
+      <div class="all-answers">
+        <hr class="horizontal-divider-light">
+        <% @synthesis.each_with_index do |question_synthese, index| %>
+          <div class= "unique-answer">
+            <div class= "question-number">
+              <p> <%= index %> </p>
+            </div>
+            <div class = "question-answer">
+              <p> <strong><%=question_synthese[:question].capitalize%></strong> </p>
+              <p><%=question_synthese[:answer]%> - Réponse : <%=question_synthese[:user_answer]%></p>
+            </div>
+            <% if question_synthese[:is_good] %>
+              <%= image_tag 'verifie.png', height: 30 %>
+            <% else %>
+              <%= image_tag 'annuler.png', height: 30 %>
+            <% end %>
+          </div>
+          <hr class="horizontal-divider-light">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

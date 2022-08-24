@@ -12,6 +12,7 @@ export default class extends Controller {
   static targets = ["userAnswer", "questionId", "cardCountBar", "cardCountNumber", "seconds", "tens", "goodAnswer", "endButtonDisplay", "endButton"].concat(questionTargets).concat(goodAnswerTargets).concat(formTargets)
 
   connect() {
+
     console.log("Hello from our first Stimulus controller")
 
     window.Interval
@@ -101,6 +102,7 @@ export default class extends Controller {
     }
 
     if(quizz_level === "Difficile"){
+
       console.log(quizz_level)
       const user_answer = eval(`this.form${question_number}Target.value`)
 
