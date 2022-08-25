@@ -66,6 +66,10 @@
   }
 }
 
-.modal-backdrop.show{
-  z-index:1 !important;
+.modal{
+  // position: absolute;
+}
+
+.modal.fade.show {
+   z-index:1000 !important;
 }
