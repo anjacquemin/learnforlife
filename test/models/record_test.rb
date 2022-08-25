@@ -5,7 +5,7 @@ class RecordTest < ActiveSupport::TestCase
 
   class RecordTest < ActiveSupport::TestCase
 
-   def setup
+    def setup
       @record = records(:record_1)
     end
 

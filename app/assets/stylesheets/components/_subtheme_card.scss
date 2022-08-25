@@ -65,3 +65,11 @@
     }
   }
 }
+
+.modal{
+  // position: absolute;
+}
+
+.modal.fade.show {
+   z-index:1000 !important;
+}

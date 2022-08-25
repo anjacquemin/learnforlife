@@ -11,6 +11,7 @@ _IMAGE_DIR_ = "./app/assets/images/"
 
 puts 'seed'
 
+BestRecord.destroy_all
 QuizzLevelProgress.destroy_all
 UserAnswer.destroy_all
 Record.destroy_all
@@ -38,6 +39,8 @@ anthony = User.new(
     level: 3
 )
 anthony.save!
+
+
 
 ##########################
 
@@ -328,3 +331,34 @@ anthony_achievemnt_1.save!
 
 anthony_achievemnt_2 = UserAchievement.new(achievement: achievement_2, unlocked:false, user: anthony)
 anthony_achievemnt_2.save!
+
+
+
+
+
+# SEEDS RECORDS
+
+quizz_level = QuizzLevel.first
+
+(0..10).each do |n|
+  user = User.new(
+    name: "user#{n}",
+    email: "user#{n}@gmail.gmail",
+    password: "foobar",
+    password_confirmation: "foobar",
+    hp: 45 + n,
+    xp: 37+ n,
+    gem: 12+ n,
+    gold: 1100+ n,
+    level: 3+ n
+  )
+  user.save!
+  record = Record.new(user: user, quizz_level: quizz_level, seconds_duration: 1000- (n * 10), milliseconds_duration: 1, crown_or_sphere: "crown", completion: 1)
+  record.save!
+
+  record = Record.new(user: user, quizz_level: quizz_level, seconds_duration: 1000- (n * 10), milliseconds_duration: 1,crown_or_sphere: "crown", completion: 2)
+  record.save!
+
+  best_record = BestRecord.new(record: record, quizz_level: quizz_level)
+  best_record.save!
+end

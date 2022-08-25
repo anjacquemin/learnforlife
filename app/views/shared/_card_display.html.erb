@@ -24,9 +24,11 @@
       <p> <%= @user_total %> / <%= total_quizzs_crowns %> </p>
     </div>
   </div>
-  <div class="ranking">
+
+  <%# <% render "shared/quizz_records_modal", quizz: quizz  %>
+    <button class="ranking" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <h2>0<sup>ème</sup></h2>
     <p>/150</p>
-  </div>
+  </button>
 </div>
 <hr class= "horizontal-divider-light width-80">
