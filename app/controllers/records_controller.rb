@@ -119,7 +119,7 @@ class RecordsController < ApplicationController
       difficulty_coefs= { Facile: 1, Moyen: 2, Difficile: 5 }
       crown_coefs = [1, 2, 3]
       total_coef = 0
-      total_coef = crown_coefs[past_best_record_completion, record_completion - 1].sum
+      total_coef = crown_coefs[past_best_record_completion, record_completion - past_best_record_completion].sum
       total_coef *= difficulty_coefs[record.quizz_level.name.to_sym]
       total_coef * record.question_answers.count
     end
