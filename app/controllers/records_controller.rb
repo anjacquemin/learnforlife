@@ -1,6 +1,7 @@
 class RecordsController < ApplicationController
 
   def show
+
     @record = Record.find(params[:id])
     quizz_answer_id = @record.quizz_answer_id
     quizz_level = @record.quizz_level
@@ -10,15 +11,31 @@ class RecordsController < ApplicationController
     @synthesis = synthesis(user_answers)
 
     @is_new_record = (find_best_user_record(quizz_level) == @record)
-    @unlocked_items = unlocked_items_calculation(@record) if @is_new_record
+
+    if @is_new_record
+      @unlocked_items = unlocked_items_calculation(@record)
+      set_new_record(@record)
+    end
+
+    @all_best_records = BestRecord.where(quizz_level: quizz_level).joins(:record).order(completion: :desc, seconds_duration: :asc, milliseconds_duration: :asc)
+
+    @all_best_records = @all_best_records.paginate(page: params[:page], per_page: 10)
+
     @total_unlocked_items = (@unlocked_items ? @unlocked_items.count{ |k,v| v != nil } : 0)
 
-
+    # Careful need to check if the record add already been saved
     @xp_win = xp_win_calculation(@record, @is_new_record, quizz_level)
     @gold_win = gold_win_calculation(@record)
     current_user.gold += @gold_win
     current_user.xp += @xp_win
     current_user.save
+
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
+
   end
 
   # BACK END CHECK NUMBER OF ANSWER = NUMBER OF QUESTION + TIME  (time_difference_in_milliseconds?)
@@ -50,6 +67,16 @@ class RecordsController < ApplicationController
   end
 
   private
+
+    def set_new_record(record)
+      current_record = record.quizz_level.best_records.joins(:record).find_by(records: {user: current_user})
+      if current_record
+        current_record.record = record
+      else
+        current_record = BestRecord.new(quizz_level: record.quizz_level, record: record)
+      end
+      current_record.save!
+    end
 
     def synthesis(user_answers)
       @synthesis = user_answers.map do |user_answer|

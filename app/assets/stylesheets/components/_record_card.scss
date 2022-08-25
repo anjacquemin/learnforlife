@@ -226,3 +226,72 @@
     text-align: center;
   }
 }
+
+
+
+// Leaderboard card
+
+.leaderboard .white-container{
+    overflow-y: scroll;
+  }
+
+.best-record-display{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-radius:$border-radius-lg;
+  padding: 0.3rem 0;
+  img{
+    height: 16px;
+  }
+  > * {
+    flex: 1 1 0;
+    width:0;
+    text-align: center;
+  }
+  p {
+    margin: 0;
+    font-weight: bold;
+  }
+  .time-display{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      color: $orange
+    }
+  }
+  .key-record-results{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    > * {
+      flex: 1 1 0;
+      width:0;
+      text-align: center;
+    }
+  }
+  .user-details{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    p {
+     width: 40px;
+    }
+  }
+}
+
+.pagination-enhanced{
+  width: 60%;
+  flex-direction: column;
+  align-items: center;
+  > ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    a {
+      font-weight: bold;
+    }
+  }
+}

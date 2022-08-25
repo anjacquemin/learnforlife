@@ -65,3 +65,7 @@
     }
   }
 }
+
+.modal-backdrop.show{
+  z-index:1 !important;
+}

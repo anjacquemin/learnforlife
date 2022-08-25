@@ -9,7 +9,7 @@ import { Modal } from "bootstrap"
 
 export default class extends Controller {
 
-  static targets = ["achievement1", "circle0", "circleDiv0"]
+  static targets = ["achievement1", "circle0", "circleDiv0", "records"]
 
   connect() {
     console.log(`hello from controller`)
@@ -30,6 +30,23 @@ export default class extends Controller {
       targets = eval(`this.circle${i}Targets`)
       targets.forEach(circle => circle.style.transform = `rotate(${(rotate)}deg)`)
     }
+  }
+
+  cancelScroll(event) {
+    event.preventDefault()
+    // document.location.reload(true)
+    // event.stopPropagation()
+    console.log(event.target)
+    fetch(event.target.href, {
+      method: "GET",
+      headers: {"Accept": "application/json"},
+    })
+      .then(response => response.json())
+      .then((data) => {
+        if (data.inserted_item) {
+          this.recordsTarget.innerHTML = data.inserted_item
+        }
+      })
   }
 
 }

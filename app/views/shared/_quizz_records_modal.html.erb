@@ -1,40 +1,3 @@
-<% total_quizzs_crowns = quizz.quizz_levels.count * 3 %>
-<% user_total_crowns =  quizz.records.where(user: current_user, crown_or_sphere: "crown").group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
-<% user_total_spheres =  quizz.records.where(user: current_user, crown_or_sphere: "sphere").group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
-<% @user_total = user_total_crowns + user_total_spheres %>
-<% @completion = (quizz.quizz_levels.count.zero? ? 0 : (@user_total.to_f / (total_quizzs_crowns) * 100)).round() %>
-
-
-
-
-<% if !@user_quizz_progress_unlocked %>
-  <%= render "shared/set_lock_and_blur", for_: "quizz" %>
-<% else %>
-  <% @quizz_blur_style = "" %>
-<% end %>
-<div class="quizz-card-banner" <%= @quizz_blur_style %>>
-  <div class="cards-number">
-    <h2><%= quizz.question_answers.count %></h2>
-    <p>cartes</p>
-  </div>
-  <div class="content">
-    <h2> QUIZZ #<%= quizz.ordering %> </h2>
-    <div class="achievement-count">
-      <%= image_tag "crown.png" %>
-      <p> <%= @user_total %> / <%= total_quizzs_crowns %> </p>
-    </div>
-  </div>
-
-  <%# <% render "shared/quizz_records_modal", quizz: quizz  %>
-    <button class="ranking" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    <h2>0<sup>ème</sup></h2>
-    <p>/150</p>
-  </button>
-</div>
-<hr class= "horizontal-divider-light width-80">
-
-<!-- Modal -->
-
 <% quizz_levels_records = BestRecord.all.joins(:quizz_level,record: :user).where(quizz_level: {quizz:quizz}).group("users.name").pluck('users.name, SUM(records.completion), SUM(records.seconds_duration), SUM(records.milliseconds_duration)') %>
 
 <% quizz_levels_records.map! do |record| %>
@@ -45,7 +8,7 @@
 
 <% @all_best_records = @all_best_records.paginate(page: params[:page], per_page: 10) %>
 
-<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" >
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
