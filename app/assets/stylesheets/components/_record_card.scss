@@ -282,13 +282,13 @@
 }
 
 .pagination-enhanced{
-  width: 60%;
+  width: 80%;
   flex-direction: column;
   align-items: center;
   > ul {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin: 0;
     a {
       font-weight: bold;

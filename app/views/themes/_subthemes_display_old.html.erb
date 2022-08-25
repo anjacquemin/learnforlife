@@ -27,7 +27,7 @@
               <%= cl_image_tag category.photo.key, height: 40, crop: :fill, style: "opacity:#{@opacity}" %>
             <% end %>
           <% else %>
-            <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4" %>
+            <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4; blur:3px;" %>
           <% end %>
         </div>
       </div>

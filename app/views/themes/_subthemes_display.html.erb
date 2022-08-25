@@ -1,20 +1,17 @@
 <div class="subthemes-display" data-controller = "theme-show" data-count = <%=theme_level.subthemes.count%>   >
   <% theme_level.subthemes.each_with_index do |subtheme, index| %>
-    <%=link_to subtheme_path(subtheme) do%>
+    <% subtheme_progress = @user.subtheme_progresses.find_by(subtheme: subtheme) %>
+    <% @subtheme_unlocked = (subtheme_progress &.unlocked)  %>
+    <% render "shared/link_display", subtheme: subtheme, for_: "subtheme" %>
 
+    <%=link_to @subtheme_path.html_safe, class: @cancel_hovering do%>
+      <div <%=@subtheme_hovering.html_safe%>   style='filter: blur(<%=@level_blur%>px)'>
 
-      <div class="subtheme-card-enhanced">
-
-        <% subtheme_progress = @user.subtheme_progresses.find_by(subtheme: subtheme) %>
-
-        <% if subtheme && @subtheme_unlocked = (subtheme_progress &.unlocked)  %>
-          <%@subtheme_blur = 3 %>
-        <% end %>
-        <div class= "cards-number" style='filter: blur(<%=@level_blur%>px)'>
+        <div class= "cards-number">
           <h2><%= subtheme.question_answers.count %></h2>
           <p>cartes</p>
         </div>
-        <div class="content" style='filter: blur(<%=@level_blur%>px)'>
+        <div class="content">
           <h2><%= subtheme.name %></h2>
           <div class= "achievement-count" style='filter: blur(<%=@level_blur%>px)'>
             <%= image_tag "crown.png" %>
@@ -26,7 +23,7 @@
             <p> <%= @user_total %> / <%= total_subthemes_crowns %> </p>
           </div>
         </div>
-        <div class="circle-container" style='filter: blur(<%=@level_blur%>px)'>
+        <div class="circle-container">
           <div class="circle-wrap "
             data-theme-show-target = "circleDiv<%=index%>"
             data-rotate<%=index%>=<%=@completion*1.8%>>
@@ -43,9 +40,6 @@
         </div>
         <div class="badge-progress">
           <% if @subtheme_unlocked %>
-            <%# <div class="badge-count">
-              <p>0/3</p>
-            </div> %>
             <div class="badge-display">
               <% subtheme.categories.each do |category| %>
                 <% @category_unlock = current_user.category_progresses.find_by(category: category) %>
@@ -58,7 +52,7 @@
               <% end %>
             </div>
             <% else %>
-              <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4" %>
+              <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4;" %>
           <% end %>
         </div>
       </div>
