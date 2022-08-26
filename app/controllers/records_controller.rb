@@ -3,6 +3,7 @@ class RecordsController < ApplicationController
   def show
 
     @record = Record.find(params[:id])
+    authorize(@record)
     quizz_answer_id = @record.quizz_answer_id
     quizz_level = @record.quizz_level
     user_answers = UserAnswer.where(quizz_answer_id: quizz_answer_id)
@@ -23,7 +24,7 @@ class RecordsController < ApplicationController
 
     @total_unlocked_items = (@unlocked_items ? @unlocked_items.count{ |k,v| v != nil } : 0)
 
-    # Careful need to check if the record add already been saved
+    # Careful need to check if the record add already been dealt with
     @xp_win = xp_win_calculation(@record, @is_new_record, quizz_level)
     @gold_win = gold_win_calculation(@record)
     current_user.gold += @gold_win
@@ -60,6 +61,9 @@ class RecordsController < ApplicationController
       score_percentage: score_percentage_calculation(user_answers),
       quizz_answer_id: quizz_answer_id)
     @record.crown_or_sphere = "crown"
+
+    authorize(@record)
+
     @record.save!
     respond_to do |format|
       format.json
