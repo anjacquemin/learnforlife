@@ -10,7 +10,7 @@
       <%= render "progress_bar", value: (@user.hp.to_f / 100 * 100).round, display_with: "#{@user.hp}/100"   %>
     </div>
     <div class="character-xp">
-      <%= render "progress_bar", value: (@user.xp.to_f / 50 * 100).round, display_with: "#{@user.xp}/50"   %>
+      <%= render "progress_bar", value: (@user.xp.to_f / 10000 * 100).round, display_with: "#{@user.xp}/10000"   %>
     </div>
   </div>
 </div>
