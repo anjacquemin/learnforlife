@@ -16,18 +16,26 @@ export default class extends Controller {
     console.log(this.element.dataset.count)
 
     const themeCount = this.element.dataset.count;
+    const self = this
+    window.theme_index = 0;
 
     let rotate = 0
     let targets
 
-    for (var i=0; i<themeCount; i++) {
-      // console.log("loop")
-      // console.log(i)
-      // console.log(eval(`this.circleDiv${i}Target`))
-      rotate = parseInt(eval(`this.circleDiv${i}Target.dataset.rotate${i}`));
-      targets = eval(`this.circle${i}Targets`)
-      targets.forEach(circle => circle.style.transform = `rotate(${(rotate)}deg)`)
-    }
+    myLoop(this, themeCount);
+
   }
 
+}
+
+function myLoop(itself, themeCount) {
+  setTimeout(function() {
+    const rotate = parseInt(eval(`itself.circleDiv${theme_index}Target.dataset.rotate${theme_index}`));
+    const targets = eval(`itself.circle${theme_index}Targets`)
+    targets.forEach(circle => circle.style.transform = `rotate(${(rotate)}deg)`)
+    theme_index++;
+    if (theme_index < themeCount-1) {
+      myLoop(itself, themeCount);
+    }
+  }, 200)
 }

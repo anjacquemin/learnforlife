@@ -4,33 +4,48 @@
 <% {name: record[0], completion: record[1], seconds_duration: record[2], milliseconds_duration: record[3]} %>
 <% end %>
 
-<% @all_best_quizz_records = quizz_levels_records.sort_by{|record| [record[:completion], record[:seconds_duration], record[:milliseconds_duration]]} %>
+<% @all_best_quizz_records = quizz_levels_records.sort_by{|record| [-record[:completion], record[:seconds_duration], record[:milliseconds_duration]]} %>
 
 <% @all_best_quizz_records = @all_best_quizz_records.paginate(page: params[:page], per_page: 10) %>
 
-<div class="modal fade" id="exampleModal" data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" >
+<% offset = (params[:page] ? params[:page].to_i : 1) %>
+<% is_first_page = !params[:page] || params[:page] == "1"  %>
+
+<div class="modal fade" <%="id= 'exampleModal#{quizz.id}'".html_safe%>  data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><%= "#{quizz.category.subtheme.name} - #{quizz.category.name} : #{quizz.name}" %></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <div class = "best-record-display">
+          <div class= "user-details">
+            <p></p>
+            <p>Utilisateur</p>
+          </div>
+          <div class= "key-record-results">
+            <div>
+              <%= image_tag("crown.png") %>
+            </div>
+            <p><i class="fa-solid fa-stopwatch"></i></p>
+          </div>
+        </div>
+        <hr class="horizontal-divider-light">
         <% @all_best_quizz_records.each_with_index do |best_record, index| %>
           <% background = "" %>
-          <% background = "green-background" if current_user == best_record[:user] %>
-          <% background = "purple-20-background" if index + 1 == 1 %>
-          <% background = "purple-10-background" if index + 1 == 2 %>
-          <% background = "purple-5-background" if index + 1 == 3 %>
+          <% background = "green-background" if current_user.name == best_record[:user] %>
+          <% background = "purple-20-background" if index + 1 == 1 && is_first_page %>
+          <% background = "purple-10-background" if index + 1 == 2 && is_first_page %>
+          <% background = "purple-5-background" if index + 1 == 3 && is_first_page %>
           <% class_best_record = "class = 'best-record-display #{background}'"%>
-
           <div <%= class_best_record.html_safe %>>
             <div class= "user-details">
-              <p><%= (index + 1) + (params[:page].to_i - 1) * 10 %></p>
+              <p><%= (index + 1) + (offset - 1) * 10 %></p>
               <h2><%= best_record[:name] %></h2>
             </div>
             <div class= "key-record-results">
-              <p> <%= best_record[:completion] %></p>>
+              <p> <%= best_record[:completion] %></p>
               <div class="time-display">
                 <p> <%= best_record[:seconds_duration] %>.</p>
                 <p> <%= best_record[:milliseconds_duration] %>s</p>
@@ -40,7 +55,7 @@
           <hr class="horizontal-divider-light">
         <% end %>
 
-        <%= will_paginate @all_best_records,  "data-action": "click->record#cancelScroll" if @all_best_records%>
+        <%= will_paginate @all_best_quizz_records,  "data-action": "click->subtheme-show#cancelScroll","data-quizz": quizz.id, class: "pagination pagination-enhanced", :previous_label => '← Précédent', :next_label => 'Suivant →' if @all_best_quizz_records%>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

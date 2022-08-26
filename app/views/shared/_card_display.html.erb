@@ -26,7 +26,7 @@
   </div>
 
   <%# <% render "shared/quizz_records_modal", quizz: quizz  %>
-    <button class="ranking" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button class="ranking" data-bs-toggle="modal"   <%="data-bs-target='#exampleModal#{quizz.id}'".html_safe%>>
     <h2>0<sup>ème</sup></h2>
     <p>/150</p>
   </button>

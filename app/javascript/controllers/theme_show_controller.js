@@ -16,7 +16,6 @@ export default class extends Controller {
 
     window.theme_index = 0;
 
-
     myLoop(this, themeCount);
   }
 

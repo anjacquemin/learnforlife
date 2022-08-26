@@ -3,7 +3,7 @@
 import { Controller } from "@hotwired/stimulus"
 import { csrfToken } from "@rails/ujs"
 import { Modal } from "bootstrap"
-
+import { myLoop } from "./_my_loop.js"
 
 //to try Animation Skills Progressbar for xp https://www.sliderrevolution.com/design/cool-javascript-animations/
 
@@ -24,12 +24,9 @@ export default class extends Controller {
     // Dynamic progress display
     let rotate = 0
     let targets
-
-    for (var i=0; i<1; i++) {
-      rotate = parseInt(eval(`this.circleDiv${i}Target.dataset.rotate${i}`));
-      targets = eval(`this.circle${i}Targets`)
-      targets.forEach(circle => circle.style.transform = `rotate(${(rotate)}deg)`)
-    }
+    const self = this
+    window.theme_index = 0
+    myLoop(this, 1);
   }
 
   cancelScroll(event) {
