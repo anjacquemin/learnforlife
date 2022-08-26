@@ -1,8 +1,8 @@
 <div class="levels-display">
   <% quizz.quizz_levels.each do |level| %>
     <% @user_quizz_level_progress_unlocked = is_unlocked_for_user?(level, "quizz_level", current_user) %>
-    <%= render "shared/link_display", level: level %>
-    <%=link_to @level_path do%>
+    <%= render "shared/link_display", level: level, for_: "level" %>
+    <%=link_to @level_path, class: @cancel_hovering do%>
       <div <%=@level_hovering.html_safe%>>
         <% if !@user_quizz_level_progress_unlocked && @user_quizz_progress_unlocked %>
           <%= render "shared/set_lock_and_blur", for_: "quizz_level" %>

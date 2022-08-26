@@ -1,6 +1,5 @@
 .subtheme-card-enhanced {
   @include white-background-box;
-  @include hovering($purple, $light-purple);
   height: 90px;
   margin:10px;
   width: 400px;
@@ -66,10 +65,14 @@
   }
 }
 
-.modal{
-  // position: absolute;
+.subtheme-hovering {
+  @include hovering($purple, $light-purple);
 }
 
-.modal.fade.show {
+.cancel-subtheme-hovering{
+  pointer-events: none;
+}
+
+.quizzs-display .modal.fade.show {
    z-index:1000 !important;
 }

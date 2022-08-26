@@ -1,7 +1,22 @@
-<% if @user_quizz_progress_unlocked && @user_quizz_level_progress_unlocked%>
-  <%@level_path = quizz_level_path(level)  %>
-  <%@level_hovering = 'class= "level level-hovering"' %>
-<% else %>
-  <% @level_path = "" %>
-  <% @level_hovering = 'class= "level"' %>
+<% if for_ == "level" %>
+  <% if @user_quizz_progress_unlocked && @user_quizz_level_progress_unlocked%>
+    <%@level_path = quizz_level_path(level)  %>
+    <%@level_hovering = 'class= "level level-hovering"' %>
+    <% @cancel_hovering = '' %>
+  <% else %>
+    <% @level_path = "" %>
+    <% @level_hovering = 'class= "level"' %>
+    <% @cancel_hovering = "cancel-subtheme-hovering" %>
+  <% end %>
+<% elsif for_ == "subtheme" %>
+  <% if @subtheme_unlocked %>
+    <%@subtheme_path = subtheme_path(subtheme)  %>
+    <%@subtheme_hovering = 'class= "subtheme-card-enhanced subtheme-hovering"' %>
+    <% @cancel_hovering = '' %>
+  <% else %>
+    <% @subtheme_path = "" %>
+    <% @subtheme_hovering = 'class= "subtheme-card-enhanced"' %>
+    <% @cancel_hovering = "cancel-subtheme-hovering" %>
+
+  <% end %>
 <% end %>
