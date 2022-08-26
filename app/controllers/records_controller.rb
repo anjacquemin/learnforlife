@@ -11,8 +11,10 @@ class RecordsController < ApplicationController
     @number_of_questions = @record.question_answers.count
     @synthesis = synthesis(user_answers)
 
+    # would be a matter if a new other record is set (the display would change), then come back to this page / url, but unlikely to happen
     @is_new_record = (find_best_user_record(quizz_level) == @record)
 
+    # need to store unlocked items in cookie if page reload ?
     if @is_new_record
       @unlocked_items = unlocked_items_calculation(@record)
       set_new_record(@record)
@@ -24,13 +26,16 @@ class RecordsController < ApplicationController
 
     @total_unlocked_items = (@unlocked_items ? @unlocked_items.count{ |k,v| v != nil } : 0)
 
-    # Careful need to check if the record add already been dealt with
     @xp_win = xp_win_calculation(@record, @is_new_record, quizz_level)
     @gold_win = gold_win_calculation(@record)
-    current_user.gold += @gold_win
-    current_user.xp += @xp_win
-    current_user.save
-
+    # Need to check if the record add already been dealt with
+    if !@record.dealt_with
+      current_user.gold += @gold_win
+      current_user.xp += @xp_win
+      current_user.save
+      @record.dealt_with = true
+      @record.save!
+    end
 
     respond_to do |format|
       format.html
@@ -168,9 +173,7 @@ class RecordsController < ApplicationController
     #Also unlock level 1 of the unlocked quizz
     #NEED TO CHECK IF ALREADY UNLOCKED
     def unlocked_items_calculation(record)
-      puts "###########################"
-      puts "unlocked ITEM"
-      puts "record : #{record.completion}"
+
       unlocked_items = {}
       return nil if record.completion == 0
 
@@ -180,11 +183,9 @@ class RecordsController < ApplicationController
         quizz_level_name_to_unlock = (quizz_level_name == "Facile" ? "Moyen" : "Difficile")
         unlocked_items[:quizz_level] = unlock_quizz_level(quizz, quizz_level_name_to_unlock)
         if quizz_level_name == "Moyen" && record.completion >= 2
-          puts "UNLOCK QUIZZ LEVEL"
             all_category_quizzs = quizz.category.quizzs
             number_of_quizzs = all_category_quizzs.count
           if quizz.ordering != number_of_quizzs
-            puts "UNLOCK NEXT QUIZZ"
             quizz_to_unlock = quizz.category.quizzs.find_by(ordering: quizz.ordering + 1)
             unlocked_items[:quizz] = unlock_quizz(quizz_to_unlock)
             unlock_quizz_level(quizz_to_unlock, "Facile")
@@ -195,10 +196,6 @@ class RecordsController < ApplicationController
           end
         end
       end
-      p "#########################################"
-      p "#########################################"
-      p "#########################################"
-      p "unlocked items : #{unlocked_items}"
       unlocked_items
     end
 
@@ -219,6 +216,7 @@ class RecordsController < ApplicationController
       quizz_progress_to_unlock = current_user.quizz_progresses.find_by(quizz: quizz)
 
       return nil if !quizz_progress_to_unlock
+
       return nil if quizz_progress_to_unlock.unlocked
 
       quizz_progress_to_unlock.unlocked = true
@@ -230,6 +228,7 @@ class RecordsController < ApplicationController
       category_progress_to_unlock = current_user.category_progresses.find_by(category: category)
 
       return nil if !category_progress_to_unlock
+
       return nil if category_progress_to_unlock.unlocked
 
       category_progress_to_unlock.unlocked = true
@@ -241,6 +240,7 @@ class RecordsController < ApplicationController
       theme_level_progress_to_unlock = current_user.theme_level_progresses.find_by(theme_level: theme_level)
 
       return nil if !theme_level_progress_to_unlock
+
       return nil if theme_level_progress_to_unlock.unlocked
 
       theme_level_progress_to_unlock.unlocked = true
@@ -253,6 +253,7 @@ class RecordsController < ApplicationController
       subtheme_progress_to_unlock = current_user.subtheme_progresses.find_by(subtheme: subtheme)
 
       return nil if !subtheme_progress_to_unlock
+
       return nil if subtheme_progress_to_unlock.unlocked
 
       subtheme_progress_to_unlock.unlocked = true
@@ -264,7 +265,6 @@ class RecordsController < ApplicationController
     # unlock new theme level, and first quizz of each subtheme of the corresponding category
     #Theme level can already be unlocked, but still needed to unlocked new theme level, and first quizz of each subtheme of the corresponding category
     def unlock_theme_level_and_children(category)
-      p "UNLOCK LEVEL ###################################"
       theme_level = category.theme_level
       subthemes = theme_level.subthemes
       categories = subthemes.map { |subtheme| Category.find_by(subtheme: subtheme, name: category.name)}
@@ -274,12 +274,10 @@ class RecordsController < ApplicationController
         theme_level_to_unlock = ThemeLevel.find_by(level: theme_level.level + 1)
 
         theme_level_and_children = {}
-        p "UNLOCK THEME LEVEL ###################################"
 
         theme_level_and_children[:theme_level] = unlock_theme_level(theme_level_to_unlock)
         subthemes_to_unlock = theme_level_to_unlock.subthemes
 
-        p "UNLOCK SUBTHEME ###################################"
         theme_level_and_children[:subthemes] = []
         subthemes_to_unlock.each {|subtheme_to_unlock| theme_level_and_children[:subthemes] << unlock_subtheme(subtheme_to_unlock)}
         categories_to_unlock = subthemes_to_unlock.map { |subtheme_to_unlock| Category.find_by(subtheme: subtheme_to_unlock, name: category.name)}
@@ -288,15 +286,10 @@ class RecordsController < ApplicationController
         theme_level_and_children[:quizz_levels] = []
         categories_to_unlock.map{ |category_to_unlock|
           quizz_to_unlock = Quizz.find_by(category: category_to_unlock, ordering:1)
-          p "UNLOCK QUIZZ  ###################################"
           theme_level_and_children[:quizzs] << unlock_quizz(quizz_to_unlock)
           theme_level_and_children[:quizz_levels] << unlock_quizz_level(quizz_to_unlock, "Facile")
         }
       end
       theme_level_and_children
     end
-
-    def all_subthemes_category_unlocked?(category)
-    end
-
 end

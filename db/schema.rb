@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_25_082443) do
+ActiveRecord::Schema.define(version: 2022_08_26_101732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,6 +163,7 @@ ActiveRecord::Schema.define(version: 2022_08_25_082443) do
     t.integer "seconds_duration"
     t.integer "milliseconds_duration"
     t.bigint "quizz_answer_id"
+    t.boolean "dealt_with", default: false
     t.index ["quizz_answer_id"], name: "index_records_on_quizz_answer_id"
     t.index ["quizz_level_id"], name: "index_records_on_quizz_level_id"
     t.index ["user_id"], name: "index_records_on_user_id"

@@ -1,5 +1,5 @@
-<div class="subthemes-display" data-controller = "theme-show" data-count = <%=theme_level.subthemes.count%>   >
-  <% theme_level.subthemes.each_with_index do |subtheme, index| %>
+<div class="subthemes-display">
+  <% theme_level.subthemes.each do |subtheme| %>
     <% subtheme_progress = @user.subtheme_progresses.find_by(subtheme: subtheme) %>
     <% @subtheme_unlocked = (subtheme_progress &.unlocked)  %>
     <% render "shared/link_display", subtheme: subtheme, for_: "subtheme" %>
@@ -25,14 +25,14 @@
         </div>
         <div class="circle-container">
           <div class="circle-wrap "
-            data-theme-show-target = "circleDiv<%=index%>"
-            data-rotate<%=index%>=<%=@completion*1.8%>>
+            data-theme-show-target = "circleDiv<%=@target_index%>"
+            data-rotate<%=@target_index%>=<%=@completion*1.8%>>
             <div class="circle">
               <div class="mask half">
-                <div class="fill" data-theme-show-target= "circle<%=index%>"></div>
+                <div class="fill" data-theme-show-target= "circle<%=@target_index%>"></div>
               </div>
-              <div class="mask full" data-theme-show-target= "circle<%=index%>">
-                <div class="fill" data-theme-show-target= "circle<%=index%>"></div>
+              <div class="mask full" data-theme-show-target= "circle<%=@target_index%>">
+                <div class="fill" data-theme-show-target= "circle<%=@target_index%>"></div>
               </div>
               <div class="inside-circle"> <%= @completion %>%</div>
             </div>
@@ -57,5 +57,6 @@
         </div>
       </div>
     <% end %>
+    <% @target_index += 1 %>
   <% end %>
 </div>
