@@ -1,14 +1,17 @@
-.character_banner {
+.character-banner {
   background-color: $light_purple;
-  height: 120px;
+  height: 150px;
   display: flex;
   align-items: center;
 
-  .character_sprite {
+  .character-sprite {
     margin: 20px;
+    img {
+      height: 120px;
+    }
   }
 
-  .character_description {
+  .character-description {
     height: 100%;
     padding: 10px;
     display: flex;
@@ -21,5 +24,10 @@
     margin-bottom: 0
   }
 
+}
 
+// spceial css for modal level up
+.unlock-item-display .character-xp{
+  width: 80%;
+  transition: all 3s;
 }

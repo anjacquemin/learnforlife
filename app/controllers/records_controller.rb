@@ -24,18 +24,24 @@ class RecordsController < ApplicationController
 
     @all_best_records = @all_best_records.paginate(page: params[:page], per_page: 10)
 
-    @total_unlocked_items = (@unlocked_items ? @unlocked_items.count{ |k,v| v != nil } : 0)
-
     @xp_win = xp_win_calculation(@record, @is_new_record, quizz_level)
     @gold_win = gold_win_calculation(@record)
     # Need to check if the record add already been dealt with
+
+    user_levels_unlocked_count = 0
     if !@record.dealt_with
+      @former_xp = current_user.xp
+      @former_level = current_user.level
       current_user.gold += @gold_win
-      current_user.xp += @xp_win
-      current_user.save
+      user_levels_unlocked = leveling_calculation(@xp_win)
+      user_levels_unlocked_count = user_levels_unlocked.size
+      @unlocked_items[:user_levels] = user_levels_unlocked if user_levels_unlocked_count > 0
+      puts "end of level calculation : #{user_levels_unlocked}"
       @record.dealt_with = true
       @record.save!
     end
+
+    @total_unlocked_items = (@unlocked_items ? @unlocked_items.count{ |k,v| v != nil && k != :user_levels} : 0) + user_levels_unlocked_count
 
     respond_to do |format|
       format.html
@@ -76,6 +82,33 @@ class RecordsController < ApplicationController
   end
 
   private
+
+    def leveling_calculation(xp_win, next_levels_unlocked=[])
+      p ("####################### // ################## /n")
+      p ("####################### // ################## /n")
+      p ("####################### // ################## /n")
+      p ("level caculation")
+      p ("user xp : #{current_user.xp}")
+      p ("xp win : #{xp_win}")
+      user = current_user
+      next_level = Level.find_by(level: user.level.level + 1)
+      p ("next level : #{next_level.level}")
+      p ("next_level xp : #{next_level.required_xp}")
+
+      if xp_win + user.xp < next_level.required_xp
+        user.xp += xp_win
+        user.save
+        return next_levels_unlocked
+      else
+        p ("dans le ELSE")
+        p ("somme xp win + user xp #{xp_win + user.xp} - next level xp #{next_level.required_xp}")
+        user.xp = xp_win + user.xp - next_level.required_xp
+        user.level = next_level
+        user.save
+        next_levels_unlocked << next_level
+        leveling_calculation(0, next_levels_unlocked)
+      end
+    end
 
     def set_new_record(record)
       current_record = record.quizz_level.best_records.joins(:record).find_by(records: {user: current_user})

@@ -18,7 +18,25 @@ export default class extends Controller {
     // Modal for new achievement
     if (this.element.dataset.totalUnlockItems >= 1) {
       const modal = new Modal(this.achievement1Target)
+      console.log(`this.target${this.achievement1Target}`)
+      console.log(this.achievement1Target)
+      console.log(`this.target.element${this.achievement1Target.element}`)
+      console.log(this.achievement1Target.element)
+      console.log(this.achievement1Target.dataset)
+      console.log(this.achievement1Target.dataset.type)
       modal.show()
+      if (this.achievement1Target.dataset.type === "user_level") {
+        const progressbar = this.achievement1Target.getElementsByClassName("progressbar")[0]
+        console.log(`progressbar${progressbar}`)
+        console.log(progressbar)
+        const divs_to_display = this.achievement1Target.getElementsByClassName("d-none")
+        console.log(`divs to display ${divs_to_display}`)
+        console.log(divs_to_display)
+        delay(progressbar).then(()=> {
+          console.log("in the delay")
+          Array.from(divs_to_display).forEach(div => div.classList.remove("d-none"))
+        });
+      }
     }
 
     // Dynamic progress display
@@ -46,4 +64,21 @@ export default class extends Controller {
       })
   }
 
+}
+
+function newLevelTimingAppearance {
+
+}
+
+function delay(progressbar) {
+  return new Promise(resolve => {
+    setTimeout(function() {
+      progressbar.style.width = "100%"
+      console.log("in the second timeout")
+    },1000);
+    setTimeout(() => {
+      console.log("in the second timeout")
+      resolve
+    }, 3000);
+  });
 }

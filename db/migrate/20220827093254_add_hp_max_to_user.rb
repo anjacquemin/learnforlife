@@ -1,0 +1,5 @@
+class AddHpMaxToUser < ActiveRecord::Migration[6.1]
+  def change
+    add_column :users, :hp_max, :integer
+  end
+end
