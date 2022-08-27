@@ -8,24 +8,28 @@ export default class extends Controller {
   connect() {
     console.log(`hello from controller theme show!!!`)
     console.log(this.circle0Targets)
-
     const themeCount = this.element.dataset.count;
-    let rotate = 0
-    let targets
+
     const self = this
 
     window.theme_index = 0;
 
-    myLoop(this, themeCount);
+     myLoop(this, themeCount)
   }
 
 }
 
 function myLoop(itself, themeCount) {
   setTimeout(function() {
+    console.log(itself)
+    console.log("in time out")
     const rotate = parseInt(eval(`itself.circleDiv${theme_index}Target.dataset.rotate${theme_index}`));
+    console.log(`rotate${rotate}`)
     const targets = eval(`itself.circle${theme_index}Targets`)
     targets.forEach(circle => circle.style.transform = `rotate(${(rotate)}deg)`)
+    console.log(targets[0])
+    console.log(targets[1])
+    console.log(targets[2])
     theme_index++;
     if (theme_index < themeCount-1) {
       myLoop(itself, themeCount);
