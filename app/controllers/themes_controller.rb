@@ -2,6 +2,11 @@ class ThemesController < ApplicationController
   def index
     @themes = policy_scope(Theme)
     @user = current_user
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def show
