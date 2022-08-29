@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  resources :themes, only: [:show, :index]
+  resources :themes, only: [:show, :index] do
+    resources :flashcards, only: [:index]
+  end
   resources :subthemes, only: [:show]
   resources :quizz_levels, only: [:show]
   resources :records, only: [:show]
