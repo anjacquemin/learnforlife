@@ -42,7 +42,8 @@
       </div>
       <div class="modal-footer">
         <% toggle_next_modal = "data-bs-toggle='modal' data-bs-target= '#staticBackdrop#{@count+1}'".html_safe if @count != @total_unlocked_items%>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" <%=toggle_next_modal%> >Close</button>
+        <% next_modal_id = "data-next-modal-id = #{@count+1}".html_safe if @count != @total_unlocked_items %>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" <%=toggle_next_modal%> data-action= "click->record#dynamicLevelAppearance" <%=next_modal_id%> >Close</button>
       </div>
     </div>
   </div>

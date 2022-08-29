@@ -11,37 +11,16 @@ export default class extends Controller {
 
   static targets = ["achievement1", "circle0", "circleDiv0", "records"]
 
+  // Modal for new achievement
+  // Dynamic progress display
   connect() {
     console.log(`hello from controller`)
-    console.log(this.element)
-    // this.achievementTarget.modal('show')
-    // Modal for new achievement
     if (this.element.dataset.totalUnlockItems >= 1) {
       const modal = new Modal(this.achievement1Target)
-      console.log(`this.target${this.achievement1Target}`)
-      console.log(this.achievement1Target)
-      console.log(`this.target.element${this.achievement1Target.element}`)
-      console.log(this.achievement1Target.element)
-      console.log(this.achievement1Target.dataset)
-      console.log(this.achievement1Target.dataset.type)
       modal.show()
-      if (this.achievement1Target.dataset.type === "user_level") {
-        const progressbar = this.achievement1Target.getElementsByClassName("progressbar")[0]
-        console.log(`progressbar${progressbar}`)
-        console.log(progressbar)
-        const divs_to_display = this.achievement1Target.getElementsByClassName("d-none")
-        console.log(`divs to display ${divs_to_display}`)
-        console.log(divs_to_display)
-        delay(progressbar).then(()=> {
-          console.log("in the delay")
-          Array.from(divs_to_display).forEach(div => div.classList.remove("d-none"))
-        });
-      }
+      newLevelTimingAppearance(this.achievement1Target)
     }
 
-    // Dynamic progress display
-    let rotate = 0
-    let targets
     const self = this
     window.theme_index = 0
     myLoop(this, 1);
@@ -49,8 +28,6 @@ export default class extends Controller {
 
   cancelScroll(event) {
     event.preventDefault()
-    // document.location.reload(true)
-    // event.stopPropagation()
     console.log(event.target)
     fetch(event.target.href, {
       method: "GET",
@@ -64,10 +41,27 @@ export default class extends Controller {
       })
   }
 
+  dynamicLevelAppearance(event) {
+    const next_modal_id = event.target.dataset.nextModalId
+    const modal_div = document.querySelector(`#staticBackdrop${next_modal_id}`)
+    newLevelTimingAppearance(modal_div)
+  }
+
 }
 
-function newLevelTimingAppearance {
-
+function newLevelTimingAppearance(modal_div) {
+  if (modal_div.dataset.type === "user_level") {
+    const progressbar = modal_div.getElementsByClassName("progressbar")[0]
+    console.log(`progressbar${progressbar}`)
+    console.log(progressbar)
+    const divs_to_display = modal_div.getElementsByClassName("d-none")
+    console.log(`divs to display ${divs_to_display}`)
+    console.log(divs_to_display)
+    delay(progressbar).then(()=> {
+      console.log("in the delay")
+      Array.from(divs_to_display).forEach(div => div.classList.remove("d-none"))
+    });
+  }
 }
 
 function delay(progressbar) {
@@ -78,7 +72,7 @@ function delay(progressbar) {
     },1000);
     setTimeout(() => {
       console.log("in the second timeout")
-      resolve
+      resolve("data")
     }, 3000);
   });
 }
