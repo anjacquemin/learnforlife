@@ -1,16 +1,19 @@
-<div class="character_banner">
-  <div class="character_sprite">
-    <p>Sprites</p>
+<div class="character-banner">
+  <div class="character-sprite">
+    <%= image_tag "swordsman.png" %>
   </div>
-  <div class="character_description">
-    <p>Préhistoire</p>
-    <p>Lvl <%= @user.level %> - Homme de cro-magnon ! </p>
+  <div class="character-description">
+    <% jc_period = (@user.level.beginning_year < 0 ? "av J-C" : "ap. J-C")  %>
+    <p><%= "#{@user.level.beginning_year} #{jc_period}" %></p>
+    <p><%= "#{@user.level.period} - #{@user.level.sub_period}"  %></p>
+    <p>Lvl <%= @user.level.level %> - <%= @user.level.social_type %> </p>
     <div class="character-health">
+      <% next_level_xp =  Level.find_by(level: @user.level.level + 1).required_xp %>
       <%= image_tag "heart (1).png", height: 14 %>
-      <%= render "progress_bar", value: (@user.hp.to_f / 100 * 100).round, display_with: "#{@user.hp}/100"   %>
+      <%= render "shared/progress_bar", value: (@user.hp.to_f * 100 / @user.hp_max).round, display_with: "#{@user.hp}\/#{@user.hp_max}"   %>
     </div>
     <div class="character-xp">
-      <%= render "progress_bar", value: (@user.xp.to_f / 10000 * 100).round, display_with: "#{@user.xp}/10000"   %>
+      <%= render "shared/progress_bar", value: (@user.xp.to_f * 100 / next_level_xp).round, display_with: "#{@user.xp}\/#{next_level_xp}"   %>
     </div>
   </div>
 </div>

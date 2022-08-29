@@ -1,10 +1,12 @@
-<% total_quizzs_crowns = quizz.quizz_levels.count * 3 %>
-<% user_total_crowns =  quizz.records.where(user: current_user, crown_or_sphere: "crown").group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
-<% user_total_spheres =  quizz.records.where(user: current_user, crown_or_sphere: "sphere").group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
-<% @user_total = user_total_crowns + user_total_spheres %>
+<% total_quizzs_crowns = quizz.quizz_levels.count * 3%>
+<% @user_total = quizz_total_crowns_and_spheres(quizz) %>
 <% @completion = (quizz.quizz_levels.count.zero? ? 0 : (@user_total.to_f / (total_quizzs_crowns) * 100)).round() %>
 
 
+<% @all_best_quizz_records = findBestQuizzRecords(quizz) %>
+<% @user_ranking = user_ranking(@all_best_quizz_records) %>
+<% @best_records_count = @all_best_quizz_records.count %>
+<% @all_best_quizz_records = @all_best_quizz_records.paginate(page: params[:page], per_page: 10) %>
 
 
 <% if !@user_quizz_progress_unlocked %>
@@ -24,11 +26,9 @@
       <p> <%= @user_total %> / <%= total_quizzs_crowns %> </p>
     </div>
   </div>
-
-  <%# <% render "shared/quizz_records_modal", quizz: quizz  %>
-    <button class="ranking" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    <h2>0<sup>ème</sup></h2>
-    <p>/150</p>
+    <button class="ranking" data-bs-toggle="modal"   <%="data-bs-target='#exampleModal#{quizz.id}'".html_safe%>>
+    <h2><%= @user_ranking %><sup>ème</sup></h2>
+    <p>/ <%= @best_records_count %></p>
   </button>
 </div>
 <hr class= "horizontal-divider-light width-80">

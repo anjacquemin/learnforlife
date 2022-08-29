@@ -51,8 +51,9 @@
         </div>
       </div>
       <div class= "ranking">
-        <h2>0<sup>ème</sup></h2>
-        <p>/150</p>
+        <% user_ranking = @all_best_records.index{ |best_record| best_record.record.user == current_user} + 1 %>
+        <h2><%= user_ranking %></h2>
+        <p>/ <%= @all_best_records.count %></p>
       </div>
     </div>
     <div class="theme-progress">

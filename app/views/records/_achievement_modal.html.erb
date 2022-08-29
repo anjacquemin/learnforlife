@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id=<%="staticBackdrop#{@count}"%> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" data-record-target= <%="achievement#{@count}"%>>
+<div class="modal fade" id=<%="staticBackdrop#{@count}"%> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" data-record-target= <%="achievement#{@count}"%> data-type = <%=type%>  >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,9 +7,25 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="unlock_item_display">
-          <%= image_tag "padlock.png", height: 130 %>
-          <p><%= sentence.html_safe %></p>
+        <div class="unlock-item-display">
+          <% if type == "user_level" %>
+            <%= image_tag "level-up.png", height: 130, class: "d-none"%>
+            <% to_display = "class='d-none'"%>
+          <% else %>
+            <%= image_tag "padlock.png", height:130 %>
+            <% to_display = ""%>
+          <% end %>
+          <% if type == "user_level" %>
+            <div class="character-xp">
+              <% next_level = Level.find_by(level: @former_level.level + 1) %>
+              <%= render "shared/progress_bar", value: (@former_xp.to_f * 100 / next_level.required_xp).round, display_with: "#{@former_xp}\/#{next_level.required_xp}"   %>
+              <% @former_level = next_level %>
+              <% @former_xp = 0 %>
+            </div>
+          <% end %>
+          <div <%= to_display.html_safe %>>
+            <p><%= sentence.html_safe %></p>
+          </div>
           <% if type == "quizz" || type == "quizz_level" %>
             <% @user_quizz_progress_unlocked = true %>
             <div class="quizz-card">
@@ -18,13 +34,16 @@
             </div>
           <% elsif type == "category" || type == "theme_level" %>
             <%= cl_image_tag @record.quizz.category.photo.key, height: 100 %>
+
+          <% elsif type == "user_level" %>
           <% end %>
 
         </div>
       </div>
       <div class="modal-footer">
         <% toggle_next_modal = "data-bs-toggle='modal' data-bs-target= '#staticBackdrop#{@count+1}'".html_safe if @count != @total_unlocked_items%>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" <%=toggle_next_modal%> >Close</button>
+        <% next_modal_id = "data-next-modal-id = #{@count+1}".html_safe if @count != @total_unlocked_items %>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" <%=toggle_next_modal%> data-action= "click->record#dynamicLevelAppearance" <%=next_modal_id%> >Close</button>
       </div>
     </div>
   </div>

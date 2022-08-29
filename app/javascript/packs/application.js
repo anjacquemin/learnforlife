@@ -10,7 +10,8 @@ import "channels"
 import 'controllers'
 
 Rails.start()
-Turbolinks.start()
+// To fix : js anmiation trouble with turbolinks
+// Turbolinks.start()
 ActiveStorage.start()
 
 import "bootstrap"

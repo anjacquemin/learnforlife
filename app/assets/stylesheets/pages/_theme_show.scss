@@ -32,14 +32,6 @@
 }
 
 .theme-level-separator{
-  // display: flex;
-  // align-items: center;
-  // .line {
-  //   flex:1;
-  //   height: 3px;
-  //   background-color: $purple;
-  //   margin-top: 30px;
-  // }
   h2 {
     text-align: center;
     padding: 20px;
@@ -47,26 +39,6 @@
     background-color: rgba($light_purple, 0.1);
     border-radius: $border-radius-lg;
   }
-  // h2:before,
-  // h2:after {
-  //   background-color: #000;
-  //   content: "";
-  //   display: inline-block;
-  //   height: 1px;
-  //   position: relative;
-  //   vertical-align: middle;
-  //   width: 50%;
-  // }
-
-  // h2:before {
-  //   right: 0.5em;
-  //   margin-left: -50%;
-  // }
-
-  // h2:after {
-  //   left: 0.5em;
-  //   margin-right: -50%;
-  // }
 }
 
 .subthemes-display{

@@ -20,7 +20,7 @@
 
 .mask.full,
 .circle .fill {
-  transition: transform ease-in-out 3s;
+  transition: transform ease-in-out 1s;
   transform: rotate(0deg);
 }
 
@@ -28,15 +28,6 @@
   clip: rect(0px, 29px, 58px, 0px);
   background-color: $purple;
 }
-
-// @keyframes fill{
-//   0% {
-//     transform: rotate(0deg);
-//   }
-//   100% {
-//     transform: rotate(135deg);
-//   }
-// }
 
 .circle-wrap .inside-circle {
   width: 47px;

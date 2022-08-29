@@ -17,6 +17,7 @@ UserAnswer.destroy_all
 Record.destroy_all
 QuizzAnswer.destroy_all
 User.destroy_all
+Level.destroy_all
 QuestionAnswer.destroy_all
 QuizzLevel.destroy_all
 Quizz.destroy_all
@@ -24,6 +25,85 @@ Category.destroy_all
 Subtheme.destroy_all
 ThemeLevel.destroy_all
 Theme.destroy_all
+
+
+######LELVEL#####
+
+level1 = Level.new(level: 1,
+                    required_xp: 20,
+                    beginning_year:-1000000,
+                    period:"Préhistoire",
+                    sub_period: "Paléolithique ancien",
+                    social_type: "Homo habilis")
+level1.save!
+
+level2 = Level.new(level: 2,
+                    required_xp: 25,
+                    beginning_year:-200000,
+                    period:"Préhistoire",
+                    sub_period: "Paléolithique moyen",
+                    social_type: "Homo Néendertal")
+level2.save!
+level3 = Level.new(level: 3,
+                    required_xp: 30,
+                    beginning_year:-35000,
+                    period:"Préhistoire",
+                    sub_period: "Paléolithique supérieur",
+                    social_type: "Homo sapiens")
+level3.save!
+level4 = Level.new(level: 4,
+                    required_xp: 35,
+                    beginning_year:-10000,
+                    period:"Préhistoire",
+                    sub_period: "Mésolithique ancien",
+                    social_type: "Meso 1")
+level4.save!
+level5 = Level.new(level: 5,
+                    required_xp: 40,
+                    beginning_year:-8000,
+                    period:"Préhistoire",
+                    sub_period: "Mésolithique moyen",
+                    social_type: "Meso 2")
+level5.save!
+level6 = Level.new(level: 6,
+                    required_xp: 40,
+                    beginning_year:-7000,
+                    period:"Préhistoire",
+                    sub_period: "Mésolithique récent",
+                    social_type: "Meso 3")
+level6.save!
+level7 = Level.new(level: 7,
+                    required_xp: 40,
+                    beginning_year:-6000,
+                    period:"Préhistoire",
+                    sub_period: "Neolithique supérieur",
+                    social_type: "neo 1")
+level7.save!
+level8 = Level.new(level: 8,
+                    required_xp: 40,
+                    beginning_year:-4500,
+                    period:"Préhistoire",
+                    sub_period: "Mésolithique supérieur",
+                    social_type: "neo 2")
+level8.save!
+level9 = Level.new(level: 9,
+                    required_xp: 40,
+                    beginning_year:-3500,
+                    period:"Préhistoire",
+                    sub_period: "Néolithique supérieur",
+                    social_type: "neo 3")
+level9.save!
+
+
+(10..40).each { |level|
+  level9 = Level.new(level: level,
+                    required_xp: 30,
+                    beginning_year:-3500,
+                    period:"period #{level}",
+                    sub_period: "sub period #{level}",
+                    social_type: "social type #{level}")
+  level9.save!
+}
 
 ######USER#####
 
@@ -33,10 +113,11 @@ anthony = User.new(
     password: "foobar",
     password_confirmation: "foobar",
     hp: 45,
-    xp: 37,
+    hp_max: 50,
+    xp: 0,
     gem: 12,
     gold: 1100,
-    level: 3
+    level: level1
 )
 anthony.save!
 
@@ -348,9 +429,10 @@ quizz_level = QuizzLevel.first
     password_confirmation: "foobar",
     hp: 45 + n,
     xp: 37+ n,
+    hp_max: 50,
     gem: 12+ n,
     gold: 1100+ n,
-    level: 3+ n
+    level: level1
   )
   user.save!
   record = Record.new(user: user, quizz_level: quizz_level, seconds_duration: 1000- (n * 10), milliseconds_duration: 1, crown_or_sphere: "crown", completion: 1)
@@ -359,6 +441,6 @@ quizz_level = QuizzLevel.first
   record = Record.new(user: user, quizz_level: quizz_level, seconds_duration: 1000- (n * 10), milliseconds_duration: 1,crown_or_sphere: "crown", completion: 2)
   record.save!
 
-  best_record = BestRecord.new(record: record, quizz_level: quizz_level)
+  best_record = BestRecord.new(record: record, quizz_level: quizz_level, theme: quizz_level.theme)
   best_record.save!
 end

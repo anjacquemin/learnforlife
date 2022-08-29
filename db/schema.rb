@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_25_082443) do
+ActiveRecord::Schema.define(version: 2022_08_29_101006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,10 @@ ActiveRecord::Schema.define(version: 2022_08_25_082443) do
     t.bigint "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "theme_id"
     t.index ["quizz_level_id"], name: "index_best_records_on_quizz_level_id"
     t.index ["record_id"], name: "index_best_records_on_record_id"
+    t.index ["theme_id"], name: "index_best_records_on_theme_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -95,6 +97,17 @@ ActiveRecord::Schema.define(version: 2022_08_25_082443) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_answer_id"], name: "index_flashcards_on_question_answer_id"
     t.index ["user_id"], name: "index_flashcards_on_user_id"
+  end
+
+  create_table "levels", force: :cascade do |t|
+    t.integer "level"
+    t.integer "required_xp"
+    t.integer "beginning_year"
+    t.string "period"
+    t.string "sub_period"
+    t.string "social_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "question_answers", force: :cascade do |t|
@@ -163,6 +176,7 @@ ActiveRecord::Schema.define(version: 2022_08_25_082443) do
     t.integer "seconds_duration"
     t.integer "milliseconds_duration"
     t.bigint "quizz_answer_id"
+    t.boolean "dealt_with", default: false
     t.index ["quizz_answer_id"], name: "index_records_on_quizz_answer_id"
     t.index ["quizz_level_id"], name: "index_records_on_quizz_level_id"
     t.index ["user_id"], name: "index_records_on_user_id"
@@ -246,8 +260,10 @@ ActiveRecord::Schema.define(version: 2022_08_25_082443) do
     t.integer "xp", default: 0
     t.integer "gem", default: 0
     t.integer "gold", default: 0
-    t.integer "level", default: 1
+    t.bigint "level_id"
+    t.integer "hp_max"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["level_id"], name: "index_users_on_level_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -255,6 +271,7 @@ ActiveRecord::Schema.define(version: 2022_08_25_082443) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "best_records", "quizz_levels"
   add_foreign_key "best_records", "records"
+  add_foreign_key "best_records", "themes"
   add_foreign_key "categories", "subthemes"
   add_foreign_key "category_progresses", "categories"
   add_foreign_key "category_progresses", "users"
@@ -282,4 +299,5 @@ ActiveRecord::Schema.define(version: 2022_08_25_082443) do
   add_foreign_key "user_achievements", "users"
   add_foreign_key "user_answers", "question_answers"
   add_foreign_key "user_answers", "quizz_answers"
+  add_foreign_key "users", "levels"
 end
