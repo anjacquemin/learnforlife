@@ -43,7 +43,7 @@
     <hr class="horizontal-divider-light">
   <% end %>
 
-  <%= will_paginate @all_best_themes_records,  "data-action": "click->subtheme-show#cancelScroll", class: "pagination pagination-enhanced", :previous_label => '← Précédent', :next_label => 'Suivant →' if @all_best_theme_quizz_records%>
+  <%= will_paginate @all_best_themes_records,  "data-action": "click->theme-index-display#cancelScroll", class: "pagination pagination-enhanced", :previous_label => '←Précédent', :next_label => 'Suivant→' if @all_best_themes_records%>
 
 
 

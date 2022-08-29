@@ -1,0 +1,3 @@
+class FlaschardsController < ApplicationController
+
+end

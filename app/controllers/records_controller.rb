@@ -115,7 +115,7 @@ class RecordsController < ApplicationController
       if current_record
         current_record.record = record
       else
-        current_record = BestRecord.new(quizz_level: record.quizz_level, record: record)
+        current_record = BestRecord.new(quizz_level: record.quizz_level, record: record, theme: record.theme)
       end
       current_record.save!
     end

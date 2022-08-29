@@ -28,4 +28,20 @@ export default class extends Controller {
 
   }
 
+  cancelScroll(event) {
+    event.preventDefault()
+    console.log("click detect")
+    console.log(event.target)
+    fetch(event.target.href, {
+      method: "GET",
+      headers: {"Accept": "application/json"},
+    })
+      .then(response => response.json())
+      .then((data) => {
+        if (data.inserted_item) {
+          this.leaderboardDivTarget.innerHTML = data.inserted_item
+        }
+      })
+    }
+
 }
