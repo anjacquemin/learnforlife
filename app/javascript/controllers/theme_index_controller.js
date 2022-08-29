@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   // number of circle target = number of themes
-  static targets = ["circle1", "circle2", "circle3", "circle4", "circle0", "circleDiv0", "circleDiv1", "circleDiv2","circleDiv3","circleDiv4"]
+  static targets = ["circle1", "circle2", "circle3", "circle4", "circle0", "circleDiv0", "circleDiv1", "circleDiv2","circleDiv3","circleDiv4", "themeDiv", "leaderboardDiv"]
 
   connect() {
     console.log(`hello from controller`)
@@ -24,6 +24,15 @@ export default class extends Controller {
 
     myLoop(this, themeCount);
 
+  }
+
+  displayQuizzsDiv() {
+    console.log("click detected")
+    theme_div = this.themeDivTarget
+    leaderboard_div = this.leaderboardDivTarget
+
+    theme_div.classlist.toggle("d-none")
+    leaderboard_div.classlist.toggle("d-none")
   }
 
 }

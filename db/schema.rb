@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_27_093254) do
+ActiveRecord::Schema.define(version: 2022_08_29_101006) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,10 @@ ActiveRecord::Schema.define(version: 2022_08_27_093254) do
     t.bigint "record_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "theme_id"
     t.index ["quizz_level_id"], name: "index_best_records_on_quizz_level_id"
     t.index ["record_id"], name: "index_best_records_on_record_id"
+    t.index ["theme_id"], name: "index_best_records_on_theme_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -269,6 +271,7 @@ ActiveRecord::Schema.define(version: 2022_08_27_093254) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "best_records", "quizz_levels"
   add_foreign_key "best_records", "records"
+  add_foreign_key "best_records", "themes"
   add_foreign_key "categories", "subthemes"
   add_foreign_key "category_progresses", "categories"
   add_foreign_key "category_progresses", "users"

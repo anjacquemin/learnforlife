@@ -441,6 +441,6 @@ quizz_level = QuizzLevel.first
   record = Record.new(user: user, quizz_level: quizz_level, seconds_duration: 1000- (n * 10), milliseconds_duration: 1,crown_or_sphere: "crown", completion: 2)
   record.save!
 
-  best_record = BestRecord.new(record: record, quizz_level: quizz_level)
+  best_record = BestRecord.new(record: record, quizz_level: quizz_level, theme: quizz_level.theme)
   best_record.save!
 end
