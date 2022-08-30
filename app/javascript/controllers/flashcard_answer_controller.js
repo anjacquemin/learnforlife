@@ -5,7 +5,7 @@ import { csrfToken } from "@rails/ujs"
 export default class extends Controller {
 
   // number of circle target = number of themes
-  static targets = []
+  static targets = ["endButton"]
 
   connect() {
     console.log(`hello from controller`)
@@ -39,17 +39,17 @@ export default class extends Controller {
     console.log(current_question)
     current_question.classList.add("d-none")
 
-    const next_question = this.element.querySelector(`.questionCard${parseInt(question_card_count + 1)}`)
-    next_question.classList.remove("d-none")
+
 
     const auto_eval = event.target.dataset.autoEvaluation
     const flashcard_id = event.target.parentElement.dataset.flashcardId
     const url = event.target.parentElement.dataset.url
 
+    const number_of_card_to_display = this.element.dataset.flashcardsToDisplayCount
     console.log(auto_eval)
     console.log(flashcard_id)
 
-    const data = answerDataBuilding(auto_eval, flashcard_id)
+    const data = answerDataBuilding(flashcard_id, auto_eval, number_of_card_to_display)
 
     fetch(url, {
       method: "PATCH",
@@ -58,25 +58,42 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
-      if (data.is_good_answer == true){
-        console.log(data)
+      console.log(data)
+      console.log(data["show_again"])
+      if (data.show_again){
+        console.log("insert")
+        const container = this.element.querySelector(".container")
+        console.log(container)
+        container.insertAdjacentHTML("beforeend",data["inserted_item"])
+        this.element.dataset.flashcardsToDisplayCount = parseInt(number_of_card_to_display) + 1
+        const next_question = this.element.querySelector(`.questionCard${parseInt(question_card_count) + 1}`)
+        console.log("Next question :")
+        console.log(next_question)
+        next_question.classList.remove("d-none")
       } else {
-        console.log(data)
+        // check if there is no flashcard left
+        if (this.element.dataset.flashcardsToDisplayCount <= parseInt(question_card_count) + 1) {
+          console.log('----------------------------------')
+          console.log(this.endButtonTarget)
+          this.endButtonTarget.click()
+        } else {
+          const next_question = this.element.querySelector(`.questionCard${parseInt(question_card_count) + 1}`)
+          console.log("Next question :")
+          console.log(next_question)
+          next_question.classList.remove("d-none")
+        }
       }
     })
-
-
-
   }
-
 }
 
 
-const answerDataBuilding = (flashcard_id, auto_eval) => {
+const answerDataBuilding = (flashcard_id, auto_eval, number_of_card_to_display) => {
   let payload = {
     type: "auto_eval",
     flashcard_id: flashcard_id,
     auto_eval: auto_eval,
+    number_of_card_to_display: number_of_card_to_display
   }
 
   let data = new FormData();

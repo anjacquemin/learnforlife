@@ -12,8 +12,12 @@
           </div>
         </div>
         <div class="flashcard-count">
-          <% flashcards_to_learn_count = current_user.flashcards.select{|flashcard| flashcard.repetition == 0 && flashcard.question_answer.theme == theme}.count %>
-          <h2> <%= flashcards_to_learn_count %>   </h2>
+          <% if for_ == "to_learn" %>
+            <% flashcards_count = theme_flashcards_to_learn(theme).count %>
+          <% else %>
+            <% flashcards_count = theme_flashcards_to_revise(theme).count %>
+          <% end %>
+          <h2> <%= flashcards_count %>   </h2>
           <p>à faire</p>
         </div>
       </div>

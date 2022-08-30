@@ -3,7 +3,7 @@
 </div>
 
 <div class="my-3"></div>
-<div class="level-show flashcard" data-controller="flashcard-answer">
+<div class="level-show flashcard" data-controller="flashcard-answer" data-flashcards-to-display-count = <%=@flashcards.count%>  >
   <div class="questions_count">
     <div class="card-count-details">
       <div class="card-progressbar-wrapper">
@@ -47,16 +47,27 @@
             data-question-card-count=<%=index%>
             data-flashcard-id=<%=flashcard.id%>
             data-url = <%= flashcard_url(flashcard) %>>
+          <button class="btn btn-red btn-big" data-auto-evaluation = "again" >
+            Encore (1 jour)
+          </button>
+          <button class="btn btn-yellow btn-big" data-auto-evaluation = "good">Bien (3 jours) </button>
+          <button class="btn btn-green btn-big" data-auto-evaluation = "easy">Facile (10 jours)</button>
+        </div>
+      </div>
+    <% end %>
+    <% url = "/theme/#{@theme.id}/flashcards/results" %>
+    <div>
+      <a class="d-none" data-flashcard-answer-target="endButton" href= <%=url%>></a>
+    </div>
+  </div>
+</div>
+
+
+
+<%# for learning
           <button class="btn btn-red btn-big" data-auto-evaluation = "Not at all" >
             Pas du tout (1 jour)
           </button>
           <button class="btn btn-yellow btn-big" data-auto-evaluation = "Not but close">Non mais presque (3 jours) </button>
           <button class="btn btn-blue btn-big" data-auto-evaluation = "Yes but hard">Oui avec difficultés (5 jours)</button>
-          <button class="btn btn-green btn-big" data-auto-evaluation = "Yes perfectly">Parfaitement (10 jours)</button>
-        </div>
-      </div>
-    <% end %>
-    <div data-quizz-answer-target = "endButtonDisplay" >
-    </div>
-  </div>
-</div>
+          <button class="btn btn-green btn-big" data-auto-evaluation = "Yes perfectly">Parfaitement (10 jours)</button> %>

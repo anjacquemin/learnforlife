@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     resources :records, only: [:create]
   end
 
-  post "subthemes/:subtheme_id", to: "subthemes#show"
+  # post "subtheme/:subtheme_id", to: "subthemes#show"
+  get "theme/:theme_id/flashcards/results", to: "flashcards#results"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

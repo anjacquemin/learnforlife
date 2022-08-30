@@ -26,6 +26,7 @@ class RecordsController < ApplicationController
 
     @xp_win = xp_win_calculation(@record, @is_new_record, quizz_level)
     @gold_win = gold_win_calculation(@record)
+    @flashcards_unlocked_count = flashcards_unlocked_calculation(@record.quizz)
     # Need to check if the record add already been dealt with
 
     user_levels_unlocked_count = 0
@@ -82,6 +83,30 @@ class RecordsController < ApplicationController
   end
 
   private
+
+
+    def flashcards_unlocked_calculation(quizz)
+      count = 0
+      quizz.question_answers.each do |question_answer|
+        if !current_user.flashcards.find_by(question_answers: question_answer)
+          count += 1
+          flashcard = Flashcard.new({
+            ease_factor: Flashcard::STARTING_EASE,
+            repetition: 0,
+            interval: 0,
+            day_of_last_repetition: "",
+            mistake_count: 0,
+            question_answer: question_answer,
+            day_of_next_repetition: Date.today,
+            status: "learning",
+            user: current_user,
+            steps_index: 0
+          })
+          flashcard.save!
+        end
+      end
+      count
+    end
 
     def leveling_calculation(xp_win, next_levels_unlocked=[])
       p ("####################### // ################## /n")
