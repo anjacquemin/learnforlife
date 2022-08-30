@@ -3,8 +3,20 @@ class FlashcardsController < ApplicationController
   def index
     policy_scope(Flashcard)
     @theme = Theme.find(params[:theme_id])
-    @flashcards = current_user.flashcards.select {|flashcard| flashcard.question_answer.theme == @theme && (flashcard.status == "learning" || flashcard.status == "relearning" && flashcard.day_of_next_repetition < DateTime.current)}
-    @flashcards
+
+    if (@learn_or_revise = params[:learn_or_revise]) == "learn"
+      @flashcards = current_user.flashcards.select {|flashcard|
+        flashcard.question_answer.theme == @theme &&
+        (flashcard.status == "learning" || flashcard.status == "relearning") &&
+        flashcard.day_of_next_repetition < DateTime.current
+      }
+    else
+      @flashcards = current_user.flashcards.select {|flashcard|
+        flashcard.question_answer.theme == @theme &&
+        flashcard.status == "learned" &&
+        flashcard.day_of_next_repetition < DateTime.current
+      }
+    end
   end
 
   def update
@@ -38,6 +50,7 @@ class FlashcardsController < ApplicationController
       puts "next repetition : :#{@flashcard.day_of_next_repetition}"
     else
       @flashcard.day_of_next_repetition = DateTime.current + interval.day
+      @flashcard.save!
     end
 
     respond_to do |format|
@@ -64,6 +77,8 @@ end
       '''auto_eval is one of "again", "hard", "good", or "easy"
       returns a result in days'''
 
+      p "autoeval : #{auto_eval}"
+
       if flashcard.status == 'learning'
         p "learning"
         # for learning flashcards, there is no "hard" auto_eval possible
@@ -73,9 +88,11 @@ end
           flashcard.save!
           return minutes_to_days(Flashcard::NEW_STEPS[flashcard.steps_index])
         elsif auto_eval == "good"
+          p "good"
           flashcard.steps_index += 1
           if flashcard.steps_index < Flashcard::NEW_STEPS.size
             flashcard.save!
+            p "minutes to dayx : #{minutes_to_days(Flashcard::NEW_STEPS[flashcard.steps_index])}"
             return minutes_to_days(Flashcard::NEW_STEPS[flashcard.steps_index])
           else
             # we have graduated!

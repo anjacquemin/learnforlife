@@ -1,6 +1,14 @@
 <div class="themes-list">
   <% @themes.each do |theme| %>
-    <%=link_to theme_flashcards_path(theme) do%>
+
+    <% if for_ == "to_learn" %>
+      <% flashcards_count = theme_flashcards_to_learn(theme).count %>
+      <% url = "theme/#{theme.id}/flashcards/learn" %>
+    <% else %>
+      <% flashcards_count = theme_flashcards_to_revise(theme).count %>
+      <% url = "theme/#{theme.id}/flashcards/revise" %>
+    <% end %>
+    <a href= <%=url%> >
       <div class="card-enhanced flashcard">
         <div class="icon">
           <i class="fas fa-atlas"></i>
@@ -12,15 +20,10 @@
           </div>
         </div>
         <div class="flashcard-count">
-          <% if for_ == "to_learn" %>
-            <% flashcards_count = theme_flashcards_to_learn(theme).count %>
-          <% else %>
-            <% flashcards_count = theme_flashcards_to_revise(theme).count %>
-          <% end %>
           <h2> <%= flashcards_count %>   </h2>
           <p>à faire</p>
         </div>
       </div>
-    <% end %>
+    </a>
   <% end %>
 </div>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # post "subtheme/:subtheme_id", to: "subthemes#show"
   get "theme/:theme_id/flashcards/results", to: "flashcards#results"
+  get "theme/:theme_id/flashcards/:learn_or_revise", to: "flashcards#index"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
