@@ -1,0 +1,28 @@
+<% question_answer = flashcard.question_answer %>
+<% if index !=0 %>
+  <% question_class = "class = 'questions d-none  questionCard#{index}'" %>
+<% else %>
+  <% question_class = "class = 'questions questionCard#{index}'" %>
+<% end %>
+<div <%= question_class.html_safe %> data-flashcard-answer-target = <%="questionCard#{index}"%>>
+  <div class = card-question>
+    <h2><%=question_answer.question %></h2>
+  </div>
+  <div class="white-container">
+    <div class= "flashcard-answer d-none">
+      <p> <%= question_answer.answer %></p>
+    </div>
+  </div>
+  <button class="btn btn-purple btn-big" data-action="click->flashcard-answer#seeAnswer">Voir réponse</button>
+  <div class="d-none auto-evaluation-buttons"
+      data-action="click->flashcard-answer#autoEvaluation"
+      data-question-card-count=<%=index%>
+      data-flashcard-id=<%=flashcard.id%>
+      data-url = <%= flashcard_url(flashcard) %>>
+    <button class="btn btn-red btn-big" data-auto-evaluation = "again" >
+      Encore (1 jour)
+    </button>
+    <button class="btn btn-yellow btn-big" data-auto-evaluation = "good">Bien (3 jours) </button>
+    <button class="btn btn-green btn-big" data-auto-evaluation = "easy">Facile (10 jours)</button>
+  </div>
+</div>

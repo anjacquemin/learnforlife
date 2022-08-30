@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="theme-block-list quizz mt-5 col-md-6" data-controller="theme-index-display">
+<div class="row" data-controller="theme-index-display">
+  <div class="theme-block-list quizz mt-5 col-md-6">
     <div class="banner">
       <h2><strong>QUIZZ</strong></h2>
       <div class="tabs">
@@ -17,12 +17,22 @@
   </div>
   <div class="theme-block-list flashcards mt-5 col-md-6">
     <div class="banner">
-        <h2><strong>FLASHCARDS</strong></h2>
+      <h2><strong>FLASHCARDS</strong></h2>
+      <% flashcards_to_revise_count = all_flashcards_to_revise().count %>
+      <% flashcards_to_learn_count =  all_flashcards_to_learn().count %>
       <div class="tabs">
-        <p class="active-tab">Nuvelle(50)</p>
-        <p>Réviser(40)</p>
+        <button class="active-tab btn-tab" data-action="click->theme-index-display#displayFlashcardsDiv"
+        data-theme-index-display-target = "flashcardsToLearnTab">Nouvelle(<%= flashcards_to_learn_count %>)</button>
+        <button class="btn-tab" data-action="click->theme-index-display#displayFlashcardsDiv" data-theme-index-display-target = "flashcardsToReviseTab">Réviser(<%= flashcards_to_revise_count %>)</button>
       </div>
     </div>
-    <%= render "theme_flashcard_card_creation", quizz: false %>
+
+    <div data-theme-index-display-target = "flashcardsToLearnDiv">
+      <%= render "theme_flashcard_card_creation", for_: "to_learn" %>
+    </div>
+    <div class= "d-none" data-theme-index-display-target = "flashcardsToReviseDiv">
+          <%= render "theme_flashcard_card_creation", for_: "toRevise"%>
+    </div>
+
   </div>
 </div>

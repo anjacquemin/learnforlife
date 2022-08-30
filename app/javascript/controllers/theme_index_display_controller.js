@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
 
   // number of circle target = number of themes
-  static targets = ["themeDiv", "leaderboardDiv","themeTab", "leaderboardTab"]
+  static targets = ["themeDiv", "leaderboardDiv","themeTab", "leaderboardTab", "flashcardsToLearnDiv", "flashcardsToReviseDiv", "flashcardsToLearnTab", "flashcardsToReviseTab"]
 
   connect() {
     console.log(`hello from controller`)
@@ -25,6 +25,25 @@ export default class extends Controller {
     leaderboard_tab.classList.toggle("active-tab")
     theme_div.classList.toggle("d-none")
     theme_tab.classList.toggle("active-tab")
+
+  }
+
+  displayFlashcardsDiv() {
+    console.log("click detected")
+    const flashcards_to_learn_div = this.flashcardsToLearnDivTarget
+    const flashcards_to_revise_div = this.flashcardsToReviseDivTarget
+    const flashcards_to_learn_tab = this.flashcardsToLearnTabTarget
+    const flashcards_to_revise_tab = this.flashcardsToReviseTabTarget
+
+    console.log(flashcards_to_learn_div)
+    console.log(flashcards_to_revise_div)
+    console.log(flashcards_to_learn_tab)
+    console.log(flashcards_to_revise_tab)
+
+    flashcards_to_learn_div.classList.toggle("d-none")
+    flashcards_to_learn_tab.classList.toggle("active-tab")
+    flashcards_to_revise_div.classList.toggle("d-none")
+    flashcards_to_revise_tab.classList.toggle("active-tab")
 
   }
 

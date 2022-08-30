@@ -3,7 +3,7 @@
 </div>
 
 <div class="my-3"></div>
-<div class="level-show flashcard" data-controller="flashcard-answer">
+<div class="level-show flashcard" data-controller="flashcard-answer" data-flashcards-to-display-count = <%=@flashcards.count%>  >
   <div class="questions_count">
     <div class="card-count-details">
       <div class="card-progressbar-wrapper">
@@ -26,6 +26,7 @@
   <div class="my-3"></div>
   <div class="container">
     <%@flashcards.each_with_index do |flashcard, index| %>
+      <%= puts "flashcard status : #{flashcard.status}" %>
       <% question_answer = flashcard.question_answer %>
       <% if index !=0 %>
         <% question_class = "class = 'questions d-none  questionCard#{index}'" %>
@@ -36,20 +37,46 @@
         <div class = card-question>
           <h2><%=question_answer.question %></h2>
         </div>
-        <div class="my-5"></div>
-        <div class= "flashcard-answer d-none">
-          <p> <%= question_answer.answer %></p>
+        <div class="white-container">
+          <div class= "flashcard-answer d-none">
+            <p> <%= question_answer.answer %></p>
+          </div>
         </div>
-        <button class="btn-purple" data-action="click->flashcard-answer#seeAnswer">Voir réponse</button>
-        <div class="d-none auto-evaluation-buttons" data-action="click->flashcard-answer#autoEvaluation" data-question-card-count=<%=index%> >
-          <button class="btn-purple" data-auto-evaluation = "Not at all" >Pas du tout</button>
-          <button class="btn-purple" data-auto-evaluation = "Not but close">Non mais presque </button>
-          <button class="btn-purple" data-auto-evaluation = "Yes but hard">Oui avec difficultés</button>
-          <button class="btn-purple" data-auto-evaluation = "Yes perfectly">Parfaitement</button>
+        <button class="btn btn-purple btn-big-no-padding" data-action="click->flashcard-answer#seeAnswer">Voir réponse</button>
+        <div class="d-none auto-evaluation-buttons"
+            data-action="click->flashcard-answer#autoEvaluation"
+            data-question-card-count=<%=index%>
+            data-flashcard-id=<%=flashcard.id%>
+            data-url = <%= flashcard_url(flashcard) %>>
+          <button class="btn btn-red btn-big-no-padding" data-auto-evaluation = "again" >
+            Encore<br/>(<%= human_friendly_time(schedule_forecast(flashcard, "again"))%>)
+          </button>
+          <%= puts "flashcard status 2 : #{flashcard.status}" %>
+          <% if @learn_or_revise == "revise" %>
+            <%= puts "flashcard status 3 : #{flashcard.status}" %>
+            <button class="btn btn-yellow btn-big-no-padding" data-auto-evaluation = "hard">Difficile<br/>(<%=human_friendly_time(schedule_forecast(flashcard, "hard"))%>)</button>
+          <% end %>
+          <button class="btn btn-blue btn-big-no-padding" data-auto-evaluation = "good">Bien<br/>(<%= human_friendly_time(schedule_forecast(flashcard, "good"))%>)</button>
+
+          <% if flashcard.status != "relearning" %>
+            <button class="btn btn-green btn-big-no-padding" data-auto-evaluation = "easy">Facile<br/>(<%= human_friendly_time(schedule_forecast(flashcard, "easy"))%>)</button>
+          <% end %>
         </div>
       </div>
     <% end %>
-    <div data-quizz-answer-target = "endButtonDisplay" >
+    <% url = "/theme/#{@theme.id}/flashcards/results" %>
+    <div>
+      <a class="d-none" data-flashcard-answer-target="endButton" href= <%=url%>></a>
     </div>
   </div>
 </div>
+
+
+
+<%# for learning
+          <button class="btn btn-red btn-big" data-auto-evaluation = "Not at all" >
+            Pas du tout (1 jour)
+          </button>
+          <button class="btn btn-yellow btn-big" data-auto-evaluation = "Not but close">Non mais presque (3 jours) </button>
+          <button class="btn btn-blue btn-big" data-auto-evaluation = "Yes but hard">Oui avec difficultés (5 jours)</button>
+          <button class="btn btn-green btn-big" data-auto-evaluation = "Yes perfectly">Parfaitement (10 jours)</button> %>

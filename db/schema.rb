@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_29_101006) do
+ActiveRecord::Schema.define(version: 2022_08_30_130112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2022_08_29_101006) do
     t.boolean "unlocked"
     t.text "trick"
     t.boolean "editable"
-    t.float "easyness_factor"
+    t.float "ease_factor"
     t.integer "repetition"
     t.integer "interval"
     t.datetime "day_of_last_repetition"
@@ -95,6 +95,8 @@ ActiveRecord::Schema.define(version: 2022_08_29_101006) do
     t.bigint "question_answer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
+    t.integer "steps_index"
     t.index ["question_answer_id"], name: "index_flashcards_on_question_answer_id"
     t.index ["user_id"], name: "index_flashcards_on_user_id"
   end
