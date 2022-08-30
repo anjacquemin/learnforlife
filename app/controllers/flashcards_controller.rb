@@ -12,6 +12,10 @@ class FlashcardsController < ApplicationController
     flashcard = flashcard.find(data["flashcard_id"])
     auto_eval = flashcard.find(data["auto_eval"])
 
+    # clasculer
 
+
+    # if not toaday ok
+    #if not put in the deck
   end
 end
