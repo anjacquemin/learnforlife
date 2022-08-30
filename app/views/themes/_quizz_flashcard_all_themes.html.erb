@@ -17,10 +17,13 @@
   </div>
   <div class="theme-block-list flashcards mt-5 col-md-6">
     <div class="banner">
-        <h2><strong>FLASHCARDS</strong></h2>
+      <h2><strong>FLASHCARDS</strong></h2>
+      <% flashcards_to_revise_count = current_user.flashcards.select{|flashcard| flashcard.repetition > 0}.count %>
+      <% flashcards_to_learn_count = current_user.flashcards.select{|flashcard| flashcard.repetition == 0}.count %>
+
       <div class="tabs">
-        <p class="active-tab">Nuvelle(50)</p>
-        <p>Réviser(40)</p>
+        <p class="active-tab">Nouvelle(<%= flashcards_to_learn_count %>)</p>
+        <p>Réviser(<%= flashcards_to_revise_count %>)</p>
       </div>
     </div>
     <%= render "theme_flashcard_card_creation", quizz: false %>

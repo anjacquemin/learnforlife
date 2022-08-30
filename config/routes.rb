@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :themes, only: [:show, :index] do
     resources :flashcards, only: [:index]
   end
+  resources :flashcards, only: [:update]
   resources :subthemes, only: [:show]
   resources :quizz_levels, only: [:show]
   resources :records, only: [:show]

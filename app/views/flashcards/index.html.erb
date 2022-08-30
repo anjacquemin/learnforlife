@@ -36,16 +36,23 @@
         <div class = card-question>
           <h2><%=question_answer.question %></h2>
         </div>
-        <div class="my-5"></div>
-        <div class= "flashcard-answer d-none">
-          <p> <%= question_answer.answer %></p>
+        <div class="white-container">
+          <div class= "flashcard-answer d-none">
+            <p> <%= question_answer.answer %></p>
+          </div>
         </div>
-        <button class="btn-purple" data-action="click->flashcard-answer#seeAnswer">Voir réponse</button>
-        <div class="d-none auto-evaluation-buttons" data-action="click->flashcard-answer#autoEvaluation" data-question-card-count=<%=index%> >
-          <button class="btn-purple" data-auto-evaluation = "Not at all" >Pas du tout</button>
-          <button class="btn-purple" data-auto-evaluation = "Not but close">Non mais presque </button>
-          <button class="btn-purple" data-auto-evaluation = "Yes but hard">Oui avec difficultés</button>
-          <button class="btn-purple" data-auto-evaluation = "Yes perfectly">Parfaitement</button>
+        <button class="btn btn-purple btn-big" data-action="click->flashcard-answer#seeAnswer">Voir réponse</button>
+        <div class="d-none auto-evaluation-buttons"
+            data-action="click->flashcard-answer#autoEvaluation"
+            data-question-card-count=<%=index%>
+            data-flashcard-id=<%=flashcard.id%>
+            data-url = <%= flashcard_url(flashcard) %>>
+          <button class="btn btn-red btn-big" data-auto-evaluation = "Not at all" >
+            Pas du tout (1 jour)
+          </button>
+          <button class="btn btn-yellow btn-big" data-auto-evaluation = "Not but close">Non mais presque (3 jours) </button>
+          <button class="btn btn-blue btn-big" data-auto-evaluation = "Yes but hard">Oui avec difficultés (5 jours)</button>
+          <button class="btn btn-green btn-big" data-auto-evaluation = "Yes perfectly">Parfaitement (10 jours)</button>
         </div>
       </div>
     <% end %>

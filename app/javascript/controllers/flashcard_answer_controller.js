@@ -1,4 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
+import { csrfToken } from "@rails/ujs"
+
 
 export default class extends Controller {
 
@@ -40,6 +42,72 @@ export default class extends Controller {
     const next_question = this.element.querySelector(`.questionCard${parseInt(question_card_count + 1)}`)
     next_question.classList.remove("d-none")
 
+    const auto_eval = event.target.dataset.autoEvaluation
+    const flashcard_id = event.target.parentElement.dataset.flashcardId
+    const url = event.target.parentElement.dataset.url
+
+    console.log(auto_eval)
+    console.log(flashcard_id)
+
+    const data = answerDataBuilding(auto_eval, flashcard_id)
+
+    fetch(url, {
+      method: "PATCH",
+      headers: { "Accept": "application/json", "X-CSRF-Token": csrfToken() },
+      body: data
+    })
+    .then(response => response.json())
+    .then((data) => {
+      if (data.is_good_answer == true){
+        console.log(data)
+      } else {
+        console.log(data)
+      }
+    })
+
+
+
   }
 
+}
+
+
+const answerDataBuilding = (flashcard_id, auto_eval) => {
+  let payload = {
+    type: "auto_eval",
+    flashcard_id: flashcard_id,
+    auto_eval: auto_eval,
+  }
+
+  let data = new FormData();
+  data.append ("json", JSON.stringify(payload))
+
+  return data
+}
+
+
+function startTimer() {
+  tens++;
+
+
+  if(tens <= 9){
+    // appendTens.innerHTML = "0" + tens;
+  }
+
+  if (tens > 9){
+    // appendTens.innerHTML = tens;
+
+  }
+
+  if (tens > 99) {
+    // console.log("seconds");
+    seconds++;
+    appendSeconds.innerHTML = "0" + seconds;
+    tens = 0;
+    appendTens.innerHTML = "0" + 0;
+  }
+
+  if (self.seconds > 9){
+    self.appendSeconds.innerHTML = seconds;
+  }
 }

@@ -1,6 +1,6 @@
 <div class="themes-list">
   <% @themes.each do |theme| %>
-    <%=link_to theme_path(theme) do%>
+    <%=link_to theme_flashcards_path(theme) do%>
       <div class="card-enhanced flashcard">
         <div class="icon">
           <i class="fas fa-atlas"></i>
@@ -12,7 +12,8 @@
           </div>
         </div>
         <div class="flashcard-count">
-          <h2>14</h2>
+          <% flashcards_to_learn_count = current_user.flashcards.select{|flashcard| flashcard.repetition == 0 && flashcard.question_answer.theme == theme}.count %>
+          <h2> <%= flashcards_to_learn_count %>   </h2>
           <p>à faire</p>
         </div>
       </div>

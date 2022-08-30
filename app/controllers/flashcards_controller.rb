@@ -5,4 +5,13 @@ class FlashcardsController < ApplicationController
     @flashcards = current_user.flashcards.select {|flashcard| flashcard.question_answer.theme == @theme}
     @flashcards
   end
+
+  def update
+    data = JSON.parse(params["json"])
+
+    flashcard = flashcard.find(data["flashcard_id"])
+    auto_eval = flashcard.find(data["auto_eval"])
+
+
+  end
 end
