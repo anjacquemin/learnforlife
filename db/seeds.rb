@@ -11,6 +11,7 @@ _IMAGE_DIR_ = "./app/assets/images/"
 
 puts 'seed'
 
+FlashcardSave.destroy_all
 BestRecord.destroy_all
 QuizzLevelProgress.destroy_all
 UserAnswer.destroy_all
@@ -186,9 +187,9 @@ asia = Subtheme.new(name: "Asie", theme_level: geography_level_1)
 asia.save!
 subthemes << asia
 
-oceania = Subtheme.new(name: "Océanie", theme_level: geography_level_1)
-oceania.save!
-subthemes << oceania
+# oceania = Subtheme.new(name: "Océanie", theme_level: geography_level_1)
+# oceania.save!
+# subthemes << oceania
 
 caraibeean = Subtheme.new(name: "Iles des Caraibes", theme_level: geography_level_2)
 caraibeean.save!
@@ -226,8 +227,8 @@ anthony_africa_progress.save!
 anthony_america_progress = SubthemeProgress.new(user: anthony, subtheme: america, unlocked: true)
 anthony_america_progress.save!
 
-anthony_oceania_progress = SubthemeProgress.new(user: anthony, subtheme: oceania, unlocked: true)
-anthony_oceania_progress.save!
+# anthony_oceania_progress = SubthemeProgress.new(user: anthony, subtheme: oceania, unlocked: true)
+# anthony_oceania_progress.save!
 
 anthony_asia_progress = SubthemeProgress.new(user: anthony, subtheme: asia, unlocked: true)
 anthony_asia_progress.save!
@@ -263,93 +264,7 @@ subthemes.each do |subtheme|
   categories << flag
 end
 
-quizzs = []
 
-categories.each do |category|
-    category_progress = CategoryProgress.new(user: anthony, category: category, unlocked: false)
-    category_progress.save!
-
-    (1..2).each do |i|
-      quizz = Quizz.new(category: category, name: "#{category.subtheme.name} ##{i}", ordering: i)
-      quizz.save!
-      quizzs << quizz
-    end
-
-    quizz = Quizz.new(category: category, name: "#{category.subtheme.name} Master", ordering: 3)
-    quizz.save!
-    quizzs << quizz
-end
-
-
-#localization quizz
-quizz_levels = []
-quizzs.each do |quizz|
-  unlocked = (quizz.ordering == 1 && quizz.theme_level.level == 1)
-  quizz_progress = QuizzProgress.new(user: anthony, quizz: quizz, unlocked: unlocked)
-  quizz_progress.save!
-
-  ["Facile", "Moyen", "Difficile"].each do |level|
-    quizz_level = QuizzLevel.new(name: level, quizz: quizz)
-    quizz_level.save!
-    quizz_levels << quizz_level
-  end
-end
-
-quizz_levels.each do |quizz_level|
-  unlocked = (quizz_level.quizz.ordering == 1 && quizz_level.quizz.theme_level.level == 1 && quizz_level.name == "Facile")
-  quizz_level_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level, unlocked: unlocked)
-  quizz_level_progress.save!
-end
-
-#questions / answers
-
-geo_subthemes = Theme.find_by(name: "Geographie").subthemes
-
-subthemes.each do |subtheme|
-  subtheme.quizzs.each do |quizz|
-    {France: "Paris", Allemage: "Berlin", Irlande: "Dublin", Espagne: "Madrid"}.each do |k, v|
-      question_answer = QuestionAnswer.new(question: "quelle est la capitale de la #{k} ?", answer: v, quizz: quizz)
-      question_answer.save!
-    end
-  end
-end
-
-# SPECIAL INFO FOR ANTHONY USER
-
-ThemeLevel.find_by(level: 1).category_progresses.where(user: anthony).each { |category_progress|
-category_progress.unlocked = true
-category_progress.save!
-}
-
-ThemeLevel.find_by(level: 1).quizz_progresses.where(user: anthony).each { |quizz_progress|
-quizz_progress.unlocked = true
-quizz_progress.save!
-}
-
-anthony = User.first
-ThemeLevel.find_by(level: 1).quizz_level_progresses.where(user: anthony).each { |quizz_level_progress|
-  quizz_level_progress.unlocked = true
-  quizz_level_progress.save!
-}
-
-
-Subtheme.find_by(name: "Océanie").category_progresses.where(user: anthony).each { |category_progress|
-  category_progress.unlocked = false
-  category_progress.save!
-}
-
-Subtheme.find_by(name: "Océanie").quizz_progresses.where(user: anthony).each { |quizz_progress|
-  unlocked = (quizz_progress.quizz.ordering == 1 && quizz_progress.quizz.theme_level.level == 1 || quizz_progress.quizz.name == "Capitale Océanie Master")
-  quizz_progress.unlocked = unlocked
-  quizz_progress.save!
-}
-
-anthony = User.first
-Subtheme.find_by(name: "Océanie").quizz_level_progresses.where(user: anthony).each { |quizz_level_progress|
-  unlocked = (quizz_level_progress.quizz_level.quizz.ordering == 1 && quizz_level_progress.quizz_level.quizz.theme_level.level == 1 &&quizz_level_progress.quizz_level.name == "Facile" || quizz_level_progress.quizz_level.quizz.name == "Océanie Master")
-  quizz_level_progress.unlocked = unlocked
-  quizz_level_progress.save!
-}
 
 
 
@@ -419,28 +334,205 @@ anthony_achievemnt_2.save!
 
 # SEEDS RECORDS
 
-quizz_level = QuizzLevel.first
+# quizz_level = QuizzLevel.first
 
-(0..10).each do |n|
-  user = User.new(
-    name: "user#{n}",
-    email: "user#{n}@gmail.gmail",
-    password: "foobar",
-    password_confirmation: "foobar",
-    hp: 45 + n,
-    xp: 37+ n,
-    hp_max: 50,
-    gem: 12+ n,
-    gold: 1100+ n,
-    level: level1
-  )
-  user.save!
-  record = Record.new(user: user, quizz_level: quizz_level, seconds_duration: 1000- (n * 10), milliseconds_duration: 1, crown_or_sphere: "crown", completion: 1)
-  record.save!
+# (0..10).each do |n|
+#   user = User.new(
+#     name: "user#{n}",
+#     email: "user#{n}@gmail.gmail",
+#     password: "foobar",
+#     password_confirmation: "foobar",
+#     hp: 45 + n,
+#     xp: 37+ n,
+#     hp_max: 50,
+#     gem: 12+ n,
+#     gold: 1100+ n,
+#     level: level1
+#   )
+#   user.save!
+#   record = Record.new(user: user, quizz_level: quizz_level, seconds_duration: 1000- (n * 10), milliseconds_duration: 1, crown_or_sphere: "crown", completion: 1)
+#   record.save!
 
-  record = Record.new(user: user, quizz_level: quizz_level, seconds_duration: 1000- (n * 10), milliseconds_duration: 1,crown_or_sphere: "crown", completion: 2)
-  record.save!
+#   record = Record.new(user: user, quizz_level: quizz_level, seconds_duration: 1000- (n * 10), milliseconds_duration: 1,crown_or_sphere: "crown", completion: 2)
+#   record.save!
 
-  best_record = BestRecord.new(record: record, quizz_level: quizz_level, theme: quizz_level.theme)
-  best_record.save!
+#   best_record = BestRecord.new(record: record, quizz_level: quizz_level, theme: quizz_level.theme)
+#   best_record.save!
+# end
+
+require "csv"
+
+
+filepath = "#{Rails.root}/db/seed_input/world_country.csv"
+
+
+world_country_capitales = []
+
+CSV.foreach(filepath, headers: :first_row) do |row|
+  # puts "#{row['NOM']} #{row['Affectation']} #{row['CAPITALE']}"
+  world_country_capitales << {
+    country: row['NOM'],
+    capitale: row["CAPITALE"],
+    continent: row["CONTINENT"],
+    subtheme: row["SUBTHEME"],
+    theme: row["THEME"],
+    theme_level: row["THEME_LEVEL"].to_i,
+    category: row["CATEGORY"],
+    quizz_ordering: row["QUIZZ_ordering"].to_i,
+  }
 end
+
+# world_country_capitales.each {|c| p c}
+
+
+number_of_quizzs_per_subtheme = {
+  Europe: 4,
+  "Iles des Caraibes": 2,
+  "Iles Pacifiques": 2,
+  Asie: 4,
+  Amérique: 2,
+  Afrique:5
+}
+
+
+
+quizzs = []
+
+categories.each do |category|
+    category_progress = CategoryProgress.new(user: anthony, category: category, unlocked: false)
+    category_progress.save!
+
+    p "category : #{category}"
+
+    p "category subtheme #{category.subtheme}"
+    p "category subtheme #{category.subtheme.name}"
+
+    p number_of_quizzs_per_subtheme[category.subtheme.name.to_s.to_sym]
+
+    nb_quizz = number_of_quizzs_per_subtheme[category.subtheme.name.to_s.to_sym]
+
+    # for world categ
+    nb_quizz = (nb_quizz ? nb_quizz : 1)
+
+    if nb_quizz != 1
+      (1..nb_quizz).each do |i|
+        quizz = Quizz.new(category: category, name: "QUIZZ #{i}", ordering: i)
+        p quizz.name
+        quizz.save!
+        quizzs << quizz
+      end
+    end
+      quizz = Quizz.new(category: category, name: "MASTER", ordering: nb_quizz + 1)
+      quizz.save!
+      quizzs << quizz
+end
+
+p "quizz level"
+
+#localization quizz
+quizz_levels = []
+quizzs.each do |quizz|
+  unlocked = (quizz.ordering == 1 && quizz.theme_level.level == 1)
+  quizz_progress = QuizzProgress.new(user: anthony, quizz: quizz, unlocked: unlocked)
+  quizz_progress.save!
+
+  ["Facile", "Moyen", "Difficile"].each do |level|
+    quizz_level = QuizzLevel.new(name: level, quizz: quizz)
+    quizz_level.save!
+    quizz_levels << quizz_level
+  end
+end
+
+p "quizz level"
+
+quizz_levels.each do |quizz_level|
+  unlocked = (quizz_level.quizz.ordering == 1 && quizz_level.quizz.theme_level.level == 1 && quizz_level.name == "Facile")
+  quizz_level_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level, unlocked: unlocked)
+  quizz_level_progress.save!
+end
+
+#questions / answers
+
+geo_subthemes = Theme.find_by(name: "Geographie").subthemes
+
+subthemes.each do |subtheme|
+  subtheme.quizzs.each do |quizz|
+    p quizz.name
+
+    world_country_capitales.each do |csv_capitale|
+      if quizz.category.subtheme.name == "Mondes" && quizz.category.name == "Capitales"
+        if csv_capitale[:capitale]
+          question_answer = QuestionAnswer.new(question: "quelle est la capitale de la #{csv_capitale[:country]} ?", answer: csv_capitale[:capitale] , quizz: quizz)
+          question_answer.save!
+        else
+          p "pas de capitale pour #{csv_capitale[:country]}  "
+        end
+      else
+
+        if quizz.category.name == "Capitales" && quizz.category.subtheme.name == "Europe" && quizz.ordering == 1
+
+          p csv_capitale
+          p quizz.category.subtheme.name
+          p csv_capitale[:subtheme]
+          p quizz.theme_level.level.to_i
+          p csv_capitale[:theme_level].to_i
+          p quizz.category.name
+          p csv_capitale[:category]
+          p quizz.ordering
+          p csv_capitale[:quizz_ordering].to_i
+        end
+
+        if (quizz.category.subtheme.name == csv_capitale[:subtheme] &&
+          quizz.theme_level.level.to_i == csv_capitale[:theme_level].to_i && quizz.category.name == csv_capitale[:category])
+          if quizz.name == "MASTER"
+            question_answer = QuestionAnswer.new(question: "quelle est la capitale de la #{csv_capitale[:country]} ?", answer: csv_capitale[:capitale] , quizz: quizz)
+            question_answer.save!
+            p "pas de capitale pour #{csv_capitale[:country]}"
+
+          elsif quizz.ordering == csv_capitale[:quizz_ordering].to_i
+            question_answer = QuestionAnswer.new(question: "quelle est la capitale de la #{csv_capitale[:country]} ?", answer: csv_capitale[:capitale] , quizz: quizz)
+            question_answer.save!
+            p "pas de capitale pour #{csv_capitale[:country]}"
+          end
+        end
+      end
+    end
+  end
+end
+
+# SPECIAL INFO FOR ANTHONY USER
+
+# ThemeLevel.find_by(level: 1).category_progresses.where(user: anthony).each { |category_progress|
+# category_progress.unlocked = true
+# category_progress.save!
+# }
+
+# ThemeLevel.find_by(level: 1).quizz_progresses.where(user: anthony).each { |quizz_progress|
+# quizz_progress.unlocked = true
+# quizz_progress.save!
+# }
+
+# anthony = User.first
+# ThemeLevel.find_by(level: 1).quizz_level_progresses.where(user: anthony).each { |quizz_level_progress|
+#   quizz_level_progress.unlocked = true
+#   quizz_level_progress.save!
+# }
+
+
+# Subtheme.find_by(name: "Océanie").category_progresses.where(user: anthony).each { |category_progress|
+#   category_progress.unlocked = false
+#   category_progress.save!
+# }
+
+# Subtheme.find_by(name: "Océanie").quizz_progresses.where(user: anthony).each { |quizz_progress|
+#   unlocked = (quizz_progress.quizz.ordering == 1 && quizz_progress.quizz.theme_level.level == 1 || quizz_progress.quizz.name == "Capitale Océanie Master")
+#   quizz_progress.unlocked = unlocked
+#   quizz_progress.save!
+# }
+
+# anthony = User.first
+# Subtheme.find_by(name: "Océanie").quizz_level_progresses.where(user: anthony).each { |quizz_level_progress|
+#   unlocked = (quizz_level_progress.quizz_level.quizz.ordering == 1 && quizz_level_progress.quizz_level.quizz.theme_level.level == 1 &&quizz_level_progress.quizz_level.name == "Facile" || quizz_level_progress.quizz_level.quizz.name == "Océanie Master")
+#   quizz_level_progress.unlocked = unlocked
+#   quizz_level_progress.save!
+# }
