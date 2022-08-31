@@ -27,6 +27,27 @@ module FlashcardsHelper
     flashcard.day_of_next_repetition < DateTime.current}
   end
 
+  def theme_flashcards_long_term(theme)
+    current_user.flashcards.select {|flashcard|
+    flashcard.question_answer.theme == theme &&
+    (flashcard.status == "learning" ||
+    flashcard.status == "relearning") &&
+    flashcard.interval > 180}
+  end
+
+  def theme_flashcards_learnt(theme)
+    current_user.flashcards.select {|flashcard|
+    flashcard.question_answer.theme == theme &&
+    flashcard.status == "learned"}
+  end
+
+  def theme_flashcards_ongoing_learning(theme)
+    current_user.flashcards.select {|flashcard|
+    flashcard.question_answer.theme == theme &&
+    (flashcard.status == "learning" ||
+    flashcard.status == "relearning")}
+  end
+
   #to display forecast to player
   # not modifying flashcard in DB
   def schedule_forecast(flashcard_true, auto_eval)

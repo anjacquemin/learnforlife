@@ -3,14 +3,14 @@
 </div>
 
 <div class="my-3"></div>
-<div class="level-show flashcard" data-controller="flashcard-answer" data-flashcards-to-display-count = <%=@flashcards.count%>  >
+<div class="level-show flashcard" data-controller="flashcard-answer" data-flashcards-to-display-count = <%=@flashcards.count%> data-flashcards-count = "0" data-flashcards-total-count = <%=@flashcards.count%> data-stimulus-connect-count= "0">
   <div class="questions_count">
     <div class="card-count-details">
       <div class="card-progressbar-wrapper">
         <div title="card-count" class="progressbar card-completion"  data-flashcard-answer-target = "cardCountBar"></div>
       </div>
       <div class= "card-number">
-        <p data-flashcard-answer-target = "cardCountNumber">0/10</p>
+        <p data-flashcard-answer-target = "cardCountNumber">0/<%=@flashcards.count%></p>
       </div>
     </div>
   </div>

@@ -31,6 +31,7 @@ class FlashcardsController < ApplicationController
     # clasculer
     interval = schedule(@flashcard, auto_eval)
 
+
     puts "next repittion : #{@flashcard.day_of_next_repetition}"
     puts "interval : #{interval}"
     puts "status : #{@flashcard.status}"
@@ -53,6 +54,18 @@ class FlashcardsController < ApplicationController
       @flashcard.save!
     end
 
+    flashcard_save = FlashcardSave.new({
+      interval: @flashcard.interval,
+      repetition: @flashcard.repetition,
+      ease_factor: @flashcard.ease_factor,
+      auto_eval: auto_eval,
+      day_of_repetition: DateTime.current,
+      flashcard: @flashcard,
+      status: @flashcard.status,
+      steps_index: @flashcard.steps_index
+      })
+    flashcard_save.save!
+
     respond_to do |format|
       # format.html
       format.json
@@ -68,6 +81,22 @@ class FlashcardsController < ApplicationController
     @theme = Theme.find(params[:theme_id])
     @flashcards = current_user.flashcards.select {|flashcard| flashcard.question_answer.theme == @theme}
     authorize (@flashcards.first)
+    @flashcard_dealt_with = current_user.flashcard_saves.select{ |flashcard_save| !flashcard_save.dealt_with }
+    @flashcard_dealt_with_count = @flashcard_dealt_with.pluck(:flashcard_id).uniq.count
+
+    @gold_win = 0
+
+    @flashcard_dealt_with.each do |flashcard_save|
+      unless flashcard_save.dealt_with
+        flashcard_save.dealt_with = true
+        flashcard_save.save!
+        @gold_win += 1
+      end
+    end
+
+    current_user.gold += @gold_win
+    current_user.save!
+
   end
 end
 
@@ -78,6 +107,7 @@ end
       returns a result in days'''
 
       p "autoeval : #{auto_eval}"
+      flashcard.repetition += 1
 
       if flashcard.status == 'learning'
         p "learning"

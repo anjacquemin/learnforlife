@@ -36,7 +36,36 @@
   justify-content: center;
 }
 
+.long-term, .learnt, .ongoing-learning, .total-flashcards-won {
+}
 
+.xp-flashcard{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  .gold p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFBC0A;
+  }
+}
+
+.grid-2-3{
+  display: grid;
+  grid-template-columns: 2fr 3fr;;
+}
+
+.progression .xp-flashcard .percentage-details{
+  margin: 5px;
+}
+
+.flashcard-achievement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 @media(max-width: 570px){
 

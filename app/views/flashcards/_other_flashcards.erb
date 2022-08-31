@@ -1,0 +1,19 @@
+<div class="theme-block-list flashcards mt-5 col-md-6">
+  <div class="banner">
+    <h2><strong>FLASHCARDS</strong></h2>
+    <% flashcards_to_revise_count = all_flashcards_to_revise().count %>
+    <% flashcards_to_learn_count =  all_flashcards_to_learn().count %>
+    <div class="tabs">
+      <button class="active-tab btn-tab" data-action="click->theme-index-display#displayFlashcardsDiv"
+      data-theme-index-display-target = "flashcardsToLearnTab">Nouvelle(<%= flashcards_to_learn_count %>)</button>
+      <button class="btn-tab" data-action="click->theme-index-display#displayFlashcardsDiv" data-theme-index-display-target = "flashcardsToReviseTab">Réviser(<%= flashcards_to_revise_count %>)</button>
+    </div>
+  </div>
+  <% @themes = Theme.all %>
+  <div data-theme-index-display-target = "flashcardsToLearnDiv">
+    <%= render "themes/theme_flashcard_card_creation", for_: "to_learn" %>
+  </div>
+  <div class= "d-none" data-theme-index-display-target = "flashcardsToReviseDiv">
+        <%= render "themes/theme_flashcard_card_creation", for_: "toRevise"%>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="results answers col-lg-6">
+  <div class="banner">
+    <h2>Statistiques</h2>
+  </div>
+  <div class="record-card">
+    <div class="white-container">
+      <% flashcards = current_user.flashcards.select{|flashcard| flashcard.theme == "Geographie" } %>
+      <% all_intervals = {
+        "<= 1 jour": 0,
+        "< 5 jours": 0,
+        "< 10 jours": 0,
+        "< 1 mois": 0,
+        "< 6 mois": 0,
+        "> 6 mois": 0
+        }
+      %>
+      <% @flashcards.each {|flashcard|
+        all_intervals[:"<= 1 jour"] += 1 if flashcard.interval <= 1
+        all_intervals[:"< 5 jours"] += 1 if flashcard.interval > 1 &&  flashcard.interval <= 5
+        all_intervals[:"< 10 jours"] += 1 if flashcard.interval > 5 && flashcard.interval <= 10
+        all_intervals[:"< 1 mois"] += 1 if  flashcard.interval > 10 && flashcard.interval <= 30
+        all_intervals[:"< 6 mois"] += 1 if  flashcard.interval > 30 && flashcard.interval <= 180
+        all_intervals[:"> 6 mois"] += 1 if flashcard.interval > 180
+      } %>
+      <%= bar_chart all_intervals %>
+    </div>
+  </div>
+</div>

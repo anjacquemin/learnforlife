@@ -1,6 +1,9 @@
+
 <div class="themes-list">
   <% @themes.each do |theme| %>
 
+    <% total_won_flashcards = current_user.flashcards.select {|flashcard| flashcard.theme == theme}.count %>
+    <% total_theme_flashcards = QuestionAnswer.all.count{ |question_answer| question_answer.theme == theme}%>
     <% if for_ == "to_learn" %>
       <% flashcards_count = theme_flashcards_to_learn(theme).count %>
       <% url = "theme/#{theme.id}/flashcards/learn" %>
@@ -16,7 +19,8 @@
         <div class="content">
           <h2>Geographie</h2>
           <div class="theme-progress">
-            <%= render "shared/progress_bar", value: "10/50", display_with: "%"  %>
+            <% percentage_won_flashcards = (total_theme_flashcards != 0 ? (total_won_flashcards.to_f/total_theme_flashcards*100).round(0) : 0)  %>
+            <%= render "shared/progress_bar", value: percentage_won_flashcards, display_with: "#{percentage_won_flashcards}%"  %>
           </div>
         </div>
         <div class="flashcard-count">
