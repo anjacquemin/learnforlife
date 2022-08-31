@@ -2,6 +2,7 @@ class Flashcard < ApplicationRecord
   belongs_to :user
   belongs_to :question_answer
   has_one :theme, through: :question_answer
+  has_many :flashcard_saves, class_name: :FlashcardSave
 
   validates :interval, numericality: {greater_than_or_equal_to: 0}
   validates :mistake_count, numericality: {greater_than_or_equal_to: 0}

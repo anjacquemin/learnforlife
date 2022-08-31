@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_30_130112) do
+ActiveRecord::Schema.define(version: 2022_08_31_094144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,21 @@ ActiveRecord::Schema.define(version: 2022_08_30_130112) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_category_progresses_on_category_id"
     t.index ["user_id"], name: "index_category_progresses_on_user_id"
+  end
+
+  create_table "flashcard_saves", force: :cascade do |t|
+    t.integer "interval"
+    t.float "ease_factor"
+    t.integer "repetition"
+    t.integer "steps_index"
+    t.datetime "day_of_repetition"
+    t.string "auto_eval"
+    t.string "status"
+    t.boolean "dealt_with", default: false
+    t.bigint "flashcard_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flashcard_id"], name: "index_flashcard_saves_on_flashcard_id"
   end
 
   create_table "flashcards", force: :cascade do |t|
@@ -277,6 +292,7 @@ ActiveRecord::Schema.define(version: 2022_08_30_130112) do
   add_foreign_key "categories", "subthemes"
   add_foreign_key "category_progresses", "categories"
   add_foreign_key "category_progresses", "users"
+  add_foreign_key "flashcard_saves", "flashcards"
   add_foreign_key "flashcards", "question_answers"
   add_foreign_key "flashcards", "users"
   add_foreign_key "question_answers", "quizzs"

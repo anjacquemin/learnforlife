@@ -7,7 +7,7 @@ module FlashcardsHelper
   end
 
   def theme_flashcards_to_learn(theme)
-    current_user.flashcards.select {|flashcard|
+    current_user.flashcards.includes(:theme).includes(:question_answer).select {|flashcard|
     flashcard.question_answer.theme == theme &&
     (flashcard.status == "learning" ||
     flashcard.status == "relearning") &&
@@ -21,10 +21,31 @@ module FlashcardsHelper
   end
 
   def theme_flashcards_to_revise(theme)
-    current_user.flashcards.select {|flashcard|
+    current_user.flashcards.includes(:theme).select {|flashcard|
     flashcard.theme == theme &&
     flashcard.status == "learned" &&
     flashcard.day_of_next_repetition < DateTime.current}
+  end
+
+  def theme_flashcards_long_term(theme)
+    current_user.flashcards.select {|flashcard|
+    flashcard.question_answer.theme == theme &&
+    (flashcard.status == "learning" ||
+    flashcard.status == "relearning") &&
+    flashcard.interval > 180}
+  end
+
+  def theme_flashcards_learnt(theme)
+    current_user.flashcards.select {|flashcard|
+    flashcard.question_answer.theme == theme &&
+    flashcard.status == "learned"}
+  end
+
+  def theme_flashcards_ongoing_learning(theme)
+    current_user.flashcards.select {|flashcard|
+    flashcard.question_answer.theme == theme &&
+    (flashcard.status == "learning" ||
+    flashcard.status == "relearning")}
   end
 
   #to display forecast to player

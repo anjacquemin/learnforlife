@@ -40,12 +40,17 @@ gem "font-awesome-sass", "~> 6.1"
 
 gem "cloudinary"
 
+gem "chartkick"
+
+
 gem "dotenv-rails", groups: [:development, :test]
 
 gem "simple_form", github: "heartcombo/simple_form"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "bullet"
+
 end
 
 group :development do

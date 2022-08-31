@@ -4,7 +4,7 @@
 <div class="container theme-show" data-controller = "theme-show" data-count = <%=@theme.subthemes.count%>>
   <div class="theme-level">
     <% @target_index = 0 %>
-    <% @theme.theme_levels.order(:level).each do |theme_level| %>
+    <% @theme.theme_levels.includes([:categories]).order(:level).each do |theme_level| %>
       <% unless is_unlocked_for_user?(theme_level, "theme_level", @user) %>
         <% @level_blur = 2 %>
       <% end %>

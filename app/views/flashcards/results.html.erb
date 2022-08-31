@@ -1,1 +1,23 @@
-dzdaz
+<div class="theme-title theme-show">
+  <h1><i class="fas fa-atlas"></i><%=@theme.name.upcase%></h1>
+</div>
+
+<div class = "flashcards-results">
+  <div class="my-5"></div>
+  <div class = "flashcard-achievement">
+    <%= image_tag "congratulation.png", height: 80 %>
+    <div class="my-2"></div>
+    <p> Félicitations !!</p>
+    <p> <strong> <%= @flashcard_dealt_with_count %> flashcards <%= "revue".pluralize(@flashcard_dealt_with_count) %> </strong></p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <%= render "flashcards_progress_card" %>
+      <%= render "statistics_card" %>
+    </div>
+    <div class="row">
+      <%# <%= render "other_flashcards" %>
+    </div>
+    <%= link_to "continue", themes_path, class: "btn btn-purple my-4" %>
+  </div>
+</div>

@@ -146,7 +146,7 @@ class RecordsController < ApplicationController
     end
 
     def synthesis(user_answers)
-      @synthesis = user_answers.map do |user_answer|
+      @synthesis = user_answers.includes([:question_answer]).map do |user_answer|
         question_synthesis = {}
         question_answer = user_answer.question_answer
         question_synthesis[:question] = question_answer.question

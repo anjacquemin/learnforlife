@@ -1,0 +1,90 @@
+<% ongoing_learning_flashcards = theme_flashcards_ongoing_learning(@theme).count %>
+<% learnt_flashcards = theme_flashcards_learnt(@theme).count %>
+<% long_term_learning_flashcards = theme_flashcards_long_term(@theme).count %>
+<% total_won_flashcards = current_user.flashcards.includes([:theme]).select {|flashcard| flashcard.theme == @theme}.count %>
+<% total_theme_flashcards = Theme.find(@theme.id).question_answers.count%>
+
+
+<div class="results progression col-lg-6">
+  <div class="banner">
+    <h2>Progression</h2>
+  </div>
+  <div class="record-card">
+    <div class="xp-gold-ranking">
+      <div class="xp-flashcard width-100">
+        <div class="gold">
+          <%= image_tag 'pieces.png' %>
+          <p> + <%= @gold_win%> </p>
+        </div>
+        <div class= "ongoing_learning">
+          <div class="percentage-details grid-2-3">
+          <div>
+            <p>En cours d'apprentissage</p>
+          </div>
+            <div class="flashcards-count">
+              <div class="flashcards-total">
+                <div class="progressbar-wrapper">
+                  <div title="theme_completion" class="progressbar theme-completion" style=<%="width:#{ongoing_learning_flashcards.to_f/total_theme_flashcards*100}%"%>></div>
+                </div>
+                <div class= "flashcard-number">
+                  <p><%=ongoing_learning_flashcards %>/<%=total_theme_flashcards%></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class= "learnt">
+          <div class="percentage-details grid-2-3">
+          <div>
+            <p>Apprise</p>
+          </div>
+            <div class="flashcards-count">
+              <div class="flashcards-total">
+                <div class="progressbar-wrapper">
+                  <div title="theme_completion" class="progressbar theme-completion" style=<%="width:#{learnt_flashcards.to_f/total_theme_flashcards*100}%"%>></div>
+                </div>
+                <div class= "flashcard-number">
+                  <p><%=learnt_flashcards %>/<%=total_theme_flashcards%></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class= "long-term">
+          <div class="percentage-details grid-2-3">
+          <div>
+            <p>Long terme</p>
+          </div>
+            <div class="flashcards-count">
+              <div class="flashcards-total">
+                <div class="progressbar-wrapper">
+                  <div title="theme_completion" class="progressbar theme-completion" style=<%="width:#{long_term_learning_flashcards.to_f/total_theme_flashcards*100}%"%>></div>
+                </div>
+                <div class= "flashcard-number">
+                  <p><%=long_term_learning_flashcards %>/<%=total_theme_flashcards%></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class= "total-flashcards-won">
+          <div class="percentage-details grid-2-3">
+          <div>
+            <p>Total flashcards gagnées</p>
+          </div>
+            <div class="flashcards-count">
+              <div class="flashcards-total">
+                <div class="progressbar-wrapper">
+                  <div title="theme_completion" class="progressbar theme-completion" style=<%="width:#{total_won_flashcards.to_f/total_theme_flashcards*100}%"%>></div>
+                </div>
+                <div class= "flashcard-number">
+                  <p><%=total_won_flashcards %>/<%=total_theme_flashcards%></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

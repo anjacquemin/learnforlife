@@ -5,10 +5,33 @@ import { csrfToken } from "@rails/ujs"
 export default class extends Controller {
 
   // number of circle target = number of themes
-  static targets = ["endButton"]
+  static targets = ["endButton", "cardCountBar", "cardCountNumber", "seconds", "tens"]
 
   connect() {
     console.log(`hello from controller`)
+
+    window.Interval
+    clearInterval(window.Interval);
+
+    // if the user leave the quizz and then come back, only call 1 time setInterval
+    var counter_page_loaded = parseInt(this.element.dataset.stimulusConnectCount);
+    counter_page_loaded ++;
+    this.element.dataset.stimulusConnectCount = counter_page_loaded
+
+    if (counter_page_loaded === 1) {
+      console.log("fisrt time connected")
+      window.seconds = 0;
+      window.tens = 0;
+      window.appendTens = this.tensTarget;
+      window.appendSeconds = this.secondsTarget;
+      window.Interval = setInterval(startTimer, 10);
+    } else {
+      // if back and force on the page, set all the value to their value
+      window.seconds = parseInt(this.secondsTarget.innerHTML);
+      window.tens = parseInt(this.tensTarget.innerHTML);
+      window.appendTens = this.tensTarget;
+      window.appendSeconds = this.secondsTarget;
+    }
   }
 
   seeAnswer(event) {
@@ -37,9 +60,6 @@ export default class extends Controller {
     const current_question = event.target.closest(`.questionCard${question_card_count}`)
     console.log(`.questionCard${question_card_count}`)
     console.log(current_question)
-    current_question.classList.add("d-none")
-
-
 
     const auto_eval = event.target.dataset.autoEvaluation
     const flashcard_id = event.target.parentElement.dataset.flashcardId
@@ -48,6 +68,10 @@ export default class extends Controller {
     const number_of_card_to_display = this.element.dataset.flashcardsToDisplayCount
     console.log(auto_eval)
     console.log(flashcard_id)
+
+    let flashcards_count = this.element.dataset.flashcardsCount
+    const flashcards_total_count = this.element.dataset.flashcardsTotalCount
+
 
     const data = answerDataBuilding(flashcard_id, auto_eval, number_of_card_to_display)
 
@@ -66,6 +90,7 @@ export default class extends Controller {
         console.log(container)
         container.insertAdjacentHTML("beforeend",data["inserted_item"])
         this.element.dataset.flashcardsToDisplayCount = parseInt(number_of_card_to_display) + 1
+        current_question.classList.add("d-none")
         const next_question = this.element.querySelector(`.questionCard${parseInt(question_card_count) + 1}`)
         console.log("Next question :")
         console.log(next_question)
@@ -77,10 +102,21 @@ export default class extends Controller {
           console.log(this.endButtonTarget)
           this.endButtonTarget.click()
         } else {
+          current_question.classList.add("d-none")
           const next_question = this.element.querySelector(`.questionCard${parseInt(question_card_count) + 1}`)
           console.log("Next question :")
           console.log(next_question)
           next_question.classList.remove("d-none")
+
+          flashcards_count = parseInt(flashcards_count) + 1
+          console.log(`cardcout ${flashcards_count}`)
+          console.log(`total ${flashcards_total_count}`)
+
+          this.cardCountBarTarget.style.width = `${((flashcards_count)/flashcards_total_count)*100}%`
+          this.cardCountNumberTarget.innerHTML = `${(parseInt(flashcards_count))}/${parseInt(flashcards_total_count)}`
+          this.element.dataset.flashcardsCount = flashcards_count
+
+
         }
       }
     })

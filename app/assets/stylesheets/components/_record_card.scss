@@ -151,6 +151,17 @@
   }
 }
 
+//specific for Flashcards show
+.flashcards-results {
+  .results .xp-gold-ranking .xp-gold{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .results .record-card .xp-gold-ranking{
+    height: 100%;
+  }
+}
 
 // Specific to answer card
 .record-card .result-number {

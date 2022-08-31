@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :theme_level_progresses, dependent: :destroy
   has_many :subtheme_progresses, dependent: :destroy
   has_many :flashcards, dependent: :destroy
+  has_many :flashcard_saves, class_name: :FlashcardSave, through: :flashcards, dependent: :destroy
   has_many :category_progresses, dependent: :destroy
   has_many :quizz_level_progresses, dependent: :destroy
   has_many :quizz_progresses, dependent: :destroy
