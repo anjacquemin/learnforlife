@@ -1,8 +1,8 @@
 <% ongoing_learning_flashcards = theme_flashcards_ongoing_learning(@theme).count %>
 <% learnt_flashcards = theme_flashcards_learnt(@theme).count %>
 <% long_term_learning_flashcards = theme_flashcards_long_term(@theme).count %>
-<% total_won_flashcards = current_user.flashcards.select {|flashcard| flashcard.theme == @theme}.count %>
-<% total_theme_flashcards = QuestionAnswer.all.count{ |question_answer| question_answer.theme == @theme}%>
+<% total_won_flashcards = current_user.flashcards.includes([:theme]).select {|flashcard| flashcard.theme == @theme}.count %>
+<% total_theme_flashcards = Theme.find(@theme.id).question_answers.count%>
 
 
 <div class="results progression col-lg-6">

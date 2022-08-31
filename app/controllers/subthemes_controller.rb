@@ -14,7 +14,6 @@ class SubthemesController < ApplicationController
           authorize(@subtheme)
           data = JSON.parse(params["json"])
           p data["quizz_id"]
-          @quizz = Quizz.find(data["quizz_id"].to_i)
         }
       end
 

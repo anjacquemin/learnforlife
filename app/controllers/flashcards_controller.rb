@@ -5,7 +5,7 @@ class FlashcardsController < ApplicationController
     @theme = Theme.find(params[:theme_id])
 
     if (@learn_or_revise = params[:learn_or_revise]) == "learn"
-      @flashcards = current_user.flashcards.select {|flashcard|
+      @flashcards = current_user.flashcards.includes([:question_answer]).includes([:theme]).select {|flashcard|
         flashcard.question_answer.theme == @theme &&
         (flashcard.status == "learning" || flashcard.status == "relearning") &&
         flashcard.day_of_next_repetition < DateTime.current
@@ -79,7 +79,7 @@ class FlashcardsController < ApplicationController
 
   def results
     @theme = Theme.find(params[:theme_id])
-    @flashcards = current_user.flashcards.select {|flashcard| flashcard.question_answer.theme == @theme}
+    @flashcards = current_user.flashcards.includes([:question_answer]).includes([:flashcard_saves]).includes([:theme]).select {|flashcard| flashcard.question_answer.theme == @theme}
     authorize (@flashcards.first)
     @flashcard_dealt_with = current_user.flashcard_saves.select{ |flashcard_save| !flashcard_save.dealt_with }
     @flashcard_dealt_with_count = @flashcard_dealt_with.pluck(:flashcard_id).uniq.count
