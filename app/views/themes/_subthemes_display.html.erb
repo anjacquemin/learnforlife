@@ -8,7 +8,7 @@
       <div <%=@subtheme_hovering.html_safe%>   style='filter: blur(<%=@level_blur%>px)'>
 
         <div class= "cards-number">
-          <h2><%= subtheme.question_answers.count %></h2>
+          <h2><%= subtheme.question_answers.uniq.count %></h2>
           <p>cartes</p>
         </div>
         <div class="content">

@@ -100,7 +100,8 @@ class RecordsController < ApplicationController
             day_of_next_repetition: Date.today,
             status: "learning",
             user: current_user,
-            steps_index: 0
+            steps_index: 0,
+            theme: quizz.theme
           })
           flashcard.save!
         end

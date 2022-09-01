@@ -2,8 +2,11 @@ anthony:
   name: Anthony Example
   email: anthony@example.com
   encrypted_password: <%= User.new.send(:password_digest, 'password') %>
-
+  level: level1
+  hp_max: 100
+  hp: 50
 
 mickael:
   name: Mickael Example
   email: mickael@example.com
+  level: level1
