@@ -52,10 +52,11 @@
 
 .card-enhanced.flashcard{
   .flashcard-count{
-    border-left: 2px solid black;
+    border-left: 2px dotted $green;
     padding-left: 8px;
     p {
       font-weight: bold;
+      margin-bottom: 0;
     }
   }
   .progressbar-wrapper{

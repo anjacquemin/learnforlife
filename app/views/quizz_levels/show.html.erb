@@ -8,7 +8,7 @@
         <div title="card-count" class="progressbar card-completion"  data-quizz-answer-target = "cardCountBar"></div>
       </div>
       <div class= "card-number">
-        <p data-quizz-answer-target = "cardCountNumber">0/10</p>
+        <p data-quizz-answer-target = "cardCountNumber">0/<%= @quizz.question_answers.count %></p>
       </div>
     </div>
   </div>
@@ -49,13 +49,13 @@
               >
             <% if @suggested_question_answers_id %>
               <% @suggested_question_answers_id[question_answer.id.to_s.to_sym].each do |suggested_question_answer_id| %>
-                <div class="card-answer"
+                <button class="card-answer"
                   <%= "data-quizz-answer-target = 'goodAnswer#{index}'".html_safe if suggested_question_answer_id == question_answer.id %>
                   data-action="click->quizz-answer#checkAnswer"
                   data-user-answer-id = <%= suggested_question_answer_id %>
                   data-user-answer = <%= @quizz.question_answers.find(suggested_question_answer_id).answer %>>
                   <h2><%= @quizz.question_answers.find(suggested_question_answer_id).answer %></h2>
-                </div>
+                </button>
               <% end %>
             <% else %>
               <div>

@@ -1,9 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
+import { circleDivTargets, circleTargets } from  "./_circle_targets_constant.js"
+
 
 export default class extends Controller {
 
   // number of circle target = number of themes
-  static targets = ["circle1", "circle2", "circle3", "circle4", "circle0", "circleDiv0", "circleDiv1", "circleDiv2","circleDiv3","circleDiv4", "themeDiv", "leaderboardDiv"]
+  static targets = ["themeDiv", "leaderboardDiv"].concat(circleDivTargets).concat(circleTargets)
 
   connect() {
     console.log(`hello from controller`)

@@ -4,9 +4,9 @@
     font-weight: 600;
     margin-bottom: 0;
   }
-  p{
-    margin: 5px;
-  }
+  // p{
+  //   margin: 5px;
+  // }
   .banner{
     display: flex;
     justify-content: space-between;
@@ -53,7 +53,7 @@
 
 .flashcards {
   @include theme-block-list($green, $green);
-  @include card-theme-enhanced($green, $green);
+  @include card-theme-enhanced($green, $light-green);
 }
 
 @media(max-width: 991px) {
@@ -62,5 +62,11 @@
   }
   .banner {
     padding: 0 5px
+  }
+}
+
+@media(max-width: 490px){
+  .theme-index-display .progressbar-wrapper{
+    width: 60%;
   }
 }

@@ -42,10 +42,13 @@
   justify-content: space-evenly;
   // margin: 0 20px ;
   margin: auto;
+  text-align: center;
+  border: none;
 
   &:hover{
     background-color: $purple;
     color: white;
+    border: none;
     .subtheme-card-banner{
       border-bottom: 2px solid white;
     }

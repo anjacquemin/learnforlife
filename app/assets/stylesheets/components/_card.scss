@@ -59,7 +59,7 @@ a{
   display: flex;
   align-items: center;
   .flashcard-count {
-    border-left: 2px solid black;
+    border-left: 1px dotted $green;
     padding-left: 8px;
 
     h2{

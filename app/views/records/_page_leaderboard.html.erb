@@ -1,4 +1,4 @@
-<div class="white-container">
+<div class="white-container height-100-no-justify">
  <div class = "best-record-display">
    <div class= "user-details">
      <p></p>
@@ -31,7 +31,7 @@
        <p> <%= best_record.record.completion %></p>
        <p> <%= best_record.record.score_percentage %></p>
        <div class="time-display">
-         <p> <%= best_record.record.seconds_duration %>.</p>
+         <p> <%= seconds_to_minutes(best_record.record.seconds_duration) %>.</p>
          <p> <%= best_record.record.milliseconds_duration %>s</p>
        </div>
      </div>
