@@ -17,3 +17,38 @@
 
   </div>
 </div>
+
+<%# TEST MODAL DESIGN %>
+
+<% @unlocked_items[:quizz_level] = QuizzLevel.first %>
+
+<%= @count = 101 %>
+  <%= render 'achievement_modal',type: "quizz_level", sentence: " Niveau #{@unlocked_items[:quizz_level].name.upcase} du #{@unlocked_items[:quizz_level].quizz.name.upcase} - #{@unlocked_items[:quizz_level].quizz.category.subtheme.name.upcase} débloqué !", quizz: @unlocked_items[:quizz_level].quizz%>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop101">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h1>FELICITATIONS !!! </h2>
+        <div class="icon">
+          <%= image_tag "congratulation.png" %>
+        </div>
+        <p> Niveau XXX .... ....  </p>
+        <p> Niveau XXX .... ....  </p>
+        <p> Niveau XXX .... ....  </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-purple" data-bs-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>

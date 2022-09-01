@@ -64,13 +64,13 @@
       color: white
     }
     .flashcard-count {
-      border-left: 2px solid white;
+      border-left: 2px dotted white;
     }
     .progressbar{
       background-color: white;
     }
-    .progressbarwrapper{
-      background-color: rgba($color, 0.1);
+    .progressbar-wrapper{
+      background-color: $background-color;
     }
     .inside-circle{
       background: $color;

@@ -18,7 +18,7 @@
     </div>
     <div class="time-display">
       <i class="fa-solid fa-stopwatch"></i>
-      <p><%= @record.seconds_duration%>.</p>
+      <p><%= seconds_to_minutes(@record.seconds_duration)%>.</p>
       <p><%= @record.milliseconds_duration%> s</p>
     </div>
   </div>

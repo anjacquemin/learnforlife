@@ -7,11 +7,11 @@
       <div class= "result-number">
         <div class="good-answer-count">
           <%= image_tag 'verifie.png' %>
-          <p><%= @record.score_percentage * @number_of_questions / 100%></p>
+          <p><%= (@record.score_percentage * @number_of_questions / 100.to_f).round(0)%></p>
         </div>
         <div class="bad-answer-count">
           <%= image_tag 'annuler.png' %>
-          <p><%= ((100-@record.score_percentage) * @number_of_questions) / 100%></p>
+          <p><%= (((100-@record.score_percentage) * @number_of_questions) / 100.to_f).round(0)%></p>
         </div>
       </div>
       <div class="all-answers">
@@ -19,7 +19,7 @@
         <% @synthesis.each_with_index do |question_synthese, index| %>
           <div class= "unique-answer">
             <div class= "question-number">
-              <p> <%= index %> </p>
+              <p> <%= index + 1 %> </p>
             </div>
             <div class = "question-answer">
               <p> <strong><%=question_synthese[:question].capitalize%></strong> </p>

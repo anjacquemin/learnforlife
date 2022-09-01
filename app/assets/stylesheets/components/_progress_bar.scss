@@ -11,8 +11,8 @@
   background-color: white;
   box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
   border-radius: $border-radius-lg;
-  // width: 50%;
-  flex-grow: 1;
+  width: 80%;
+  // flex-grow: 1;
   height: 80%;
   margin-right: 5px;
   align-self: center;
@@ -32,7 +32,7 @@
   background-color: $orange;
 }
 
-.character-health{
+.character-health, .character-xp{
   display: flex;
   align-items: center;
   img{

@@ -65,6 +65,12 @@
   flex-direction: column;
 }
 
+.white-container.height-100-no-justify {
+  height: 100%;
+  justify-content: normal;
+  margin: 10px 0;
+}
+
 // SPECIFICITY FOR EACH OF THE FOUR CARDS (progression, answer, leaderboard, unlocked-levels)
 
 
@@ -261,7 +267,7 @@
   border-radius:$border-radius-lg;
   padding: 0.3rem 0;
   img{
-    height: 16px;
+    height: 20px;
   }
   > * {
     flex: 1 1 0;
@@ -269,6 +275,7 @@
     text-align: center;
   }
   p {
+    font-size: 20px;
     margin: 0;
     font-weight: bold;
   }
@@ -293,7 +300,7 @@
   .user-details{
     width: 100%;
     display: flex;
-    align-items: start;
+    align-items: center;
     p {
      width: 40px;
     }

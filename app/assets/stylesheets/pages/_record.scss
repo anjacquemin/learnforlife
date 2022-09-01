@@ -91,23 +91,6 @@
   }
 }
 
-// MODALS
-
-.unlock-item-display{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  p {
-    text-align: center;
-    margin: 0;
-  }
-
-  > * {
-    margin: 30px;
-  }
-}
-
 @media(max-width: 576px){
   .sub-key-results{
     flex-direction: column;

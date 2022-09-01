@@ -11,26 +11,29 @@
 <% offset = (params[:page] ? params[:page].to_i : 1) %>
 <% is_first_page = !params[:page] || params[:page] == "1"  %>
 
-<div class="modal fade" <%="id= 'exampleModal#{quizz.id}'".html_safe%>  data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" >
+<div class="modal fade record-modal" <%="id= 'exampleModal#{quizz.id}'".html_safe%>  data-bs-backdrop="false" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"><%= "#{quizz.category.subtheme.name} - #{quizz.category.name} : #{quizz.name}" %></h5>
+        <h1 class="modal-title" id="exampleModalLabel"><%= "#{quizz.category.subtheme.name} - #{quizz.category.name} </br> #{quizz.name}".html_safe %></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class = "best-record-display">
-          <div class= "user-details">
-            <p></p>
-            <p>Utilisateur</p>
-          </div>
-          <div class= "key-record-results">
-            <div>
-              <%= image_tag("crown.png") %>
+
+        <div class="white-container">
+          <div class = "best-record-display">
+            <div class= "user-details">
+              <p></p>
+              <p>Utilisateur</p>
             </div>
-            <p><i class="fa-solid fa-stopwatch"></i></p>
+            <div class= "key-record-results">
+              <div>
+                <%= image_tag("crown.png") %>
+              </div>
+              <p><i class="fa-solid fa-stopwatch"></i></p>
+            </div>
           </div>
-        </div>
+
         <hr class="horizontal-divider-light">
         <% @all_best_quizz_records.each_with_index do |best_record, index| %>
           <% background = "" %>
@@ -47,7 +50,7 @@
             <div class= "key-record-results">
               <p> <%= best_record[:completion] %></p>
               <div class="time-display">
-                <p> <%= best_record[:seconds_duration] %>.</p>
+                <p> <%= seconds_to_minutes(best_record[:seconds_duration]) %>.</p>
                 <p> <%= best_record[:milliseconds_duration] %>s</p>
               </div>
             </div>
@@ -56,10 +59,10 @@
         <% end %>
 
         <%= will_paginate @all_best_quizz_records,  "data-action": "click->subtheme-show#cancelScroll","data-quizz": quizz.id, class: "pagination pagination-enhanced", :previous_label => '← Précédent', :next_label => 'Suivant →' if @all_best_quizz_records%>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-purple" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
