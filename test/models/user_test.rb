@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @user = User.new(name: "anthony",email: "anthony@mail.com" , password: "foobar" , password_confirmation: "foobar" )
+    @user = User.new(name: "anthony",email: "anthony@mail.com" , password: "foobar" , password_confirmation: "foobar", level: levels(:level1) )
     @user2 = users(:anthony)
   end
 
@@ -82,7 +82,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "lvl should be set to 1" do
     @user.save
-    assert_equal @user.reload.level, 1
+    assert_equal @user.reload.level.level, 1
   end
 
   test "user should have flashcards" do

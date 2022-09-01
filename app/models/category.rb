@@ -8,6 +8,7 @@ class Category < ApplicationRecord
   has_many :quizz_progresses, through: :quizzs
   has_many :quizz_levels, through: :quizzs
   has_many :question_answers, through: :quizzs
+  has_many :quizz_question_answers, through: :quizzs
   has_many :quizz_level_progresses, through: :quizzs
   has_many :records, through: :quizzs
 

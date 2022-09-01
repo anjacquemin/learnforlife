@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_31_094144) do
+ActiveRecord::Schema.define(version: 2022_09_01_171307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,7 +112,9 @@ ActiveRecord::Schema.define(version: 2022_08_31_094144) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "status"
     t.integer "steps_index"
+    t.bigint "theme_id", null: false
     t.index ["question_answer_id"], name: "index_flashcards_on_question_answer_id"
+    t.index ["theme_id"], name: "index_flashcards_on_theme_id"
     t.index ["user_id"], name: "index_flashcards_on_user_id"
   end
 
@@ -130,10 +132,8 @@ ActiveRecord::Schema.define(version: 2022_08_31_094144) do
   create_table "question_answers", force: :cascade do |t|
     t.string "question"
     t.string "answer"
-    t.bigint "quizz_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["quizz_id"], name: "index_question_answers_on_quizz_id"
   end
 
   create_table "quizz_answers", force: :cascade do |t|
@@ -171,6 +171,15 @@ ActiveRecord::Schema.define(version: 2022_08_31_094144) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["quizz_id"], name: "index_quizz_progresses_on_quizz_id"
     t.index ["user_id"], name: "index_quizz_progresses_on_user_id"
+  end
+
+  create_table "quizz_question_answers", force: :cascade do |t|
+    t.bigint "quizz_id", null: false
+    t.bigint "question_answer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_answer_id"], name: "index_quizz_question_answers_on_question_answer_id"
+    t.index ["quizz_id"], name: "index_quizz_question_answers_on_quizz_id"
   end
 
   create_table "quizzs", force: :cascade do |t|
@@ -294,8 +303,8 @@ ActiveRecord::Schema.define(version: 2022_08_31_094144) do
   add_foreign_key "category_progresses", "users"
   add_foreign_key "flashcard_saves", "flashcards"
   add_foreign_key "flashcards", "question_answers"
+  add_foreign_key "flashcards", "themes"
   add_foreign_key "flashcards", "users"
-  add_foreign_key "question_answers", "quizzs"
   add_foreign_key "quizz_answers", "quizz_levels"
   add_foreign_key "quizz_answers", "users"
   add_foreign_key "quizz_level_progresses", "quizz_levels"
@@ -303,6 +312,8 @@ ActiveRecord::Schema.define(version: 2022_08_31_094144) do
   add_foreign_key "quizz_levels", "quizzs"
   add_foreign_key "quizz_progresses", "quizzs"
   add_foreign_key "quizz_progresses", "users"
+  add_foreign_key "quizz_question_answers", "question_answers"
+  add_foreign_key "quizz_question_answers", "quizzs"
   add_foreign_key "quizzs", "categories"
   add_foreign_key "records", "quizz_answers"
   add_foreign_key "records", "quizz_levels"

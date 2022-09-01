@@ -1,9 +1,7 @@
 question_answer_1:
   question: capitale de la France ?
   answer: Paris
-  quizz: europe_capitales_1
 
 question_answer_2:
   question: capitale de l'Irlande ?
   answer: Dublin
-  quizz: europe_capitales_1

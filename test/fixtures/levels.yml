@@ -1,0 +1,9 @@
+level1:
+  level: 1
+  beginning_year: 1000
+  required_xp: 100
+
+level2:
+  level: 2
+  beginning_year: 1000
+  required_xp: 100

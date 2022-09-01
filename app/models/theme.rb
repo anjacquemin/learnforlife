@@ -5,6 +5,7 @@ class Theme < ApplicationRecord
   has_many :quizz_levels, through: :theme_levels
   has_many :question_answers, through: :theme_levels
   has_many :best_records
+  has_many :flashcards
 
   has_one_attached :photo
 end
