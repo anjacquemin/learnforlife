@@ -7,32 +7,33 @@
       <div class="xp-gold">
         <div class="gold">
           <%= image_tag 'pieces.png' %>
-          <p> + <%= @gold_win%> </p>
+          <p> + <%= @gold_win%> pièces </p>
         </div>
         <div class= "flashcard-won">
-          <div class="percentage-details">
+          <div class="percentage-details orange-color">
           <div>
-            <p>icon</p>
+            <p><i class="fa-solid fa-diamond"></i></p>
           </div>
-            <div class="flashcards-count">
-              <div class="flashcards-total">
+            <div class="xp-count">
+              <div class="xp-total">
                 <div class="progressbar-wrapper">
-                  <div title="theme_completion" class="progressbar theme-completion" style=<%="width:10%"%>></div>
+                  <% next_level_xp =  Level.find_by(level: current_user.level.level + 1).required_xp %>
+                  <div title="theme_completion" class="progressbar theme-completion" style=<%="width:#{(current_user.xp.to_f * 100 / next_level_xp).round}%"%>></div>
                 </div>
                 <div class= "flashcard-number">
-                  <p>0/10</p>
+                  <p><%="#{current_user.xp}\/#{next_level_xp}"%></p>
                 </div>
               </div>
               <div class= "thin-line-height">
-                <p> +  <%= @xp_win  %> </p>
+                <p> +<%= @xp_win  %> </p>
               </div>
             </div>
           </div>
         </div>
         <div class= "flashcard-won">
-          <div class="percentage-details">
+          <div class="percentage-details purple-color">
           <div>
-            <p>icon</p>
+            <p><i class="fas fa-copy"></i></p>
           </div>
             <div class="flashcards-count">
               <div class="flashcards-total">
@@ -40,7 +41,7 @@
                   <div title="theme_completion" class="progressbar theme-completion" style=<%="width:10%"%>></div>
                 </div>
                 <div class= "flashcard-number">
-                  <p>0/10</p>
+                  <p>0/<%= @record.quizz.category.subtheme.question_answers.uniq.count %></p>
                 </div>
               </div>
               <div class= "thin-line-height">
