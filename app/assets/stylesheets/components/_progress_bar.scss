@@ -4,6 +4,10 @@
   flex-grow: 0.9;
   p {
     margin-bottom: 0;
+
+  }
+  i {
+    font-size: 20px;
   }
 }
 
@@ -16,9 +20,6 @@
   height: 80%;
   margin-right: 5px;
   align-self: center;
-  .theme-completion{
-    width: 50%;
-  }
 }
 
 .progressbar {
@@ -42,6 +43,16 @@
 
 .character-health .progressbar {
   background-color: $red;
+}
+
+.character-health .icon {
+  color: $red;
+  margin-right: 5px;
+}
+
+.character-xp .icon {
+  color: $orange;
+  margin-right: 5px;
 }
 
 // Special css for modal achivement when level up

@@ -140,20 +140,41 @@
     flex-grow: none;
     justify-content: space-between;
     p {
-      color: $purple;
       font-weight: bold;
     }
   }
-  .flashcards-count {
+  .flashcards-count, .xp-count {
     flex-grow: 1;
     margin: 0 10px;
   }
+
   .progressbar-wrapper{
     width: 100%;
   }
-  .flashcards-total{
+  .flashcards-total, .xp-total{
     display: flex;
     align-items: center;
+  }
+
+  .xp-count {
+    p {
+      color: $orange;
+    }
+  }
+}
+
+.percentage-details.orange-color {
+   p {
+    color: $orange;
+   }
+   .theme-completion{
+     background-color: $orange;
+   }
+}
+
+.percentage-details.purple-color {
+  p {
+   color: $purple;
   }
 }
 

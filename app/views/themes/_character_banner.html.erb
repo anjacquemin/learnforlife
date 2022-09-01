@@ -9,10 +9,11 @@
     <p>Lvl <%= @user.level.level %> - <%= @user.level.social_type %> </p>
     <div class="character-health">
       <% next_level_xp =  Level.find_by(level: @user.level.level + 1).required_xp %>
-      <%= image_tag "heart (1).png", height: 14 %>
+      <p class="icon"><i class="fa-solid fa-heart"></i></p>
       <%= render "shared/progress_bar", value: (@user.hp.to_f * 100 / @user.hp_max).round, display_with: "#{@user.hp}\/#{@user.hp_max}"   %>
     </div>
     <div class="character-xp">
+      <p class="icon"><i class="fa-solid fa-diamond"></i></p>
       <%= render "shared/progress_bar", value: (@user.xp.to_f * 100 / next_level_xp).round, display_with: "#{@user.xp}\/#{next_level_xp}"   %>
     </div>
   </div>
