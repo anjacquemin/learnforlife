@@ -1,3 +1,5 @@
+<% crown_or_sphere = (level.crown_or_sphere == "crown" ? "crown.png" : "sphere.png") %>
+
 <% number.times do  %>
-  <%= image_tag 'crown.png', class: crown_class %>
+  <%= image_tag crown_or_sphere, class: crown_class %>
 <% end %>
