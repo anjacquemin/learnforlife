@@ -2,7 +2,7 @@
   <% theme_level.subthemes.each do |subtheme| %>
     <% subtheme_progress = @user.subtheme_progresses.find_by(subtheme: subtheme) %>
     <% @subtheme_unlocked = (subtheme_progress &.unlocked)  %>
-    <% render "shared/link_display", subtheme: subtheme, for_: "subtheme" %>
+    <% render "shared/link_display", subtheme: subtheme, for_: "subtheme", in_modal: false %>
 
     <%=link_to @subtheme_path.html_safe, class: @cancel_hovering do%>
       <div <%=@subtheme_hovering.html_safe%>   style='filter: blur(<%=@level_blur%>px)'>

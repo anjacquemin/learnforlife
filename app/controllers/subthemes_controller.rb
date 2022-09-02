@@ -1,7 +1,5 @@
 class SubthemesController < ApplicationController
     def show
-
-
       # to handle modal records clicks
       respond_to do |format|
         format.html {

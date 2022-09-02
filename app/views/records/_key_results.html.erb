@@ -6,8 +6,8 @@
 <div class="my-2"></div>
 <div class="key-results">
   <div class = "crowns-display">
-    <%= render "shared/crowns", crown_class: "completed-crown", number: @record.completion %>
-    <%= render "shared/crowns", crown_class: "uncompleted-crown", number: 3-@record.completion %>
+    <%= render "shared/crowns", crown_class: "completed-crown", number: @record.completion, level: @record.quizz_level %>
+    <%= render "shared/crowns", crown_class: "uncompleted-crown", number: 3-@record.completion, level: @record.quizz_level %>
   </div>
   <div class="sub-key-results">
     <div class="completion">

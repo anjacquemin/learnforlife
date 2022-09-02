@@ -102,6 +102,7 @@ end
 
 
   private
+
     def schedule(flashcard, auto_eval)
       '''auto_eval is one of "again", "hard", "good", or "easy"
       returns a result in days'''

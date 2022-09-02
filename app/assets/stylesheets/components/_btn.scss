@@ -27,10 +27,6 @@
   border: none;
 }
 
-.btn-purple.margin-auto{
-  margin: auto;
-}
-
 
 .btn-green{
   @include btn($green);
