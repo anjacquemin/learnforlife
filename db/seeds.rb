@@ -443,7 +443,11 @@ quizzs.each do |quizz|
   quizz_progress.save!
 
   ["Facile", "Moyen", "Difficile"].each do |level|
-    quizz_level = QuizzLevel.new(name: level, quizz: quizz)
+    crown_or_sphere = "crown"
+    if quizz.category.subtheme == quizz.theme.subthemes.last
+      crown_or_sphere = "sphere"
+    end
+    quizz_level = QuizzLevel.new(name: level, quizz: quizz, crown_or_sphere: crown_or_sphere)
     quizz_level.save!
     quizz_levels << quizz_level
   end
