@@ -1,198 +1,198 @@
-NOM,NOM_ALPHA,CODE,ARTICLE,NOM_LONG,CAPITALE,CONTINENT,SUBTHEME,THEME,THEME_LEVEL,CATEGORY,QUIZZ_ordering
-Afrique du Sud,Afrique du Sud,ZAF,l',République d'Afrique du Sud,Prétoria,Afrique,Afrique,geography,1,Capitales,1
-Algérie,Algérie,DZA,l',République algérienne démocratique et populaire,Alger,Afrique,Afrique,geography,1,Capitales,1
-Angola,Angola,AGO,l',République d'Angola,Luanda,Afrique,Afrique,geography,1,Capitales,1
-Bénin,Bénin,BEN,le,République du Bénin,Porto-Novo,Afrique,Afrique,geography,1,Capitales,1
-Botswana,Botswana,BWA,le,République du Botswana,Gaborone,Afrique,Afrique,geography,1,Capitales,1
-Burkina,Burkina,BFA,le,Burkina Faso,Ouagadougou,Afrique,Afrique,geography,1,Capitales,1
-Burundi,Burundi,BDI,le,République du Burundi,Gitega,Afrique,Afrique,geography,1,Capitales,1
-Cameroun,Cameroun,CMR,le,République du Cameroun,Yaoundé,Afrique,Afrique,geography,1,Capitales,1
-Cap-Vert,Cap-Vert,CPV,le,République du Cap-Vert,Praia,Afrique,Afrique,geography,1,Capitales,1
-Centrafrique,Centrafrique,CAF,la,République centrAfriqueine,Bangui,Afrique,Afrique,geography,1,Capitales,1
-Comores,Comores,COM,les,Union des Comores,Moroni,Afrique,Afrique,geography,1,Capitales,2
-Congo,Congo,COG,le,République du Congo,Brazzaville,Afrique,Afrique,geography,1,Capitales,2
-Côte d'Ivoire,Côte d'Ivoire,CIV,la,République de Côte d'Ivoire,Yamoussoukro,Afrique,Afrique,geography,1,Capitales,2
-Djibouti,Djibouti,DJI,le,République de Djibouti,Djibouti,Afrique,Afrique,geography,1,Capitales,2
-Égypte,Égypte,EGY,l',République arabe d'Égypte,Le Caire,Afrique,Afrique,geography,1,Capitales,2
-Érythrée,Érythrée,ERI,l',État d'Érythrée,Asmara,Afrique,Afrique,geography,1,Capitales,2
-Eswatini,Eswatini,SWZ,le,Royaume d'Eswatini,Mbabané,Afrique,Afrique,geography,1,Capitales,2
-Éthiopie,Éthiopie,ETH,l',République démocratique fédérale d'Éthiopie,Addis Abeba,Afrique,Afrique,geography,1,Capitales,2
-Gabon,Gabon,GAB,le,République gabonaise,Libreville,Afrique,Afrique,geography,1,Capitales,2
-Gambie,Gambie,GMB,la,République de Gambie,Banjul,Afrique,Afrique,geography,1,Capitales,2
-Ghana,Ghana,GHA,le,République du Ghana,Accra,Afrique,Afrique,geography,1,Capitales,3
-Guinée,Guinée,GIN,la,République de Guinée,Conakry,Afrique,Afrique,geography,1,Capitales,3
-Guinée équatoriale,Guinée équatoriale,GNQ,la,République de Guinée équatoriale,Malabo,Afrique,Afrique,geography,1,Capitales,3
-Guinée-Bissao,Guinée-Bissao,GNB,la,République de Guinée-Bissao,Bissao,Afrique,Afrique,geography,1,Capitales,3
-Kénya,Kénya,KEN,le,République du Kénya,Nairobi,Afrique,Afrique,geography,1,Capitales,3
-Lésotho,Lésotho,LSO,le,Royaume du Lesotho,Maséru,Afrique,Afrique,geography,1,Capitales,3
-Libéria,Libéria,LBR,le,République du Libéria,Monrovia,Afrique,Afrique,geography,1,Capitales,3
-Libye,Libye,LBY,la,État de Libye,Tripoli,Afrique,Afrique,geography,1,Capitales,3
-Madagascar,Madagascar,MDG,,République de Madagascar,Antananarivo (Tananarive),Afrique,Afrique,geography,1,Capitales,3
-Malawi,Malawi,MWI,le,République du Malawi,Lilongwé,Afrique,Afrique,geography,1,Capitales,3
-Mali,Mali,MLI,le,République du Mali,Bamako,Afrique,Afrique,geography,1,Capitales,4
-Maroc,Maroc,MAR,le,Royaume du Maroc,Rabat,Afrique,Afrique,geography,1,Capitales,4
-Maurice,Maurice,MUS,,République de Maurice,Port-Louis,Afrique,Afrique,geography,1,Capitales,4
-Mauritanie,Mauritanie,MRT,la,République islamique de Mauritanie,Nouakchott,Afrique,Afrique,geography,1,Capitales,4
-Mozambique,Mozambique,MOZ,le,République du Mozambique,Maputo,Afrique,Afrique,geography,1,Capitales,4
-Namibie,Namibie,NAM,la,République de Namibie,Windhoek,Afrique,Afrique,geography,1,Capitales,4
-Niger,Niger,NER,le,République du Niger,Niamey,Afrique,Afrique,geography,1,Capitales,4
-Nigéria,Nigéria,NGA,le,République fédérale du Nigéria,Abuja,Afrique,Afrique,geography,1,Capitales,4
-Ouganda,Ouganda,UGA,l',République d'Ouganda,Kampala,Afrique,Afrique,geography,1,Capitales,4
-Rwanda,Rwanda,RWA,le,République du Rwanda,Kigali,Afrique,Afrique,geography,1,Capitales,4
-Sao Tomé-et-Principe,Sao Tomé-et-Principe,STP,,République démocratique de Sao Tomé-et-Principe,Sao Tomé,Afrique,Afrique,geography,1,Capitales,5
-Sénégal,Sénégal,SEN,le,République du Sénégal,Dakar,Afrique,Afrique,geography,1,Capitales,5
-Seychelles,Seychelles,SYC,les,République des Seychelles,Victoria,Afrique,Afrique,geography,1,Capitales,5
-Sierra Leone,Sierra Leone,SLE,la,République de Sierra Leone,Freetown,Afrique,Afrique,geography,1,Capitales,5
-Somalie,Somalie,SOM,la,République fédérale de Somalie,Mogadiscio,Afrique,Afrique,geography,1,Capitales,5
-Soudan,Soudan,SDN,le,République du Soudan,Khartoum,Afrique,Afrique,geography,1,Capitales,5
-Soudan du Sud,Soudan du Sud,SDS,le,République du Soudan du Sud,Djouba,Afrique,Afrique,geography,1,Capitales,5
-Tanzanie,Tanzanie,TZA,la,République unie de Tanzanie,Dodoma,Afrique,Afrique,geography,1,Capitales,5
-Tchad,Tchad,TCD,le,République du Tchad,Ndjamena,Afrique,Afrique,geography,1,Capitales,5
-Togo,Togo,TGO,le,République togolaise,Lomé,Afrique,Afrique,geography,1,Capitales,5
-Tunisie,Tunisie,TUN,la,République tunisienne,Tunis,Afrique,Afrique,geography,1,Capitales,5
-Zambie,Zambie,ZMB,la,République de Zambie,Lusaka,Afrique,Afrique,geography,1,Capitales,5
-Zimbabwé,Zimbabwé,ZWE,le,République du Zimbabwé,Hararé,Afrique,Afrique,geography,1,Capitales,5
-République démocratique du Congo,Congo (République démocratique du),COD,la,République démocratique du Congo,Kinshasa,Afrique,Afrique,geography,1,Capitales,5
-Argentine,Argentine,ARG,l',République argentine,Buenos Aires,Amerique,Amérique,geography,1,Capitales,1
-Bélize,Bélize,BLZ,le,Bélize,Belmopan,Amerique,Amérique,geography,1,Capitales,1
-Bolivie,Bolivie,BOL,la,État plurinational de Bolivie,Sucre / La Paz,Amerique,Amérique,geography,1,Capitales,1
-Brésil,Brésil,BRA,le,République fédérative du Brésil,Brasilia,Amerique,Amérique,geography,1,Capitales,1
-Canada,Canada,CAN,le,Canada,Ottawa,Amerique,Amérique,geography,1,Capitales,1
-Chili,Chili,CHL,le,République du Chili,Santiago,Amerique,Amérique,geography,1,Capitales,1
-Colombie,Colombie,COL,la,République de Colombie,Bogota,Amerique,Amérique,geography,1,Capitales,1
-Costa Rica,Costa Rica,CRI,le,République du Costa Rica,San José,Amerique,Amérique,geography,1,Capitales,1
-Cuba,Cuba,CUB,,République de Cuba,La Havane,Amerique,Amérique,geography,1,Capitales,1
-Équateur,Équateur,ECU,l',République d'Équateur,Quito,Amerique,Amérique,geography,1,Capitales,1
-États-Unis,États-Unis,USA,les,États-Unis d'Amérique,Washington,Amerique,Amérique,geography,1,Capitales,1
-Guatémala,Guatémala,GTM,le,République du Guatémala,Guatémala,Amerique,Amérique,geography,1,Capitales,1
-Guyana,Guyana,GUY,le,République coopérative du Guyana,Georgetown,Amerique,Amérique,geography,1,Capitales,2
-Honduras,Honduras,HND,le,République du Honduras,Tégucigalpa,Amerique,Amérique,geography,1,Capitales,2
-Mexique,Mexique,MEX,le,États-Unis du Mexique,Mexico,Amerique,Amérique,geography,1,Capitales,2
-Nicaragua,Nicaragua,NIC,le,République du Nicaragua,Managua,Amerique,Amérique,geography,1,Capitales,2
-Panama,Panama,PAN,le,République du Panama,Panama,Amerique,Amérique,geography,1,Capitales,2
-Paraguay,Paraguay,PRY,le,République du Paraguay,Assomption (Asuncion),Amerique,Amérique,geography,1,Capitales,2
-Pérou,Pérou,PER,le,République du Pérou,Lima,Amerique,Amérique,geography,1,Capitales,2
-Salvador,Salvador,SLV,le,République du Salvador,San Salvador,Amerique,Amérique,geography,1,Capitales,2
-Suriname,Suriname,SUR,le,République du Suriname,Paramaribo,Amerique,Amérique,geography,1,Capitales,2
-Trinité-et-Tobago,Trinité-et-Tobago,TTO,la,République de Trinité-et-Tobago,Port-d'Espagne (Port of Spain),Amerique,Amérique,geography,1,Capitales,2
-Uruguay,Uruguay,URY,l',République orientale de l'Uruguay,Montévidéo,Amerique,Amérique,geography,1,Capitales,2
-Vénézuéla,Vénézuéla,VEN,le,République bolivarienne du Vénézuéla,Caracas,Amerique,Amérique,geography,1,Capitales,2
-Afghanistan,Afghanistan,AFG,l',République islamique d'Afghanistan,Kaboul,Asie,Asie,geography,1,Capitales,1
-Arabie saoudite,Arabie saoudite,SAU,l',Royaume d'Arabie saoudite,Riyad,Asie,Asie,geography,1,Capitales,1
-Arménie,Arménie,ARM,l',République d'Arménie,Erevan,Asie,Asie,geography,1,Capitales,1
-Azerbaïdjan,Azerbaïdjan,AZE,l',République d'Azerbaïdjan,Bakou,Asie,Asie,geography,1,Capitales,1
-Bahreïn,Bahreïn,BHR,,Royaume de Bahreïn,Manama,Asie,Asie,geography,1,Capitales,1
-Bangladesh,Bangladesh,BGD,l',République populaire du Bangladesh,Dacca,Asie,Asie,geography,1,Capitales,1
-Bhoutan,Bhoutan,BTN,le,Royaume du Bhoutan,Thimphou,Asie,Asie,geography,1,Capitales,1
-Birmanie,Birmanie,MMR,la,République de l'Union de Birmanie,Naypyidaw,Asie,Asie,geography,1,Capitales,1
-Brunei,Brunei,BRN,le,Brunei Darussalam,Bandar Seri Begawan,Asie,Asie,geography,1,Capitales,1
-Cambodge,Cambodge,KHM,le,Royaume du Cambodge,Phnom Penh,Asie,Asie,geography,1,Capitales,1
-Chine,Chine,CHN,la,République populaire de Chine,Pékin,Asie,Asie,geography,1,Capitales,1
-Corée du Nord,Corée du Nord,PRK,la,République populaire démocratique de Corée,Pyongyang,Asie,Asie,geography,1,Capitales,2
-Corée du Sud,Corée du Sud,KOR,la,République de Corée,Séoul,Asie,Asie,geography,1,Capitales,2
-Émirats arabes unis,Émirats arabes unis,ARE,les,Émirats arabes unis,Abou Dabi,Asie,Asie,geography,1,Capitales,2
-Géorgie,Géorgie,GEO,la,Géorgie,Tbilissi,Asie,Asie,geography,1,Capitales,2
-Inde,Inde,IND,l',République de l'Inde,New Delhi,Asie,Asie,geography,1,Capitales,2
-Indonésie,Indonésie,IDN,l',République d'Indonésie,Jakarta,Asie,Asie,geography,1,Capitales,2
-Irak,Irak,IRQ,l',République d'Irak,Bagdad,Asie,Asie,geography,1,Capitales,2
-Iran,Iran,IRN,l',République islamique d'Iran,Téhéran,Asie,Asie,geography,1,Capitales,2
-Israël,Israël,ISR,,État d'Israël,Jérusalem,Asie,Asie,geography,1,Capitales,2
-Japon,Japon,JPN,le,Japon,Tokyo,Asie,Asie,geography,1,Capitales,2
-Jordanie,Jordanie,JOR,la,Royaume hachémite de Jordanie,Amman,Asie,Asie,geography,1,Capitales,2
-Kazakhstan,Kazakhstan,KAZ,le,République du Kazakhstan,Nour-Soultan,Asie,Asie,geography,1,Capitales,3
-Kirghizstan,Kirghizstan,KGZ,le,République kirghize,Bichkek,Asie,Asie,geography,1,Capitales,3
-Koweït,Koweït,KWT,le,État du Koweït,Koweït,Asie,Asie,geography,1,Capitales,3
-Laos,Laos,LAO,le,République démocratique populaire lao,Vientiane,Asie,Asie,geography,1,Capitales,3
-Liban,Liban,LBN,le,République libanaise,Beyrouth,Asie,Asie,geography,1,Capitales,3
-Malaisie,Malaisie,MYS,la,Malaisie,Kuala Lumpur,Asie,Asie,geography,1,Capitales,3
-Maldives,Maldives,MDV,les,République des Maldives,Malé,Asie,Asie,geography,1,Capitales,3
-Mongolie,Mongolie,MNG,la,Mongolie,Oulan-Bator,Asie,Asie,geography,1,Capitales,3
-Népal,Népal,NPL,le,République démocratique fédérale du Népal,Katmandou,Asie,Asie,geography,1,Capitales,3
-Oman,Oman,OMN,,Sultanat d'Oman,Mascate,Asie,Asie,geography,1,Capitales,3
-Ouzbékistan,Ouzbékistan,UZB,l',République d'Ouzbékistan,Tachkent,Asie,Asie,geography,1,Capitales,3
-Pakistan,Pakistan,PAK,le,République islamique du Pakistan,Islamabad,Asie,Asie,geography,1,Capitales,4
-Philippines,Philippines,PHL,les,République des Philippines,Manille,Asie,Asie,geography,1,Capitales,4
-Qatar,Qatar,QAT,le,État du Qatar,Doha,Asie,Asie,geography,1,Capitales,4
-Singapour,Singapour,SGP,,République de Singapour,Singapour,Asie,Asie,geography,1,Capitales,4
-Sri Lanka,Sri Lanka,LKA,le,République démocratique socialiste du Sri Lanka,Sri Jayewardenepura-Kotte,Asie,Asie,geography,1,Capitales,4
-Syrie,Syrie,SYR,la,République arabe syrienne,Damas,Asie,Asie,geography,1,Capitales,4
-Tadjikistan,Tadjikistan,TJK,le,République du Tadjikistan,Douchanbé,Asie,Asie,geography,1,Capitales,4
-Thaïlande,Thaïlande,THA,la,Royaume de Thaïlande,Bangkok,Asie,Asie,geography,1,Capitales,4
-Turkménistan,Turkménistan,TKM,le,Turkménistan,Achgabat,Asie,Asie,geography,1,Capitales,4
-Turquie,Turquie,TUR,la,République de Turquie,Ankara,Asie,Asie,geography,1,Capitales,4
-Vietnam,Vietnam,VNM,le,République socialiste du Vietnam,Hanoï,Asie,Asie,geography,1,Capitales,4
-Yémen,Yémen,YEM,le,République du Yémen,Sanaa,Asie,Asie,geography,1,Capitales,4
-Albanie,Albanie,ALB,l',République d'Albanie,Tirana,Europe,Europe,geography,1,Capitales,1
-Allemagne,Allemagne,DEU,l',République fédérale d'Allemagne,Berlin,Europe,Europe,geography,1,Capitales,1
-Andorre,Andorre,AND,l',Principauté d'Andorre,Andorre-la-Vieille,Europe,Europe,geography,1,Capitales,1
-Autriche,Autriche,AUT,l',République d'Autriche,Vienne,Europe,Europe,geography,1,Capitales,1
-Belgique,Belgique,BEL,la,Royaume de Belgique,Bruxelles,Europe,Europe,geography,1,Capitales,1
-Biélorussie,Biélorussie,BLR,la,République de Biélorussie,Minsk,Europe,Europe,geography,1,Capitales,1
-Bosnie-Herzégovine,Bosnie-Herzégovine,BIH,la,Bosnie-Herzégovine,Sarajevo,Europe,Europe,geography,1,Capitales,1
-Bulgarie,Bulgarie,BGR,la,République de Bulgarie,Sofia,Europe,Europe,geography,1,Capitales,1
-Chypre,Chypre,CYP,,République de Chypre,Nicosie,Europe,Europe,geography,1,Capitales,1
-Croatie,Croatie,HRV,la,République de Croatie,Zagreb,Europe,Europe,geography,1,Capitales,1
-Danemark,Danemark,DNK,le,Royaume du Danemark,Copenhague,Europe,Europe,geography,1,Capitales,1
-Espagne,Espagne,ESP,l',Royaume d'Espagne,Madrid,Europe,Europe,geography,1,Capitales,2
-Estonie,Estonie,EST,l',République d'Estonie,Tallinn,Europe,Europe,geography,1,Capitales,2
-Finlande,Finlande,FIN,la,République de Finlande,Helsinki,Europe,Europe,geography,1,Capitales,2
-France,France,FRA,la,République française,Paris,Europe,Europe,geography,1,Capitales,2
-Grèce,Grèce,GRC,la,République hellénique,Athènes,Europe,Europe,geography,1,Capitales,2
-Hongrie,Hongrie,HUN,la,Hongrie,Budapest,Europe,Europe,geography,1,Capitales,2
-Irlande,Irlande,IRL,l',Irlande,Dublin,Europe,Europe,geography,1,Capitales,2
-Islande,Islande,ISL,l',République d'Islande,Reykjavik,Europe,Europe,geography,1,Capitales,2
-Italie,Italie,ITA,l',République italienne,Rome,Europe,Europe,geography,1,Capitales,2
-Kosovo,Kosovo,KOS,le,République du Kosovo,Pristina,Europe,Europe,geography,1,Capitales,2
-Lettonie,Lettonie,LVA,la,République de Lettonie,Riga,Europe,Europe,geography,1,Capitales,2
-Liechtenstein,Liechtenstein,LIE,le,Principauté du Liechtenstein,Vaduz,Europe,Europe,geography,1,Capitales,3
-Lituanie,Lituanie,LTU,la,République de Lituanie,Vilnius,Europe,Europe,geography,1,Capitales,3
-Luxembourg,Luxembourg,LUX,le,Grand-Duché de Luxembourg,Luxembourg,Europe,Europe,geography,1,Capitales,3
-Macédoine du Nord,Macédoine du Nord,MKD,l',République de Macédoine du Nord,Skopje,Europe,Europe,geography,1,Capitales,3
-Malte,Malte,MLT,,République de Malte,La Valette,Europe,Europe,geography,1,Capitales,3
-Moldavie,Moldavie,MDA,la,République de Moldavie,Chisinau,Europe,Europe,geography,1,Capitales,3
-Monaco,Monaco,MCO,,Principauté de Monaco,Monaco,Europe,Europe,geography,1,Capitales,3
-Monténégro,Monténégro,MNE,le,Monténégro,Podgorica,Europe,Europe,geography,1,Capitales,3
-Norvège,Norvège,NOR,la,Royaume de Norvège,Oslo,Europe,Europe,geography,1,Capitales,3
-Pays-Bas,Pays-Bas,NLD,les,Royaume des Pays-Bas,Amsterdam,Europe,Europe,geography,1,Capitales,3
-Pologne,Pologne,POL,la,République de Pologne,Varsovie,Europe,Europe,geography,1,Capitales,3
-Portugal,Portugal,PRT,le,République portugaise,Lisbonne,Europe,Europe,geography,1,Capitales,4
-Roumanie,Roumanie,ROU,la,Roumanie,Bucarest,Europe,Europe,geography,1,Capitales,4
-Royaume-Uni,Royaume-Uni,GBR,le,Royaume-Uni de Grande-Bretagne et d'Irlande du Nord,Londres,Europe,Europe,geography,1,Capitales,4
-Russie,Russie,RUS,la,Fédération de Russie,Moscou,Europe,Europe,geography,1,Capitales,4
-Serbie,Serbie,SRB,la,République de Serbie,Belgrade,Europe,Europe,geography,1,Capitales,4
-Slovaquie,Slovaquie,SVK,la,République slovaque,Bratislava,Europe,Europe,geography,1,Capitales,4
-Slovénie,Slovénie,SVN,la,République de Slovénie,Ljubljana,Europe,Europe,geography,1,Capitales,4
-Suède,Suède,SWE,la,Royaume de Suède,Stockholm,Europe,Europe,geography,1,Capitales,4
-Suisse,Suisse,CHE,la,Confédération suisse,Berne,Europe,Europe,geography,1,Capitales,4
-Tchéquie,Tchéquie,CZE,la,République tchèque,Prague,Europe,Europe,geography,1,Capitales,4
-Ukraine,Ukraine,UKR,l',Ukraine,Kiev,Europe,Europe,geography,1,Capitales,4
-Vatican,Vatican,VAT,le,Vatican (Saint-Siège),Vatican,Europe,Europe,geography,1,Capitales,4
-Antigua-et-Barbuda,Antigua-et-Barbuda,ATG,,Antigua-et-Barbuda,Saint John's,Amerique,Iles des Caraibes,geography,2,Capitales,1
-Bahamas,Bahamas,BHS,les,Commonwealth des Bahamas,Nassau,Amerique,Iles des Caraibes,geography,2,Capitales,1
-Barbade,Barbade,BRB,la,Barbade,Bridgetown,Amerique,Iles des Caraibes,geography,2,Capitales,1
-République dominicaine,Dominicaine (République),DOM,la,République dominicaine,Saint-Domingue,Amerique,Iles des Caraibes,geography,2,Capitales,1
-Dominique,Dominique,DMA,la,Commonwealth de la Dominique,Roseau,Amerique,Iles des Caraibes,geography,2,Capitales,1
-Grenade,Grenade,GRD,la,Grenade,Saint-Georges,Amerique,Iles des Caraibes,geography,2,Capitales,2
-Jamaïque,Jamaïque,JAM,la,Jamaïque,Kingston,Amerique,Iles des Caraibes,geography,2,Capitales,2
-Saint-Christophe-et-Niévès,Saint-Christophe-et-Niévès,KNA,,Fédération de Saint-Christophe-et-Niévès,Basseterre,Caraibes,Iles des Caraibes,geography,2,Capitales,2
-Sainte-Lucie,Sainte-Lucie,LCA,,Sainte-Lucie,Castries,Amerique,Iles des Caraibes,geography,2,Capitales,2
-Saint-Marin,Saint-Marin,SMR,,République de Saint-Marin,Saint-Marin,Europe,Iles des Caraibes,geography,2,Capitales,2
-Saint-Vincent-et-les-Grenadines,Saint-Vincent-et-les-Grenadines,VCT,,Saint-Vincent-et-les-Grenadines,Kingstown,Amerique,Iles des Caraibes,geography,2,Capitales,2
-Australie,Australie,AUS,l',Commonwealth d'Australie,Canberra,Oceanie,Iles Pacifiques,geography,2,Capitales,1
-Îles Cook,Cook (Îles),COK,les,Îles Cook,Avarua,Oceanie,Iles Pacifiques,geography,2,Capitales,1
-Fidji,Fidji,FJI,les,République des Fidji,Suva,Oceanie,Iles Pacifiques,geography,2,Capitales,1
-Haïti,Haïti,HTI,,République d'Haïti,Port-au-Prince,Amerique,Iles Pacifiques,geography,2,Capitales,1
-Kiribati,Kiribati,KIR,les,République des Kiribati,Bairiki,Oceanie,Iles Pacifiques,geography,2,Capitales,1
-Îles Marshall,Marshall (Îles),MHL,les,République des Îles Marshall,Delap-Uliga-Darrit,Iles pacifique,Iles Pacifiques,geography,2,Capitales,1
-Micronésie,Micronésie,FSM,la,États fédérés de Micronésie,Palikir,Oceanie,Iles Pacifiques,geography,2,Capitales,1
-Nauru,Nauru,NRU,,République de Nauru,Yaren,Oceanie,Iles Pacifiques,geography,2,Capitales,1
-Niue,Niue,NIU,,Niue,Alofi,Oceanie,Iles Pacifiques,geography,2,Capitales,2
-Nouvelle-Zélande,Nouvelle-Zélande,NZL,la,Nouvelle-Zélande,Wellington,Oceanie,Iles Pacifiques,geography,2,Capitales,2
-Palaos,Palaos,PLW,les,République des Palaos,Melekeok,Oceanie,Iles Pacifiques,geography,2,Capitales,2
-Papouasie-Nouvelle-Guinée,Papouasie-Nouvelle-Guinée,PNG,la,État indépendant de Papouasie-Nouvelle-Guinée,Port Moresby,Oceanie,Iles Pacifiques,geography,2,Capitales,2
-Salomon,Salomon,SLB,les,Îles Salomon,Honiara,Oceanie,Iles Pacifiques,geography,2,Capitales,2
-Samoa,Samoa,WSM,les,État indépendant des Samoa,Apia,Oceanie,Iles Pacifiques,geography,2,Capitales,2
-Timor oriental,Timor oriental,TLS,le,République démocratique du Timor oriental,Dili,Asie,Iles Pacifiques,geography,2,Capitales,2
-Tonga,Tonga,TON,les,Royaume des Tonga,Nuku'alofa,Oceanie,Iles Pacifiques,geography,2,Capitales,2
-Tuvalu,Tuvalu,TUV,les,Tuvalu,Vaiaku,Oceanie,Iles Pacifiques,geography,2,Capitales,2
-Vanuatu,Vanuatu,VUT,le,République du Vanuatu,Port-Vila,Oceanie,Iles Pacifiques,geography,2,Capitales,2
+NOM,NOM_ALPHA,CODE,ARTICLE,NOM_LONG,CAPITALE,CONTINENT,SUBTHEME,THEME,THEME_LEVEL,CATEGORY,QUIZZ_ordering,FLAG,,,,,,,,,
+Afghanistan,Afghanistan,AFG,l',République islamique d'Afghanistan,Kaboul,Asie,Asie,geography,1,Capitales,1,afganisthan,,,,,,,,,afganisthan
+Afrique du Sud,Afrique du Sud,ZAF,l',République d'Afrique du Sud,Prétoria,Afrique,Afrique,geography,1,Capitales,1,afrique_du_sud,,,,,,,,,afrique_du_sud
+Albanie,Albanie,ALB,l',République d'Albanie,Tirana,Europe,Europe,geography,1,Capitales,1,albanie,,,,,,,,,albanie
+Algérie,Algérie,DZA,l',République algérienne démocratique et populaire,Alger,Afrique,Afrique,geography,1,Capitales,1,algérie,,,,,,,,,algérie
+Allemagne,Allemagne,DEU,l',République fédérale d'Allemagne,Berlin,Europe,Europe,geography,1,Capitales,1,allemagne,,,,,,,,,allemagne
+Andorre,Andorre,AND,l',Principauté d'Andorre,Andorre-la-Vieille,Europe,Europe,geography,1,Capitales,1,andorre,,,,,,,,,andorre
+Angola,Angola,AGO,l',République d'Angola,Luanda,Afrique,Afrique,geography,1,Capitales,1,angola,,,,,,,,,angola
+Antigua-et-Barbuda,Antigua-et-Barbuda,ATG,,Antigua-et-Barbuda,Saint John's,Amerique,Iles des Caraibes,geography,2,Capitales,1,antigua et barbuda,,,,,,,,,antigua et barbuda
+Arabie saoudite,Arabie saoudite,SAU,l',Royaume d'Arabie saoudite,Riyad,Asie,Asie,geography,1,Capitales,1,arabie_saoudite,,,,,,,,,arabie_saoudite
+Argentine,Argentine,ARG,l',République argentine,Buenos Aires,Amerique,Amérique,geography,1,Capitales,1,argentine,,,,,,,,,argentine
+Arménie,Arménie,ARM,l',République d'Arménie,Erevan,Asie,Asie,geography,1,Capitales,1,armenie,,,,,,,,,armenie
+Australie,Australie,AUS,l',Commonwealth d'Australie,Canberra,Oceanie,Iles Pacifiques,geography,2,Capitales,1,australie,,,,,,,,,australie
+Autriche,Autriche,AUT,l',République d'Autriche,Vienne,Europe,Europe,geography,1,Capitales,1,autriche,,,,,,,,,autriche
+Azerbaïdjan,Azerbaïdjan,AZE,l',République d'Azerbaïdjan,Bakou,Asie,Asie,geography,1,Capitales,1,azerbaidjan,,,,,,,,,azerbaidjan
+Bahamas,Bahamas,BHS,les,Commonwealth des Bahamas,Nassau,Amerique,Iles des Caraibes,geography,2,Capitales,1,bahamas,,,,,,,,,bahamas
+Bahreïn,Bahreïn,BHR,,Royaume de Bahreïn,Manama,Asie,Asie,geography,1,Capitales,1,barhein,,,,,,,,,barhein
+Bangladesh,Bangladesh,BGD,l',République populaire du Bangladesh,Dacca,Asie,Asie,geography,1,Capitales,1,bangladesh,,,,,,,,,bangladesh
+Barbade,Barbade,BRB,la,Barbade,Bridgetown,Amerique,Iles des Caraibes,geography,2,Capitales,1,barbade,,,,,,,,,barbade
+Belgique,Belgique,BEL,la,Royaume de Belgique,Bruxelles,Europe,Europe,geography,1,Capitales,1,belgique,,,,,,,,,belgique
+Bélize,Bélize,BLZ,le,Bélize,Belmopan,Amerique,Amérique,geography,1,Capitales,1,belize,,,,,,,,,belize
+Bénin,Bénin,BEN,le,République du Bénin,Porto-Novo,Afrique,Afrique,geography,1,Capitales,1,benin,,,,,,,,,benin
+Bhoutan,Bhoutan,BTN,le,Royaume du Bhoutan,Thimphou,Asie,Asie,geography,1,Capitales,1,bhoutan,,,,,,,,,bhoutan
+Biélorussie,Biélorussie,BLR,la,République de Biélorussie,Minsk,Europe,Europe,geography,1,Capitales,1,bielorussie,,,,,,,,,bielorussie
+Myanmar,Myanmar,MMR,la,République de l'Union de Birmanie,Naypyidaw,Asie,Asie,geography,1,Capitales,1,myanmar,,,,,,,,,myanmar
+Bolivie,Bolivie,BOL,la,État plurinational de Bolivie,Sucre / La Paz,Amerique,Amérique,geography,1,Capitales,1,bolivie,,,,,,,,,bolivie
+Bosnie-Herzégovine,Bosnie-Herzégovine,BIH,la,Bosnie-Herzégovine,Sarajevo,Europe,Europe,geography,1,Capitales,1,Bosnie-Herzegovine,,,,,,,,,Bosnie-Herzegovine
+Botswana,Botswana,BWA,le,République du Botswana,Gaborone,Afrique,Afrique,geography,1,Capitales,1,botswana,,,,,,,,,botswana
+Brésil,Brésil,BRA,le,République fédérative du Brésil,Brasilia,Amerique,Amérique,geography,1,Capitales,1,bresil,,,,,,,,,bresil
+Brunei,Brunei,BRN,le,Brunei Darussalam,Bandar Seri Begawan,Asie,Asie,geography,1,Capitales,1,brunei,,,,,,,,,brunei
+Bulgarie,Bulgarie,BGR,la,République de Bulgarie,Sofia,Europe,Europe,geography,1,Capitales,1,bulgarie,,,,,,,,,bulgarie
+Burkina,Burkina,BFA,le,Burkina Faso,Ouagadougou,Afrique,Afrique,geography,1,Capitales,1,burkina faso,,,,,,,,,burkina faso
+Burundi,Burundi,BDI,le,République du Burundi,Gitega,Afrique,Afrique,geography,1,Capitales,1,burundi,,,,,,,,,burundi
+Cambodge,Cambodge,KHM,le,Royaume du Cambodge,Phnom Penh,Asie,Asie,geography,1,Capitales,1,cambodge,,,,,,,,,cambodge
+Cameroun,Cameroun,CMR,le,République du Cameroun,Yaoundé,Afrique,Afrique,geography,1,Capitales,1,cameroon,,,,,,,,,cameroon
+Canada,Canada,CAN,le,Canada,Ottawa,Amerique,Amérique,geography,1,Capitales,1,canada,,,,,,,,,canada
+Cap-Vert,Cap-Vert,CPV,le,République du Cap-Vert,Praia,Afrique,Afrique,geography,1,Capitales,1,cap-vert,,,,,,,,,cap-vert
+Centrafrique,Centrafrique,CAF,la,République centrAfriqueine,Bangui,Afrique,Afrique,geography,1,Capitales,1,centrafrique,,,,,,,,,centrafrique
+Chili,Chili,CHL,le,République du Chili,Santiago,Amerique,Amérique,geography,1,Capitales,1,chili,,,,,,,,,chili
+Chine,Chine,CHN,la,République populaire de Chine,Pékin,Asie,Asie,geography,1,Capitales,1,chine,,,,,,,,,chine
+Chypre,Chypre,CYP,,République de Chypre,Nicosie,Europe,Europe,geography,1,Capitales,1,chypre,,,,,,,,,chypre
+Colombie,Colombie,COL,la,République de Colombie,Bogota,Amerique,Amérique,geography,1,Capitales,1,colombie,,,,,,,,,colombie
+Comores,Comores,COM,les,Union des Comores,Moroni,Afrique,Afrique,geography,1,Capitales,2,comores,,,,,,,,,comores
+Congo,Congo,COG,le,République du Congo,Brazzaville,Afrique,Afrique,geography,1,Capitales,2,congo,,,,,,,,,congo
+République démocratique du Congo,Congo (République démocratique du),COD,la,République démocratique du Congo,Kinshasa,Afrique,Afrique,geography,1,Capitales,5,,,,,,,,,,
+Îles Cook,Cook (Îles),COK,les,Îles Cook,Avarua,Oceanie,Iles Pacifiques,geography,2,Capitales,1,iles_cook,,,,,,,,,iles_cook
+Corée du Nord,Corée du Nord,PRK,la,République populaire démocratique de Corée,Pyongyang,Asie,Asie,geography,1,Capitales,2,corée_du_nord,,,,,,,,,corée_du_nord
+Corée du Sud,Corée du Sud,KOR,la,République de Corée,Séoul,Asie,Asie,geography,1,Capitales,2,coree_du_sud,,,,,,,,,coree_du_sud
+Costa Rica,Costa Rica,CRI,le,République du Costa Rica,San José,Amerique,Amérique,geography,1,Capitales,1,costa_rica,,,,,,,,,costa_rica
+Côte d'Ivoire,Côte d'Ivoire,CIV,la,République de Côte d'Ivoire,Yamoussoukro,Afrique,Afrique,geography,1,Capitales,2,cote_d_ivoire,,,,,,,,,cote_d_ivoire
+Croatie,Croatie,HRV,la,République de Croatie,Zagreb,Europe,Europe,geography,1,Capitales,1,croatie,,,,,,,,,croatie
+Cuba,Cuba,CUB,,République de Cuba,La Havane,Amerique,Amérique,geography,1,Capitales,1,cuba,,,,,,,,,cuba
+Danemark,Danemark,DNK,le,Royaume du Danemark,Copenhague,Europe,Europe,geography,1,Capitales,1,danemark,,,,,,,,,danemark
+Djibouti,Djibouti,DJI,le,République de Djibouti,Djibouti,Afrique,Afrique,geography,1,Capitales,2,djibouti,,,,,,,,,djibouti
+République dominicaine,Dominicaine (République),DOM,la,République dominicaine,Saint-Domingue,Amerique,Iles des Caraibes,geography,2,Capitales,1,,,,,,,,,,
+Dominique,Dominique,DMA,la,Commonwealth de la Dominique,Roseau,Amerique,Iles des Caraibes,geography,2,Capitales,1,dominique,,,,,,,,,dominique
+Égypte,Égypte,EGY,l',République arabe d'Égypte,Le Caire,Afrique,Afrique,geography,1,Capitales,2,egypte,,,,,,,,,egypte
+Émirats arabes unis,Émirats arabes unis,ARE,les,Émirats arabes unis,Abou Dabi,Asie,Asie,geography,1,Capitales,2,emirats_arabes_unis,,,,,,,,,emirats_arabes_unis
+Équateur,Équateur,ECU,l',République d'Équateur,Quito,Amerique,Amérique,geography,1,Capitales,1,equateur,,,,,,,,,equateur
+Érythrée,Érythrée,ERI,l',État d'Érythrée,Asmara,Afrique,Afrique,geography,1,Capitales,2,erythree,,,,,,,,,erythree
+Espagne,Espagne,ESP,l',Royaume d'Espagne,Madrid,Europe,Europe,geography,1,Capitales,2,espagne,,,,,,,,,espagne
+Estonie,Estonie,EST,l',République d'Estonie,Tallinn,Europe,Europe,geography,1,Capitales,2,estonie,,,,,,,,,estonie
+Eswatini,Eswatini,SWZ,le,Royaume d'Eswatini,Mbabané,Afrique,Afrique,geography,1,Capitales,2,eswatini,,,,,,,,,eswatini
+États-Unis,États-Unis,USA,les,États-Unis d'Amérique,Washington,Amerique,Amérique,geography,1,Capitales,1,etats-unis,,,,,,,,,etats-unis
+Éthiopie,Éthiopie,ETH,l',République démocratique fédérale d'Éthiopie,Addis Abeba,Afrique,Afrique,geography,1,Capitales,2,ethiopie,,,,,,,,,ethiopie
+Fidji,Fidji,FJI,les,République des Fidji,Suva,Oceanie,Iles Pacifiques,geography,2,Capitales,1,fidji,,,,,,,,,fidji
+Finlande,Finlande,FIN,la,République de Finlande,Helsinki,Europe,Europe,geography,1,Capitales,2,finlande,,,,,,,,,finlande
+France,France,FRA,la,République française,Paris,Europe,Europe,geography,1,Capitales,2,france,,,,,,,,,france
+Gabon,Gabon,GAB,le,République gabonaise,Libreville,Afrique,Afrique,geography,1,Capitales,2,gabon,,,,,,,,,gabon
+Gambie,Gambie,GMB,la,République de Gambie,Banjul,Afrique,Afrique,geography,1,Capitales,2,gambie,,,,,,,,,gambie
+Géorgie,Géorgie,GEO,la,Géorgie,Tbilissi,Asie,Asie,geography,1,Capitales,2,georgie,,,,,,,,,georgie
+Ghana,Ghana,GHA,le,République du Ghana,Accra,Afrique,Afrique,geography,1,Capitales,3,ghana,,,,,,,,,ghana
+Grèce,Grèce,GRC,la,République hellénique,Athènes,Europe,Europe,geography,1,Capitales,2,grece,,,,,,,,,grece
+Grenade,Grenade,GRD,la,Grenade,Saint-Georges,Amerique,Iles des Caraibes,geography,2,Capitales,2,grenade,,,,,,,,,grenade
+Guatémala,Guatémala,GTM,le,République du Guatémala,Guatémala,Amerique,Amérique,geography,1,Capitales,1,guatemala,,,,,,,,,guatemala
+Guinée,Guinée,GIN,la,République de Guinée,Conakry,Afrique,Afrique,geography,1,Capitales,3,guinee,,,,,,,,,guinee
+Guinée équatoriale,Guinée équatoriale,GNQ,la,République de Guinée équatoriale,Malabo,Afrique,Afrique,geography,1,Capitales,3,guinee_equatoriale,,,,,,,,,guinee_equatoriale
+Guinée-Bissao,Guinée-Bissao,GNB,la,République de Guinée-Bissao,Bissao,Afrique,Afrique,geography,1,Capitales,3,guinee_bissau,,,,,,,,,guinee_bissau
+Guyana,Guyana,GUY,le,République coopérative du Guyana,Georgetown,Amerique,Amérique,geography,1,Capitales,2,guyana,,,,,,,,,guyana
+Haïti,Haïti,HTI,,République d'Haïti,Port-au-Prince,Amerique,Iles Pacifiques,geography,2,Capitales,1,haiti,,,,,,,,,haiti
+Honduras,Honduras,HND,le,République du Honduras,Tégucigalpa,Amerique,Amérique,geography,1,Capitales,2,honduras,,,,,,,,,honduras
+Hongrie,Hongrie,HUN,la,Hongrie,Budapest,Europe,Europe,geography,1,Capitales,2,hongrie,,,,,,,,,hongrie
+Inde,Inde,IND,l',République de l'Inde,New Delhi,Asie,Asie,geography,1,Capitales,2,inde,,,,,,,,,inde
+Indonésie,Indonésie,IDN,l',République d'Indonésie,Jakarta,Asie,Asie,geography,1,Capitales,2,indonesie,,,,,,,,,indonesie
+Irak,Irak,IRQ,l',République d'Irak,Bagdad,Asie,Asie,geography,1,Capitales,2,iraq,,,,,,,,,iraq
+Iran,Iran,IRN,l',République islamique d'Iran,Téhéran,Asie,Asie,geography,1,Capitales,2,iran,,,,,,,,,iran
+Irlande,Irlande,IRL,l',Irlande,Dublin,Europe,Europe,geography,1,Capitales,2,irlande,,,,,,,,,irlande
+Islande,Islande,ISL,l',République d'Islande,Reykjavik,Europe,Europe,geography,1,Capitales,2,islande,,,,,,,,,islande
+Israël,Israël,ISR,,État d'Israël,Jérusalem,Asie,Asie,geography,1,Capitales,2,israel,,,,,,,,,israel
+Italie,Italie,ITA,l',République italienne,Rome,Europe,Europe,geography,1,Capitales,2,italie,,,,,,,,,italie
+Jamaïque,Jamaïque,JAM,la,Jamaïque,Kingston,Amerique,Iles des Caraibes,geography,2,Capitales,2,jamaique,,,,,,,,,jamaique
+Japon,Japon,JPN,le,Japon,Tokyo,Asie,Asie,geography,1,Capitales,2,japon,,,,,,,,,japon
+Jordanie,Jordanie,JOR,la,Royaume hachémite de Jordanie,Amman,Asie,Asie,geography,1,Capitales,2,jordanie,,,,,,,,,jordanie
+Kazakhstan,Kazakhstan,KAZ,le,République du Kazakhstan,Nour-Soultan,Asie,Asie,geography,1,Capitales,3,kazakstan,,,,,,,,,kazakstan
+Kénya,Kénya,KEN,le,République du Kénya,Nairobi,Afrique,Afrique,geography,1,Capitales,3,kenya,,,,,,,,,kenya
+Kirghizstan,Kirghizstan,KGZ,le,République kirghize,Bichkek,Asie,Asie,geography,1,Capitales,3,kirghizstan,,,,,,,,,kirghizstan
+Kiribati,Kiribati,KIR,les,République des Kiribati,Bairiki,Oceanie,Iles Pacifiques,geography,2,Capitales,1,kiribati,,,,,,,,,kiribati
+Kosovo,Kosovo,KOS,le,République du Kosovo,Pristina,Europe,Europe,geography,1,Capitales,2,kosovo,,,,,,,,,kosovo
+Koweït,Koweït,KWT,le,État du Koweït,Koweït,Asie,Asie,geography,1,Capitales,3,koweit,,,,,,,,,koweit
+Laos,Laos,LAO,le,République démocratique populaire lao,Vientiane,Asie,Asie,geography,1,Capitales,3,laos,,,,,,,,,laos
+Lésotho,Lésotho,LSO,le,Royaume du Lesotho,Maséru,Afrique,Afrique,geography,1,Capitales,3,lesotho,,,,,,,,,lesotho
+Lettonie,Lettonie,LVA,la,République de Lettonie,Riga,Europe,Europe,geography,1,Capitales,2,letonnie,,,,,,,,,letonnie
+Liban,Liban,LBN,le,République libanaise,Beyrouth,Asie,Asie,geography,1,Capitales,3,liban,,,,,,,,,liban
+Libéria,Libéria,LBR,le,République du Libéria,Monrovia,Afrique,Afrique,geography,1,Capitales,3,liberia,,,,,,,,,liberia
+Libye,Libye,LBY,la,État de Libye,Tripoli,Afrique,Afrique,geography,1,Capitales,3,libye,,,,,,,,,libye
+Liechtenstein,Liechtenstein,LIE,le,Principauté du Liechtenstein,Vaduz,Europe,Europe,geography,1,Capitales,3,liechestein,,,,,,,,,liechestein
+Lituanie,Lituanie,LTU,la,République de Lituanie,Vilnius,Europe,Europe,geography,1,Capitales,3,lituanie,,,,,,,,,lituanie
+Luxembourg,Luxembourg,LUX,le,Grand-Duché de Luxembourg,Luxembourg,Europe,Europe,geography,1,Capitales,3,luxembourg,,,,,,,,,luxembourg
+Macédoine du Nord,Macédoine du Nord,MKD,l',République de Macédoine du Nord,Skopje,Europe,Europe,geography,1,Capitales,3,macedoine,,,,,,,,,macedoine
+Madagascar,Madagascar,MDG,,République de Madagascar,Antananarivo (Tananarive),Afrique,Afrique,geography,1,Capitales,3,madagascar,,,,,,,,,madagascar
+Malaisie,Malaisie,MYS,la,Malaisie,Kuala Lumpur,Asie,Asie,geography,1,Capitales,3,malaisie,,,,,,,,,malaisie
+Malawi,Malawi,MWI,le,République du Malawi,Lilongwé,Afrique,Afrique,geography,1,Capitales,3,malawi,,,,,,,,,malawi
+Maldives,Maldives,MDV,les,République des Maldives,Malé,Asie,Asie,geography,1,Capitales,3,maldives,,,,,,,,,maldives
+Mali,Mali,MLI,le,République du Mali,Bamako,Afrique,Afrique,geography,1,Capitales,4,mali,,,,,,,,,mali
+Malte,Malte,MLT,,République de Malte,La Valette,Europe,Europe,geography,1,Capitales,3,malte,,,,,,,,,malte
+Maroc,Maroc,MAR,le,Royaume du Maroc,Rabat,Afrique,Afrique,geography,1,Capitales,4,maroc,,,,,,,,,maroc
+Îles Marshall,Marshall (Îles),MHL,les,République des Îles Marshall,Delap-Uliga-Darrit,Iles pacifique,Iles Pacifiques,geography,2,Capitales,1,iles_marshall,,,,,,,,,iles_marshall
+Maurice,Maurice,MUS,,République de Maurice,Port-Louis,Afrique,Afrique,geography,1,Capitales,4,ile_maurice,,,,,,,,,ile_maurice
+Mauritanie,Mauritanie,MRT,la,République islamique de Mauritanie,Nouakchott,Afrique,Afrique,geography,1,Capitales,4,mauritanie,,,,,,,,,mauritanie
+Mexique,Mexique,MEX,le,États-Unis du Mexique,Mexico,Amerique,Amérique,geography,1,Capitales,2,mexique,,,,,,,,,mexique
+Micronésie,Micronésie,FSM,la,États fédérés de Micronésie,Palikir,Oceanie,Iles Pacifiques,geography,2,Capitales,1,micronesie,,,,,,,,,micronesie
+Moldavie,Moldavie,MDA,la,République de Moldavie,Chisinau,Europe,Europe,geography,1,Capitales,3,moldavie,,,,,,,,,moldavie
+Monaco,Monaco,MCO,,Principauté de Monaco,Monaco,Europe,Europe,geography,1,Capitales,3,monaco,,,,,,,,,monaco
+Mongolie,Mongolie,MNG,la,Mongolie,Oulan-Bator,Asie,Asie,geography,1,Capitales,3,mongolie,,,,,,,,,mongolie
+Monténégro,Monténégro,MNE,le,Monténégro,Podgorica,Europe,Europe,geography,1,Capitales,3,montenegro,,,,,,,,,montenegro
+Mozambique,Mozambique,MOZ,le,République du Mozambique,Maputo,Afrique,Afrique,geography,1,Capitales,4,mozambique,,,myanmar?,,,,,,mozambique
+Namibie,Namibie,NAM,la,République de Namibie,Windhoek,Afrique,Afrique,geography,1,Capitales,4,namibie,,,,,,,,,namibie
+Nauru,Nauru,NRU,,République de Nauru,Yaren,Oceanie,Iles Pacifiques,geography,2,Capitales,1,nauru,,,,,,,,,nauru
+Népal,Népal,NPL,le,République démocratique fédérale du Népal,Katmandou,Asie,Asie,geography,1,Capitales,3,nepal,,,,,,,,,nepal
+Nicaragua,Nicaragua,NIC,le,République du Nicaragua,Managua,Amerique,Amérique,geography,1,Capitales,2,nicaragua,,,,,,,,,nicaragua
+Niger,Niger,NER,le,République du Niger,Niamey,Afrique,Afrique,geography,1,Capitales,4,niger,,,,,,,,,niger
+Nigéria,Nigéria,NGA,le,République fédérale du Nigéria,Abuja,Afrique,Afrique,geography,1,Capitales,4,nigeria,,,,,,,,,nigeria
+Niue,Niue,NIU,,Niue,Alofi,Oceanie,Iles Pacifiques,geography,2,Capitales,2,niue,,,,,,,,,niue
+Norvège,Norvège,NOR,la,Royaume de Norvège,Oslo,Europe,Europe,geography,1,Capitales,3,norvege,,,,,,,,,norvege
+Nouvelle-Zélande,Nouvelle-Zélande,NZL,la,Nouvelle-Zélande,Wellington,Oceanie,Iles Pacifiques,geography,2,Capitales,2,nouvelle-zelande,,,,,,,,,nouvelle-zelande
+Oman,Oman,OMN,,Sultanat d'Oman,Mascate,Asie,Asie,geography,1,Capitales,3,oman,,,,,,,,,oman
+Ouganda,Ouganda,UGA,l',République d'Ouganda,Kampala,Afrique,Afrique,geography,1,Capitales,4,ouganda,,,,,,,,,ouganda
+Ouzbékistan,Ouzbékistan,UZB,l',République d'Ouzbékistan,Tachkent,Asie,Asie,geography,1,Capitales,3,ouzbekistan,,,,,,,,,ouzbekistan
+Pakistan,Pakistan,PAK,le,République islamique du Pakistan,Islamabad,Asie,Asie,geography,1,Capitales,4,pakistan,,,,,,,,,pakistan
+Palaos,Palaos,PLW,les,République des Palaos,Melekeok,Oceanie,Iles Pacifiques,geography,2,Capitales,2,palau,,,,,,,,,palau
+Panama,Panama,PAN,le,République du Panama,Panama,Amerique,Amérique,geography,1,Capitales,2,panama,,,,,,,,,panama
+Papouasie-Nouvelle-Guinée,Papouasie-Nouvelle-Guinée,PNG,la,État indépendant de Papouasie-Nouvelle-Guinée,Port Moresby,Oceanie,Iles Pacifiques,geography,2,Capitales,2,papouasie_nouvelle_guinee,,,,,,,,,papouasie_nouvelle_guinee
+Paraguay,Paraguay,PRY,le,République du Paraguay,Assomption (Asuncion),Amerique,Amérique,geography,1,Capitales,2,paraguay,,,,,,,,,paraguay
+Pays-Bas,Pays-Bas,NLD,les,Royaume des Pays-Bas,Amsterdam,Europe,Europe,geography,1,Capitales,3,pays-bas,,,,,,,,,pays-bas
+Pérou,Pérou,PER,le,République du Pérou,Lima,Amerique,Amérique,geography,1,Capitales,2,perou,,,,,,,,,perou
+Philippines,Philippines,PHL,les,République des Philippines,Manille,Asie,Asie,geography,1,Capitales,4,philippines,,,,,,,,,philippines
+Pologne,Pologne,POL,la,République de Pologne,Varsovie,Europe,Europe,geography,1,Capitales,3,pologne,,,,,,,,,pologne
+Portugal,Portugal,PRT,le,République portugaise,Lisbonne,Europe,Europe,geography,1,Capitales,4,portugal,,,,,,,,,portugal
+Qatar,Qatar,QAT,le,État du Qatar,Doha,Asie,Asie,geography,1,Capitales,4,qatar,,,,,,,,,qatar
+Roumanie,Roumanie,ROU,la,Roumanie,Bucarest,Europe,Europe,geography,1,Capitales,4,roumanie,,,,,,,,,roumanie
+Royaume-Uni,Royaume-Uni,GBR,le,Royaume-Uni de Grande-Bretagne et d'Irlande du Nord,Londres,Europe,Europe,geography,1,Capitales,4,royaume-unis,,,,,,,,,royaume-unis
+Russie,Russie,RUS,la,Fédération de Russie,Moscou,Europe,Europe,geography,1,Capitales,4,russie,,,,,,,,,russie
+Rwanda,Rwanda,RWA,le,République du Rwanda,Kigali,Afrique,Afrique,geography,1,Capitales,4,rwanda,,,,,,,,,rwanda
+Saint-Christophe-et-Niévès,Saint-Christophe-et-Niévès,KNA,,Fédération de Saint-Christophe-et-Niévès,Basseterre,Caraibes,Iles des Caraibes,geography,2,Capitales,2,saint_christohpe_et_nieves,,,,,,,,,saint_christohpe_et_nieves
+Saint-Marin,Saint-Marin,SMR,,République de Saint-Marin,Saint-Marin,Europe,Iles des Caraibes,geography,2,Capitales,2,saint_marin,,,,,,,,,saint_marin
+Saint-Vincent-et-les-Grenadines,Saint-Vincent-et-les-Grenadines,VCT,,Saint-Vincent-et-les-Grenadines,Kingstown,Amerique,Iles des Caraibes,geography,2,Capitales,2,saint_vincent_et_les_grenadines,,,,,,,,,saint_vincent_et_les_grenadines
+Sainte-Lucie,Sainte-Lucie,LCA,,Sainte-Lucie,Castries,Amerique,Iles des Caraibes,geography,2,Capitales,2,saint_lucie,,,,,,,,,saint_lucie
+Salomon,Salomon,SLB,les,Îles Salomon,Honiara,Oceanie,Iles Pacifiques,geography,2,Capitales,2,iles_salomon,,,,,,,,,iles_salomon
+Salvador,Salvador,SLV,le,République du Salvador,San Salvador,Amerique,Amérique,geography,1,Capitales,2,salvador,,,,,,,,,salvador
+Samoa,Samoa,WSM,les,État indépendant des Samoa,Apia,Oceanie,Iles Pacifiques,geography,2,Capitales,2,samoa,,,,,,,,,samoa
+Sao Tomé-et-Principe,Sao Tomé-et-Principe,STP,,République démocratique de Sao Tomé-et-Principe,Sao Tomé,Afrique,Afrique,geography,1,Capitales,5,sao_tome_et_principe,,,,,,,,,sao_tome_et_principe
+Sénégal,Sénégal,SEN,le,République du Sénégal,Dakar,Afrique,Afrique,geography,1,Capitales,5,senegal,,,,,,,,,senegal
+Serbie,Serbie,SRB,la,République de Serbie,Belgrade,Europe,Europe,geography,1,Capitales,4,serbie,,,,,,,,,serbie
+Seychelles,Seychelles,SYC,les,République des Seychelles,Victoria,Afrique,Afrique,geography,1,Capitales,5,seychelles,,,,,,,,,seychelles
+Sierra Leone,Sierra Leone,SLE,la,République de Sierra Leone,Freetown,Afrique,Afrique,geography,1,Capitales,5,sierra_leone,,,,,,,,,sierra_leone
+Singapour,Singapour,SGP,,République de Singapour,Singapour,Asie,Asie,geography,1,Capitales,4,singapour,,,,,,,,,singapour
+Slovaquie,Slovaquie,SVK,la,République slovaque,Bratislava,Europe,Europe,geography,1,Capitales,4,slovaquie,,,,,,,,,slovaquie
+Slovénie,Slovénie,SVN,la,République de Slovénie,Ljubljana,Europe,Europe,geography,1,Capitales,4,slovenie,,,,,,,,,slovenie
+Somalie,Somalie,SOM,la,République fédérale de Somalie,Mogadiscio,Afrique,Afrique,geography,1,Capitales,5,somalie,,,,,,,,,somalie
+Soudan,Soudan,SDN,le,République du Soudan,Khartoum,Afrique,Afrique,geography,1,Capitales,5,soudan,,,,,,,,,soudan
+Soudan du Sud,Soudan du Sud,SDS,le,République du Soudan du Sud,Djouba,Afrique,Afrique,geography,1,Capitales,5,sudan du sud,,,,,,,,,sudan du sud
+Sri Lanka,Sri Lanka,LKA,le,République démocratique socialiste du Sri Lanka,Sri Jayewardenepura-Kotte,Asie,Asie,geography,1,Capitales,4,sri_lanka,,,,,,,,,sri_lanka
+Suède,Suède,SWE,la,Royaume de Suède,Stockholm,Europe,Europe,geography,1,Capitales,4,suede,,,,,,,,,suede
+Suisse,Suisse,CHE,la,Confédération suisse,Berne,Europe,Europe,geography,1,Capitales,4,suisse,,,,,,,,,suisse
+Suriname,Suriname,SUR,le,République du Suriname,Paramaribo,Amerique,Amérique,geography,1,Capitales,2,suriname,,,,,,,,,suriname
+Syrie,Syrie,SYR,la,République arabe syrienne,Damas,Asie,Asie,geography,1,Capitales,4,syrie,,,,,,,,,syrie
+Tadjikistan,Tadjikistan,TJK,le,République du Tadjikistan,Douchanbé,Asie,Asie,geography,1,Capitales,4,tadjikistan,,,,,,,,,tadjikistan
+Tanzanie,Tanzanie,TZA,la,République unie de Tanzanie,Dodoma,Afrique,Afrique,geography,1,Capitales,5,tanzanie,,,,,,,,,tanzanie
+Tchad,Tchad,TCD,le,République du Tchad,Ndjamena,Afrique,Afrique,geography,1,Capitales,5,tchad,,,,,,,,,tchad
+Tchéquie,Tchéquie,CZE,la,République tchèque,Prague,Europe,Europe,geography,1,Capitales,4,tchéquie,,,,,,,,,tchéquie
+Thaïlande,Thaïlande,THA,la,Royaume de Thaïlande,Bangkok,Asie,Asie,geography,1,Capitales,4,thailande,,,,,,,,,thailande
+Timor oriental,Timor oriental,TLS,le,République démocratique du Timor oriental,Dili,Asie,Iles Pacifiques,geography,2,Capitales,2,timor_oriental,,,,,,,,,timor_oriental
+Togo,Togo,TGO,le,République togolaise,Lomé,Afrique,Afrique,geography,1,Capitales,5,togo,,,,,,,,,togo
+Tonga,Tonga,TON,les,Royaume des Tonga,Nuku'alofa,Oceanie,Iles Pacifiques,geography,2,Capitales,2,tonga,,,,,,,,,tonga
+Trinité-et-Tobago,Trinité-et-Tobago,TTO,la,République de Trinité-et-Tobago,Port-d'Espagne (Port of Spain),Amerique,Amérique,geography,1,Capitales,2,trinite-et-tobago,,,,,,,,,trinite-et-tobago
+Tunisie,Tunisie,TUN,la,République tunisienne,Tunis,Afrique,Afrique,geography,1,Capitales,5,tunisie,,,,,,,,,tunisie
+Turkménistan,Turkménistan,TKM,le,Turkménistan,Achgabat,Asie,Asie,geography,1,Capitales,4,turkmenistan,,,,,,,,,turkmenistan
+Turquie,Turquie,TUR,la,République de Turquie,Ankara,Asie,Asie,geography,1,Capitales,4,turquie,,,,,,,,,turquie
+Tuvalu,Tuvalu,TUV,les,Tuvalu,Vaiaku,Oceanie,Iles Pacifiques,geography,2,Capitales,2,tuvalu,,,,,,,,,tuvalu
+Ukraine,Ukraine,UKR,l',Ukraine,Kiev,Europe,Europe,geography,1,Capitales,4,ukraine,,,,,,,,,ukraine
+Uruguay,Uruguay,URY,l',République orientale de l'Uruguay,Montévidéo,Amerique,Amérique,geography,1,Capitales,2,uruguay,,,,,,,,,uruguay
+Vanuatu,Vanuatu,VUT,le,République du Vanuatu,Port-Vila,Oceanie,Iles Pacifiques,geography,2,Capitales,2,vanuatu,,,,,,,,,vanuatu
+Vatican,Vatican,VAT,le,Vatican (Saint-Siège),Vatican,Europe,Europe,geography,1,Capitales,4,vatican,,,,,,,,,vatican
+Vénézuéla,Vénézuéla,VEN,le,République bolivarienne du Vénézuéla,Caracas,Amerique,Amérique,geography,1,Capitales,2,venezuela,,,,,,,,,venezuela
+Vietnam,Vietnam,VNM,le,République socialiste du Vietnam,Hanoï,Asie,Asie,geography,1,Capitales,4,vietnam,,,,,,,,,vietnam
+Yémen,Yémen,YEM,le,République du Yémen,Sanaa,Asie,Asie,geography,1,Capitales,4,yemen,,,,,,,,,yemen
+Zambie,Zambie,ZMB,la,République de Zambie,Lusaka,Afrique,Afrique,geography,1,Capitales,5,zambie,,,,,,,,,zambie
+Zimbabwé,Zimbabwé,ZWE,le,République du Zimbabwé,Hararé,Afrique,Afrique,geography,1,Capitales,5,zimbabwe,,,,,,,,,zimbabwe

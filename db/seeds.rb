@@ -380,6 +380,7 @@ CSV.foreach(filepath, headers: :first_row) do |row|
     theme_level: row["THEME_LEVEL"].to_i,
     category: row["CATEGORY"],
     quizz_ordering: row["QUIZZ_ordering"].to_i,
+    image_src: row["FLAG"]
   }
 end
 
@@ -404,13 +405,6 @@ categories.each do |category|
     category_progress = CategoryProgress.new(user: anthony, category: category, unlocked: false)
     category_progress.save!
 
-    p "category : #{category}"
-
-    p "category subtheme #{category.subtheme}"
-    p "category subtheme #{category.subtheme.name}"
-
-    p number_of_quizzs_per_subtheme[category.subtheme.name.to_s.to_sym]
-
     nb_quizz = number_of_quizzs_per_subtheme[category.subtheme.name.to_s.to_sym]
 
     # for world categ
@@ -419,7 +413,6 @@ categories.each do |category|
     if nb_quizz != 1
       (1..nb_quizz).each do |i|
         quizz = Quizz.new(category: category, name: "QUIZZ #{i}", ordering: i)
-        p quizz.name
         quizz.save!
         quizzs << quizz
       end
@@ -433,7 +426,7 @@ categories.each do |category|
     end
 end
 
-p "quizz level"
+# p "quizz level"
 
 #localization quizz
 quizz_levels = []
@@ -453,7 +446,7 @@ quizzs.each do |quizz|
   end
 end
 
-p "quizz level"
+# p "quizz level"
 
 quizz_levels.each do |quizz_level|
   unlocked = (quizz_level.quizz.ordering == 1 && quizz_level.quizz.theme_level.level == 1 && quizz_level.name == "Facile")
@@ -467,50 +460,31 @@ geo_subthemes = Theme.find_by(name: "Geographie").subthemes
 
 subthemes.each do |subtheme|
   subtheme.quizzs.each do |quizz|
-    p quizz.name
-
     world_country_capitales.each do |csv_capitale|
-      # if quizz.category.subtheme.name == "Mondes" && quizz.category.name == "Capitales"
-      #   if csv_capitale[:capitale]
-      #     question_answer = QuestionAnswer.new(question: "quelle est la capitale de la #{csv_capitale[:country]} ?", answer: csv_capitale[:capitale])
-      #     question_answer.save!
-      #     quizz_question_answers = QuizzQuestionAnswer.new(quizz: quizz, question_answer: question_answer)
-      #     quizz_question_answers.save!
-      #   else
-      #     p "pas de capitale pour #{csv_capitale[:country]}  "
-      #   end
-      # else
-
-        # if quizz.category.name == "Capitales" && quizz.category.subtheme.name == "Europe" && quizz.ordering == 1
-
-        #   p csv_capitale
-        #   p quizz.category.subtheme.name
-        #   p csv_capitale[:subtheme]
-        #   p quizz.theme_level.level.to_i
-        #   p csv_capitale[:theme_level].to_i
-        #   p quizz.category.name
-        #   p csv_capitale[:category]
-        #   p quizz.ordering
-        #   p csv_capitale[:quizz_ordering].to_i
-        # end
-
-        if (quizz.category.subtheme.name == csv_capitale[:subtheme] &&
-            quizz.theme_level.level.to_i == csv_capitale[:theme_level].to_i && quizz.category.name == csv_capitale[:category] &&
-            quizz.ordering == csv_capitale[:quizz_ordering].to_i)
-
-          question_answer = QuestionAnswer.new(question: "quelle est la capitale de la #{csv_capitale[:country]} ?", answer: csv_capitale[:capitale])
+      if (quizz.category.subtheme.name == csv_capitale[:subtheme] &&
+          quizz.theme_level.level.to_i == csv_capitale[:theme_level].to_i && quizz.ordering == csv_capitale[:quizz_ordering].to_i)
+        if quizz.category.name == "Capitales" || quizz.category.name == "Drapeaux"
+          if quizz.category.name == "Capitales"
+            question = "quelle est la capitale de la #{csv_capitale[:country]}"
+            answer = csv_capitale[:capitale]
+            image_src = nil
+          elsif quizz.category.name == "Drapeaux"
+            question = "A quel pays correspond ce drapeau ?"
+            answer = csv_capitale[:image_src]
+            image_src = csv_capitale[:image_src]
+            p answer
+          end
+          answer = "NIL" if !answer
+          question_answer = QuestionAnswer.new(question: question, answer: answer, image_src: image_src)
           question_answer.save!
-
           quizz_question_answers = QuizzQuestionAnswer.new(quizz: quizz, question_answer: question_answer)
           quizz_question_answers.save!
-
           quizz_question_answers = QuizzQuestionAnswer.new(quizz: quizz.category.quizzs.find_by(name: "MASTER"), question_answer: question_answer)
           quizz_question_answers.save!
-
           quizz_question_answers = QuizzQuestionAnswer.new(quizz: quizz.theme.subthemes.last.categories.find_by(name: quizz.category.name).quizzs.find_by(name: "MASTER"), question_answer: question_answer)
           quizz_question_answers.save!
         end
-      # end
+      end
     end
   end
 end
