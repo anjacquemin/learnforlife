@@ -7,8 +7,8 @@
       <p><%= @challenge_card_sentence %></p>
       <div class="quizz-card">
         <% @user_quizz_progress_unlocked = true %>
-        <%= render "shared/card_display", quizz: @challenge_card_quizz_to_display %>
-        <%= render "shared/level_display", quizz: @challenge_card_quizz_to_display %>
+        <%= render "shared/card_display", quizz: @challenge_card_quizz_to_display, in_modal: false %>
+        <%= render "shared/level_display", quizz: @challenge_card_quizz_to_display, in_modal: false %>
       </div>
       <%= render "shared/quizz_records_modal", quizz: @challenge_card_quizz_to_display %>
     </div>

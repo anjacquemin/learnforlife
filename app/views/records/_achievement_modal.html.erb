@@ -32,8 +32,8 @@
           <% if type == "quizz" || type == "quizz_level" %>
             <% @user_quizz_progress_unlocked = true %>
             <div class="quizz-card">
-              <%= render "shared/card_display", quizz: quizz %>
-              <%= render "shared/level_display", quizz: quizz %>
+              <%= render "shared/card_display", quizz: quizz, in_modal: true %>
+              <%= render "shared/level_display", quizz: quizz, in_modal: true %>
             </div>
           <% elsif type == "category" || type == "theme_level" %>
             <%= cl_image_tag @record.quizz.category.photo.key, height: 100 %>

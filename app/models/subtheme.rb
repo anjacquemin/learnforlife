@@ -9,6 +9,7 @@ class Subtheme < ApplicationRecord
   has_many :quizz_progresses, through: :categories
   has_many :category_progresses, through: :categories
   has_many :quizz_level_progresses, through: :categories
+  has_many :flashcards, through: :categories
   has_many :records, through: :categories
 
   has_one :theme, through: :theme_level

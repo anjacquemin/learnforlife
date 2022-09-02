@@ -53,7 +53,7 @@ class RecordsController < ApplicationController
 
   # BACK END CHECK NUMBER OF ANSWER = NUMBER OF QUESTION + TIME  (time_difference_in_milliseconds?)
   # ADD STRONG PARAMS
-  # TO BE CHANGED : change schema add crown_or_sphere to quizz_level
+  # check thate quizz answers are quizz answer from the user / set to dealt with when done ?
   def create
     user = current_user
     data = JSON.parse(params["json"])
@@ -62,7 +62,11 @@ class RecordsController < ApplicationController
     seconds_duration = data["final_time_seconds"]
     milliseconds_duration = data["final_time_tens"]
     quizz_level = QuizzAnswer.find(quizz_answer_id).quizz_level
-    user_answers = UserAnswer.where(quizz_answer_id: quizz_answer_id)
+
+    #check quizz answer est bien du use
+    user_answers = check_and_set_user_answer(quizz_answer_id, seconds_duration, quizz_level, milliseconds_duration)
+
+
 
     @record = Record.new(
       user: user,
@@ -71,8 +75,8 @@ class RecordsController < ApplicationController
       milliseconds_duration: milliseconds_duration,
       completion: completion_calculation(user_answers, seconds_duration, milliseconds_duration),
       score_percentage: score_percentage_calculation(user_answers),
+      crown_or_sphere: quizz_level.crown_or_sphere,
       quizz_answer_id: quizz_answer_id)
-    @record.crown_or_sphere = "crown"
 
     authorize(@record)
 
@@ -84,6 +88,24 @@ class RecordsController < ApplicationController
 
   private
 
+    # check that quizz answer has been done by the user
+    # check time is not < 110% of back calculation
+    # check that time is not < 1 sec / question
+    def check_and_set_user_answer(quizz_answer_id, seconds_duration, quizz_level, milliseconds_duration)
+      return nil if QuizzAnswer.find(quizz_answer_id).user != current_user
+
+      user_answers = UserAnswer.where(quizz_answer_id: quizz_answer_id).order(:created_at)
+      back_time_difference = user_answers.last.created_at - user_answers.first.created_at
+      quizz_question_answers_count = quizz_level.question_answers.count
+
+      user_time_difference = seconds_duration.to_i + milliseconds_duration.to_i
+
+      return nil if user_answers.count != quizz_question_answers_count
+
+      return nil if user_time_difference  < back_time_difference * 1.1 || user_time_difference < quizz_question_answers_count * 0.1
+
+      user_answers
+    end
 
     def flashcards_unlocked_calculation(quizz)
       count = 0

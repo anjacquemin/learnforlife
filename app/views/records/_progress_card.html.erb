@@ -6,7 +6,7 @@
     <div class="xp-gold-ranking">
       <div class="xp-gold">
         <div class="gold">
-          <%= image_tag 'pieces.png' %>
+          <%= image_tag 'pieces.png', height: 30 %>
           <p> + <%= @gold_win%> pièces </p>
         </div>
         <div class= "flashcard-won">
@@ -25,7 +25,7 @@
                 </div>
               </div>
               <div class= "thin-line-height">
-                <p> +<%= @xp_win  %> </p>
+                <p> +<%= @xp_win %> xp </p>
               </div>
             </div>
           </div>
@@ -37,15 +37,17 @@
           </div>
             <div class="flashcards-count">
               <div class="flashcards-total">
+                <% user_unlocked_flashcards = @record.quizz.category.subtheme.flashcards.where(user: current_user).uniq.count  %>
+                <% flashcards_theme_count = @record.quizz.category.subtheme.question_answers.uniq.count %>
                 <div class="progressbar-wrapper">
-                  <div title="theme_completion" class="progressbar theme-completion" style=<%="width:10%"%>></div>
+                  <div title="theme_completion" class="progressbar theme-completion" style=<%="width:#{user_unlocked_flashcards.to_f * 100/ flashcards_theme_count}%"%>></div>
                 </div>
                 <div class= "flashcard-number">
-                  <p>0/<%= @record.quizz.category.subtheme.question_answers.uniq.count %></p>
+                  <p> <%= user_unlocked_flashcards %>/<%= flashcards_theme_count %></p>
                 </div>
               </div>
               <div class= "thin-line-height">
-                <p> + XXX </p>
+                <p> + <%= @flashcards_unlocked_count %> flashcards Europe </p>
               </div>
             </div>
           </div>
@@ -53,7 +55,8 @@
       </div>
       <div class= "ranking">
         <% user_ranking = @all_best_records.index{ |best_record| best_record.record.user == current_user} + 1 %>
-        <h2><%= user_ranking %></h2>
+        <% er_or_eme = (user_ranking == 1 ? "er" : "ème") %>
+        <h2><%= user_ranking %><sup><%= er_or_eme %></sup></h2>
         <p>/ <%= @all_best_records.count %></p>
       </div>
     </div>
