@@ -97,8 +97,6 @@
   }
 }
 
-
-
 .width-80 {
   margin:0.5rem 0;
   width: 80%;
@@ -132,5 +130,12 @@
 @media(max-width: 768px) {
   .questions{
     width: 100%;
+  }
+
+}
+
+@media(max-width: 380px) {
+  .card-question img{
+    width: 320px;
   }
 }

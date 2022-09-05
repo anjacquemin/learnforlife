@@ -463,16 +463,23 @@ subthemes.each do |subtheme|
     world_country_capitales.each do |csv_capitale|
       if (quizz.category.subtheme.name == csv_capitale[:subtheme] &&
           quizz.theme_level.level.to_i == csv_capitale[:theme_level].to_i && quizz.ordering == csv_capitale[:quizz_ordering].to_i)
-        if quizz.category.name == "Capitales" || quizz.category.name == "Drapeaux"
+        if quizz.category.name == "Capitales" || quizz.category.name == "Drapeaux" || quizz.category.name == "Localisation"
           if quizz.category.name == "Capitales"
             question = "quelle est la capitale de la #{csv_capitale[:country]}"
             answer = csv_capitale[:capitale]
             image_src = nil
           elsif quizz.category.name == "Drapeaux"
+            p "drapeau"
             question = "A quel pays correspond ce drapeau ?"
             answer = csv_capitale[:country]
-            image_src = csv_capitale[:image_src]
             p answer
+            image_src = csv_capitale[:image_src] + ".png"
+          elsif quizz.category.name == "Localisation"
+            p "localisation"
+            question = "Quel est ce pays ?"
+            answer = csv_capitale[:country]
+            p answer
+            image_src = csv_capitale[:image_src] + ".PNG"
           end
           answer = csv_capitale[:capitale] if !answer
           question_answer = QuestionAnswer.new(question: question, answer: answer, image_src: image_src)
