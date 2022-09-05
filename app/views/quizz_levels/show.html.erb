@@ -33,8 +33,8 @@
         <div class = "card-question">
           <h2><%=question_answer.question %></h2>
           <% if question_answer.image_src %>
-            <div class="white-container">
-              <%= image_tag "world_flags/#{question_answer.answer}.png", height: 100 %>
+            <div class="white-container width-none">
+              <%= image_tag "world_flags/#{question_answer.image_src}.png", height: 100 %>
             </div>
           <% end %>
         </div>

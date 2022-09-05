@@ -93,7 +93,7 @@
   width: 100%;
   margin: 0.5rem;
   &.little-margin{
-    margin: 0.2rem; 
+    margin: 0.2rem;
   }
 }
 
@@ -113,6 +113,14 @@
 
 .border-radius{
   border-radius: $border-radius-lg;
+}
+
+.white-container.width-none{
+  width: auto;
+}
+
+.flashcard .white-container.width-none {
+  height: auto;
 }
 
 @media(max-width: 992px) {

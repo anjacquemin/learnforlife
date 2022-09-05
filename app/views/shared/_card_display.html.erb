@@ -20,7 +20,8 @@
     <p>cartes</p>
   </div>
   <div class="content">
-    <h2> QUIZZ #<%= quizz.ordering %> </h2>
+    <% title = (quizz.name == "MASTER" ? "MASTER" : "QUIZZ #{quizz.ordering}") %>
+    <h2> <%= title %> </h2>
     <div class="achievement-count">
       <%= image_tag "crown.png" %>
       <p> <%= @user_total %> / <%= total_quizzs_crowns %> </p>

@@ -470,17 +470,20 @@ subthemes.each do |subtheme|
             image_src = nil
           elsif quizz.category.name == "Drapeaux"
             question = "A quel pays correspond ce drapeau ?"
-            answer = csv_capitale[:image_src]
+            answer = csv_capitale[:country]
             image_src = csv_capitale[:image_src]
             p answer
           end
-          answer = "NIL" if !answer
+          answer = csv_capitale[:capitale] if !answer
           question_answer = QuestionAnswer.new(question: question, answer: answer, image_src: image_src)
           question_answer.save!
+
           quizz_question_answers = QuizzQuestionAnswer.new(quizz: quizz, question_answer: question_answer)
           quizz_question_answers.save!
+
           quizz_question_answers = QuizzQuestionAnswer.new(quizz: quizz.category.quizzs.find_by(name: "MASTER"), question_answer: question_answer)
           quizz_question_answers.save!
+
           quizz_question_answers = QuizzQuestionAnswer.new(quizz: quizz.theme.subthemes.last.categories.find_by(name: quizz.category.name).quizzs.find_by(name: "MASTER"), question_answer: question_answer)
           quizz_question_answers.save!
         end
