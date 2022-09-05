@@ -33,8 +33,14 @@
         <div class = "card-question">
           <h2><%=question_answer.question %></h2>
           <% if question_answer.image_src %>
-            <div class="white-container">
-              <%= image_tag "world_flags/#{question_answer.answer}.png", height: 100 %>
+            <% if @quizz.category.name == "Drapeaux" %>
+              <% img_path = "world_flags" %>
+            <% elsif @quizz.category.name == "Localisation"%>
+                <% img_path = "world_localisations" %>
+            <% end %>
+
+            <div class="white-container width-none">
+              <%= image_tag "#{img_path}/#{question_answer.image_src}", width: 350 %>
             </div>
           <% end %>
         </div>

@@ -8,6 +8,11 @@
   <div <%= question_class.html_safe %> data-flashcard-answer-target = <%="questionCard#{index}"%>>
     <div class = card-question>
       <h2><%=question_answer.question %></h2>
+      <% if question_answer.image_src %>
+        <div class="white-container width-none">
+          <%= image_tag "world_flags/#{question_answer.answer}", height: 100 %>
+        </div>
+      <% end %>
     </div>
     <div class="white-container">
       <div class= "flashcard-answer d-none">

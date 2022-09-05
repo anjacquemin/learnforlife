@@ -93,11 +93,9 @@
   width: 100%;
   margin: 0.5rem;
   &.little-margin{
-    margin: 0.2rem; 
+    margin: 0.2rem;
   }
 }
-
-
 
 .width-80 {
   margin:0.5rem 0;
@@ -115,6 +113,14 @@
   border-radius: $border-radius-lg;
 }
 
+.white-container.width-none{
+  width: auto;
+}
+
+.flashcard .white-container.width-none {
+  height: auto;
+}
+
 @media(max-width: 992px) {
   .questions{
     width: 70%;
@@ -124,5 +130,12 @@
 @media(max-width: 768px) {
   .questions{
     width: 100%;
+  }
+
+}
+
+@media(max-width: 380px) {
+  .card-question img{
+    width: 320px;
   }
 }
