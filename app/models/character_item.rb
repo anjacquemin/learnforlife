@@ -1,0 +1,2 @@
+class CharacterItem < ApplicationRecord
+end

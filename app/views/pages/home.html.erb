@@ -2,3 +2,34 @@
 <p>Find me in app/views/pages/home.html.erb</p>
 
 <%= link_to "commence à apprendre", themes_path %>
+
+<div data-controller="sprite">
+  <div class= "avatar-container" >
+      <%= image_tag "sprites/female_hair_blond.png", class: "character-hair", "data-sprite-target": "hair" %>
+      <%= image_tag "sprites/head_white.png", class: "character-head", "data-sprite-target": "head" %>
+      <%= image_tag "sprites/body_brown.png", class: "character-body", "data-sprite-target": "body" %>
+  </div>
+
+  <div>
+    <div class="d-flex">
+      <% @character_hair.each do |k, v| %>
+        <%= image_tag "sprites/#{v}", "data-action": "click->sprite#changeUserSprite", "data-type": "hair", "data-src": "/assets/sprites/#{v}"  %>
+      <% end %>
+    </div>
+
+    <div class="d-flex">
+      <% @character_head.each do |k, v| %>
+        <%= image_tag "sprites/#{v}", "data-action": "click->sprite#changeUserSprite", "data-type": "head", "data-src": "/assets/sprites/#{v}" %>
+      <% end %>
+    </div>
+
+    <div class="d-flex">
+      <% @character_body.each do |k, v| %>
+        <%= image_tag "sprites/#{v}", "data-action": "click->sprite#changeUserSprite", "data-type": "body", "data-src": "/assets/sprites/#{v}" %>
+      <% end %>
+    </div>
+
+
+  </div>
+
+</div>

@@ -11,6 +11,9 @@ _IMAGE_DIR_ = "./app/assets/images/"
 
 puts 'seed'
 
+Character.destroy_all
+UserCharacterItem.destroy_all
+CharacterItem.destroy_all
 FlashcardSave.destroy_all
 BestRecord.destroy_all
 QuizzLevelProgress.destroy_all
@@ -124,6 +127,120 @@ anthony = User.new(
 anthony.save!
 
 
+character_item = CharacterItem.new(
+  item_type: "hair",
+  img_src: "sprites/long_hair_red.png",
+  name: "Red long hair"
+)
+character_item.save!
+user_character_item = UserCharacterItem.new(
+  user: anthony,
+  character_item: character_item,
+  unlocked: true
+)
+user_character_item.save!
+
+character_item = CharacterItem.new(
+  item_type: "hair",
+  img_src: "sprites/long_hair_blond.png",
+  name: "Blond long hair"
+)
+character_item.save!
+user_character_item = UserCharacterItem.new(
+  user: anthony,
+  character_item: character_item,
+  unlocked: true
+)
+user_character_item.save!
+
+character_item = CharacterItem.new(
+  item_type: "hair",
+  img_src: "sprites/long_hair_black.png",
+  name: "Black long hair"
+)
+character_item.save!
+user_character_item = UserCharacterItem.new(
+  user: anthony,
+  character_item: character_item,
+  unlocked: true
+)
+user_character_item.save!
+
+character_item = CharacterItem.new(
+  item_type: "body",
+  img_src: "sprites/body_black.png",
+  name: "Black body"
+)
+character_item.save!
+user_character_item = UserCharacterItem.new(
+  user: anthony,
+  character_item: character_item,
+  unlocked: true
+)
+user_character_item.save!
+
+character_item = CharacterItem.new(
+  item_type: "body",
+  img_src: "sprites/body_brown.png",
+  name: "Brown body"
+)
+character_item.save!
+user_character_item = UserCharacterItem.new(
+  user: anthony,
+  character_item: character_item,
+  unlocked: true
+)
+user_character_item.save!
+
+character_item = CharacterItem.new(
+  item_type: "body",
+  img_src: "sprites/body_pink.png",
+  name: "Pink body"
+)
+character_item.save!
+user_character_item = UserCharacterItem.new(
+  user: anthony,
+  character_item: character_item,
+  unlocked: true
+)
+user_character_item.save!
+
+character_item = CharacterItem.new(
+  item_type: "head",
+  img_src: "sprites/head_yellow.png",
+  name: "Yellow head"
+)
+character_item.save!
+user_character_item = UserCharacterItem.new(
+  user: anthony,
+  character_item: character_item,
+  unlocked: true
+)
+user_character_item.save!
+
+character_item = CharacterItem.new(
+  item_type: "head",
+  img_src: "sprites/head_white.png",
+  name: "White head"
+)
+character_item.save!
+user_character_item = UserCharacterItem.new(
+  user: anthony,
+  character_item: character_item,
+  unlocked: true
+)
+user_character_item.save!
+
+
+
+character = Character.new(
+  user: anthony,
+  background: "purple",
+  body: "sprites/body_brown.png",
+  hair: "sprites/long_hair_black.png",
+  head: "sprites/head_white.png"
+)
+character.save!
 
 ##########################
 

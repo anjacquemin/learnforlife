@@ -1,0 +1,50 @@
+<!-- Modal -->
+<div class="modal fade character-modal" id="staticBackdrop100" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1> Créer ton personnage </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class= "avatar-container" >
+          <%= image_tag @user.character.hair, class: "character-hair", "data-sprite-target": "hairModal" %>
+          <%= image_tag @user.character.head, class: "character-head", "data-sprite-target": "headModal" %>
+          <%= image_tag @user.character.body, class: "character-body", "data-sprite-target": "bodyModal" %>
+        </div>
+        <div class="my-3"></div>
+        <div class="img-choices">
+          <div class="my-2"></div>
+          <div class="body-category">
+            <% @unlocked_hairs.each do |hair| %>
+              <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite", data-type= "hair", data-src= <%="/assets/#{hair.img_src}"%> >
+                <%= image_tag hair.img_src, height: 50, class:"hair-img"  %>
+              </button>
+            <% end %>
+          </div>
+          <div class="my-2"></div>
+          <div class="body-category">
+            <% @unlocked_heads.each do |head| %>
+              <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite", data-type= "head", data-src= <%="/assets/#{head.img_src}"%> >
+                <%= image_tag head.img_src, height: 50, class:"head-img" %>
+              </button>
+            <% end %>
+          </div>
+          <div class="my-2"></div>
+          <div class="body-category">
+            <% @unlocked_bodies.each do |body| %>
+              <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite", data-type= "body", data-src= <%="/assets/#{body.img_src}"%> >
+                <%= image_tag body.img_src, height: 50, class:"body-img" %>
+              </button>
+            <% end %>
+          </div>
+          <div class="my-2"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <% url = character_url(@current_user.character) %>
+        <button type="button" class="btn btn-purple" data-bs-dismiss="modal", data-action="click->sprite#confirm", data-url=<%=url%>>Confirmer</button>
+      </div>
+    </div>
+  </div>
+</div>
