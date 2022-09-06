@@ -189,6 +189,43 @@
 
 
 .character-modal{
+
+
+  .modal-content {
+    border: none !important;
+    display: block;
+  }
+
+  .modal-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    padding: 0;
+    height: 70px;
+    background: linear-gradient(0deg,$light-purple 0%, $purple 100%);
+  }
+
+  .modal-content .btn-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    color: #fff;
+    &:focus{
+      box-shadow: none;
+    }
+  }
+
   .modal-body{
     display: flex;
     flex-direction: column;
@@ -209,17 +246,37 @@
   }
   .body-category{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    // align-items: center;
+    // justify-content: center;
+    width: 90%;
+    background-color: white;
+    border-radius: $border-radius-lg;
+    padding: 10px 0;
+    overflow-x: scroll;
   }
 
   .single-item{
     background-color: white;
     border-radius: $border-radius-lg;
     margin: 0 5px;
+    min-width: 50px;
     width: 50px;
     height: 50px;
     position: relative;
+    flex-grow: 1;
+    margin: 0 5px;
+  }
+
+  .single-item.locked {
+    box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+    img{
+      filter: blur(3px)
+    }
+  }
+
+  .single-item.btn:active{
+    outline: none !important;
+    border: none !important;
   }
 
   .hair-img{
@@ -237,4 +294,10 @@
     top: -8px;
     right: -1px;
   }
+}
+
+
+.character-modal .body-category::-webkit-scrollbar {
+  display: none;
+  // height: 0px; /* If value is 0px, the horizontal bar will disappear but still works*/
 }

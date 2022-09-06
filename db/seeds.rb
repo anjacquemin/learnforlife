@@ -232,6 +232,22 @@ user_character_item = UserCharacterItem.new(
 user_character_item.save!
 
 
+type = ["head", "body", "hair", "weapon"]
+100.times do
+  character_item = CharacterItem.new(
+  item_type: type.sample(),
+  img_src: "sprites/head_white.png",
+    name: "White head"
+  )
+  character_item.save!
+  user_character_item = UserCharacterItem.new(
+    user: anthony,
+    character_item: character_item,
+    unlocked: false
+  )
+  user_character_item.save!
+end
+
 
 character = Character.new(
   user: anthony,
@@ -241,6 +257,11 @@ character = Character.new(
   head: "sprites/head_white.png"
 )
 character.save!
+
+
+
+
+
 
 ##########################
 

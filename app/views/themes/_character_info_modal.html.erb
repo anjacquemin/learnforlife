@@ -3,9 +3,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1> Créer ton personnage </h1>
+        <h1> Personalise ton héro </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="my-3"></div>
       <div class="modal-body">
         <div class= "avatar-container" >
           <%= image_tag @user.character.hair, class: "character-hair", "data-sprite-target": "hairModal" %>
@@ -21,6 +22,11 @@
                 <%= image_tag hair.img_src, height: 50, class:"hair-img"  %>
               </button>
             <% end %>
+            <% @locked_hairs.each do |hair| %>
+              <div class= "single-item locked", data-type= "hair", data-src= <%="/assets/#{hair.img_src}"%> >
+                <%= image_tag hair.img_src, height: 50, class:"hair-img"  %>
+              </div>
+            <% end %>
           </div>
           <div class="my-2"></div>
           <div class="body-category">
@@ -29,6 +35,11 @@
                 <%= image_tag head.img_src, height: 50, class:"head-img" %>
               </button>
             <% end %>
+            <% @locked_heads.each do |hair| %>
+              <div class= "single-item locked", data-type= "hair", data-src= <%="/assets/#{hair.img_src}"%> >
+                <%= image_tag hair.img_src, height: 50, class:"hair-img"  %>
+              </div>
+            <% end %>
           </div>
           <div class="my-2"></div>
           <div class="body-category">
@@ -36,6 +47,11 @@
               <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite", data-type= "body", data-src= <%="/assets/#{body.img_src}"%> >
                 <%= image_tag body.img_src, height: 50, class:"body-img" %>
               </button>
+            <% end %>
+            <% @locked_bodies.each do |hair| %>
+              <div class= "single-item locked", data-type= "hair", data-src= <%="/assets/#{hair.img_src}"%> >
+                <%= image_tag hair.img_src, height: 50, class:"hair-img"  %>
+              </div>
             <% end %>
           </div>
           <div class="my-2"></div>

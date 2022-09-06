@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_06_161228) do
+ActiveRecord::Schema.define(version: 2022_09_06_221629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(version: 2022_09_06_161228) do
     t.string "status"
     t.integer "steps_index"
     t.bigint "theme_id", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_flashcards_on_category_id"
     t.index ["question_answer_id"], name: "index_flashcards_on_question_answer_id"
     t.index ["theme_id"], name: "index_flashcards_on_theme_id"
     t.index ["user_id"], name: "index_flashcards_on_user_id"
@@ -336,6 +338,7 @@ ActiveRecord::Schema.define(version: 2022_09_06_161228) do
   add_foreign_key "category_progresses", "users"
   add_foreign_key "characters", "users"
   add_foreign_key "flashcard_saves", "flashcards"
+  add_foreign_key "flashcards", "categories"
   add_foreign_key "flashcards", "question_answers"
   add_foreign_key "flashcards", "themes"
   add_foreign_key "flashcards", "users"
