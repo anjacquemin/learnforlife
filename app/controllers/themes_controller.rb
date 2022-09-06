@@ -7,14 +7,14 @@ class ThemesController < ApplicationController
     @unlocked_heads = @user.character_items.where(character_items: {item_type: "head"}).where(user_character_items: {unlocked: true})
     @unlocked_bodies = @user.character_items.where(character_items: {item_type: "body"}).where(user_character_items: {unlocked: true})
 
-
+    @locked_hairs = @user.character_items.where(character_items: {item_type: "hair"}).where(user_character_items: {unlocked: false})
+    @locked_heads = @user.character_items.where(character_items: {item_type: "head"}).where(user_character_items: {unlocked: false})
+    @locked_bodies = @user.character_items.where(character_items: {item_type: "body"}).where(user_character_items: {unlocked: false})
 
     respond_to do |format|
       format.html
       format.json
     end
-
-
   end
 
   def show

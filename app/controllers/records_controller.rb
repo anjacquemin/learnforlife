@@ -119,11 +119,12 @@ class RecordsController < ApplicationController
             day_of_last_repetition: "",
             mistake_count: 0,
             question_answer: question_answer,
-            day_of_next_repetition: Date.today,
+            day_of_next_repetition: DateTime.current,
             status: "learning",
             user: current_user,
             steps_index: 0,
-            theme: quizz.theme
+            theme: quizz.theme,
+            category: quizz.category
           })
           flashcard.save!
         end
