@@ -1,4 +1,16 @@
+<div data-controller="sprite">
+
 <%= render 'character_banner' %>
 <div class="container">
   <%= render "quizz_flashcard_all_themes" %>
+</div>
+
+
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop100">
+      Launch static backdrop modal
+    </button>
+
+    <%= render "themes/character_info" %>
+
 </div>

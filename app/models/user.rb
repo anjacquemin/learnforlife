@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :level
+  has_one :character
+  has_many :user_character_items
+  has_many :character_items, through: :user_character_items
   has_many :theme_level_progresses, dependent: :destroy
   has_many :subtheme_progresses, dependent: :destroy
   has_many :flashcards, dependent: :destroy

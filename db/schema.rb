@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_02_133835) do
+ActiveRecord::Schema.define(version: 2022_09_06_161228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,27 @@ ActiveRecord::Schema.define(version: 2022_09_02_133835) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_category_progresses_on_category_id"
     t.index ["user_id"], name: "index_category_progresses_on_user_id"
+  end
+
+  create_table "character_items", force: :cascade do |t|
+    t.string "item_type"
+    t.string "img_src"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "body"
+    t.string "head"
+    t.string "hair"
+    t.boolean "first_set"
+    t.string "weapon"
+    t.string "background"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_characters_on_user_id"
   end
 
   create_table "flashcard_saves", force: :cascade do |t|
@@ -275,6 +296,16 @@ ActiveRecord::Schema.define(version: 2022_09_02_133835) do
     t.index ["quizz_answer_id"], name: "index_user_answers_on_quizz_answer_id"
   end
 
+  create_table "user_character_items", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "character_item_id", null: false
+    t.boolean "unlocked"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_item_id"], name: "index_user_character_items_on_character_item_id"
+    t.index ["user_id"], name: "index_user_character_items_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -303,6 +334,7 @@ ActiveRecord::Schema.define(version: 2022_09_02_133835) do
   add_foreign_key "categories", "subthemes"
   add_foreign_key "category_progresses", "categories"
   add_foreign_key "category_progresses", "users"
+  add_foreign_key "characters", "users"
   add_foreign_key "flashcard_saves", "flashcards"
   add_foreign_key "flashcards", "question_answers"
   add_foreign_key "flashcards", "themes"
@@ -330,5 +362,7 @@ ActiveRecord::Schema.define(version: 2022_09_02_133835) do
   add_foreign_key "user_achievements", "users"
   add_foreign_key "user_answers", "question_answers"
   add_foreign_key "user_answers", "quizz_answers"
+  add_foreign_key "user_character_items", "character_items"
+  add_foreign_key "user_character_items", "users"
   add_foreign_key "users", "levels"
 end

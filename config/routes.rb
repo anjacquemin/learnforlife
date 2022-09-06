@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :records, only: [:create]
   end
 
+  resources :characters, only: [:update]
+
   # post "subtheme/:subtheme_id", to: "subthemes#show"
   get "theme/:theme_id/flashcards/results", to: "flashcards#results"
   get "theme/:theme_id/flashcards/:learn_or_revise", to: "flashcards#index"

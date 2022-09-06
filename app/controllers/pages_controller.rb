@@ -22,5 +22,7 @@ class PagesController < ApplicationController
         map_index: "map#{index}"
       }
     end
+
+
   end
 end
