@@ -97,6 +97,16 @@
   }
 }
 
+
+.white-horizontal-divider-light{
+  border-top: 1px dotted $white;
+  width: 100%;
+  margin: 0.5rem;
+  &.little-margin{
+    margin: 0.2rem;
+  }
+}
+
 .width-80 {
   margin:0.5rem 0;
   width: 80%;

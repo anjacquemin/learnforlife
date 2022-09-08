@@ -1,4 +1,70 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home">
+  <div class="banner">
+    <h1>LearnForLife</h1>
+    <p>Apprendre en s'amusant & retenir à vie</p>
+    <button class="btn btn-purple"><%= link_to "commence à apprendre", themes_path %></button>
+  </div>
+</div>
 
-<%= link_to "commence à apprendre", themes_path %>
+<div class="my-5"></div>
+
+<div class="container">
+  <div class="rpg-description">
+    <h1>Une gamification dédiée à l'apprentissage</h1>
+    <div class="my-4"></div>
+    <div id= "idea-1" class= "idea">
+      <h2>Incarne un héro</h2>
+      <div class="box">
+        <p> Choisis tes équipements et personalise ton héro ! </p>
+        <%= image_tag "homepage/Capture-hero.PNG" %>
+      </div>
+    </div>
+    <div class="my-3"></div>
+    <div id= "idea-2" class= "idea">
+      <h2>Fais évoluer ton héro</h2>
+      <div class="box">
+        <p> Gagner des couronnes et des sphères de connaissance pour gaugmenter son experience et évoluer à travers les âges ! </p>
+        <%= image_tag "homepage/Capture-crowns.PNG" %>
+      </div>
+    </div>
+    <div class="my-3"></div>
+    <div id= "idea-3" class= "idea">
+      <h2>Affrontes les autres héros dans l'arène</h2>
+      <div class="box">
+        <p> Remporte tes combats en développant des compétences uniques pour ton héro</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-5"></div>
+  <div class="learning-description">
+    <h1>Apprendre et se souvenir !</h1>
+    <div class="my-3"></div>
+
+    <div class="three-boxes">
+
+
+      <div class="box">
+        <h2>Un sytème de quizz évolutif</h2>
+        <p>Chaque thématique est classé en sous-thème, au niveau de difficulté croissant</p>
+      </div>
+
+      <div class="box">
+        <h2>Un sytème système de flashcard éprouvé</h2>
+        <p>Basé sur un alogrithme de répétition espacé permettant d'optimiser l'apprentissage et la retention d'information </p>
+      </div>
+
+      <div class="box">
+        <h2>Des astuces et moyens mnémotechnique à découvrir</h2>
+        <p> Pourqoi tout le monde se souvient de la célebre phrase "Mais ou est donc ornicar ?" ... </p>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+<%= render "shared/footer" %>
