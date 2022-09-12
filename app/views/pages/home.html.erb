@@ -1,70 +1,145 @@
+<% banner_classes = 'class = "banner height-100vh"' %>
+
+<% if user_signed_in? %>
+  <% banner_classes = 'class = "banner height-with-navbar"' %>
+  <%= render "shared/navbar" %>
+<% end %>
+
 <div class="home">
-  <div class="banner">
-    <h1>LearnForLife</h1>
-    <p>Apprendre en s'amusant & retenir à vie</p>
-    <button class="btn btn-purple"><%= link_to "commence à apprendre", themes_path %></button>
+  <div <%=banner_classes.html_safe%>>
+    <div class="flex-align">
+      <div class= "site-header">
+        <div class= "text-header">
+          <h1>Learn for Life</h1>
+          <p>Apprendre en s'amusant & retenir à vie</p>
+        </div>
+        <div class="game-images">
+          <%= image_tag "homepage/capture-subtheme.PNG", id: "img1" %>
+          <%= image_tag "homepage/Capture-quizz-level.PNG", id: "img2" %>
+          <%= image_tag "homepage/capture-question.PNG", id: "img3" %>
+          <%= image_tag "homepage/capture-record.PNG", id: "img4" %>
+        </div>
+      </div>
+
+      <% if !user_signed_in? %>
+
+        <div class= "sign-or-log-in">
+          <h2>Log in</h2>
+          <div class="mb-4"></div>
+
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }, html: {class: "design-form"})  do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email,
+                          required: false,
+                          label: false,
+                          placeholder: "email",
+                          autofocus: true,
+                          input_html: { autocomplete: "email" } %>
+              <%= f.input :password,
+                          required: false,
+                          label: false,
+                          placeholder: "Mot de passe",
+                          input_html: { autocomplete: "current-password" } %>
+              <%= f.input :remember_me,  as: :boolean if devise_mapping.rememberable? %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, "Se connecter", class:"btn btn-purple mb-3" %>
+            </div>
+          <% end %>
+          <%= render "devise/shared/links" %>
+        </div>
+      <% else %>
+      <div class = "d-flex flex-column align-items-center sign-or-log-in">
+        <h2 class= "mb-4">Content de te revoir <%=@user.name%> !</h2>
+        <button class= "avatar-container" data-sprite-target= "avatar" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop100">
+          <%= image_tag @user.character.hair, class: "character-hair", "data-sprite-target": "hair" %>
+          <%= image_tag @user.character.head, class: "character-head", "data-sprite-target": "head" %>
+          <%= image_tag @user.character.body, class: "character-body", "data-sprite-target": "body" %>
+        </button>
+        <div class= "mt-4"></div>
+        <button class="btn btn-purple"><%= link_to "Continuer à apprendre", themes_path %></button>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<div class="my-5"></div>
+
 
 <div class="container">
   <div class="rpg-description">
+    <div class="my-5"></div>
     <h1>Une gamification dédiée à l'apprentissage</h1>
+  </div>
+  <div id= "idea-1" class= "idea">
     <div class="my-4"></div>
-    <div id= "idea-1" class= "idea">
-      <h2>Incarne un héro</h2>
-      <div class="box">
-        <p> Choisis tes équipements et personalise ton héro ! </p>
-        <%= image_tag "homepage/Capture-hero.PNG" %>
-      </div>
-    </div>
+    <h2>Incarne un héro</h2>
     <div class="my-3"></div>
-    <div id= "idea-2" class= "idea">
-      <h2>Fais évoluer ton héro</h2>
-      <div class="box">
-        <p> Gagner des couronnes et des sphères de connaissance pour gaugmenter son experience et évoluer à travers les âges ! </p>
-        <%= image_tag "homepage/Capture-crowns.PNG" %>
-      </div>
+    <div class="box">
+      <p> Choisis tes équipements et personalise ton héro ! </p>
+      <%= image_tag "homepage/Capture-perso-full.PNG" %>
     </div>
+  </div>
+  <div id= "idea-2" class= "idea">
+    <div class="my-4"></div>
+    <h2>Fais évoluer ton héro</h2>
     <div class="my-3"></div>
-    <div id= "idea-3" class= "idea">
-      <h2>Affrontes les autres héros dans l'arène</h2>
-      <div class="box">
-        <p> Remporte tes combats en développant des compétences uniques pour ton héro</p>
-      </div>
+    <div class="box">
+      <p> Gagner des couronnes et des sphères de connaissance pour gaugmenter son experience et évoluer à travers les âges ! </p>
+      <%= image_tag "homepage/Capture-crowns.PNG" %>
+    </div>
+  </div>
+  <div class="my-3"></div>
+  <div id= "idea-3" class= "idea">
+    <div class="my-4"></div>
+    <h2>Affrontes les autres héros dans l'arène</h2>
+    <div class="my-3"></div>
+    <div class="box">
+      <p> Remporte tes combats en développant des compétences uniques pour ton héro</p>
     </div>
   </div>
 
-  <div class="my-5"></div>
   <div class="learning-description">
+    <div class="my-5"></div>
     <h1>Apprendre et se souvenir !</h1>
-    <div class="my-3"></div>
-
-    <div class="three-boxes">
-
-
-      <div class="box">
-        <h2>Un sytème de quizz évolutif</h2>
-        <p>Chaque thématique est classé en sous-thème, au niveau de difficulté croissant</p>
-      </div>
-
-      <div class="box">
-        <h2>Un sytème système de flashcard éprouvé</h2>
-        <p>Basé sur un alogrithme de répétition espacé permettant d'optimiser l'apprentissage et la retention d'information </p>
-      </div>
-
-      <div class="box">
-        <h2>Des astuces et moyens mnémotechnique à découvrir</h2>
-        <p> Pourqoi tout le monde se souvient de la célebre phrase "Mais ou est donc ornicar ?" ... </p>
-      </div>
-    </div>
   </div>
 
-
-
+  <div class="my-4"></div>
+  <div id= "idea-1" class= "idea">
+    <div class="my-4"></div>
+    <h2>Un sytème de quizz évolutif</h2>
+    <div class="my-3"></div>
+    <div class="box">
+    <p>Chaque thématique est classé en sous-thème, au niveau de difficulté croissant</p>
+      <%= image_tag "homepage/theme.PNG" %>
+    </div>
+  </div>
+  <div class="my-3"></div>
+  <div id= "idea-2" class= "idea">
+    <div class="my-4"></div>
+    <h2>Un sytème système de flashcard éprouvé</h2>
+    <div class="my-3"></div>
+    <div class="box">
+      <p>Basé sur un alogrithme de répétition espacé permettant d'optimiser l'apprentissage et la retention d'information </p>
+      <%= image_tag "homepage/capture-courbe-retention.PNG" %>
+    </div>
+  </div>
+  <div id= "idea-3" class= "idea">
+    <div class="my-4"></div>
+    <h2>Des astuces et moyens mnémotechnique à découvrir</h2>
+    <div class="my-3"></div>
+    <div class="box">
+      <p> Pourquoi tout le monde se souvient de la célebre phrase "Mais ou est donc ornicar ?" ... </p>
+      <%= image_tag "homepage/Capture-crowns.PNG" %>
+    </div>
+  </div>
 </div>
 
+<div>
+  <div class="my-5"></div>
+  En bref, apprendre mieux, de façon ludique, pour longtemps.
+</div>
 
 
 <%= render "shared/footer" %>
