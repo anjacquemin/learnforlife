@@ -1,11 +1,10 @@
 <% banner_classes = 'class = "banner height-100vh"' %>
-
 <% if user_signed_in? %>
   <% banner_classes = 'class = "banner height-with-navbar"' %>
   <%= render "shared/navbar" %>
 <% end %>
 
-<div class="home" data-controller="home">
+<div class="home" data-controller="home" data-url = <%=user_registration_url%>>
   <div <%=banner_classes.html_safe%>>
     <div class="flex-align">
       <div class= "site-header">
@@ -51,12 +50,11 @@
         </div>
 
       <div class= "sign-or-log-in d-none", data-home-target="signIn">
+        <h2>S'inscrire</h2>
+        <div class="mb-4"></div>
         <%= render "devise/registrations/new" %>
+        <%= render "devise/shared/links", form_type: "sign_in"  %>
       </div>
-
-
-
-
 
       <% else %>
       <div class = "d-flex flex-column align-items-center sign-or-log-in">
