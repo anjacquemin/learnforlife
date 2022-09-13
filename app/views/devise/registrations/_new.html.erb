@@ -1,0 +1,37 @@
+
+<div data-home-target = "form" >
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false, action:"submit->home#registration"}, html: {class: "design-form"}) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :name,
+                  required: true,
+                  label: false,
+                  autofocus: true,
+                  placeholder: "Nom de votre héro",
+                  input_html: {data: {home_target: "name"}}%>
+      <%= f.input :email,
+                  required: true,
+                  label: false,
+                  placeholder: "Email",
+                  autofocus: true,
+                  input_html: { autocomplete: "email", data: {home_target: "email"}}%>
+
+      <%= f.input :password,
+                  required: true,
+                  label: false,
+                  placeholder: "Mot de passe",
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password", data: {home_target: "password"} } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  label: false,
+                  placeholder: "Confirmation",
+                  input_html: { autocomplete: "new-password", data: {home_target: "passwordConfirmation"} } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "S'enregistrer", class:"btn btn-purple mb-3" %>
+    </div>
+  <% end %>
+</div>

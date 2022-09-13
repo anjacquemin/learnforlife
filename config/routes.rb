@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: "pages#home"
+  get root to: "pages#home"
+  devise_for :users, :controllers => {:registrations => "registrations", sessions: "sessions",}
+
+
   resources :themes, only: [:show, :index] do
     resources :flashcards, only: [:index]
   end
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   # post "subtheme/:subtheme_id", to: "subthemes#show"
   get "theme/:theme_id/flashcards/results", to: "flashcards#results"
   get "theme/:theme_id/flashcards/:learn_or_revise", to: "flashcards#index"
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
