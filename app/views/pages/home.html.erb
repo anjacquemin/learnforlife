@@ -5,7 +5,7 @@
   <%= render "shared/navbar" %>
 <% end %>
 
-<div class="home">
+<div class="home" data-controller="home">
   <div <%=banner_classes.html_safe%>>
     <div class="flex-align">
       <div class= "site-header">
@@ -23,8 +23,8 @@
 
       <% if !user_signed_in? %>
 
-        <div class= "sign-or-log-in">
-          <h2>Log in</h2>
+        <div class= "sign-or-log-in", data-home-target="logIn">
+          <h2>Connexion</h2>
           <div class="mb-4"></div>
 
             <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }, html: {class: "design-form"})  do |f| %>
@@ -32,7 +32,7 @@
               <%= f.input :email,
                           required: false,
                           label: false,
-                          placeholder: "email",
+                          placeholder: "Email",
                           autofocus: true,
                           input_html: { autocomplete: "email" } %>
               <%= f.input :password,
@@ -40,15 +40,24 @@
                           label: false,
                           placeholder: "Mot de passe",
                           input_html: { autocomplete: "current-password" } %>
-              <%= f.input :remember_me,  as: :boolean if devise_mapping.rememberable? %>
+              <%= f.input :remember_me, label: "Se souvenir de moi",  as: :boolean if devise_mapping.rememberable? %>
             </div>
 
             <div class="form-actions">
               <%= f.button :submit, "Se connecter", class:"btn btn-purple mb-3" %>
             </div>
           <% end %>
-          <%= render "devise/shared/links" %>
+          <%= render "devise/shared/links", form_type: "log_in"  %>
         </div>
+
+      <div class= "sign-or-log-in d-none", data-home-target="signIn">
+        <%= render "devise/registrations/new" %>
+      </div>
+
+
+
+
+
       <% else %>
       <div class = "d-flex flex-column align-items-center sign-or-log-in">
         <h2 class= "mb-4">Content de te revoir <%=@user.name%> !</h2>

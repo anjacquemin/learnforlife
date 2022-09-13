@@ -27,7 +27,6 @@
 }
 
 .site-header {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,9 +40,9 @@
 
 .game-images {
   position: relative;
-  height: 300px;
+  height: 340px;
   img{
-    height: 100px;
+    height: 140px;
     border: 2px solid $purple;
     border-radius: $border-radius-lg;
   }
@@ -204,6 +203,33 @@
   .idea h2 {
     width: 100%;
   }
+
+  .game-images{
+    height: 300px;
+    img{
+      height: 100px;
+    }
+  }
+
+  #img1 {
+
+  }
+  #img2 {
+    position: absolute;
+    left: 61px;
+    top: 53px;
+  }
+  #img3 {
+    position: absolute;
+    left: 16px;
+    top: 131px;
+  }
+  #img4 {
+    position: absolute;
+    left: 175px;
+    top: 193px;
+  }
+
 }
 
 
