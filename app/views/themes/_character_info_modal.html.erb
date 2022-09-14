@@ -18,12 +18,12 @@
           <div class="my-2"></div>
           <div class="body-category">
             <% @unlocked_hairs.each do |hair| %>
-              <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite", data-type= "hair", data-src= <%=asset_path("/assets/#{hair.img_src}")%> >
+              <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite", data-type= "hair", data-src= <%=asset_path("#{hair.img_src}")%> >
                 <%= image_tag hair.img_src, height: 50, class:"hair-img"  %>
               </button>
             <% end %>
             <% @locked_hairs.each do |hair| %>
-              <div class= "single-item locked", data-type= "hair", data-src= <%=asset_path("/assets/#{hair.img_src}")%> >
+              <div class= "single-item locked", data-type= "hair", data-src= <%=asset_path("#{hair.img_src}")%> >
                 <%= image_tag hair.img_src, height: 50, class:"hair-img"  %>
               </div>
             <% end %>
@@ -31,12 +31,12 @@
           <div class="my-2"></div>
           <div class="body-category">
             <% @unlocked_heads.each do |head| %>
-              <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite", data-type= "head", data-src= <%=asset_path("/assets/#{head.img_src}")%> >
+              <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite", data-type= "head", data-src= <%=asset_path("#{head.img_src}")%> >
                 <%= image_tag head.img_src, height: 50, class:"head-img" %>
               </button>
             <% end %>
             <% @locked_heads.each do |hair| %>
-              <div class= "single-item locked", data-type= "hair", data-src= <%="/assets/#{hair.img_src}"%> >
+              <div class= "single-item locked", data-type= "hair", data-src= <%=asset_path("#{hair.img_src}")%> >
                 <%= image_tag hair.img_src, height: 50, class:"hair-img"  %>
               </div>
             <% end %>
@@ -44,12 +44,12 @@
           <div class="my-2"></div>
           <div class="body-category">
             <% @unlocked_bodies.each do |body| %>
-              <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite", data-type= "body", data-src= <%="/assets/#{body.img_src}"%> >
+              <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite", data-type= "body", data-src= <%=asset_path("#{body.img_src}")%> >
                 <%= image_tag body.img_src, height: 50, class:"body-img" %>
               </button>
             <% end %>
             <% @locked_bodies.each do |hair| %>
-              <div class= "single-item locked", data-type= "hair", data-src= <%="/assets/#{hair.img_src}"%> >
+              <div class= "single-item locked", data-type= "hair", data-src= <%=asset_path("#{hair.img_src}")%> >
                 <%= image_tag hair.img_src, height: 50, class:"hair-img"  %>
               </div>
             <% end %>
