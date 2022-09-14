@@ -13,16 +13,13 @@ class RegistrationsController < Devise::RegistrationsController
       level: Level.find_by(level: 1)
     })
 
-    p "djzai: #{resource}"
-
     resource.save
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        p "ICI"
-        p after_sign_up_path_for(resource)
+        seed_all_records(resource)
         respond_to do |format|
           format.json { render json: { location: after_sign_up_path_for(resource) } }
         end
@@ -37,8 +34,7 @@ class RegistrationsController < Devise::RegistrationsController
       set_minimum_password_length
       # override respond_with resource
       # https://stackoverflow.com/questions/6240141/devise-redirect-on-sign-up-failure
-      p "PAS DE REGISTRATION"
-      flash.now[:alert] = resource.errors.full_messages.join(", ")
+      # flash.now[:alert] = resource.errors.full_messages.join(", ")
       respond_to do |format|
         format.json
       end
@@ -60,4 +56,128 @@ class RegistrationsController < Devise::RegistrationsController
       themes_path
     end
 
+    def seed_all_records(user)
+      character_item_seed(user)
+      character_progress_seed(user)
+    end
+
+    def character_item_seed(user)
+
+      user_character_item = UserCharacterItem.new(
+        user: user,
+        character_item: CharacterItem.find_by(name: "Red long hair"),
+        unlocked: true
+      )
+      user_character_item.save!
+
+      user_character_item = UserCharacterItem.new(
+        user: user,
+        character_item: CharacterItem.find_by(name: "Blond long hair"),
+        unlocked: true
+      )
+      user_character_item.save!
+
+      user_character_item = UserCharacterItem.new(
+        user: user,
+        character_item: CharacterItem.find_by(name: "Black long hair"),
+        unlocked: true
+      )
+      user_character_item.save!
+
+      character_item = CharacterItem.new(
+        item_type: "body",
+        img_src: "sprites/body_black.png",
+        name: "Black body"
+      )
+      character_item.save!
+      user_character_item = UserCharacterItem.new(
+        user: user,
+        character_item: CharacterItem.find_by(name: "Black body"),
+        unlocked: true
+      )
+      user_character_item.save!
+
+      user_character_item = UserCharacterItem.new(
+        user: user,
+        character_item: CharacterItem.find_by(name: "Brown body"),
+        unlocked: true
+      )
+      user_character_item.save!
+
+      user_character_item = UserCharacterItem.new(
+        user: user,
+        character_item: CharacterItem.find_by(name: "Pink body"),
+        unlocked: true
+      )
+      user_character_item.save!
+
+
+      user_character_item = UserCharacterItem.new(
+        user: user,
+        character_item: CharacterItem.find_by(name: "Yellow head"),
+        unlocked: true
+      )
+      user_character_item.save!
+
+      user_character_item = UserCharacterItem.new(
+        user: user,
+        character_item: CharacterItem.find_by(name: "White head"),
+        unlocked: true
+      )
+      user_character_item.save!
+
+
+      character = Character.new(
+        user: user,
+        background: "purple",
+        body: "sprites/body_brown.png",
+        hair: "sprites/long_hair_black.png",
+        head: "sprites/head_white.png"
+      )
+      character.save!
+
+      CharacterItem.all.each do |character_item|
+        if UserCharacterItem.where(user: user).where(character_item: character_item).size == 0
+          user_character_item = UserCharacterItem.new(
+            user: user,
+            character_item: character_item,
+            unlocked: false
+          )
+          user_character_item.save!
+        end
+      end
+    end
+
+    def character_progress_seed(user)
+
+      ThemeLevel.all.each do |theme_level|
+        unlocked = (theme_level.level == 1)
+        theme_level_progress = ThemeLevelProgress.new(user: user, theme_level: theme_level, unlocked: unlocked)
+        theme_level_progress.save!
+      end
+
+      Subtheme.all.each do |subtheme|
+        unlocked = (subtheme.theme_level.level == 1)
+        subtheme_progress = SubthemeProgress.new(user: user, subtheme: subtheme, unlocked: unlocked)
+        subtheme_progress.save!
+      end
+
+      Category.all.each do |category|
+        unlocked = (category.subtheme.theme_level.level == 1)
+        category_progress = CategoryProgress.new(user: user, category: category, unlocked: unlocked)
+        category_progress.save!
+      end
+
+      Quizz.all.each do |quizz|
+        unlocked = (quizz.ordering == 1 && quizz.theme_level.level == 1)
+        quizz_progress = QuizzProgress.new(user: user, quizz: quizz, unlocked: unlocked)
+        quizz_progress.save!
+      end
+
+      QuizzLevel.all.each do |quizz_level|
+        unlocked = (quizz_level.quizz.ordering == 1 && quizz_level.quizz.theme_level.level == 1 && quizz_level.name == "Facile")
+        quizz_level_progress = QuizzLevelProgress.new(user: user, quizz_level: quizz_level, unlocked: unlocked)
+        quizz_level_progress.save!
+      end
+    end
 end

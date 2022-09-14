@@ -2,6 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
+  after_initialize :set_defaults, unless: :persisted?
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -31,9 +34,12 @@ class User < ApplicationRecord
   # device gem handle mail lower case
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 
-  def before_create
-    puts 'BEFORE USER CREATION'
+  def set_defaults
+    self.hp ||= 50
+    self.hp_max ||= 50
+    self.xp ||= 0
+    self.gem ||= 0
+    self.gold ||= 0
   end
-
 
 end

@@ -117,11 +117,11 @@ anthony = User.new(
     email: "anthony@gmail.gmail",
     password: "foobar",
     password_confirmation: "foobar",
-    hp: 45,
+    hp: 50,
     hp_max: 50,
     xp: 0,
-    gem: 12,
-    gold: 1100,
+    gem: 0,
+    gold: 0,
     level: level1
 )
 anthony.save!
@@ -607,16 +607,16 @@ subthemes.each do |subtheme|
             answer = csv_capitale[:capitale]
             image_src = nil
           elsif quizz.category.name == "Drapeaux"
-            p "drapeau"
+            # p "drapeau"
             question = "A quel pays correspond ce drapeau ?"
             answer = csv_capitale[:country]
-            p answer
+            # p answer
             image_src = csv_capitale[:image_src] + ".png"
           elsif quizz.category.name == "Localisation"
-            p "localisation"
+            # p "localisation"
             question = "Quel est ce pays ?"
             answer = csv_capitale[:country]
-            p answer
+            # p answer
             image_src = csv_capitale[:image_src] + ".PNG"
           end
           answer = csv_capitale[:capitale] if !answer
