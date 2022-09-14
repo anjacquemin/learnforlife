@@ -1,14 +1,22 @@
 import { Controller } from "@hotwired/stimulus"
 import { csrfToken } from "@rails/ujs"
+import { Modal } from "bootstrap"
+
 
 
 export default class extends Controller {
 
   // number of circle target = number of subthemes
-  static targets = ["avatar", "head", "hair", "body","headModal", "hairModal", "bodyModal"]
+  static targets = ["avatar", "head", "hair", "body","headModal", "hairModal", "bodyModal", "characterInfo"]
 
   connect() {
     console.log(`hello from controller sprite!!!`)
+    console.log(this.element.dataset.characterInfo)
+    if (this.element.dataset.characterInfo) {
+      console.log("ici")
+      const modal = new Modal(this.characterInfoTarget)
+      modal.show()
+    }
   }
 
   changeUserSprite(event) {

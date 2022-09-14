@@ -1,12 +1,12 @@
-<div data-controller="sprite">
+<div data-controller="sprite" data-character-info = <%=@display_indication%> >
 
-<%= render 'character_banner' %>
-<div class="container">
-  <%= render "quizz_flashcard_all_themes" %>
+  <%= render 'character_banner' %>
+  <div class="container">
+    <%= render "quizz_flashcard_all_themes" %>
+  </div>
+
+  <%= render "character_info_modal" %>
+
 </div>
 
-<%= render "character_info_modal" %>
-
-</div>
-
-    <%= render "shared/footer" %>
+<%= render "shared/footer" %>
