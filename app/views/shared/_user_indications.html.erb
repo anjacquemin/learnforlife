@@ -1,0 +1,14 @@
+<% if @display_indication %>
+  <div class="indications-box" data-controller="indications">
+    <div class="indications">
+        <h2>Essaye de trouver la réponse, puis clique sur "voir la réponse". </h2>
+        <br>
+        <h2>Ensuite auto-évalue toi, en fonction cette carte te sera de nouveau montrer au moment opportun.</h2>
+        <br>
+        <h2>Pour tout savoir sur les flashcards -> clique ici </h2>
+    </div>
+    <div class="x" data-action="click->indications#displayNone">
+      <p>x</p>
+    </div>
+  </div>
+<% end %>
