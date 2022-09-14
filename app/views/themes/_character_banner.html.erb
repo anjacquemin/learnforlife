@@ -1,8 +1,8 @@
 <div class="character-banner">
   <button class= "avatar-container" data-sprite-target= "avatar" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop100">
-    <%= image_tag @user.character.hair, class: "character-hair", "data-sprite-target": "hair" %>
-    <%= image_tag @user.character.head, class: "character-head", "data-sprite-target": "head" %>
-    <%= image_tag @user.character.body, class: "character-body", "data-sprite-target": "body" %>
+    <%= image_tag asset_url(@user.character.hair), class: "character-hair", "data-sprite-target": "hair" %>
+    <%= image_tag asset_url(@user.character.head), class: "character-head", "data-sprite-target": "head" %>
+    <%= image_tag asset_url(@user.character.body), class: "character-body", "data-sprite-target": "body" %>
   </button>
   <div class="character-description">
     <% jc_period = (@user.level.beginning_year < 0 ? "av J-C" : "ap. J-C")  %>

@@ -13,6 +13,7 @@ export default class extends Controller {
     console.log(`hello from controller sprite!!!`)
     console.log(this.element.dataset.characterInfo)
     if (this.element.dataset.characterInfo) {
+      console.log(this.element.dataset.characterInfo)
       console.log("ici")
       const modal = new Modal(this.characterInfoTarget)
       modal.show()
