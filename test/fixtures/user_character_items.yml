@@ -1,0 +1,14 @@
+anthony_character_items_1:
+  user: anthony
+  character_item: character_item_1
+  unlocked: true
+
+anthony_character_items_2:
+  user: anthony
+  character_item: character_item_2
+  unlocked: true
+
+anthony_character_items_3:
+  user: anthony
+  character_item: character_item_3
+  unlocked: true

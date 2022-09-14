@@ -1,5 +1,6 @@
 require "test_helper"
 
+
 class SiteLayoutTest < ActionDispatch::IntegrationTest
 
   def setup
@@ -10,7 +11,6 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "layout links in home page" do
     get root_path
     assert_template 'pages/home'
-    assert_select "a[href=?]", themes_path, count: 2
   end
 
   test "if not logged in, themes path should redirect to sessions new" do

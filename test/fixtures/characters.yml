@@ -1,0 +1,8 @@
+anthony_character:
+  user: anthony
+  body: "sprites/body_black.png"
+  head: "sprites/head_white.png"
+  hair: "sprites/long_hair_black.png"
+  first_set: false
+  background: "sprites/background.png"
+  weapon: "sprites/weapon.png"
