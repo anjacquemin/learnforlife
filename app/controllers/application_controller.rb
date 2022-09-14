@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   require 'will_paginate/array'
+  before_action :first_time_visit, unless: -> { cookies[:first_visit] }
 
   before_action :store_user_location!, if: :storable_location?
   # The callback which stores the current location must be added before you authenticate the user
@@ -21,6 +22,11 @@ class ApplicationController < ActionController::Base
   # end
 
   private
+
+    def first_time_visit
+      cookies.permanent[:first_visit] = 1
+      @first_visit = true
+    end
 
     def skip_pundit?
       devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/

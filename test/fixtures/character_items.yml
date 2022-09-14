@@ -1,0 +1,14 @@
+character_items_1:
+  item_type: "hair"
+  img_src: "hair.src"
+  name: "blond hair"
+
+character_items_2:
+  item_type: "body"
+  img_src: "body.src"
+  name: "white body"
+
+character_items_3:
+  item_type: "head"
+  img_src: "head.src"
+  name: "white head"
