@@ -163,8 +163,8 @@ class RegistrationsController < Devise::RegistrationsController
       end
 
       Category.all.each do |category|
-        unlocked = (category.subtheme.theme_level.level == 1)
-        category_progress = CategoryProgress.new(user: user, category: category, unlocked: unlocked)
+        # unlocked = (category.subtheme.theme_level.level == 1)
+        category_progress = CategoryProgress.new(user: user, category: category, unlocked: false)
         category_progress.save!
       end
 

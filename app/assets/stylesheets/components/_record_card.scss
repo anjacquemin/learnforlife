@@ -164,7 +164,8 @@
 
   }
   .flashcard-number{
-    width: 70px;
+    width: 100px;
+    text-align: end;
     margin-left: 5px;
   }
 }
@@ -293,7 +294,7 @@
   display: flex;
   align-items: center;
   border-radius:$border-radius-lg;
-  padding: 0.3rem 0;
+  padding: 0.1rem 0;
   img{
     height: 20px;
   }
@@ -303,7 +304,7 @@
     text-align: center;
   }
   p {
-    font-size: 20px;
+    font-size: 16px;
     margin: 0;
     font-weight: bold;
   }

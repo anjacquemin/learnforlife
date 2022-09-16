@@ -15,15 +15,6 @@
     </div>
   </div>
   <div class="my-3"></div>
-  <div class="timer">
-    <div class="yellow-container">
-      <p><i class="fa-solid fa-stopwatch"></i></p>
-      <p data-flashcard-answer-target="seconds">00</p>
-      <p class="d-none"data-flashcard-answer-target="tens"></p>
-      <p>s</p>
-    </div>
-  </div>
-  <div class="my-3"></div>
   <div class="container">
     <%@flashcards.each_with_index do |flashcard, index| %>
       <%= render "unique_flashcard", index: index, flashcard: flashcard %>

@@ -13,7 +13,7 @@
 
 .quizz-level-title{
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: center;
   margin-top: 5px;
   .category-quizz, .level-stars{
@@ -27,6 +27,9 @@
   h2{
     font-size: 32px;
     margin: 0 10px;
+  }
+  .stars img {
+    height: 20px;
   }
 }
 
@@ -56,6 +59,11 @@
 }
 
 .questions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(100vh - 230px);
   width: 80%;
   margin: auto;
 }
@@ -144,8 +152,29 @@
 
 }
 
-@media(max-width: 380px) {
+@media(max-width: 570px) {
   .card-question img{
-    width: 320px;
+    // height: 150px;
   }
+
+  .card-question {
+    padding: 10px;
+  }
+
+  .quizz-level-title {
+    h2{
+      font-size: 20px;
+    }
+    img{
+      height: 20px;
+    }
+
+  }
+}
+
+@media ( max-height: 699px ) {
+  .card-question {
+    height: 240px;
+  }
+
 }

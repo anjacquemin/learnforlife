@@ -14,13 +14,24 @@ module RecordsHelper
   end
 
   def findBestAllThemesRecords
-    all_theme_records = BestRecord.all.joins(:theme,record: :user).group("users.name").pluck('users.name, SUM(records.completion), SUM(records.seconds_duration), SUM(records.milliseconds_duration)')
+
+    all_theme_records = BestRecord.all.joins(:theme,record: :user).group("users.name").pluck(
+      Arel.sql(
+        "users.name,
+        SUM(CASE WHEN records.crown_or_sphere = 'sphere' THEN records.completion ELSE 0 END),
+        SUM(CASE WHEN records.crown_or_sphere = 'crown' THEN records.completion ELSE 0 END),
+        SUM(records.seconds_duration),
+        SUM(records.milliseconds_duration)
+        ")
+    )
+
+    # all_theme_records = BestRecord.all.joins(:theme,record: :user).group("users.name").pluck('users.name, SUM(records.completion), SUM(records.seconds_duration), SUM(records.milliseconds_duration)')
 
     all_theme_records.map! do |record|
-      {name: record[0], completion: record[1], seconds_duration: record[2], milliseconds_duration: record[3]}
+      {name: record[0], sphere_completion: record[1], crown_completion: record[2], seconds_duration: record[3], milliseconds_duration: record[4]}
     end
 
-    all_best_theme_records = all_theme_records.sort_by{|record| [-record[:completion], record[:seconds_duration], record[:milliseconds_duration]]}
+    all_best_theme_records = all_theme_records.sort_by{|record| [-record[:sphere_completion], -record[:crown_completion], record[:seconds_duration], record[:milliseconds_duration]]}
   end
 
   def user_ranking(all_best_quizz_records)

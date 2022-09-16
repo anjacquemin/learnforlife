@@ -1,11 +1,10 @@
 <div class="theme-title subtheme-show">
   <div class="quizz-level-title">
     <div class = "category-quizz">
-      <%= cl_image_tag quizz.category.photo.key, height: 40 %>
+      <%= cl_image_tag quizz.category.photo.key, height: 32 %>
       <h2><%= "#{quizz.category.subtheme.name.upcase} - #{quizz.name.upcase}" %></h2>
     </div>
     <div class = "level-stars">
-      <p><%= quizz_level.name.capitalize %></p>
       <%= render "shared/level_stars", level: quizz_level %>
     </div>
   </div>

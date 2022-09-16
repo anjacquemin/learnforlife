@@ -39,14 +39,13 @@
                 <% img_path = "world_localisations" %>
             <% end %>
 
-            <div class="white-container width-none">
-              <%= image_tag "#{img_path}/#{question_answer.image_src}", width: 350 %>
-            </div>
+            <%# <div class="white-container"> %>
+              <%= image_tag "#{img_path}/#{question_answer.image_src}" %>
+            <%# </div> %>
           <% end %>
         </div>
-        <div class="my-5"></div>
         <%# ANSWER DIV %>
-        <div>
+        <div class= "answer-div my-4">
           <% answer_class = (@suggested_question_answers_id ? "class = 'answer'" : 'class = "answer align-answers"')  %>
           <div <%= answer_class.html_safe %>
               data-good-answer-id = <%= question_answer.id %>
