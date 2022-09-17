@@ -286,14 +286,14 @@ sports.save!
 geography_level_1 = ThemeLevel.new(
     name: "niveau 1",
     level: 1,
-    objective: "Débloque les badges Capitales, Localisation et Drapeau pour accéder au NIVEAU 2 geography !",
+    objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux<strong> de niveau 1 pour accéder au <strong>niveau 2 Géographie</strong> !",
     theme: geography)
 geography_level_1.save!
 
 geography_level_2 = ThemeLevel.new(
     name: "Niveau 2",
     level: 2,
-    objective: "Débloque les badges Capitales, Localisation et Drapeau pour accéder au NIVEAU 3 Europe !",
+    objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux<strong> de niveau 2 pour accéder au <strong>niveau 3 Géographie</strong> !",
     theme: geography)
 geography_level_2.save!
 
@@ -301,7 +301,7 @@ geography_level_2.save!
 geography_level_3 = ThemeLevel.new(
     name: "Niveau 3",
     level: 3,
-    objective: "Débloque les badges Capitales, Localisation et Drapeau pour débloquer des sphères de connaissances !",
+    objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux<strong> de niveau 3 pour <strong>collecter des sphères de connaissances niveau 3 Géographie</strong> !",
     theme: geography)
 geography_level_3.save!
 
@@ -387,17 +387,17 @@ anthony_world_progress.save!
 categories = []
 
 subthemes.each do |subtheme|
-  capitale = Category.new(subtheme: subtheme, name: "Capitales", objective: "Obtiens 2 couronnes au quizz 'Capitale #{subtheme.name} Master' niveau moyen pour obtenir le badge capitale")
+  capitale = Category.new(subtheme: subtheme, name: "Capitales", objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>Capitale #{subtheme.name} Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge capitale</strong>")
   capitale.photo.attach(io: File.open(_IMAGE_DIR_ + 'tour-eiffel.png'), filename:"capitale.png")
   capitale.save!
   categories << capitale
 
-  localization = Category.new(subtheme: subtheme, name: "Localisation", objective: "Obtiens 2 couronnes au quizz 'Localisation #{subtheme.name} Master' niveau moyen pour obtenir le badge localisation")
+  localization = Category.new(subtheme: subtheme, name: "Localisation", objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>Localisation #{subtheme.name} Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge localisation</strong>")
   localization.photo.attach(io: File.open(_IMAGE_DIR_ + 'map.png'), filename:"map.png")
   localization.save!
   categories << localization
 
-  flag = Category.new(subtheme: subtheme, name: "Drapeaux", objective: "Obtiens 2 couronnes au quizz 'Drapeaux #{subtheme.name} Master' niveau moyen pour obtenir le badge drapeau")
+  flag = Category.new(subtheme: subtheme, name: "Drapeaux", objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>Drapeaux #{subtheme.name} Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge drapeau</strong>")
   flag.photo.attach(io: File.open(_IMAGE_DIR_ + 'flag.png'), filename:"flag.png")
   flag.save!
   categories << flag
