@@ -15,7 +15,7 @@
       <div class="my-3"></div>
       <div class="card-objective" style='filter: blur(<%=@level_blur%>px)'>
         <%= image_tag "quest2.png" %>
-        <p> <%=theme_level.objective%> </p>
+        <p> <%=theme_level.objective.html_safe%> </p>
       </div>
       <div class="my-3"></div>
       <%= render 'subthemes_display', theme_level: theme_level %>

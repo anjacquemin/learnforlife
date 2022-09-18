@@ -13,15 +13,24 @@
         </div>
         <div class="content">
           <h2><%= subtheme.name %></h2>
-          <div class= "achievement-count" style='filter: blur(<%=@level_blur%>px)'>
-            <%= image_tag "crown.png" %>
-            <% total_subthemes_crowns = subtheme.quizz_levels.count * 3 %>
-            <% user_total_crowns =  subtheme.records.where(user: current_user, crown_or_sphere: "crown").group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
-            <% user_total_spheres =  subtheme.records.where(user: current_user, crown_or_sphere: "sphere").group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
-            <% @user_total = user_total_crowns + user_total_spheres %>
-            <% @completion = (subtheme.quizz_levels.count.zero? ? 0 : (@user_total.to_f / (total_subthemes_crowns) * 100)).round() %>
-            <p> <%= @user_total %> / <%= total_subthemes_crowns %> </p>
-          </div>
+          <% total_subthemes_crowns = subtheme.quizz_levels.joins(:quizz).where(quizz: {crown_or_sphere: "crown"}).count * 3 %>
+          <% total_subthemes_sphere = subtheme.quizz_levels.joins(:quizz).where(quizz: {crown_or_sphere: "sphere"}).count * 3 %>
+          <% user_total_spheres =  subtheme.records.where(user: current_user, crown_or_sphere: "sphere").group(:quizz_level_id).maximum(:completion).sum{|k,v|v} %>
+          <% user_total_crowns =  subtheme.records.where(user: current_user, crown_or_sphere: "crown").group(:quizz_level_id).maximum(:completion).sum{|k,v| v} %>
+          <% @user_total = user_total_crowns + user_total_spheres %>
+          <% @completion = (subtheme.quizz_levels.count.zero? ? 0 : (@user_total.to_f / (total_subthemes_crowns + total_subthemes_sphere) * 100)).round() %>
+          <% if subtheme.quizzs.find_by(crown_or_sphere: "crown") %>
+            <div class= "achievement-count" style='filter: blur(<%=@level_blur%>px)'>
+              <%= image_tag "crown.png" %>
+              <p> <%= user_total_crowns %> / <%= total_subthemes_crowns %> </p>
+            </div>
+          <% end %>
+          <% if subtheme.quizzs.find_by(crown_or_sphere: "sphere") %>
+            <div class= "achievement-count" style='filter: blur(<%=@level_blur%>px)'>
+              <%= image_tag "sphere.png" %>
+              <p> <%= user_total_spheres %> / <%= total_subthemes_sphere %> </p>
+            </div>
+          <% end %>
         </div>
         <div class="circle-container">
           <div class="circle-wrap "

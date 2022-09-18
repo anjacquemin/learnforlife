@@ -286,14 +286,14 @@ sports.save!
 geography_level_1 = ThemeLevel.new(
     name: "niveau 1",
     level: 1,
-    objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux<strong> de niveau 1 pour accéder au <strong>niveau 2 Géographie</strong> !",
+    objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux</strong> de niveau 1 pour accéder au <strong>niveau 2 Géographie</strong> !",
     theme: geography)
 geography_level_1.save!
 
 geography_level_2 = ThemeLevel.new(
     name: "Niveau 2",
     level: 2,
-    objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux<strong> de niveau 2 pour accéder au <strong>niveau 3 Géographie</strong> !",
+    objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux</strong> de niveau 2 pour accéder au <strong>niveau 3 Géographie</strong> !",
     theme: geography)
 geography_level_2.save!
 
@@ -301,7 +301,7 @@ geography_level_2.save!
 geography_level_3 = ThemeLevel.new(
     name: "Niveau 3",
     level: 3,
-    objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux<strong> de niveau 3 pour <strong>collecter des sphères de connaissances niveau 3 Géographie</strong> !",
+    objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux</strong> de niveau 3 pour <strong>collecter des sphères de connaissances niveau 3 Géographie</strong> !",
     theme: geography)
 geography_level_3.save!
 
@@ -550,15 +550,15 @@ categories.each do |category|
 
     if nb_quizz != 1
       (1..nb_quizz).each do |i|
-        quizz = Quizz.new(category: category, name: "QUIZZ #{i}", ordering: i)
+        quizz = Quizz.new(category: category, name: "QUIZZ #{i}", ordering: i, crown_or_sphere: "crown")
         quizz.save!
         quizzs << quizz
       end
-      quizz = Quizz.new(category: category, name: "MASTER", ordering: nb_quizz + 1)
+      quizz = Quizz.new(category: category, name: "MASTER", ordering: nb_quizz + 1, crown_or_sphere: "crown")
       quizz.save!
       quizzs << quizz
     else
-      quizz = Quizz.new(category: category, name: "MASTER", ordering: nb_quizz)
+      quizz = Quizz.new(category: category, name: "MASTER", ordering: nb_quizz, crown_or_sphere: "sphere")
       quizz.save!
       quizzs << quizz
     end
