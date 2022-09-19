@@ -27,8 +27,8 @@
       <p> <%= @user_total %> / <%= total_quizzs_crowns %> </p>
     </div>
   </div>
-  <% data_bs_target = (in_modal ? " " : "data-bs-target='#exampleModal#{quizz.id}'".html_safe)  %>
-  <% data_bs_toggle = (in_modal ? " " : "data-bs-toggle='modal'".html_safe)  %>
+  <% data_bs_target = (in_modal || !@user_quizz_progress_unlocked  ? " " : "data-bs-target='#exampleModal#{quizz.id}'".html_safe)  %>
+  <% data_bs_toggle = (in_modal || !@user_quizz_progress_unlocked ? " " : "data-bs-toggle='modal'".html_safe)  %>
   <button class="ranking"  <%=data_bs_toggle%> <%=data_bs_target%>>
     <h2><%= @user_ranking %><sup>ème</sup></h2>
     <p>/ <%= @best_records_count %></p>
