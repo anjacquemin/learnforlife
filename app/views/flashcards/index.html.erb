@@ -26,4 +26,12 @@
   </div>
 </div>
 
-<%= render "shared/user_indications" %>
+
+<% sentence = "
+  <h2>Essaye de trouver la réponse, puis clique sur \"voir la réponse\". </h2>
+  <br>
+  <h2>Ensuite auto-évalue toi, en fonction, cette carte te sera de nouveau montrer au moment opportun.</h2>
+  <br>
+  <h2>Pour en savoir plus rendez-vous dans la rubrique FAQ </h2>"
+  %>
+<%= render "shared/user_indications", sentece: sentence %>
