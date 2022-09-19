@@ -24,7 +24,7 @@
           <div class = "best-record-display">
             <div class= "user-details">
               <p></p>
-              <p>Utilisateur</p>
+              <p>Héro</p>
             </div>
             <div class= "key-record-results">
               <div>
@@ -45,7 +45,7 @@
           <div <%= class_best_record.html_safe %>>
             <div class= "user-details">
               <p><%= (index + 1) + (offset - 1) * 10 %></p>
-              <h2><%= best_record[:name] %></h2>
+              <p><%= best_record[:name] %></p>
             </div>
             <div class= "key-record-results">
               <p> <%= best_record[:completion] %></p>

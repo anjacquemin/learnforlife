@@ -1,4 +1,4 @@
-<div data-controller="record" data-total-unlock-items = <%=@total_unlocked_items%>>
+<div data-controller="record" data-next-level-xp = <%=@total_unlocked_items%> data-total-unlock-items = <%=@total_unlocked_items%>>
   <%= render 'shared/title_banner', quizz: @record.quizz, quizz_level: @record.quizz_level %>
   <%= render "achievements_calculation" %>
   <div class="my-5"></div>

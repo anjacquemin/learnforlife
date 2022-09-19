@@ -65,4 +65,18 @@
   .progressbar{
     background-color: ($green);
   }
+  z-index: 2;
+  position: relative;
+
+  .unlocked-cadenas{
+    position: absolute;
+    margin: auto;
+    align-self: center;
+    z-index: 4;
+    opacity: 0.5;
+  }
+}
+
+.cancel-flashcard-hovering{
+  pointer-events: none;
 }

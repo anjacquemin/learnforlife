@@ -29,7 +29,8 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX =  /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-  validates :name, presence: true, length: { maximum: 15}
+  #no space for user value
+  validates :name, presence: true, length: { maximum: 10}, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }
 
   # device gem handle mail lower case
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true

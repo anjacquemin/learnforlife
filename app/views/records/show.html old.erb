@@ -50,21 +50,21 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="height: 40px; background-color:black;">
   </div>
 
-  <%# <% @unlocked_items[:quizz_level] = QuizzLevel.first%> %>
+  <%# <% @unlocked_items[:quizz_level] = QuizzLevel.first%>
   <% @count = 0 %>
   <% if @unlocked_items && @unlocked_items[:quizz_level] %>
     <% @count += 1 %>
-    <%= render 'achievement_modal',type: "quizz_level", sentence: "Félicitation, vous avez débloquez le niveau #{@unlocked_items[:quizz_level].name} du quizz #{@unlocked_items[:quizz_level].quizz.name}", quizz:@unlocked_items[:quizz_level].quizz%>
+    <%= render 'achievement_modal',type: "quizz_level", sentence: "Félicitations, vous avez débloquez le niveau #{@unlocked_items[:quizz_level].name} du quizz #{@unlocked_items[:quizz_level].quizz.name}", quizz:@unlocked_items[:quizz_level].quizz%>
   <% end %>
 
   <% if @unlocked_items && @unlocked_items[:quizz] %>
     <% @count += 1 %>
-    <%= render 'achievement_modal', type: "quizz", sentence: "Félicitation, vous avez débloquez le quizz #{@unlocked_items[:quizz].name}", quizz: @unlocked_items[:quizz]%>
+    <%= render 'achievement_modal', type: "quizz", sentence: "Quizz #{@unlocked_items[:quizz].name} débloqué", quizz: @unlocked_items[:quizz]%>
   <% end %>
 
   <% if  @unlocked_items && @unlocked_items[:category] %>
     <% @count += 1 %>
-    <%= render 'achievement_modal', type: "category", sentence: "Félicitation, vous avez terminé tous les quizz #{@unlocked_items[:category].name} de niveau #{@unlocked_items[:category].subtheme.theme_level.name} ! Et avez débloqué #{@unlocked_items[:theme_level].name} de #{@unlocked_items[:theme_level].theme.name}"%>
+    <%= render 'achievement_modal', type: "category", sentence: "Tous les quizz #{@unlocked_items[:category].name} de niveau #{@unlocked_items[:category].subtheme.theme_level.name} terminées !<br> #{@unlocked_items[:theme_level].name} de #{@unlocked_items[:theme_level].theme.name} débloqué !"%>
   <% end %>
 </div>
 

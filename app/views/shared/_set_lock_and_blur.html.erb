@@ -7,6 +7,9 @@
 <% elsif for_ == "quizz_level" %>
   <% @level_blur_style = blur%>
   <% lock_classes += "unlocked-cadenas-md" %>
+<% elsif for_ == "flashcard_theme" %>
+  <% @flashcard_blur_style = blur%>
+  <% lock_classes += "unlocked-cadenas-md" %>
 <% end %>
 
 <%= image_tag "cadenas.png", class:lock_classes %>

@@ -15,15 +15,6 @@
     </div>
   </div>
   <div class="my-3"></div>
-  <div class="timer">
-    <div class="yellow-container">
-      <p><i class="fa-solid fa-stopwatch"></i></p>
-      <p data-flashcard-answer-target="seconds">00</p>
-      <p class="d-none"data-flashcard-answer-target="tens"></p>
-      <p>s</p>
-    </div>
-  </div>
-  <div class="my-3"></div>
   <div class="container">
     <%@flashcards.each_with_index do |flashcard, index| %>
       <%= render "unique_flashcard", index: index, flashcard: flashcard %>
@@ -35,4 +26,12 @@
   </div>
 </div>
 
-<%= render "shared/user_indications" %>
+
+<% sentence = "
+  <h2>Essaye de trouver la réponse, puis clique sur \"voir la réponse\". </h2>
+  <br>
+  <h2>Ensuite auto-évalue toi, en fonction, cette carte te sera de nouveau montrer au moment opportun.</h2>
+  <br>
+  <h2>Pour en savoir plus rendez-vous dans la rubrique FAQ </h2>"
+  %>
+<%= render "shared/user_indications", sentece: sentence %>

@@ -98,4 +98,27 @@
   .all-answers{
     padding: 0;
   }
+
+
+  .progression .xp-gold-ranking .ranking{
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    height: 49px;
+    width: 85px;
+    h2 {
+      font-size: 16px;
+      sup{
+        font-size: 12px;
+      }
+    }
+  }
+
+  .progression .xp-gold-ranking{
+    position: relative;
+  }
+
+  .progression .xp-gold-ranking .xp-gold{
+    width: 100%;
+  }
 }

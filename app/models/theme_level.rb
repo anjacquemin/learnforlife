@@ -12,7 +12,7 @@ class ThemeLevel < ApplicationRecord
 
 
   validates :name, length: { maximum: 10 }
-  validates :objective, length: { maximum: 140 }
+  validates :objective, length: { maximum: 300 }
   validates :level, numericality: { greater_than: 0 }
 
 end

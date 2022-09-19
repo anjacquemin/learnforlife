@@ -12,22 +12,58 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  // min-height: 200px;
+  height: 300px;
+  width: 100%;
   h2{
-    margin-top: 10px;
+    // margin-top: 10px;
     text-align: center;
+    width: 80%;
+  }
+  .white-container {
+    // width: 70%;
+  }
+  img {
+    // height: 80%;
+    border-radius: $border-radius-lg;
+    box-shadow: 0 1px 2px rgba(255, 255, 255, 0.2);
   }
 
+    img {
+      max-height: 80%;
+      max-width: 75%;
+      // height: auto\9; /* ie8 */
+  }
+
+}
+
+.answer-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  width: 50%;
 }
 
 .answer{
   // display: flex;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 40px;
   justify-content: space-evenly;
   width: 50%;
   margin: auto;
   align-items: center;
+  min-height: 180px;
+  height: 100%;
+  // set the height of maximal cell height
+  grid-auto-rows: 1fr;
+  grid-row-gap: 16px;
+  button {
+    height: 100%;
+    max-height: 150px;
+    width: 150px;
+  }
 }
 
 .card-answer{

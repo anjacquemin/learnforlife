@@ -32,7 +32,8 @@
 }
 
 .flashcard .white-container{
-  height: 250px;
+  flex-grow:1;
+  min-height: 100px;
   justify-content: center;
 }
 
@@ -54,7 +55,7 @@
 
 .grid-2-3{
   display: grid;
-  grid-template-columns: 2fr 3fr;;
+  grid-template-columns: 2fr 3fr;
 }
 
 .progression .xp-flashcard .percentage-details{

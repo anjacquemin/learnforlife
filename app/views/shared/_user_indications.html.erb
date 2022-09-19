@@ -1,14 +1,10 @@
-<% if @display_indication %>
+<% if @display_indication == @display_indication %>
   <div class="indications-box" data-controller="indications">
     <div class="indications">
-        <h2>Essaye de trouver la réponse, puis clique sur "voir la réponse". </h2>
-        <br>
-        <h2>Ensuite auto-évalue toi, en fonction cette carte te sera de nouveau montrer au moment opportun.</h2>
-        <br>
-        <h2>Pour tout savoir sur les flashcards -> clique ici </h2>
+      <%= sentence.html_safe %>
     </div>
-    <div class="x" data-action="click->indications#displayNone">
+    <button class="btn x" data-action="click->indications#displayNone">
       <p>x</p>
-    </div>
+    </button>
   </div>
 <% end %>

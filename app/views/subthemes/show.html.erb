@@ -14,7 +14,7 @@
         <div class="my-3"></div>
         <div class="card-objective">
           <%= image_tag "quest2.png" %>
-          <p> <%=category.objective%> </p>
+          <p> <%=category.objective.html_safe%> </p>
         </div>
         <div class="my-3"></div>
         <div class="quizzs-display">
@@ -32,4 +32,5 @@
     </div>
   </div>
 </div>
+
 <%= render "shared/footer" %>
