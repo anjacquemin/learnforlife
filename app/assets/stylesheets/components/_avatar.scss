@@ -1,6 +1,15 @@
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .avatar {
-  width: 40px;
-  border-radius: 50%;
+  font-size: 20px;
+  color: white;
+  &:after{
+    display: none;
+  }
 }
 .avatar-large {
   width: 56px;
