@@ -1,31 +1,47 @@
-
 <div class="themes-list">
   <% @themes.each do |theme| %>
 
     <% total_won_flashcards = current_user.flashcards.select {|flashcard| flashcard.theme == theme}.count %>
     <% total_theme_flashcards = Theme.find(theme.id).question_answers.count%>
+
     <% if for_ == "to_learn" %>
       <% flashcards_count = theme_flashcards_to_learn(theme).count %>
-      <% url = "theme/#{theme.id}/flashcards/learn" %>
+      <% url = "href= theme/#{theme.id}/flashcards/learn" %>
     <% else %>
       <% flashcards_count = theme_flashcards_to_revise(theme).count %>
-      <% url = "theme/#{theme.id}/flashcards/revise" %>
+      <% url = "href= theme/#{theme.id}/flashcards/revise" %>
     <% end %>
-    <a href= <%=url%> >
-      <div class="card-enhanced flashcard">
+
+    <% if total_won_flashcards > 0 %>
+      <% @flashcard_theme_hovering = 'class= "card-enhanced flashcard flashcard-hovering"' %>
+      <% @cancel_hovering = '' %>
+      <% @blur = 0 %>
+    <% else %>
+      <% url = " " %>
+      <% @flashcard_theme_hovering = 'class= "card-enhanced flashcard"' %>
+      <% @cancel_hovering = 'class= "cancel-flashcard-hovering"' %>
+      <% @blur = 2 %>
+    <% end %>
+
+    <a <%=url%> <%=@cancel_hovering.html_safe%>>
+      <div <%=@flashcard_theme_hovering.html_safe%> style='filter: blur(<%=@blur%>px)'>
         <div class="icon">
           <i class="fas fa-atlas"></i>
         </div>
         <div class="content">
-          <h2>Geographie</h2>
+          <h2><%=theme.name%></h2>
           <div class="theme-progress">
             <% percentage_won_flashcards = (total_theme_flashcards != 0 ? (total_won_flashcards.to_f/total_theme_flashcards*100).round(0) : 0)  %>
             <%= render "shared/progress_bar", value: percentage_won_flashcards, display_with: "#{percentage_won_flashcards}%"  %>
           </div>
         </div>
         <div class="flashcard-count">
-          <h2> <%= flashcards_count %>   </h2>
-          <p>à faire</p>
+          <% if total_won_flashcards > 0 %>
+            <h2> <%= flashcards_count %> </h2>
+            <p>à faire</p>
+          <% else %>
+            <%= image_tag "cadenas.png", height: 50, style: "opacity:0.4; blur:3px;" %>
+          <% end %>
         </div>
       </div>
     </a>

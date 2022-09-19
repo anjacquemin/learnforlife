@@ -9,7 +9,7 @@ import { myLoop } from "./_my_loop.js"
 
 export default class extends Controller {
 
-  static targets = ["achievement1", "circle0", "circleDiv0", "records"]
+  static targets = ["achievement1", "circle0", "circleDiv0", "records", "xpDisplay"]
 
   // Modal for new achievement
   // Dynamic progress display
@@ -49,17 +49,22 @@ export default class extends Controller {
 
 }
 
-function newLevelTimingAppearance(modal_div) {
+function newLevelTimingAppearance(modal_div, xpDisplay) {
   if (modal_div.dataset.type === "user_level") {
     const progressbar = modal_div.getElementsByClassName("progressbar")[0]
     console.log(`progressbar${progressbar}`)
     console.log(progressbar)
     const divs_to_display = modal_div.getElementsByClassName("d-none")
+    const xpDisplay = modal_div.getElementsByClassName("xp-display")[0]
+    console.log(`xpDisplay: ${xpDisplay}`)
+    const requiredXp = xpDisplay.dataset.requiredXp
+    console.log(`requiredXp: ${requiredXp}`)
     console.log(`divs to display ${divs_to_display}`)
     console.log(divs_to_display)
     delay(progressbar).then(()=> {
       console.log("in the delay")
       Array.from(divs_to_display).forEach(div => div.classList.remove("d-none"))
+      xpDisplay.innerHTML = `${requiredXp}/${requiredXp}`
     });
   }
 }

@@ -603,12 +603,12 @@ subthemes.each do |subtheme|
           quizz.theme_level.level.to_i == csv_capitale[:theme_level].to_i && quizz.ordering == csv_capitale[:quizz_ordering].to_i)
         if quizz.category.name == "Capitales" || quizz.category.name == "Drapeaux" || quizz.category.name == "Localisation"
           if quizz.category.name == "Capitales"
-            question = "quelle est la capitale de la #{csv_capitale[:country]}"
+            question = "Quelle est la capitale de ce pays : #{csv_capitale[:country].capitalize} ?"
             answer = csv_capitale[:capitale]
             image_src = nil
           elsif quizz.category.name == "Drapeaux"
             # p "drapeau"
-            question = "A quel pays correspond ce drapeau ?"
+            question = "Quel est ce pays ?"
             answer = csv_capitale[:country]
             # p answer
             image_src = csv_capitale[:image_src] + ".png"

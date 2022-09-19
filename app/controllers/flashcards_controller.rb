@@ -9,13 +9,13 @@ class FlashcardsController < ApplicationController
         flashcard.theme == @theme &&
         (flashcard.status == "learning" || flashcard.status == "relearning") &&
         flashcard.day_of_next_repetition < DateTime.current
-      }
+    }.first(10)
     else
       @flashcards = current_user.flashcards.select {|flashcard|
         flashcard.theme == @theme &&
         flashcard.status == "learned" &&
         flashcard.day_of_next_repetition < DateTime.current
-      }
+    }.first(10)
     end
   end
 
@@ -85,14 +85,17 @@ class FlashcardsController < ApplicationController
     @flashcard_dealt_with_count = @flashcard_dealt_with.pluck(:flashcard_id).uniq.count
 
     @gold_win = 0
+    count = 0
 
     @flashcard_dealt_with.each do |flashcard_save|
       unless flashcard_save.dealt_with
         flashcard_save.dealt_with = true
         flashcard_save.save!
-        @gold_win += 1
+        count += 1
       end
     end
+
+    @gold_win = (count < @flashcard_dealt_with_count ? count : @gold_win)
 
     current_user.gold += @gold_win
     current_user.save!

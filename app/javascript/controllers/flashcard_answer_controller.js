@@ -10,28 +10,28 @@ export default class extends Controller {
   connect() {
     console.log(`hello from controller`)
 
-    window.Interval
-    clearInterval(window.Interval);
+    // window.Interval
+    // clearInterval(window.Interval);
 
     // if the user leave the quizz and then come back, only call 1 time setInterval
-    var counter_page_loaded = parseInt(this.element.dataset.stimulusConnectCount);
-    counter_page_loaded ++;
-    this.element.dataset.stimulusConnectCount = counter_page_loaded
+    // var counter_page_loaded = parseInt(this.element.dataset.stimulusConnectCount);
+    // counter_page_loaded ++;
+    // this.element.dataset.stimulusConnectCount = counter_page_loaded
 
-    if (counter_page_loaded === 1) {
-      console.log("fisrt time connected")
-      window.seconds = 0;
-      window.tens = 0;
-      window.appendTens = this.tensTarget;
-      window.appendSeconds = this.secondsTarget;
-      window.Interval = setInterval(startTimer, 10);
-    } else {
-      // if back and force on the page, set all the value to their value
-      window.seconds = parseInt(this.secondsTarget.innerHTML);
-      window.tens = parseInt(this.tensTarget.innerHTML);
-      window.appendTens = this.tensTarget;
-      window.appendSeconds = this.secondsTarget;
-    }
+    // if (counter_page_loaded === 1) {
+    //   console.log("fisrt time connected")
+    //   window.seconds = 0;
+    //   window.tens = 0;
+    //   window.appendTens = this.tensTarget;
+    //   window.appendSeconds = this.secondsTarget;
+    //   window.Interval = setInterval(startTimer, 10);
+    // } else {
+    //   // if back and force on the page, set all the value to their value
+    //   window.seconds = parseInt(this.secondsTarget.innerHTML);
+    //   window.tens = parseInt(this.tensTarget.innerHTML);
+    //   window.appendTens = this.tensTarget;
+    //   window.appendSeconds = this.secondsTarget;
+    // }
   }
 
   seeAnswer(event) {

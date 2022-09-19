@@ -1,8 +1,14 @@
+<% if defined? required_xp %>
+  <% data_required_xp = required_xp %>
+<% else %>
+  <% data_required_xp = "" %>
+<% end %>
+
 <div class="percentage-details">
   <div class="progressbar-wrapper">
     <div class="progressbar theme-completion" style=<%="width:#{value}%"%>></div>
   </div>
   <div>
-    <p><%= display_with %></p>
+    <p class= "xp-display" data-required-xp=<%=data_required_xp%>><%= display_with %></p>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <div class="level_crowns" <%= @level_blur_style %>>
-  <% max_completion = level.records.maximum(:completion) %>
+  <% max_completion = level.records.where(user: current_user).maximum(:completion) %>
   <% max_completion ||= 0 %>
   <%= render "shared/crowns", crown_class: "completed-crown", number: max_completion, level: level %>
   <%= render "shared/crowns", crown_class: "uncompleted-crown", number: 3 - max_completion, level: level%>

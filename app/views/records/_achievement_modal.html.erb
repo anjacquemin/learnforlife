@@ -8,7 +8,7 @@
       <div class="modal-body">
         <h1 class="modal-title" id="staticBackdropLabel">FELICITATIONS !!!</h1>
         <div class="unlock-item-display">
-          <div class="icon">
+          <div class="achievement-icon">
             <% if type == "user_level" %>
               <%= image_tag "level-up.png", height: 100, class: "d-none"%>
               <% to_display = "class='d-none'"%>
@@ -20,7 +20,8 @@
           <% if type == "user_level" %>
             <div class="character-xp">
               <% next_level = Level.find_by(level: @former_level.level + 1) %>
-              <%= render "shared/progress_bar", value: (@former_xp.to_f * 100 / next_level.required_xp).round, display_with: "#{@former_xp}\/#{next_level.required_xp}"   %>
+              <p class="icon"><i class="fa-solid fa-diamond"></i></p>
+              <%= render "shared/progress_bar", value: (@former_xp.to_f * 100 / next_level.required_xp).round, display_with: "#{@former_xp}\/#{next_level.required_xp}", required_xp: next_level.required_xp%>
               <% @former_level = next_level %>
               <% @former_xp = 0 %>
             </div>
@@ -28,7 +29,6 @@
           <div <%= to_display.html_safe %>>
             <p><%= sentence.html_safe %></p>
           </div>
-          <div class= "mb-4"></div>
           <% if type == "quizz" || type == "quizz_level" %>
             <% @user_quizz_progress_unlocked = true %>
             <div class="quizz-card">
@@ -37,8 +37,7 @@
             </div>
           <% elsif type == "category" || type == "theme_level" %>
             <%= cl_image_tag @record.quizz.category.photo.key, height: 100 %>
-          <% elsif type == "user_level" %>
-          <% end %>
+          <% end%>
         </div>
       </div>
       <div class="modal-footer">

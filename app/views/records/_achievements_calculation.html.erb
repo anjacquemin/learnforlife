@@ -3,8 +3,7 @@
 
 <% if  @unlocked_items && @unlocked_items[:user_levels] %>
     <% @unlocked_items[:user_levels].each do |user_level|  %>
-      <% unlocked_category_sentence = "<p> Félicitation !!! </p> <p>Vous gagnez un niveau !! Et passer : \n NIVEAU #{user_level.level}</p>" %>
-      <% unlocked_category_sentence = "<p> Félicitation !!! </p> <p>Vous êtes désormais un #{user_level.social_type}: #{user_level.period} - #{user_level.sub_period}</p>" %>
+      <% unlocked_category_sentence = "<p><strong>Niveau #{user_level.level}</strong> atteint !<br>Nouvelle période : <strong>#{user_level.period} - #{user_level.sub_period}</strong><br>Ton héro évolue et devient un <strong>#{user_level.social_type}</strong></p><p>+ 1 point de vie <i class='fa-solid fa-heart' style='color:red;'></i><br>+ X flashcards Histoire</p>" %>
       <% @count += 1 %>
       <%= render 'achievement_modal', type: "user_level", sentence: unlocked_category_sentence%>
     <% end %>
@@ -12,10 +11,10 @@
 
 
 <% if  @unlocked_items && @unlocked_items[:category] %>
-  <% unlocked_category_sentence = "<p> Félicitation !!! </p> <p>Tous les quizz #{@unlocked_items[:category].name.upcase} de #{@unlocked_items[:category].subtheme.theme_level.name} sont terminés\n</p>" %>
+  <% unlocked_category_sentence = "<p><strong>Tous les quizz #{@unlocked_items[:category].name.upcase} de #{@unlocked_items[:category].subtheme.theme_level.name} sont terminés\n</strong></p>" %>
   <%if @unlocked_items[:theme_level_and_children]  %>
     <%if unlocked_theme_level = @unlocked_items[:theme_level_and_children][:theme_level] %>
-      	<% unlocked_category_sentence += "<p>#{unlocked_theme_level.theme.name.upcase} - #{unlocked_theme_level.name.upcase} débloqué ! </p>" %>
+      	<% unlocked_category_sentence += "<p><strong>#{unlocked_theme_level.theme.name.upcase}</strong> - <strong>#{unlocked_theme_level.name.upcase} débloqué</strong> ! </p>" %>
         <% unlocked_subthemes = @unlocked_items[:theme_level_and_children][:subthemes] %>
         <%= unlocked_category_sentence += " #{unlocked_subthemes.count} nouvelles thématiques : #{unlocked_subthemes.map{|subtheme| subtheme.name}.join(", ")}" %>
         <% @count += 1 %>
@@ -24,7 +23,7 @@
     <%if unlocked_quizz_levels = @unlocked_items[:theme_level_and_children][:quizz_levels] %>
       <% unlocked_quizz_levels.each do |quizz_level| %>
         <% @count += 1 %>
-        <%= render 'achievement_modal',type: "quizz_level", sentence: "<p> Félicitation !!! </p><p>Niveau #{quizz_level.name.upcase} du quizz #{quizz_level.category.name.upcase} - #{quizz_level.quizz.name.upcase}  débloqué</p>", quizz: quizz_level.quizz%>
+        <%= render 'achievement_modal',type: "quizz_level", sentence: "<p>Niveau #{quizz_level.name.upcase} du quizz #{quizz_level.category.name.upcase} - #{quizz_level.quizz.name.upcase} débloqué</p>", quizz: quizz_level.quizz%>
       <% end %>
         <% @challenge_card_sentence = "Essaye le nouveau quizz débloqué" %>
         <% @challenge_card_quizz_to_display = unlocked_quizz_levels.first  %>
@@ -36,7 +35,7 @@
 <% end %>
 <% if @unlocked_items && @unlocked_items[:quizz] %>
   <% @count += 1 %>
-  <%= render 'achievement_modal', type: "quizz", sentence: "<p> Félicitation !!! </p> <p>Quizz #{@unlocked_items[:quizz].category.name.upcase} - #{@unlocked_items[:quizz].name.upcase} débloqué !</p>", quizz: @unlocked_items[:quizz]%>
+  <%= render 'achievement_modal', type: "quizz", sentence: "<p><strong>#{@unlocked_items[:quizz].name.upcase}</strong> débloqué !</p>", quizz: @unlocked_items[:quizz]%>
   <% if !@challenge_card_sentence %>
     <% @challenge_card_sentence = "Essaye le nouveau quizz débloqué" %>
     <% @challenge_card_quizz_to_display =@unlocked_items[:quizz]  %>
@@ -44,7 +43,7 @@
 <% end %>
 <% if @unlocked_items && @unlocked_items[:quizz_level] %>
   <% @count += 1 %>
-  <%= render 'achievement_modal',type: "quizz_level", sentence: "<p> Félicitation !!! </p> <p>Niveau #{@unlocked_items[:quizz_level].name.upcase} du quizz  #{@unlocked_items[:quizz_level].quizz.name.upcase} débloqué !</p>", quizz: @unlocked_items[:quizz_level].quizz%>
+  <%= render 'achievement_modal',type: "quizz_level", sentence: "<p><strong>Niveau #{@unlocked_items[:quizz_level].name.upcase}</strong> du quizz <strong>débloqué</strong> !</p>", quizz: @unlocked_items[:quizz_level].quizz%>
   <% if !@challenge_card_sentence %>
     <% @challenge_card_sentence = "Essaye le nouveau level débloqué" %>
     <% @challenge_card_quizz_to_display = @unlocked_items[:quizz_level].quizz  %>

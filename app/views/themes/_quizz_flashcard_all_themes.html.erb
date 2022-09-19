@@ -27,12 +27,18 @@
       </div>
     </div>
 
-    <div data-theme-index-display-target = "flashcardsToLearnDiv">
-      <%= render "theme_flashcard_card_creation", for_: "to_learn" %>
-    </div>
-    <div class= "d-none" data-theme-index-display-target = "flashcardsToReviseDiv">
-          <%= render "theme_flashcard_card_creation", for_: "toRevise"%>
-    </div>
+    <% if @user.flashcards == 0 %>
+      <div class="white-container">
+        <p>Réalise des quizzs pour débloquer les flashcards associés</p>
+      </div>
+    <% else %>
+      <div data-theme-index-display-target = "flashcardsToLearnDiv">
+        <%= render "theme_flashcard_card_creation", for_: "to_learn" %>
+      </div>
+      <div class= "d-none" data-theme-index-display-target = "flashcardsToReviseDiv">
+        <%= render "theme_flashcard_card_creation", for_: "toRevise"%>
+      </div>
+    <% end %>
 
   </div>
 </div>
