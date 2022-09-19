@@ -19,7 +19,6 @@
         <div>
           <%= image_tag("crown.png") %>
         </div>
-        <p><i class="fa-solid fa-stopwatch"></i></p>
       </div>
     </div>
     <hr class="horizontal-divider-light">
@@ -38,9 +37,6 @@
         <div class= "key-record-results">
           <p> <%= best_record[:sphere_completion] %></p>
           <p> <%= best_record[:crown_completion] %></p>
-          <div class="time-display">
-            <p><%=seconds_to_minutes(best_record[:seconds_duration]) %>s</p>
-          </div>
         </div>
       </div>
       <hr class="horizontal-divider-light">
