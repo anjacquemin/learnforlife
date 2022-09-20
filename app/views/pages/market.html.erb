@@ -1,0 +1,39 @@
+<%= render 'shared/character_banner' %>
+<div class="theme-title theme-show">
+  <h1>Marchand</h1>
+</div>
+<div class="container">
+  <div class="market-banner">
+    <div class="tab active-tab">
+      <h2>Equipements</h2>
+    </div>
+    <div class="tab">
+      <h2>Quêtes</h2>
+    </div>
+  </div>
+
+  <div class="market-type">
+    <% @all_types.each do |type|  %>
+      <div class="title">
+        <h2><%= type %></h2>
+      </div>
+      <% character_items_type = @character_items.select{|e| e.item_type == type}  %>
+      <%# <% character_items_type_bought = character_items_type.select{|e| current_user.user_character_items.find_by(character_item: e).bought}  %>
+      <%# <% character_items_type_unlocked = character_items_type.select{|e| current_user.user_character_items.find_by(character_item: e).unlocked} %>
+      <%# <% character_items_type_locked = character_items_type.select{|e| !current_user.user_character_items.find_by(character_item: e).unlocked} %>
+      <%# <% character_items_type_sorted = character_items_type_unlocked +  character_items_type_bought + character_items_type_locked%>
+      <% img_style = "" %>
+      <div class="container">
+        <div class="items-list">
+          <% character_items_type.each do |character_item| %>
+            <%= render "market-item", item: character_item, type: type %>
+            <%= render "market-item-modal", item: character_item %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= render "shared/character_info_modal" %>
+<%= render "shared/footer" %>

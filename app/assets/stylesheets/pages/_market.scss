@@ -1,0 +1,135 @@
+.market-banner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  overflow: hidden;
+  .active-tab{
+    border-bottom: 3px solid $purple;
+    h2{
+      font-weight: 600;
+    }
+  }
+  h2 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-weight: 300;
+  }
+  .tab {
+    margin: 5px;
+  }
+}
+
+.market-type{
+  .title {
+    display: flex;
+    align-self: start;
+    margin-bottom: 5px;
+    margin-top: 2rem;
+  }
+  h2 {
+    padding: 0 10px;
+    font-size: $purple;
+    font-weight: 600;
+    margin-bottom: 0;
+    padding: 5px;
+    margin-bottom: 5px;
+    color: $purple ;
+    background-color: rgba($purple, 0.1);
+  }
+  .container{
+    height: 400px;
+    background-color: $purple-10;
+    border-radius: $border-radius-lg;
+    display: flex;
+    align-items: center;
+  }
+  .items-list {
+    height: 95%;
+    width: 100%;
+    overflow-y: scroll;
+    background-color: $purple-10;
+    border-radius: $border-radius-lg;
+    margin: 0 5px;
+    padding: 10px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+.items-list::-webkit-scrollbar {
+  display: none;
+}
+
+// item modal display
+
+.perso-flex-column-align{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bourse{
+  p {
+    text-align: center;
+    font-size:20px;
+    font-weight: bold;
+  }
+
+  .gemme, .pieces{
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    p {
+      margin: 0;
+    }
+  }
+  .pieces{
+    img {
+      height: 36px;
+      margin: 0 10px;
+    }
+  }
+  .gemme{
+    p {
+      margin: 0 10px;
+    }
+    img {
+      height: 30px;
+    }
+  }
+}
+
+@media(max-width: 1200px) {
+  .market-type .items-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 992px) {
+  .market-type .items-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+
+@media(max-width: 768px) {
+  .market-type .items-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+@media(max-width: 520px) {
+  .market-type .items-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 370px) {
+  .market-item-card{
+    width: 120px;
+  }
+}
