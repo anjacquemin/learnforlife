@@ -1,4 +1,9 @@
-<div class="subthemes-display">
+<% grid_style="" %>
+<% if theme_level.subthemes.count == 1 %>
+  <% grid_style = 'style= "grid-template-columns: 1fr"' %>
+<% end %>
+
+<div class="subthemes-display" <%= grid_style.html_safe %>>
   <% theme_level.subthemes.each do |subtheme| %>
     <% subtheme_progress = @user.subtheme_progresses.find_by(subtheme: subtheme) %>
     <% @subtheme_unlocked = (subtheme_progress &.unlocked)  %>

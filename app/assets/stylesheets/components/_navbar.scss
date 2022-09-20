@@ -2,10 +2,19 @@
   justify-content: space-between;
   background: $purple;
   height: 50px;
+
   a {
     color: white
   }
+  .dropdown-menu{
+    border-radius: $border-radius-lg;
+    a {
+      color: $purple;
+      font-weight: bold;
+    }
+  }
 }
+
 
 .navbar .navbar-collapse {
   flex-grow: 0;
@@ -18,4 +27,37 @@
 .navbar .pieces, .navbar .gemme{
   display: flex;
   align-items: center;
+  p {
+    margin-right: 15px;
+    margin-left: 5px;
+    color: white;
+    margin-bottom: 0;
+  }
+}
+
+.nav-link:focus, .nav-link:hover, .nav-link:hover {
+  color: white !important;
+  font-weight: bold;
+}
+
+.navbar-brand:focus, .navbar-brand:hover, .navbar-brand:hover {
+  color: white !important;
+}
+
+@media(max-width: 768px){
+  .perso-navbar-lg{
+    display:none
+  }
+  .perso-navbar-sm{
+    display:block
+  }
+}
+
+@media(min-width: 769px){
+  .perso-navbar-lg{
+    display:block
+  }
+  .perso-navbar-sm{
+    display:none
+  }
 }

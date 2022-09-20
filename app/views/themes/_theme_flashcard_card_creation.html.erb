@@ -4,14 +4,6 @@
     <% total_won_flashcards = current_user.flashcards.select {|flashcard| flashcard.theme == theme}.count %>
     <% total_theme_flashcards = Theme.find(theme.id).question_answers.count%>
 
-    <% if for_ == "to_learn" %>
-      <% flashcards_count = theme_flashcards_to_learn(theme).count %>
-      <% url = "href= theme/#{theme.id}/flashcards/learn" %>
-    <% else %>
-      <% flashcards_count = theme_flashcards_to_revise(theme).count %>
-      <% url = "href= theme/#{theme.id}/flashcards/revise" %>
-    <% end %>
-
     <% if total_won_flashcards > 0 %>
       <% @flashcard_theme_hovering = 'class= "card-enhanced flashcard flashcard-hovering"' %>
       <% @cancel_hovering = '' %>
@@ -21,6 +13,24 @@
       <% @flashcard_theme_hovering = 'class= "card-enhanced flashcard"' %>
       <% @cancel_hovering = 'class= "cancel-flashcard-hovering"' %>
       <% @blur = 2 %>
+    <% end %>
+
+    <% if for_ == "to_learn" %>
+      <% flashcards_count = theme_flashcards_to_learn(theme).count %>
+      <% if flashcards_count == 0 %>
+        <% url = " " %>
+        <% @cancel_hovering = 'class= "cancel-flashcard-hovering"' %>
+      <% else %>
+        <%url = "href= theme/#{theme.id}/flashcards/learn"%>
+      <% end %>
+    <% else %>
+      <% flashcards_count = theme_flashcards_to_revise(theme).count %>
+      <% if flashcards_count == 0 %>
+        <% url = " " %>
+        <% @cancel_hovering = 'class= "cancel-flashcard-hovering"' %>
+      <% else %>
+        <% url = "href= theme/#{theme.id}/flashcards/revise" %>
+      <% end %>
     <% end %>
 
     <a <%=url%> <%=@cancel_hovering.html_safe%>>
