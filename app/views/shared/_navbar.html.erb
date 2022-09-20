@@ -8,10 +8,10 @@
               <%= link_to "Marché", market_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "Arène", "#", class: "nav-link" %>
+              <%= link_to "Arène", arene_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-              <%= link_to "FAQ", "#", class: "nav-link" %>
+              <%= link_to "FAQ", faq_path, class: "nav-link" %>
             </li>
           </ul>
         </div>
@@ -30,11 +30,11 @@
             </div>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Marché", market_path, class: "dropdown-item" %>
-              <%= link_to "Arène", "#", class: "dropdown-item" %>
-              <%= link_to "FAQ", "#", class: "dropdown-item" %>
+              <%= link_to "Arène", arene_path, class: "dropdown-item" %>
+              <%= link_to "FAQ", faq_path, class: "dropdown-item" %>
               <hr>
               <%= link_to "Profil", "#", class: "dropdown-item" %>
-              <%= link_to "Avatar", "#", class: "dropdown-item" %>
+              <%= link_to "Avatar", "#", class: "dropdown-item", data: {bs_toggle: "modal", bs_target: "#staticBackdrop100"} %>
               <%= link_to "Succès", "#", class: "dropdown-item" %>
               <hr>
               <%= link_to "Paramètres", "#", class: "dropdown-item" %>

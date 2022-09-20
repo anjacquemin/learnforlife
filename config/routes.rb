@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   get "theme/:theme_id/flashcards/results", to: "flashcards#results"
   get "theme/:theme_id/flashcards/:learn_or_revise", to: "flashcards#index"
   get "market", to: "pages#market"
+  get "faq", to: "pages#faq"
+  get "arene", to: "pages#arene"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
