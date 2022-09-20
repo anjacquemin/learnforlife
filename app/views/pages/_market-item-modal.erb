@@ -1,0 +1,31 @@
+<div class="modal fade record-modal" <%="id= 'exampleModal#{item.id}'".html_safe%> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Marchand</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body perso-flex-column-align pb-0">
+        <%= render "market-item", item: item, type: item.item_type, in_modal: true %>
+        <hr class="horizontal-divider-light middle-margin">
+        <div class="bourse">
+          <p>Ton argent</p>
+          <div class="d-flex">
+            <div class="gemme">
+              <%= image_tag "gemme1.png", height: 20 %>
+              <p><%=current_user.gem%></p>
+            </div>
+            <div class="pieces">
+              <%= image_tag "pieces.png", height: 20 %>
+              <p><%=current_user.gold%></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="horizontal-divider-light middle-margin">
+      <div class="modal-footer pt-0">
+        <%= link_to "Acheter", user_character_item_path(current_user.user_character_items.find_by(character_item: item)), method: :patch, type:"button", class:"btn btn-purple" %>
+      </div>
+    </div>
+  </div>
+</div>

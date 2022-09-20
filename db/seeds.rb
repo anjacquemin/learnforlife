@@ -130,104 +130,121 @@ anthony.save!
 character_item = CharacterItem.new(
   item_type: "hair",
   img_src: "sprites/long_hair_red.png",
-  name: "Red long hair"
+  name: "Red long hair",
+  unlocked_condition: "none",
+  price: 0
 )
 character_item.save!
 user_character_item = UserCharacterItem.new(
   user: anthony,
   character_item: character_item,
-  unlocked: true
+  unlocked: true,
+  bought: false
 )
 user_character_item.save!
 
 character_item = CharacterItem.new(
   item_type: "hair",
   img_src: "sprites/long_hair_blond.png",
-  name: "Blond long hair"
+  name: "Blond long hair",
+  price: 0
 )
 character_item.save!
 user_character_item = UserCharacterItem.new(
   user: anthony,
   character_item: character_item,
-  unlocked: true
+  unlocked: true,
+  bought: false
 )
 user_character_item.save!
 
 character_item = CharacterItem.new(
   item_type: "hair",
   img_src: "sprites/long_hair_black.png",
-  name: "Black long hair"
+  name: "Black long hair",
+  price: 1
 )
 character_item.save!
 user_character_item = UserCharacterItem.new(
   user: anthony,
   character_item: character_item,
-  unlocked: true
+  unlocked: true,
+  bought: false
 )
 user_character_item.save!
 
 character_item = CharacterItem.new(
   item_type: "body",
   img_src: "sprites/body_black.png",
-  name: "Black body"
+  name: "Black body",
+  price: 0
 )
 character_item.save!
 user_character_item = UserCharacterItem.new(
   user: anthony,
   character_item: character_item,
-  unlocked: true
+  unlocked: true,
+  bought: true
 )
 user_character_item.save!
 
 character_item = CharacterItem.new(
   item_type: "body",
   img_src: "sprites/body_brown.png",
-  name: "Brown body"
+  name: "Brown body",
+  price: 0
 )
 character_item.save!
 user_character_item = UserCharacterItem.new(
   user: anthony,
   character_item: character_item,
-  unlocked: true
+  unlocked: true,
+  bought: true
 )
 user_character_item.save!
 
 character_item = CharacterItem.new(
   item_type: "body",
   img_src: "sprites/body_pink.png",
-  name: "Pink body"
+  name: "Pink body",
+  price: 0
 )
 character_item.save!
 user_character_item = UserCharacterItem.new(
   user: anthony,
   character_item: character_item,
-  unlocked: true
+  unlocked: true,
+  bought: true
 )
 user_character_item.save!
 
 character_item = CharacterItem.new(
   item_type: "head",
   img_src: "sprites/head_yellow.png",
-  name: "Yellow head"
+  name: "Yellow head",
+  price: 0
 )
 character_item.save!
 user_character_item = UserCharacterItem.new(
   user: anthony,
   character_item: character_item,
-  unlocked: true
+  unlocked: true,
+  bought: true
 )
 user_character_item.save!
 
 character_item = CharacterItem.new(
   item_type: "head",
   img_src: "sprites/head_white.png",
-  name: "White head"
+  name: "White head",
+  price: 0
 )
 character_item.save!
 user_character_item = UserCharacterItem.new(
   user: anthony,
   character_item: character_item,
-  unlocked: true
+  unlocked: true,
+  bought: false
 )
 user_character_item.save!
 
@@ -235,15 +252,18 @@ user_character_item.save!
 type = ["head", "body", "hair", "weapon"]
 100.times do
   character_item = CharacterItem.new(
-  item_type: type.sample(),
-  img_src: "sprites/head_white.png",
-    name: "White head"
+    item_type: type.sample(),
+    img_src: "sprites/head_white.png",
+    name: "White head",
+    price: [1,2,3,4].sample(),
+    unlocked_condition: "random condition"
   )
   character_item.save!
   user_character_item = UserCharacterItem.new(
     user: anthony,
     character_item: character_item,
-    unlocked: false
+    unlocked: [false,true].sample(),
+    bought: false
   )
   user_character_item.save!
 end

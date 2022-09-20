@@ -1,11 +1,11 @@
 <div data-controller="sprite" data-character-info = <%=@display_indication%> >
 
-  <%= render 'character_banner' %>
+  <%= render 'shared/character_banner' %>
   <div class="container">
     <%= render "quizz_flashcard_all_themes" %>
   </div>
 
-  <%= render "character_info_modal" %>
+  <%= render "shared/character_info_modal" %>
 
 </div>
 
@@ -13,8 +13,8 @@
   <h2>Les quizz te permettent de : </h2>
   <br>
   <p>- Débloquer les flashcards la thématique choisie</p>
-  <p>- Gagner de l'or pour débloquer des bonus</p>
-  <p>- Gagner de l'expérience pour faire évoluer ton héro</p>
+  <p>- Gagner de l'or pour débloquer de nouveaux équipements et acheter des quêtes</p>
+  <p>- Gagner de l'expérience pour faire évoluer ton héro et évoluer à travers les âges</p>
   "
   %>
 <%= render "shared/user_indications", sentence: sentence %>

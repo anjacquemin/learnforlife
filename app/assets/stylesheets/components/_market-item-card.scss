@@ -1,0 +1,49 @@
+.market-item-card{
+  padding:0 !important;
+  justify-self: center;
+  position: relative;
+  height: 160px;
+  width: 140px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  // border: 1px solid $purple;
+  border-radius: $border-radius-lg;
+  box-shadow: 1.95px 1.95px 2.6px rgba(0, 0, 0, 0.15);
+  img{
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+  }
+  p {
+    text-align: center;
+    font-weight: bold;
+    padding: 0 5px 10px;
+    margin: 0;
+  }
+  .price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    background-color: rgba($orange, 0.1);
+    color: $orange;
+    border-radius: 0 0 8px 8px;
+    p {
+      padding-bottom: 0;
+    }
+  }
+  &:hover{
+    border: 1px solid $purple;
+    border-radius: $border-radius-lg;
+    background-color: white;
+  }
+}
+
+
+.modal-body .market-item-card:hover{
+  border: none;
+}

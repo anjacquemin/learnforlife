@@ -5,7 +5,7 @@
         <div class="display-flex perso-navbar-lg ">
           <ul class="navbar-nav me-auto">
             <li class="nav-item">
-              <%= link_to "Marché", "#", class: "nav-link" %>
+              <%= link_to "Marché", market_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to "Arène", "#", class: "nav-link" %>
@@ -20,30 +20,27 @@
             <%= image_tag "gemme1.png", height: 20 %>
             <p><%=current_user.gem%></p>
           </div>
-            <div class="pieces">
-              <%= image_tag "pieces.png", height: 20 %>
-              <p><%=current_user.gold%></p>
+          <div class="pieces">
+            <%= image_tag "pieces.png", height: 20 %>
+            <p><%=current_user.gold%></p>
+          </div>
+          <li class="nav-item navbar-collapse">
+            <div class="avatar dropdown-toggle" id= "navbarDropdown", data-bs-toggle= "dropdown" aria-haspopup = true aria-expanded= false>
+              <i class="fa-solid fa-bars"></i>
             </div>
-            <li class="nav-item navbar-collapse">
-              <div class="avatar dropdown-toggle" id= "navbarDropdown", data-bs-toggle= "dropdown" aria-haspopup = true aria-expanded= false>
-                <i class="fa-solid fa-bars"></i>
-              </div>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Marché", "#", class: "dropdown-item" %>
-                <%= link_to "Arène", "#", class: "dropdown-item" %>
-                <%= link_to "FAQ", "#", class: "dropdown-item" %>
-                <hr>
-                <%= link_to "Profil", "#", class: "dropdown-item" %>
-                <%= link_to "Avatar", "#", class: "dropdown-item" %>
-                <%= link_to "Succès", "#", class: "dropdown-item" %>
-                <hr>
-                <%= link_to "Paramètres", "#", class: "dropdown-item" %>
-                <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, method: "delete", class: "dropdown-item" %>
-              </div>
-
-
-            </li>
-          </ul>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Marché", market_path, class: "dropdown-item" %>
+              <%= link_to "Arène", "#", class: "dropdown-item" %>
+              <%= link_to "FAQ", "#", class: "dropdown-item" %>
+              <hr>
+              <%= link_to "Profil", "#", class: "dropdown-item" %>
+              <%= link_to "Avatar", "#", class: "dropdown-item" %>
+              <%= link_to "Succès", "#", class: "dropdown-item" %>
+              <hr>
+              <%= link_to "Paramètres", "#", class: "dropdown-item" %>
+              <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, method: "delete", class: "dropdown-item" %>
+            </div>
+          </li>
         </div>
       <% else %>
         <ul class="navbar-nav me-auto">

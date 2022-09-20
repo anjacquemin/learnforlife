@@ -15,12 +15,14 @@ Rails.application.routes.draw do
     resources :records, only: [:create]
   end
 
+  resources :user_character_items, only: [:update]
+
   resources :characters, only: [:update]
 
   # post "subtheme/:subtheme_id", to: "subthemes#show"
   get "theme/:theme_id/flashcards/results", to: "flashcards#results"
   get "theme/:theme_id/flashcards/:learn_or_revise", to: "flashcards#index"
-
+  get "market", to: "pages#market"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
