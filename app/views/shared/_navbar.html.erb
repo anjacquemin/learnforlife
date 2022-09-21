@@ -33,9 +33,8 @@
               <%= link_to "Arène", arene_path, class: "dropdown-item" %>
               <%= link_to "FAQ", faq_path, class: "dropdown-item" %>
               <hr>
-              <%= link_to "Profil", "#", class: "dropdown-item" %>
+              <%= link_to "Profil", user_profile_path(current_user), class: "dropdown-item" %>
               <%= link_to "Avatar", "#", class: "dropdown-item", data: {bs_toggle: "modal", bs_target: "#staticBackdrop100"} %>
-              <%= link_to "Succès", "#", class: "dropdown-item" %>
               <hr>
               <%= link_to "Paramètres", "#", class: "dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, method: "delete", class: "dropdown-item" %>

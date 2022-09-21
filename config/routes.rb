@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get root to: "pages#home"
-  devise_for :users, :controllers => {:registrations => "registrations", sessions: "sessions",}
+  devise_for :users, :controllers => {:registrations => "registrations", sessions: "sessions"}
 
+  resources :users do
+    get "profile", to: "pages#profile"
+  end
 
   resources :themes, only: [:show, :index] do
     resources :flashcards, only: [:index]

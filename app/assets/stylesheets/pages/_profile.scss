@@ -1,0 +1,131 @@
+.global-stats{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+
+}
+
+.stat-box {
+  justify-self: center;
+  height: 135px;
+  width: 220px;
+  background-color: rgba($purple, 0.1);
+  border-radius: $border-radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: $purple;
+  img{
+    height: 70px;
+    margin-right: 10px;
+  }
+  .title-number{
+    p {
+      text-align: end;
+      font-size: 32px;
+      font-weight: bold;
+      margin: 0;
+    }
+    h2{
+      text-align: end;
+      width: 100px;
+    }
+  }
+  > p {
+    font-size: 58px;
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+}
+
+.stat-box.green{
+  background-color: rgba($green, 0.1);
+  color: $green;
+  > p {
+    color: $green;
+  }
+}
+
+.stat-box.orange{
+  background-color: rgba($orange, 0.1);
+  color: $orange;
+  > p {
+    color: $orange;
+  }
+}
+
+.success-category{
+  .title {
+    display: flex;
+    align-self: start;
+    margin-bottom: 5px;
+    margin-top: 2rem;
+  }
+  h2 {
+    padding: 0 10px;
+    font-size: $purple;
+    font-weight: 600;
+    margin-bottom: 0;
+    padding: 5px;
+    margin-bottom: 5px;
+    color: $purple ;
+    background-color: rgba($purple, 0.1);
+  }
+  .container{
+    height: 400px;
+    background-color: $purple-10;
+    border-radius: $border-radius-lg;
+    display: flex;
+    align-items: center;
+  }
+  .items-list {
+    height: 95%;
+    width: 100%;
+    overflow-y: scroll;
+    background-color: $purple-10;
+    border-radius: $border-radius-lg;
+    margin: 0 5px;
+    padding: 10px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
+  }
+}
+
+
+@media(max-width: 1200px) {
+  .success-category .items-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 990px){
+  .global-stats{
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 32px;
+  }
+  .success-category .items-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .success-category .items-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 570px){
+  .global-stats{
+    grid-template-columns: 1fr;
+  }
+  .achievement-card {
+    width: 140px;
+  }
+}
+
+@media(max-width: 370px) {
+  .achievement-card{
+    width: 120px;
+  }
+}

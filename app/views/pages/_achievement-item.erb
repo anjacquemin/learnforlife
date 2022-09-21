@@ -1,0 +1,18 @@
+<%user_achievement = @user_profile.user_achievements.find_by(achievement: achievement)%>
+
+<% blur_filter = "" %>
+<% blur_filter = "'filter: blur(1px); opacity:0.3;'" unless  user_achievement.unlocked%>
+
+<div class= "achievement-card">
+  <div class="achievement-badge" style=<%=blur_filter.html_safe %> >
+    <% if achievement.achievement_category == "global" %>
+      <%=image_tag achievement.img_src %>
+    <% else %>
+      <p><%= achievement.img_src.html_safe %></p>
+    <% end %>
+    <p><%=achievement.count%></p>
+  </div>
+  <div class="achievement-name">
+    <p><%=achievement.name %></p>
+  </div>
+</div>

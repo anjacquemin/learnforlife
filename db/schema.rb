@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_19_162624) do
+ActiveRecord::Schema.define(version: 2022_09_21_131242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "achievements", force: :cascade do |t|
     t.string "name"
-    t.text "description"
-    t.integer "xp_to_win"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "achievement_type"
+    t.string "img_src"
+    t.integer "count"
+    t.text "unlocked_conditions"
+    t.text "achievement_category"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -278,6 +281,7 @@ ActiveRecord::Schema.define(version: 2022_09_19_162624) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image_src"
   end
 
   create_table "user_achievements", force: :cascade do |t|
