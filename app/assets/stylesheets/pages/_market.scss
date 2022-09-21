@@ -103,27 +103,27 @@
 }
 
 @media(max-width: 1200px) {
-  .market-type .items-list {
+  .market .items-list {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
 
 @media(max-width: 992px) {
-  .market-type .items-list {
+  .market .items-list {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
 
 @media(max-width: 768px) {
-  .market-type .items-list {
+  .market .items-list {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 
 @media(max-width: 520px) {
-  .market-type .items-list {
+  .market .items-list {
     grid-template-columns: 1fr 1fr;
   }
 }

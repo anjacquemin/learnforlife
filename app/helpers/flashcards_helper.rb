@@ -6,6 +6,13 @@ module FlashcardsHelper
     flashcard.day_of_next_repetition < DateTime.current}
   end
 
+  def all_flashcards_learnt(user)
+    current_user.flashcards.select {|flashcard|
+    (flashcard.status == "learning" ||
+    flashcard.status == "relearning") &&
+    flashcard.interval > 180}
+  end
+
   def theme_flashcards_to_learn(theme)
     current_user.flashcards.includes(:theme).includes(:question_answer).select {|flashcard|
     flashcard.theme == theme &&
@@ -41,7 +48,7 @@ module FlashcardsHelper
     flashcard.status == "learned"}
   end
 
-  def theme_flashcards_ongoing_learning(theme)
+  def theme_flashcards_ongoing_learning(theme, options={})
     current_user.flashcards.select {|flashcard|
     flashcard.theme == theme &&
     (flashcard.status == "learning" ||
