@@ -1,3 +1,6 @@
+<%  total_crowns_and_spheres = userTotalCrownsAndSpheres(@user_profile) %>
+
+
 <%= render 'shared/character_banner' %>
 <div class="theme-title theme-show">
   <h1>Statistiques</h1>
@@ -9,14 +12,14 @@
       <%= image_tag "sphere.png" %>
       <div class="title-number">
         <h2>Sphères gagnées</h2>
-        <p>100</p>
+        <p><%=total_crowns_and_spheres[:sphere_completion] %></p>
       </div>
     </div>
     <div class="stat-box purple">
       <%= image_tag "crown.png" %>
       <div class="title-number">
         <h2>Couronnes gagnées</h2>
-        <p>100</p>
+        <p><%=total_crowns_and_spheres[:crown_completion]%></p>
       </div>
     </div>
 
@@ -24,14 +27,14 @@
       <p><i class="fas fa-copy"></i></p>
       <div class="title-number">
         <h2>Flashcards gagnées</h2>
-        <p>100</p>
+        <p> <%= @user_profile.flashcards.count() %> </p>
       </div>
     </div>
     <div class="stat-box orange">
       <p><i class="fas fa-copy"></i></p>
       <div class="title-number">
         <h2>Flashcards apprises</h2>
-        <p>100</p>
+        <p><%= all_flashcards_learnt(@user_profile).count %></p>
       </div>
     </div>
   </div>
