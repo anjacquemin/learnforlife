@@ -57,11 +57,12 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def seed_all_records(user)
-      character_item_seed(user)
-      character_progress_seed(user)
+      character_items_seed(user)
+      character_progresses_seed(user)
+      character_achievements_seed(user)
     end
 
-    def character_item_seed(user)
+    def character_items_seed(user)
 
       user_character_item = UserCharacterItem.new(
         user: user,
@@ -148,7 +149,7 @@ class RegistrationsController < Devise::RegistrationsController
       end
     end
 
-    def character_progress_seed(user)
+    def character_progresses_seed(user)
 
       ThemeLevel.all.each do |theme_level|
         unlocked = (theme_level.level == 1)
@@ -178,6 +179,13 @@ class RegistrationsController < Devise::RegistrationsController
         unlocked = (quizz_level.quizz.ordering == 1 && quizz_level.quizz.theme_level.level == 1 && quizz_level.name == "Facile")
         quizz_level_progress = QuizzLevelProgress.new(user: user, quizz_level: quizz_level, unlocked: unlocked)
         quizz_level_progress.save!
+      end
+    end
+
+    def character_achievements_seed(user)
+      Achievement.all.each do |achievement|
+        user_achievement = UserAchievement.new(user: user, achievement: achievement, unlocked: false)
+        user_achievement.save!
       end
     end
 end
