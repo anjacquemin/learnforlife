@@ -1,18 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
 import { circleDivTargets, circleTargets } from  "./_circle_targets_constant.js"
+import { Modal } from "bootstrap"
 
 
 export default class extends Controller {
 
   // number of circle target = number of themes
-  static targets = ["themeDiv", "leaderboardDiv"].concat(circleDivTargets).concat(circleTargets)
+  static targets = ["themeDiv", "leaderboardDiv","achievement1"].concat(circleDivTargets).concat(circleTargets)
 
   connect() {
-    console.log(`hello from controller`)
+    console.log(`hello from controller index index`)
     console.log(this.circleDiv0Target)
     console.log(this.circle0Targets)
     console.log(this.circleDiv0Target.dataset.rotate)
-    // this.achievementTarget.modal('show')
     console.log(this.element)
     console.log(this.element.dataset)
     console.log(this.element.dataset.count)
@@ -26,17 +26,15 @@ export default class extends Controller {
 
     myLoop(this, themeCount);
 
+    // Display achievements
+    console.log(`total unlocked achievements : ${this.element.dataset.totalUnlockedAchievements}`)
+    if (this.element.dataset.totalUnlockedAchievements >= 1) {
+      console.log("display modal")
+      console.log(this.achievement1Target)
+      const modal = new Modal(this.achievement1Target)
+      modal.show()
+    }
   }
-
-  displayQuizzsDiv() {
-    console.log("click detected")
-    theme_div = this.themeDivTarget
-    leaderboard_div = this.leaderboardDivTarget
-
-    theme_div.classlist.toggle("d-none")
-    leaderboard_div.classlist.toggle("d-none")
-  }
-
 }
 
 function myLoop(itself, themeCount) {

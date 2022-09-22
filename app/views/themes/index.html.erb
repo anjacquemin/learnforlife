@@ -1,22 +1,28 @@
-<div data-controller="sprite" data-character-info = <%=@display_indication%> >
+<div data-controller="theme-index" data-count = <%=Theme.count%> data-total-unlocked-achievements = <%=@total_unlocked_items%>>
+<%# MODALS TO DISPLAY ACCORDING TO SUCCES %>
+  <% @count = 0 %>
+  <% @unlocked_categories_achievements.values.each do |unlocked_category_achievements| %>
+    <% unlocked_category_achievements.each do |achievement|  %>
+      <% unlocked_achievement_sentence = "<p><strong> Nouveau succes débloqué</strong> atteint !" %>
+      <% @count += 1 %>
+      <%= render 'shared/achievement_modal', type: "achievement", sentence: unlocked_achievement_sentence, achievement: achievement%>
+    <% end %>
+  <% end %>
 
   <%= render 'shared/character_banner' %>
   <div class="container">
     <%= render "quizz_flashcard_all_themes" %>
   </div>
-
   <%= render "shared/character_info_modal" %>
 
+  <% sentence = "
+    <h2>Les quizz te permettent de : </h2>
+    <br>
+    <p>- Débloquer les flashcards la thématique choisie</p>
+    <p>- Gagner de l'or pour débloquer de nouveaux équipements et acheter des quêtes</p>
+    <p>- Gagner de l'expérience pour faire évoluer ton héro et évoluer à travers les âges</p>
+    "
+    %>
+  <%= render "shared/user_indications", sentence: sentence %>
+  <%= render "shared/footer" %>
 </div>
-
-<% sentence = "
-  <h2>Les quizz te permettent de : </h2>
-  <br>
-  <p>- Débloquer les flashcards la thématique choisie</p>
-  <p>- Gagner de l'or pour débloquer de nouveaux équipements et acheter des quêtes</p>
-  <p>- Gagner de l'expérience pour faire évoluer ton héro et évoluer à travers les âges</p>
-  "
-  %>
-<%= render "shared/user_indications", sentence: sentence %>
-
-<%= render "shared/footer" %>
