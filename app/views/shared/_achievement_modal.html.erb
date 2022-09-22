@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade achievement-modal" id=<%="staticBackdrop#{@count}"%> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" data-record-target= <%="achievement#{@count}"%> data-type = <%=type%>  >
+<div class="modal fade achievement-modal" id=<%="staticBackdrop#{@count}"%> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" data-record-target= <%="achievement#{@count}"%> data-theme-index-target= <%="achievement#{@count}"%> data-type = <%=type%>  >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -38,6 +38,9 @@
           <% elsif type == "category" || type == "theme_level" %>
             <%= cl_image_tag @record.quizz.category.photo.key, height: 100 %>
           <% end%>
+          <% if type == "achievement" %>
+            <%= render "pages/achievement-item", achievement: achievement %>
+          <% end %>
         </div>
       </div>
       <div class="modal-footer">

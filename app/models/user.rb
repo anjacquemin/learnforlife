@@ -22,8 +22,8 @@ class User < ApplicationRecord
   has_many :records
   has_many :quizz_answers
   has_many :user_answers
-  has_many :achievements
   has_many :user_achievements, dependent: :destroy
+  has_many :achievements, through: :user_achievements
 
 
 

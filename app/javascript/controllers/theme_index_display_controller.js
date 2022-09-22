@@ -6,7 +6,7 @@ export default class extends Controller {
   static targets = ["themeDiv", "leaderboardDiv","themeTab", "leaderboardTab", "flashcardsToLearnDiv", "flashcardsToReviseDiv", "flashcardsToLearnTab", "flashcardsToReviseTab"]
 
   connect() {
-    console.log(`hello from controller`)
+    console.log(`hello from controller index display`)
   }
 
   displayQuizzsDiv() {
