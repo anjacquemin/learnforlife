@@ -55,7 +55,7 @@
         <div class="badge-progress">
           <% if @subtheme_unlocked %>
             <div class="badge-display">
-              <% subtheme.categories.each do |category| %>
+              <% subtheme.categories.order(:ordering).each do |category| %>
                 <% @category_unlock = current_user.category_progresses.includes([:category]).find_by(category: category) %>
                 <% if @category_unlock &.unlocked %>
                   <% @opacity = 1  %>

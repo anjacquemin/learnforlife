@@ -23,7 +23,7 @@
     <hr class="horizontal-divider-light">
     <% @all_best_themes_records.each_with_index do |best_record, index| %>
       <% background = "" %>
-      <% background = "green-background" if current_user.name == best_record[:user] %>
+      <% background = "green-background" if current_user.id == best_record[:user_id] %>
       <% background = "purple-20-background" if index + 1 == 1 && is_first_page %>
       <% background = "purple-10-background" if index + 1 == 2 && is_first_page %>
       <% background = "purple-5-background" if index + 1 == 3 && is_first_page %>
@@ -31,7 +31,7 @@
       <div <%= class_best_record.html_safe %>>
         <div class= "user-details">
           <p><%= (index + 1) + (offset - 1) * 10 %></p>
-          <p><%= best_record[:name] %></p>
+          <%= link_to "#{User.find(best_record[:user_id]).name}", user_profile_path(best_record[:user_id])%>
         </div>
         <div class= "key-record-results">
           <p> <%= best_record[:sphere_completion] %></p>
@@ -41,6 +41,6 @@
       <hr class="horizontal-divider-light little-margin">
     <% end %>
 
-    <%= will_paginate @all_best_themes_records, "data-action": "click->theme-index-display#cancelScroll", inner_window: 1, outer_window: 1, class: "pagination pagination-enhanced apple_pagination", :previous_label => '←Préc.', :next_label => 'Suiv.→' if @all_best_themes_records%>
+    <%= will_paginate @all_best_themes_records, "data-action": "click->theme-index-display#cancelScroll", inner_window: 1, outer_window: 0, class: "pagination pagination-enhanced apple_pagination", :previous_label => '←Préc.', :next_label => 'Suiv.→' if @all_best_themes_records%>
   </div>
 </div>

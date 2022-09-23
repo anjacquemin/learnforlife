@@ -1,7 +1,7 @@
-<% quizz_levels_records = BestRecord.all.joins(:quizz_level,record: :user).where(quizz_level: {quizz:quizz}).group("users.name").pluck('users.name, SUM(records.completion), SUM(records.seconds_duration), SUM(records.milliseconds_duration)') %>
+<% quizz_levels_records = BestRecord.all.joins(:quizz_level,record: :user).where(quizz_level: {quizz:quizz}).group("users.id").pluck('users.id, SUM(records.completion), SUM(records.seconds_duration), SUM(records.milliseconds_duration)') %>
 
 <% quizz_levels_records.map! do |record| %>
-<% {name: record[0], completion: record[1], seconds_duration: record[2], milliseconds_duration: record[3]} %>
+<% {user_id: record[0], completion: record[1], seconds_duration: record[2], milliseconds_duration: record[3]} %>
 <% end %>
 
 <% @all_best_quizz_records = quizz_levels_records.sort_by{|record| [-record[:completion], record[:seconds_duration], record[:milliseconds_duration]]} %>
@@ -29,7 +29,7 @@
     <hr class="horizontal-divider-light">
     <% @all_best_quizz_records.each_with_index do |best_record, index| %>
       <% background = "" %>
-      <% background = "green-background" if current_user.name == best_record[:user] %>
+      <% background = "green-background" if current_user.id == best_record[:user_id] %>
       <% background = "purple-20-background" if index + 1 == 1 && is_first_page %>
       <% background = "purple-10-background" if index + 1 == 2 && is_first_page %>
       <% background = "purple-5-background" if index + 1 == 3 && is_first_page %>
@@ -37,7 +37,7 @@
       <div <%= class_best_record.html_safe %>>
         <div class= "user-details">
           <p><%= (index + 1) + (offset - 1) * 10 %></p>
-          <p><%= best_record[:name] %></p>
+          <%= link_to "#{User.find(best_record[:user_id]).name}", user_profile_path(best_record[:user_id])%>
         </div>
         <div class= "key-record-results">
           <p> <%= best_record[:completion] %></p>

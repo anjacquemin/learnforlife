@@ -5,7 +5,7 @@
 
   <div class="container subtheme-show">
     <div class="category">
-      <% @subtheme.categories.includes([:photo_attachment]).includes([photo_attachment: :blob]).each do |category| %>
+      <% @subtheme.categories.order(:ordering).includes([:photo_attachment]).includes([photo_attachment: :blob]).each do |category| %>
         <div class="my-3"></div>
         <div class="category-separator">
           <%= cl_image_tag category.photo.key, height: 30 %>
