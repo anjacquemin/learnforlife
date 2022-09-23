@@ -98,6 +98,8 @@ fr:
         unhappy?: "Pas content(e) ?"
         are_you_sure?: "Êtes-vous sûr ?"
         back: "Retour"
+      user:
+        destroyed: "Compte supprimé"
     unlocks:
       new:
         resend_unlock_instructions: "Renvoyez le mail pour déverrouiller mon compte"
