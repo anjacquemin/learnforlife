@@ -79,7 +79,7 @@ class FlashcardsController < ApplicationController
 
   def results
     @theme = Theme.find(params[:theme_id])
-    @flashcards = current_user.flashcards.includes([:question_answer]).includes([:flashcard_saves]).select {|flashcard| flashcard.theme == @theme}
+    @flashcards = current_user.flashcards.includes([:question_answer]).includes([:theme]).includes([:flashcard_saves]).select {|flashcard| flashcard.theme == @theme}
     authorize (@flashcards.first)
     @flashcard_dealt_with = current_user.flashcard_saves.select{ |flashcard_save| !flashcard_save.dealt_with }
     @flashcard_dealt_with_count = @flashcard_dealt_with.pluck(:flashcard_id).uniq.count

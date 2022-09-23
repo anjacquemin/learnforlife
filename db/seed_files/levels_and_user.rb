@@ -79,16 +79,16 @@ module LevelAndUserSeed
     }
 
     anthony = User.new(
-    name: "anthony",
-    email: "anthony@gmail.gmail",
-    password: "foobar",
-    password_confirmation: "foobar",
-    hp: 50,
-    hp_max: 50,
-    xp: 0,
-    gem: 0,
-    gold: 0,
-    level: level1
+      name: "anthony",
+      email: "anthony@gmail.gmail",
+      password: "foobar",
+      password_confirmation: "foobar",
+      hp: 50,
+      hp_max: 50,
+      xp: 0,
+      gem: 0,
+      gold: 0,
+      level: level1
     )
     anthony.save!
 
@@ -233,7 +233,6 @@ module LevelAndUserSeed
       )
       user_character_item.save!
     end
-
 
     character = Character.new(
       user: anthony,

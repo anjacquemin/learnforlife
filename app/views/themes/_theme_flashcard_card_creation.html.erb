@@ -1,7 +1,7 @@
 <div class="themes-list">
   <% @themes.each do |theme| %>
 
-    <% total_won_flashcards = current_user.flashcards.select {|flashcard| flashcard.theme == theme}.count %>
+    <% total_won_flashcards = current_user.flashcards.includes([:theme]).select {|flashcard| flashcard.theme == theme}.count %>
     <% total_theme_flashcards = Theme.find(theme.id).question_answers.count%>
 
     <% if total_won_flashcards > 0 %>
