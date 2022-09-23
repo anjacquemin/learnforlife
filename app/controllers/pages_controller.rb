@@ -16,6 +16,9 @@ class PagesController < ApplicationController
   def arene
   end
 
+  def parameters
+  end
+
   def profile
     @user_profile = User.find(params[:user_id])
   end
