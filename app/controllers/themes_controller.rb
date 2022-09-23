@@ -18,13 +18,13 @@ class ThemesController < ApplicationController
         crowns: total_crowns
       }
       theme_achievements = unlocked_theme_achievements_calculation(theme, @themes_stats[theme.name.to_sym])
-      # @total_unlocked_items += theme_achievements.size
-      # @unlocked_categories_achievements[theme.name.to_sym] = theme_achievements unless theme_achievements.size.zero?
+      @total_unlocked_items += theme_achievements.size
+      @unlocked_categories_achievements[theme.name.to_sym] = theme_achievements unless theme_achievements.size.zero?
     end
 
-    # global_achievements = unlocked_global_achievements_calculation(@themes_stats)
-    # @unlocked_categories_achievements[:global] = global_achievements unless global_achievements.size.zero?
-    # @total_unlocked_items += global_achievements.size
+    global_achievements = unlocked_global_achievements_calculation(@themes_stats)
+    @unlocked_categories_achievements[:global] = global_achievements unless global_achievements.size.zero?
+    @total_unlocked_items += global_achievements.size
 
     respond_to do |format|
       format.html
