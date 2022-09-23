@@ -39,4 +39,4 @@
    <hr class="horizontal-divider-light little-margin">
  <% end %>
 </div>
-<%= will_paginate @all_best_records.paginate(page: params[:page], per_page: 10),  "data-action": "click->record#cancelScroll", inner_window: 1, outer_window: 1, class: "pagination pagination-enhanced apple_pagination", :previous_label => '←Préc.', :next_label => 'Suiv.→' %>
+<%= will_paginate @all_best_records.paginate(page: params[:page], per_page: 10),  "data-action": "click->record#quizzLeaderboard", inner_window: 1, outer_window: 1, class: "pagination pagination-enhanced apple_pagination", :previous_label => '←Préc.', :next_label => 'Suiv.→' %>

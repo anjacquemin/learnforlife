@@ -49,6 +49,6 @@
       </div>
       <hr class="horizontal-divider-light">
     <% end %>
-    <%= will_paginate @all_best_quizz_records,  "data-action": "click->subtheme-show#cancelScroll","data-quizz": quizz.id, inner_window: 1, outer_window: 1, class: "pagination pagination-enhanced apple_pagination", :previous_label => '←Préc.', :next_label => 'Suiv.→' if @all_best_quizz_records%>
+    <%= will_paginate @all_best_quizz_records,  "data-action": "click->#{js_controller}#cancelScroll","data-quizz": quizz.id, inner_window: 1, outer_window: 1, class: "pagination pagination-enhanced apple_pagination", :previous_label => '←Préc.', :next_label => 'Suiv.→' if @all_best_quizz_records%>
   </div>
 </div>

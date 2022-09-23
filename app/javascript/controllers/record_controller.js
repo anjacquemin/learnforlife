@@ -14,7 +14,7 @@ export default class extends Controller {
   // Modal for new achievement
   // Dynamic progress display
   connect() {
-    console.log(`hello from controller`)
+    console.log(`hello from controller record`)
     if (this.element.dataset.totalUnlockItems >= 1) {
       const modal = new Modal(this.achievement1Target)
       modal.show()
@@ -26,7 +26,7 @@ export default class extends Controller {
     myLoop(this, 1);
   }
 
-  cancelScroll(event) {
+  quizzLeaderboard(event) {
     event.preventDefault()
     console.log(event.target)
     fetch(event.target.href, {
@@ -37,6 +37,38 @@ export default class extends Controller {
       .then((data) => {
         if (data.inserted_item) {
           this.recordsTarget.innerHTML = data.inserted_item
+        }
+      })
+  }
+
+  cancelScroll(event) {
+    event.preventDefault()
+    console.log("CANCEL scroll")
+    // document.location.reload(true)
+    // event.stopPropagation()
+    console.log(event.target)
+    console.log(event.target.parentElement.parentElement.parentElement)
+
+    const quizz_id = event.target.parentElement.parentElement.parentElement.dataset.quizz
+    console.log("quizz id")
+    console.log(quizz_id)
+
+    // Need to also give the quizz number in the URL
+
+    fetch(`${event.target.href}&quizz_id=${quizz_id}`, {
+      method: "GET",
+      headers: { "Accept": "application/json", "X-CSRF-Token": csrfToken() },
+    })
+      .then(response => response.json())
+      .then((data) => {
+        console.log("data received")
+        console.log(data)
+        if (data.inserted_item) {
+          console.log(this.element)
+          console.log(data.inserted_item)
+          const openned_modal = document.getElementById(`exampleModal${data.quizz_id}`)
+          const modal_body = openned_modal.getElementsByClassName('modal-body')[0]
+          modal_body.innerHTML = data.inserted_item
         }
       })
   }

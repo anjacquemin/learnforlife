@@ -50,7 +50,15 @@ class RecordsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json
+      if params[:quizz_id]
+        # Called by leaderboard pagination from challenge card (with quizz name)
+        @quizz_id = params[:quizz_id]
+        @quizz = Quizz.find(@quizz_id)
+        format.json {render 'quizz_leaderboard'}
+      else
+        # called by leaderboard card
+        format.json {render 'level_leaderboard'}
+      end
     end
 
   end
