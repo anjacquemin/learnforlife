@@ -187,6 +187,9 @@
 
   .white-container {
     margin: 10px 0;
+    max-height: 300px;
+    overflow-y: scroll;
+    justify-content: start;
   }
 }
 
