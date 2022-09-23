@@ -10,7 +10,7 @@
         <%= render "shared/card_display", quizz: @challenge_card_quizz_to_display, in_modal: false %>
         <%= render "shared/level_display", quizz: @challenge_card_quizz_to_display, in_modal: false %>
       </div>
-      <%= render "shared/quizz_records_modal", quizz: @challenge_card_quizz_to_display %>
+      <%= render "shared/quizz_records_modal", quizz: @challenge_card_quizz_to_display, js_controller: "record" %>
     </div>
   </div>
 </div>

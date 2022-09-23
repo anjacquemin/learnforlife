@@ -8,10 +8,10 @@ class SubthemesController < ApplicationController
           @user = current_user
         }
         format.json {
-          @subtheme = Subtheme.find(params[:subtheme_id])
+          @subtheme = Subtheme.find(params[:id])
           authorize(@subtheme)
-          data = JSON.parse(params["json"])
-          p data["quizz_id"]
+          @quizz_id = params[:quizz_id]
+          @quizz = Quizz.find(@quizz_id)
         }
       end
 

@@ -12,6 +12,7 @@ require File.expand_path('../seed_files/levels_and_user', __FILE__)
 require File.expand_path('../seed_files/themes', __FILE__)
 require File.expand_path('../seed_files/quizzs', __FILE__)
 require File.expand_path('../seed_files/achievements', __FILE__)
+require File.expand_path('../seed_files/mass_user', __FILE__)
 
 
 UserAchievement.destroy_all
@@ -47,8 +48,10 @@ QuizzSeed::seed
 p "end quizzs seed"
 
 AchievementSeed::seed
-p "end quizzs seed"
+p "end achievements seed"
 
+MassUserSeed::seed
+p "end mass user seed"
 
 
 # SPECIAL INFO FOR ANTHONY USER

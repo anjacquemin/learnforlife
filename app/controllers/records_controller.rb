@@ -22,6 +22,10 @@ class RecordsController < ApplicationController
 
     @all_best_records = BestRecord.where(quizz_level: quizz_level).joins(:record).order(completion: :desc, seconds_duration: :asc, milliseconds_duration: :asc)
 
+    @user_ranking = @all_best_records.index{ |best_record| best_record.record.user == current_user} + 1
+
+    @all_records_count =  @all_best_records.count
+
     @all_best_records = @all_best_records.paginate(page: params[:page], per_page: 10)
 
     @xp_win = xp_win_calculation(@record, @is_new_record, quizz_level)
@@ -46,7 +50,15 @@ class RecordsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json
+      if params[:quizz_id]
+        # Called by leaderboard pagination from challenge card (with quizz name)
+        @quizz_id = params[:quizz_id]
+        @quizz = Quizz.find(@quizz_id)
+        format.json {render 'quizz_leaderboard'}
+      else
+        # called by leaderboard card
+        format.json {render 'level_leaderboard'}
+      end
     end
 
   end

@@ -23,10 +23,11 @@ export default class extends Controller {
     console.log("quizz id")
     console.log(quizz_id)
 
-    fetch(event.target.href, {
-      method: "POST",
+    // Need to also give the quizz number in the URL
+
+    fetch(`${event.target.href}&quizz_id=${quizz_id}`, {
+      method: "GET",
       headers: { "Accept": "application/json", "X-CSRF-Token": csrfToken() },
-      body: dataBuilding(quizz_id)
     })
       .then(response => response.json())
       .then((data) => {
@@ -35,10 +36,8 @@ export default class extends Controller {
         if (data.inserted_item) {
           console.log(this.element)
           console.log(data.inserted_item)
-          const openned_modal = this.element.getElementsByClassName('modal show')
-          console.log(openned_modal)
-          console.log(openned_modal[0].getElementsByClassName('modal-body')[0])
-          const modal_body = openned_modal[0].getElementsByClassName('modal-body')[0]
+          const openned_modal = document.getElementById(`exampleModal${data.quizz_id}`)
+          const modal_body = openned_modal.getElementsByClassName('modal-body')[0]
           modal_body.innerHTML = data.inserted_item
         }
       })

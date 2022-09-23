@@ -4,7 +4,6 @@
 <% @all_best_themes_records = @all_best_themes_records.paginate(page: params[:page], per_page: 10) %>
 <% offset = (params[:page] ? params[:page].to_i : 1) %>
 <% is_first_page = !params[:page] || params[:page] == "1"  %>
-
 <div class="themes-list">
   <div class="white-container height-100-no-justify">
     <div class = "best-record-display">
@@ -39,9 +38,9 @@
           <p> <%= best_record[:crown_completion] %></p>
         </div>
       </div>
-      <hr class="horizontal-divider-light">
+      <hr class="horizontal-divider-light little-margin">
     <% end %>
 
-    <%= will_paginate @all_best_themes_records,  "data-action": "click->theme-index-display#cancelScroll", class: "pagination pagination-enhanced", :previous_label => '←Précédent', :next_label => 'Suivant→' if @all_best_themes_records%>
+    <%= will_paginate @all_best_themes_records, "data-action": "click->theme-index-display#cancelScroll", inner_window: 1, outer_window: 1, class: "pagination pagination-enhanced apple_pagination", :previous_label => '←Préc.', :next_label => 'Suiv.→' if @all_best_themes_records%>
   </div>
 </div>
