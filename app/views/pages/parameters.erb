@@ -1,0 +1,67 @@
+<div class="theme-title theme-show">
+  <h1>Paramètres</h1>
+</div>
+
+<div class="container parameters">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="my-5"></div>
+      <div class="title">
+        <h2>Modifier mes données de connexion</h2>
+      </div>
+      <div class="parameter-container">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class:"my-3" }) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email,
+                      required: true,
+                      label: false,
+                      placeholder: "Nouveau email",
+                      autofocus: true %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+
+          <%= f.input :password,
+                      hint: "Ne pas remplir si tu nouhaites pas le modifier",
+                      required: false,
+                      label: false,
+                      placeholder: "Nouveau mot de passe",
+                      input_html: { autocomplete: "Nouveau mot de passe" } %>
+          <%= f.input :password_confirmation,
+                      required: false,
+                      label: false,
+                      hint: "Ne pas remplir si tu nouhaites pas le modifier",
+                      placeholder: "Confirmation du nouveau mot de passe",
+                      input_html: { autocomplete: "Confirmation" } %>
+          <%= f.input :current_password,
+                      hint: "Mot de passe actuel nécessaire pour effectuer le changement",
+                      required: true,
+                      label: false,
+                      placeholder: "Mot de passe actuel",
+                      input_html: { autocomplete: "Mot de passe actuel" } %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Mettre à jour", class: "btn btn-purple" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="my-5"></div>
+      <div class="title">
+        <h2>Mon compte</h2>
+      </div>
+      <div class="parameter-container">
+        <div class="d-flex align-items-center my-3">
+          <div class="pe-5">Supprimer mon compte?</div>
+          <%= link_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr de vouloir supprimer le compte et perdre l'ensemble de votre progression ?" }, method: :delete, class: "btn btn-red btn-big-width" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

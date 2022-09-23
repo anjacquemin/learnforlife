@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get "market", to: "pages#market"
   get "faq", to: "pages#faq"
   get "arene", to: "pages#arene"
+  get "parameters", to: "pages#parameters"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
