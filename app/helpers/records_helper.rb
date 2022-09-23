@@ -15,9 +15,9 @@ module RecordsHelper
 
   def findBestAllThemesRecords
 
-    all_theme_records = BestRecord.all.joins(:theme,record: :user).group("users.name").pluck(
+    all_theme_records = BestRecord.all.joins(:theme,record: :user).group("users.id").pluck(
       Arel.sql(
-        "users.name,
+        "users.id,
         SUM(CASE WHEN records.crown_or_sphere = 'sphere' THEN records.completion ELSE 0 END),
         SUM(CASE WHEN records.crown_or_sphere = 'crown' THEN records.completion ELSE 0 END),
         SUM(records.seconds_duration),
@@ -28,7 +28,7 @@ module RecordsHelper
     # all_theme_records = BestRecord.all.joins(:theme,record: :user).group("users.name").pluck('users.name, SUM(records.completion), SUM(records.seconds_duration), SUM(records.milliseconds_duration)')
 
     all_theme_records.map! do |record|
-      {name: record[0], sphere_completion: record[1], crown_completion: record[2], seconds_duration: record[3], milliseconds_duration: record[4]}
+      {user_id: record[0], sphere_completion: record[1], crown_completion: record[2], seconds_duration: record[3], milliseconds_duration: record[4]}
     end
 
     all_best_theme_records = all_theme_records.sort_by{|record| [-record[:sphere_completion], -record[:crown_completion], record[:seconds_duration], record[:milliseconds_duration]]}
