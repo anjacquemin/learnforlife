@@ -221,7 +221,7 @@ module AchievementSeed
         )
       achievement_1.save!
       achievement_1 = Achievement.new(
-        name: "Savoir #{theme.name} de niveau 4",
+        name: "#{theme.name} MASTER",
         unlocked_conditions: "Obtenir 100% des sphères de connaissance de la thématique #{theme.name}",
         achievement_type: "sphere_percentage",
         achievement_category: theme.name,
@@ -229,6 +229,23 @@ module AchievementSeed
         count: "100%"
         )
       achievement_1.save!
+
+      p "categorry seed"
+      theme.categories.select(:name).distinct.each do |category|
+        p "category #{category}"
+        p "category #{category.name}"
+        p "category #{category.photo.key}"
+        achievement_1 = Achievement.new(
+          name: "#{category.name} MASTER",
+          unlocked_conditions: "Obtenir tous les badges #{category.name} de la thématique #{theme.name}",
+          achievement_type: "category",
+          achievement_category: theme.name,
+          img_src: "#{category.name}",
+          count: "100%"
+          )
+        achievement_1.save!
+      end
+
     end
 
     Achievement.all.each do |achievement|

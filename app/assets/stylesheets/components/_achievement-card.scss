@@ -8,11 +8,15 @@
   align-items: center;
   justify-content: space-between;
   border-radius: $border-radius-lg;
-  img{
+  .global-achievement-img{
     height: 40px;
   }
+  .theme-achievement-img{
+    height: 20px;
+    margin-bottom: 5px;
+  }
   i {
-    font-size: 40px;
+    font-size: 30px;
   }
   p {
     text-align: center;
