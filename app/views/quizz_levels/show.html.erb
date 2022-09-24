@@ -15,8 +15,8 @@
   <div class="my-3"></div>
   <div class="display-record-time">
     <div class="current-record">
-      <% user_record = BestRecord.where(quizz_level: @quizz_level).joins(:record).where(record: {user: current_user}).first.record %>
-      <% if user_record %>
+      <% best_record = BestRecord.where(quizz_level: @quizz_level).joins(:record).where(record: {user: current_user}).first %>
+      <% if user_record = best_record&.record %>
         <div class="crown-display">
           <%= render "shared/crowns", crown_class: "completed-crown", number: user_record.completion, level: @quizz_level %>
           <%= render "shared/crowns", crown_class: "uncompleted-crown", number: 3-user_record.completion, level: @quizz_level %>
