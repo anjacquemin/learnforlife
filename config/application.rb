@@ -25,6 +25,6 @@ module Learnforlife
     # config.eager_load_paths << Rails.root.join("extras")
     # config.i18n.available_locales = :en
     config.i18n.default_locale = :fr
-    config.i18n.available_locales = :fr
+    config.i18n.available_locales = :fr, :en
   end
 end

@@ -41,7 +41,6 @@ class RecordsController < ApplicationController
       user_levels_unlocked = leveling_calculation(@xp_win)
       user_levels_unlocked_count = user_levels_unlocked.size
       @unlocked_items[:user_levels] = user_levels_unlocked if user_levels_unlocked_count > 0
-      puts "end of level calculation : #{user_levels_unlocked}"
       @record.dealt_with = true
       @record.save!
     end
@@ -69,54 +68,66 @@ class RecordsController < ApplicationController
   def create
     user = current_user
     data = JSON.parse(params["json"])
-    puts ("received data in method crete/records : #{data}")
     quizz_answer_id = data["quizz_answer_id"].to_i
-    seconds_duration = data["final_time_seconds"]
-    milliseconds_duration = data["final_time_tens"]
-    quizz_level = QuizzAnswer.find(quizz_answer_id).quizz_level
+    # seconds_duration = data["final_time_seconds"]
+    # milliseconds_duration = data["final_time_tens"]
 
-    #check quizz answer est bien du use
-    user_answers = check_and_set_user_answer(quizz_answer_id, seconds_duration, quizz_level, milliseconds_duration)
+    quizz_answer = QuizzAnswer.find(quizz_answer_id)
+    user_answers = UserAnswer.where(quizz_answer_id: quizz_answer_id).order(:created_at)
+    back_time = (user_answers.last.created_at - quizz_answer.created_at) / 1.seconds
 
+    back_time_ms = back_time.modulo(1) * 10
+    back_time_sec = back_time.to_i
 
+    quizz_level = quizz_answer.quizz_level
 
     @record = Record.new(
       user: user,
       quizz_level: quizz_level,
-      seconds_duration: seconds_duration,
-      milliseconds_duration: milliseconds_duration,
-      completion: completion_calculation(user_answers, seconds_duration, milliseconds_duration),
+      seconds_duration: back_time_sec,
+      milliseconds_duration: back_time_ms,
+      completion: completion_calculation(user_answers, back_time_sec, back_time_ms),
       score_percentage: score_percentage_calculation(user_answers),
       crown_or_sphere: quizz_level.crown_or_sphere,
       quizz_answer_id: quizz_answer_id)
 
     authorize(@record)
 
-    @record.save!
-    respond_to do |format|
-      format.json
-    end
+    if check_user_answer(quizz_answer_id, quizz_level)
+        @record.save!
+        respond_to do |format|
+          format.json
+        end
+      else
+        flash[:alert] = "Le record n'a pas pu être sauvé, si besoin, merci d'utiliser le formulaire de concact pour remonter un bug"
+        p "subbtheme id : #{quizz_level.category.subtheme}"
+        p "window.location = subtheme_path(quizz_level.category.subtheme : #{subtheme_path(quizz_level.category.subtheme)}"
+        respond_to do |format|
+          format.json { render json: { location: subtheme_path(quizz_level.category.subtheme) } }
+        end
+      end
+
+
   end
 
   private
 
     # check that quizz answer has been done by the user
     # check time is not < 110% of back calculation
-    # check that time is not < 1 sec / question
-    def check_and_set_user_answer(quizz_answer_id, seconds_duration, quizz_level, milliseconds_duration)
-      return nil if QuizzAnswer.find(quizz_answer_id).user != current_user
+    # check that time is not < 1 sec / question (time of tempo from a question to another)
+    def check_user_answer(quizz_answer_id, quizz_level)
+      quizz_answer = QuizzAnswer.find(quizz_answer_id)
+      return nil if quizz_answer.user != current_user
 
       user_answers = UserAnswer.where(quizz_answer_id: quizz_answer_id).order(:created_at)
-      back_time_difference = user_answers.last.created_at - user_answers.first.created_at
+      back_time_difference = user_answers.last.created_at - quizz_answer.created_at
       quizz_question_answers_count = quizz_level.question_answers.count
-
-      user_time_difference = seconds_duration.to_i + milliseconds_duration.to_i
 
       return nil if user_answers.count != quizz_question_answers_count
 
-      return nil if user_time_difference  < back_time_difference * 1.1 || user_time_difference < quizz_question_answers_count * 0.1
+      return nil if back_time_difference < quizz_question_answers_count * 0.1
 
-      user_answers
+      true
     end
 
     def flashcards_unlocked_calculation(quizz)
@@ -145,24 +156,13 @@ class RecordsController < ApplicationController
     end
 
     def leveling_calculation(xp_win, next_levels_unlocked=[])
-      p ("####################### // ################## /n")
-      p ("####################### // ################## /n")
-      p ("####################### // ################## /n")
-      p ("level caculation")
-      p ("user xp : #{current_user.xp}")
-      p ("xp win : #{xp_win}")
       user = current_user
       next_level = Level.find_by(level: user.level.level + 1)
-      p ("next level : #{next_level.level}")
-      p ("next_level xp : #{next_level.required_xp}")
-
       if xp_win + user.xp < next_level.required_xp
         user.xp += xp_win
         user.save
         return next_levels_unlocked
       else
-        p ("dans le ELSE")
-        p ("somme xp win + user xp #{xp_win + user.xp} - next level xp #{next_level.required_xp}")
         user.xp = xp_win + user.xp - next_level.required_xp
         user.level = next_level
         user.save

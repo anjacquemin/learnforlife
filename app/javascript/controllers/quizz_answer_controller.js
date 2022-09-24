@@ -167,6 +167,9 @@ export default class extends Controller {
         })
         .then(response => response.json())
         .then((data) => {
+          if (data.location) {
+            window.location = data.location;
+          }
           if (data.inserted_item){
             console.log(data)
             console.log(data.inserted_item)
