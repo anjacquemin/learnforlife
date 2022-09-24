@@ -51,6 +51,9 @@ class ThemesController < ApplicationController
     total_theme_spheres = theme.quizz_levels.joins(:quizz).where(quizz: {crown_or_sphere: "sphere"}).count * 3
     sphere_completion = (theme_stats[:crowns] / (total_theme_crowns.nonzero? || 1))
 
+    theme_categories = theme.categories.pluck(:name).uniq
+    theme_categories_count = Hash[theme_categories.map { |category_name| [category_name.to_sym, theme.categories.where(name: category_name).count]}]
+
     locked_achievements.each do |achievement|
       achievement_type = achievement.achievement_type
       if achievement_type == "crown_percentage"
@@ -69,9 +72,15 @@ class ThemesController < ApplicationController
         if theme_stats[:spheres] > achievement.count.to_i
           achievements_to_unlocked << unlock_achievement(achievement)
         end
+      elsif achievement_type ==  "category"
+        achievement_category_name = achievement.img_src
+        unlocked_category_count = User.first.category_progresses.joins(:category).where(unlocked: true).where({category: {name: achievement_category_name}}).count
+        if unlocked_category_count == theme_categories_count[achievement_category_name.to_sym]
+          achievements_to_unlocked << unlock_achievement(achievement)
+        end
       end
     end
-    achievements_to_unlocked = []
+    achievements_to_unlocked
   end
 end
 
