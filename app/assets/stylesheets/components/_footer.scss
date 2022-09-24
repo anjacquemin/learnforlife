@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  height: 100px;
+  height: 70px;
   color: white;
   a {
     color: white;
@@ -34,4 +34,10 @@
 
 .main-links {
   display: flex;
+}
+
+@media (max-width: 768px) {
+  .footer{
+    height: 100px;
+  }
 }

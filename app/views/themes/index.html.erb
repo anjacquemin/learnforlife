@@ -1,4 +1,4 @@
-<div data-controller="theme-index sprite" data-count = <%=Theme.count%> data-total-unlocked-achievements = <%=@total_unlocked_items%>>
+<div data-controller="theme-index sprite" data-count = <%=Theme.count%> data-total-unlocked-achievements = <%=@total_unlocked_items%> data-character-info = <%=@display_indication%>>
 <%# MODALS TO DISPLAY ACCORDING TO SUCCES %>
   <% @count = 0 %>
   <% @unlocked_categories_achievements.values.each do |unlocked_category_achievements| %>
@@ -20,7 +20,7 @@
     <br>
     <p>- Débloquer les flashcards de la thématique choisie</p>
     <p>- Gagner de l'or pour débloquer de nouveaux équipements et acheter des quêtes</p>
-    <p>- Gagner de l'expérience pour faire évoluer ton héro et évoluer à travers les âges</p>
+    <p>- Gagner de l'expérience pour faire évoluer ton héro à travers les âges</p>
     "
     %>
   <%= render "shared/user_indications", sentence: sentence %>

@@ -1,6 +1,6 @@
 class UserCharacterItemPolicy < ApplicationPolicy
   def update?
-    record.user == user
+    record.user == user && record.unlocked
   end
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!

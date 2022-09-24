@@ -6,11 +6,9 @@ class UserCharacterItemsController < ApplicationController
     price = user_character_item.character_item.price
 
     if (gold_difference = price - current_user.gold ) > 0
-      puts "ICI"
       flash[:alert] = "Achat de #{user_character_item.character_item.name} impossible, il te manque : #{gold_difference} pièce d'or"
       redirect_to market_path
     else
-      puts "La"
       user_character_item.bought = true
       current_user.gold -= price
       if current_user.save! && user_character_item.save!

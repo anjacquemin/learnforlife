@@ -55,6 +55,9 @@
   .subthemes-display{
     grid-template-columns: 1fr;
   }
+  .card-objective{
+    width: 100%
+  }
 }
 
 @media(max-width: 570px) {
