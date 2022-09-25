@@ -26,6 +26,8 @@ gem 'rails-i18n', '~> 7.0.0' # For 7.0.0
 gem 'will_paginate', '3.3.1'
 gem 'bootstrap-will_paginate', '1.0.0'
 
+gem "rails_admin", "~> 3.0"
+
 gem "pundit"
 
 # Use Active Storage variant

@@ -88,7 +88,8 @@ module LevelAndUserSeed
       xp: 0,
       gem: 0,
       gold: 0,
-      level: level1
+      level: level1,
+      admin: true
     )
     anthony.save!
 
