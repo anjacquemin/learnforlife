@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "Learn for life"
+meta_title: "Learn for life - Apprendre en s'amusant & retenir à vie"
+meta_description: "Incarne un héro et évolue à travers les âges en enrichissant tes connaissances"
+meta_image: "Capture-media-1200-630.PNG" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards

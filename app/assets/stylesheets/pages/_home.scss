@@ -44,7 +44,7 @@
 .text-icon-header{
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   img{
     margin-right: 10px;
   }
@@ -75,6 +75,12 @@
     position: absolute;
     left: 175px;
     top: 193px;
+  }
+  #img5 {
+    height: 100px;
+    position: absolute;
+    left: 102px;
+    top: 258px;
   }
 }
 
@@ -221,25 +227,29 @@
     img{
       height: 100px;
     }
-  }
+    #img1 {
 
-  #img1 {
-
-  }
-  #img2 {
-    position: absolute;
-    left: 61px;
-    top: 53px;
-  }
-  #img3 {
-    position: absolute;
-    left: 16px;
-    top: 131px;
-  }
-  #img4 {
-    position: absolute;
-    left: 175px;
-    top: 193px;
+    }
+    #img2 {
+      position: absolute;
+      left: 61px;
+      top: 53px;
+    }
+    #img3 {
+      position: absolute;
+      left: 16px;
+      top: 131px;
+    }
+    #img4 {
+      position: absolute;
+      left: 175px;
+      top: 193px;
+    }
+    #img5 {
+      position: absolute;
+      left: 101px;
+      top: 221px;
+    }
   }
 
 }

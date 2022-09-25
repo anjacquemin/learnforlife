@@ -22,6 +22,11 @@ class ApplicationController < ActionController::Base
   #   redirect_to(root_path)
   # end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+    # heroku config:set DOMAIN=www.my_product.com
+  end
+
   private
 
     def first_time_visit
