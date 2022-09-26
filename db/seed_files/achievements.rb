@@ -69,7 +69,8 @@ module AchievementSeed
     achievement_1 = Achievement.new(
       name: "Savoir niveau 8",
       unlocked_conditions: "Obtenir 10000 couronnes",
-      achievement_type: "global",
+      achievement_type: "crown_count",
+      achievement_category: "global",
       img_src: "crown.png.png",
       count: "10000"
       )

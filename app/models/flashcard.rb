@@ -5,6 +5,15 @@ class Flashcard < ApplicationRecord
   belongs_to :category
   has_many :flashcard_saves, class_name: :FlashcardSave
 
+  validates :unlocked, presence: true
+  validates :ease_factor, presence: true
+  validates :repetition, presence: true
+  validates :interval, presence: true
+  validates :day_of_next_repetition, presence: true
+  validates :mistake_count, presence: true
+  validates :status, presence: true
+  validates :steps_index, presence: true
+
   validates :interval, numericality: {greater_than_or_equal_to: 0}
   validates :mistake_count, numericality: {greater_than_or_equal_to: 0}
   validates :repetition, numericality: {greater_than_or_equal_to: 0}

@@ -15,11 +15,11 @@ module ThemesSeed
     history.save!
 
     mnemotechnique = Theme.new(name: "Mnemotechnie")
-    mnemotechnique.image_src = ""
+    mnemotechnique.image_src = '<i class="fas fa-atlas"> </i>'
     mnemotechnique.save!
 
     sports = Theme.new(name: "Sports")
-    sports.image_src = ""
+    sports.image_src = '<i class="fas fa-atlas"> </i>'
     sports.save!
 
     # Geography levels

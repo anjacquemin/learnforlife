@@ -9,4 +9,7 @@ class Theme < ApplicationRecord
   has_many :flashcards
 
   has_one_attached :photo
+
+  validates :name, presence: true
+  validates :image_src, presence: true
 end

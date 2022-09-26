@@ -1,4 +1,9 @@
 class CharacterItem < ApplicationRecord
+  validates :name, presence: true
+  validates :item_type, presence: true
+  validates :img_src, presence: true
+  validates :unlocked_condition, presence: true
+
   def self.types
     ["hair", "body", "head", "weapon"]
   end
