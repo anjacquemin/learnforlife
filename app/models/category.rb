@@ -16,6 +16,8 @@ class Category < ApplicationRecord
 
 
   validates :name, presence: true
+  validates :objective, presence: true
+
 end
 
 # ORDER BY NAME WITH SCOPE FOR CONSISTENT DISPLAY

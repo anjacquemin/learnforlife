@@ -1,6 +1,6 @@
 class SubthemePolicy < ApplicationPolicy
   def show?
-    record.subtheme_progresses.find_by(user: user).unlocked == true
+    record.subtheme_progresses.find_by(user: user).unlocked
   end
 
   class Scope < Scope

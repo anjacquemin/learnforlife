@@ -4,7 +4,6 @@ class User < ApplicationRecord
 
   after_initialize :set_defaults, unless: :persisted?
 
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -34,6 +33,13 @@ class User < ApplicationRecord
 
   # device gem handle mail lower case
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
+
+  validates :hp, presence: true
+  validates :xp, presence: true
+  validates :gem, presence: true
+  validates :gold, presence: true
+  validates :hp_max, presence: true
+  validates :admin, inclusion: [true, false]
 
   def set_defaults
     self.hp ||= 50

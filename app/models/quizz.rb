@@ -12,4 +12,7 @@ class Quizz < ApplicationRecord
   has_many :records, through: :quizz_levels
 
   validates :name, presence: true
+  validates :ordering, presence: true
+  validates :crown_or_sphere, presence: true
+  validates :crown_or_sphere, inclusion: { in: %w(crown sphere) }
 end

@@ -11,7 +11,8 @@ module MassUserSeed
         xp: 0,
         gem: 0,
         gold: 0,
-        level: Level.find_by(level: 1)
+        level: Level.find_by(level: 1),
+        admin: false
       )
       anthony.save!
     end

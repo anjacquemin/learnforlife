@@ -114,6 +114,7 @@ module LevelAndUserSeed
       item_type: "hair",
       img_src: "sprites/long_hair_blond.png",
       name: "Blond long hair",
+      unlocked_condition: "none",
       price: 0
     )
     character_item.save!
@@ -129,6 +130,7 @@ module LevelAndUserSeed
       item_type: "hair",
       img_src: "sprites/long_hair_black.png",
       name: "Black long hair",
+      unlocked_condition: "none",
       price: 1
     )
     character_item.save!
@@ -144,6 +146,7 @@ module LevelAndUserSeed
       item_type: "body",
       img_src: "sprites/body_black.png",
       name: "Black body",
+      unlocked_condition: "none",
       price: 0
     )
     character_item.save!
@@ -159,6 +162,7 @@ module LevelAndUserSeed
       item_type: "body",
       img_src: "sprites/body_brown.png",
       name: "Brown body",
+      unlocked_condition: "none",
       price: 0
     )
     character_item.save!
@@ -174,6 +178,7 @@ module LevelAndUserSeed
       item_type: "body",
       img_src: "sprites/body_pink.png",
       name: "Pink body",
+      unlocked_condition: "none",
       price: 0
     )
     character_item.save!
@@ -189,6 +194,7 @@ module LevelAndUserSeed
       item_type: "head",
       img_src: "sprites/head_yellow.png",
       name: "Yellow head",
+      unlocked_condition: "none",
       price: 0
     )
     character_item.save!
@@ -204,6 +210,7 @@ module LevelAndUserSeed
       item_type: "head",
       img_src: "sprites/head_white.png",
       name: "White head",
+      unlocked_condition: "none",
       price: 0
     )
     character_item.save!

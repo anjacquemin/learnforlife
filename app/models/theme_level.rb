@@ -9,7 +9,9 @@ class ThemeLevel < ApplicationRecord
   has_many :quizz_level_progresses, through: :subthemes
   has_many :question_answers, through: :subthemes
 
-
+  validates :name, presence: true
+  validates :objective, presence: true
+  validates :level, presence: true
 
   validates :name, length: { maximum: 10 }
   validates :objective, length: { maximum: 300 }

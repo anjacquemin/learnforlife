@@ -8,4 +8,8 @@ class Record < ApplicationRecord
 
   validates :completion, inclusion: { in: [0, 1,2,3] }
   validates :crown_or_sphere, inclusion: { in: %w(crown sphere) }
+  validates :score_percentage, presence: true
+  validates :seconds_duration, presence: true
+  validates :milliseconds_duration, presence: true
+  validates :dealt_with, presence: true
 end

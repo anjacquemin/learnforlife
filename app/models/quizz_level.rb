@@ -7,5 +7,6 @@ class QuizzLevel < ApplicationRecord
   has_many :records
   has_many :quizz_answers
   has_many :best_records
+
   validates :name, presence: true
 end
