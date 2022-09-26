@@ -53,7 +53,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "bullet"
   gem 'minitest-byebug'
-
 end
 
 group :development do

@@ -20,6 +20,7 @@ class RegistrationsController < Devise::RegistrationsController
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
         seed_all_records(resource)
+        UserMailer.with(user: @user).welcome_email.deliver_later
         respond_to do |format|
           format.json { render json: { location: after_sign_up_path_for(resource) } }
         end
@@ -90,48 +91,48 @@ class RegistrationsController < Devise::RegistrationsController
       user_character_item = UserCharacterItem.new(
         user: user,
         character_item: CharacterItem.find_by(name: "Red long hair"),
-        unlocked: true
+        unlocked: true,
+        bought: true
       )
       user_character_item.save!
 
       user_character_item = UserCharacterItem.new(
         user: user,
         character_item: CharacterItem.find_by(name: "Blond long hair"),
-        unlocked: true
+        unlocked: true,
+        bought: true
       )
       user_character_item.save!
 
       user_character_item = UserCharacterItem.new(
         user: user,
         character_item: CharacterItem.find_by(name: "Black long hair"),
-        unlocked: true
+        unlocked: true,
+        bought: true
       )
       user_character_item.save!
 
-      character_item = CharacterItem.new(
-        item_type: "body",
-        img_src: "sprites/body_black.png",
-        name: "Black body"
-      )
-      character_item.save!
       user_character_item = UserCharacterItem.new(
         user: user,
         character_item: CharacterItem.find_by(name: "Black body"),
-        unlocked: true
+        unlocked: true,
+        bought: true
       )
       user_character_item.save!
 
       user_character_item = UserCharacterItem.new(
         user: user,
         character_item: CharacterItem.find_by(name: "Brown body"),
-        unlocked: true
+        unlocked: true,
+        bought: true
       )
       user_character_item.save!
 
       user_character_item = UserCharacterItem.new(
         user: user,
         character_item: CharacterItem.find_by(name: "Pink body"),
-        unlocked: true
+        unlocked: true,
+        bought: true
       )
       user_character_item.save!
 
@@ -139,14 +140,16 @@ class RegistrationsController < Devise::RegistrationsController
       user_character_item = UserCharacterItem.new(
         user: user,
         character_item: CharacterItem.find_by(name: "Yellow head"),
-        unlocked: true
+        unlocked: true,
+        bought: true
       )
       user_character_item.save!
 
       user_character_item = UserCharacterItem.new(
         user: user,
         character_item: CharacterItem.find_by(name: "White head"),
-        unlocked: true
+        unlocked: true,
+        bought: true
       )
       user_character_item.save!
 
@@ -165,7 +168,8 @@ class RegistrationsController < Devise::RegistrationsController
           user_character_item = UserCharacterItem.new(
             user: user,
             character_item: character_item,
-            unlocked: false
+            unlocked: false,
+            bought: false
           )
           user_character_item.save!
         end
