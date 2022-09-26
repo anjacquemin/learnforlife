@@ -1,6 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar">
   <div class="container-fluid">
-      <%= link_to "LearnForLife", themes_path, class: "navbar-brand" %>
+      <div class="d-flex align-items-center">
+        <%= image_tag "greek-helmet-100.png", height: 30, width: 30, style:"margin-right: 5px" %>
+        <%= link_to "LearnForLife", themes_path, class: "navbar-brand" %>
+      </div>
       <% if user_signed_in? %>
         <div class="display-flex perso-navbar-lg ">
           <ul class="navbar-nav me-auto">

@@ -9,9 +9,11 @@
   align-items: center;
   color: $purple;
   font-weight: bold;
+  font-size: 20px;
   p {
     margin: 0;
     text-align: center;
+    border-bottom: 5px solid $light-purple;
   }
 }
 
@@ -47,9 +49,9 @@
   }
   .time-display{
     width: 170px;
-    margin-left: 10px;
     display: flex;
     align-items: center;
+    justify-content: center;
     i {
       color: $orange;
       font-size: 32px;
