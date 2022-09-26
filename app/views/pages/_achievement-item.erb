@@ -3,10 +3,11 @@
 <%user_achievement = @user_profile.user_achievements.find_by(achievement: achievement)%>
 
 <% blur_filter = "" %>
+<% indication = achievement.unlocked_conditions %>
 <% blur_filter = "'filter: blur(1px); opacity:0.3;'" unless  user_achievement.unlocked%>
 
 <div class= "achievement-card">
-  <div class="achievement-badge" style=<%=blur_filter.html_safe %> >
+  <div class="achievement-badge" style=<%=blur_filter.html_safe%> title= <%=indication%> >
     <% if achievement.achievement_category == "global" %>
       <%=image_tag achievement.img_src, class: "global-achievement-img" %>
     <% else %>
