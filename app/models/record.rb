@@ -11,5 +11,5 @@ class Record < ApplicationRecord
   validates :score_percentage, presence: true
   validates :seconds_duration, presence: true
   validates :milliseconds_duration, presence: true
-  validates :dealt_with, presence: true
+  validates :dealt_with, inclusion: [true, false]
 end

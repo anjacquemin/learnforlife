@@ -26,6 +26,7 @@
           <%= f.input :password,
                       hint: "Ne pas remplir si tu ne souhaites pas le modifier",
                       required: false,
+                      autocomplete: :off,
                       label: false,
                       placeholder: "Nouveau mot de passe",
                       input_html: { autocomplete: "Nouveau mot de passe" } %>

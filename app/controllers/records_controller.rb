@@ -89,7 +89,9 @@ class RecordsController < ApplicationController
       completion: completion_calculation(user_answers, back_time_sec, back_time_ms),
       score_percentage: score_percentage_calculation(user_answers),
       crown_or_sphere: quizz_level.crown_or_sphere,
-      quizz_answer_id: quizz_answer_id)
+      quizz_answer_id: quizz_answer_id,
+      dealt_with: false
+      )
 
     authorize(@record)
 
@@ -147,7 +149,8 @@ class RecordsController < ApplicationController
             user: current_user,
             steps_index: 0,
             theme: quizz.theme,
-            category: quizz.category
+            category: quizz.category,
+            unlocked: true
           })
           flashcard.save!
         end

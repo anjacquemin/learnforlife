@@ -71,7 +71,7 @@ module AchievementSeed
       unlocked_conditions: "Obtenir 10000 couronnes",
       achievement_type: "crown_count",
       achievement_category: "global",
-      img_src: "crown.png.png",
+      img_src: "crown.png",
       count: "10000"
       )
     achievement_1.save!
