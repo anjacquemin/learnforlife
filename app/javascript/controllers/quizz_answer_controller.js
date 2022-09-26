@@ -167,6 +167,7 @@ export default class extends Controller {
         })
         .then(response => response.json())
         .then((data) => {
+          // handle the case when the answers are not valid (not enough answer or time < minimum time)
           if (data.location) {
             window.location = data.location;
           }
