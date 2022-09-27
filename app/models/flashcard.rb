@@ -5,7 +5,7 @@ class Flashcard < ApplicationRecord
   belongs_to :category
   has_many :flashcard_saves, class_name: :FlashcardSave
 
-  validates :unlocked, presence: true
+  validates :unlocked, inclusion: [true, false]
   validates :ease_factor, presence: true
   validates :repetition, presence: true
   validates :interval, presence: true
