@@ -3,7 +3,7 @@
 
 <% if  @unlocked_items && @unlocked_items[:user_levels] %>
     <% @unlocked_items[:user_levels].each do |user_level|  %>
-      <% unlocked_category_sentence = "<p><strong>Niveau #{user_level.level}</strong> atteint !<br>Nouvelle période : <strong>#{user_level.period} - #{user_level.sub_period}</strong><br>Ton héro évolue et devient un <strong>#{user_level.social_type}</strong></p><p>+ 1 point de vie <i class='fa-solid fa-heart' style='color:red;'></i><br>+ X flashcards Histoire</p>" %>
+      <% unlocked_category_sentence = "<p><strong>Niveau #{user_level.level}</strong> atteint !<br>Nouvelle période : <strong>#{user_level.period} - #{user_level.sub_period}</strong><br>Ton héro évolue et devient un <strong>#{user_level.social_type}</strong></p><p>+ 1 point de vie <i class='fa-solid fa-heart' style='color:red;'></i><br>+ #{user_level.question_answers.count} flashcards Histoire</p>" %>
       <% @count += 1 %>
       <%= render 'shared/achievement_modal', type: "user_level", sentence: unlocked_category_sentence%>
     <% end %>

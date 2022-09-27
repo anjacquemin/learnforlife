@@ -1,6 +1,7 @@
 class ThemePolicy < ApplicationPolicy
   def show?
-    true
+    # no access to quizzs from adventure theme
+    !record.adventure_only
   end
 
   class Scope < Scope

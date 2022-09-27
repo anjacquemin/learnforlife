@@ -13,6 +13,7 @@ require File.expand_path('../seed_files/themes', __FILE__)
 require File.expand_path('../seed_files/quizzs', __FILE__)
 require File.expand_path('../seed_files/achievements', __FILE__)
 require File.expand_path('../seed_files/mass_user', __FILE__)
+require File.expand_path('../seed_files/history_flashcards', __FILE__)
 
 
 UserAchievement.destroy_all
@@ -27,9 +28,9 @@ UserAnswer.destroy_all
 Record.destroy_all
 QuizzAnswer.destroy_all
 User.destroy_all
-Level.destroy_all
 QuizzQuestionAnswer.destroy_all
 QuestionAnswer.destroy_all
+Level.destroy_all
 QuizzLevel.destroy_all
 Quizz.destroy_all
 Category.destroy_all
@@ -52,6 +53,8 @@ p "end achievements seed"
 
 MassUserSeed::seed
 p "end mass user seed"
+
+HistoryFlashcards::seed
 
 
 # SPECIAL INFO FOR ANTHONY USER

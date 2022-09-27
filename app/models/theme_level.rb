@@ -10,6 +10,7 @@ class ThemeLevel < ApplicationRecord
   has_many :question_answers, through: :subthemes
 
   validates :name, presence: true
+  validates_uniqueness_of :name, scope: :theme
   validates :objective, presence: true
   validates :level, presence: true
 

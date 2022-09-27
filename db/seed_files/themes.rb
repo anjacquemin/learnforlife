@@ -8,18 +8,22 @@ module ThemesSeed
 
     geography = Theme.new(name: "Geographie")
     geography.image_src = '<i class="fas fa-atlas"> </i>'
+    geography.adventure_only = false
     geography.save!
 
     history = Theme.new(name: "Histoire")
     history.image_src = '<i class="fas fa-atlas"> </i>'
+    history.adventure_only = false
     history.save!
 
     mnemotechnique = Theme.new(name: "Mnemotechnie")
     mnemotechnique.image_src = '<i class="fas fa-atlas"> </i>'
+    mnemotechnique.adventure_only = false
     mnemotechnique.save!
 
     sports = Theme.new(name: "Sports")
     sports.image_src = '<i class="fas fa-atlas"> </i>'
+    sports.adventure_only = false
     sports.save!
 
     # Geography levels
