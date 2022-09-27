@@ -62,7 +62,7 @@
                 <% else %>
                   <% @opacity = 0.15 %>
                 <% end %>
-                <%= cl_image_tag category.photo.key, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>
+                <%= image_tag category.img_src, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>
               <% end %>
             </div>
             <% else %>

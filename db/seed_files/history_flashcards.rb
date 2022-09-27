@@ -15,7 +15,7 @@ module HistoryFlashcards
     prehistory = Subtheme.new(name: "Prehistoire", theme_level: game_history_level_1)
     prehistory.save!
 
-    timeline = Category.new(subtheme: prehistory, name: "timeline", objective: "Pas d'objectifs", ordering: 1)
+    timeline = Category.new(subtheme: prehistory, name: "timeline", objective: "Pas d'objectifs", ordering: 1, img_src:"none")
     timeline.save!
 
     quizz = Quizz.new(category: timeline, name: "quizz", ordering: 1, crown_or_sphere:"crown")

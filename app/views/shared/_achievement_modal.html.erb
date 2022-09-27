@@ -36,7 +36,7 @@
               <%= render "shared/level_display", quizz: quizz, in_modal: true %>
             </div>
           <% elsif type == "category" || type == "theme_level" %>
-            <%= cl_image_tag @record.quizz.category.photo.key, height: 100 %>
+            <%= image_tag @record.quizz.category.img_src, height: 100 %>
           <% end%>
           <% if type == "achievement" %>
             <%= render "pages/achievement-item", achievement: achievement %>

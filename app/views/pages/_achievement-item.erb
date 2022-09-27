@@ -16,7 +16,7 @@
       <% elsif achievement.achievement_type == "crown_percentage" %>
         <%= image_tag "crown.png", class: "theme-achievement-img" %>
       <% elsif achievement.achievement_type == "category" %>
-        <%= cl_image_tag Category.find_by(name: achievement.img_src).photo.key, class: "theme-achievement-img" %>
+        <%= image_tag achievement.img_src, class: "theme-achievement-img" %>
       <% end %>
       <p><%= achievement.img_src.html_safe%></p>
     <% end %>

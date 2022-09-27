@@ -10,16 +10,15 @@
     <%= render "shared/crowns", crown_class: "uncompleted-crown", number: 3-@record.completion, level: @record.quizz_level %>
   </div>
   <div class="sub-key-results">
-    <div class="completion">
-      <i class=""></i>
-      <div class="completion-percentage">
-        <p><%= @record.score_percentage%>%</p>
-      </div>
-    </div>
     <div class="time-display">
       <i class="fa-solid fa-stopwatch"></i>
       <p><%= seconds_to_minutes(@record.seconds_duration)%>.</p>
       <p><%= @record.milliseconds_duration%> s</p>
+    </div>
+    <div class="completion">
+      <div class="completion-percentage">
+        <p><%= @record.score_percentage%>%</p>
+      </div>
     </div>
   </div>
 </div>

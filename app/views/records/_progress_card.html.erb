@@ -97,14 +97,14 @@
           <div class="badge-progress">
             <% if @subtheme_unlocked %>
               <div class="badge-display">
-                <% subtheme.categories.includes([:photo_attachment]).each do |category| %>
+                <% subtheme.categories.each do |category| %>
                   <% @category_unlock = current_user.category_progresses.find_by(category: category) %>
                   <% if @category_unlock &.unlocked %>
                     <% @opacity = 1  %>
                   <% else %>
                     <% @opacity = 0.15 %>
                   <% end %>
-                  <%= cl_image_tag category.photo.key, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>
+                  <%= image_tag category.img_src, height: 30, crop: :fill, style: "opacity:#{@opacity}" %>
                 <% end %>
               </div>
               <% else %>

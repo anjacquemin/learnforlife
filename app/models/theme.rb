@@ -8,8 +8,6 @@ class Theme < ApplicationRecord
   has_many :best_records
   has_many :flashcards
 
-  has_one_attached :photo
-
   validates :name, presence: true, uniqueness: true
   validates :image_src, presence: true
   validates :adventure_only, inclusion: [true, false]
