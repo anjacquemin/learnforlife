@@ -6,11 +6,11 @@
     <div class="white-container">
       <div class= "result-number">
         <div class="good-answer-count">
-          <%= image_tag 'verifie.png' %>
+          <i class="fas fa-check-circle good-answer"></i>
           <p><%= (@record.score_percentage * @number_of_questions / 100.to_f).round(0)%></p>
         </div>
         <div class="bad-answer-count">
-          <%= image_tag 'annuler.png' %>
+          <i class="fas fa-times-circle bad-answer"></i>
           <p><%= (((100-@record.score_percentage) * @number_of_questions) / 100.to_f).round(0)%></p>
         </div>
       </div>
@@ -26,9 +26,9 @@
               <p><%=question_synthese[:answer]%> - Réponse : <%=question_synthese[:user_answer]%></p>
             </div>
             <% if question_synthese[:is_good] %>
-              <%= image_tag 'verifie.png', height: 30 %>
+              <i class="fas fa-check-circle good-answer" style="font-size:26px;"></i>
             <% else %>
-              <%= image_tag 'annuler.png', height: 30 %>
+              <i class="fas fa-times-circle bad-answer" style="font-size:26px;"></i>
             <% end %>
           </div>
           <hr class="horizontal-divider-light">

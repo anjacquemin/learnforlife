@@ -9,12 +9,9 @@ import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
 
-  static targets = ["userAnswer", "questionId", "cardCountBar", "cardCountNumber", "seconds", "tens", "goodAnswer", "endButtonDisplay", "endButton"].concat(questionTargets).concat(goodAnswerTargets).concat(formTargets)
+  static targets = ["userAnswer", "questionId", "cardCountBar", "cardCountNumber", "seconds", "tens", "goodAnswer", "endButtonDisplay", "endButton", "goodAnswerCount", "badAnswerCount"].concat(questionTargets).concat(goodAnswerTargets).concat(formTargets)
 
   connect() {
-
-    console.log("Hello from our first Stimulus controller")
-
     window.Interval
     clearInterval(window.Interval);
 
@@ -23,8 +20,9 @@ export default class extends Controller {
     counter_page_loaded ++;
     this.element.dataset.stimulusConnectCount = counter_page_loaded
 
+
+
     if (counter_page_loaded === 1) {
-      console.log("fisrt time connected")
       window.seconds = 0;
       window.tens = 0;
       window.appendTens = this.tensTarget;
@@ -42,15 +40,10 @@ export default class extends Controller {
   checkAnswer(event) {
     event.preventDefault()
 
-    console.log("click")
-
-    console.log(event.target)
-    console.log(event.target.parentElement)
-
     // To handle when a user click on the text of the answer and not the div
     var corrected_target = event.target.hasAttribute("data-user-answer-id") ? event.target : event.target.parentElement
 
-    console.log(corrected_target)
+
 
     //disable click on all answers
     Array.from(corrected_target.parentElement.children).forEach(answer => answer.dataset.action = " ")
@@ -66,7 +59,8 @@ export default class extends Controller {
     const quizz_answer_id = corrected_target.parentElement.dataset.quizzAnswerId;
     const answer_url = corrected_target.parentElement.dataset.answerUrl;
     const record_url = corrected_target.parentElement.dataset.recordUrl;
-    console.log(`quizz answer id ${quizz_answer_id}`)
+    const good_answer_count_target = this.goodAnswerCountTarget
+    const bad_answer_count_target = this.badAnswerCountTarget
 
     this.cardCountBarTarget.style.width = `${((question_number + 1)/total_questions)*100}%`
     this.cardCountNumberTarget.innerHTML = `${(parseInt(question_number) + 1)}/${total_questions}`
@@ -76,44 +70,39 @@ export default class extends Controller {
       clearInterval(Interval);
     }
 
-    console.log(quizz_level)
+    const self = this
 
     if(quizz_level === "Facile" || quizz_level === "Moyen"){
       const user_answer_id = corrected_target.dataset.userAnswerId
       const user_answer = corrected_target.dataset.userAnswer
-      const good_answer = corrected_target.parentElement.dataset.goodAnswerId
-
       const data = answerDataBuilding(user_answer_id, question_id, quizz_answer_id, user_answer, quizz_level)
 
-      console.log(`url: ${answer_url} `)
       fetch(`${answer_url}`, {
         method: "POST",
         headers: { "Accept": "application/json", "X-CSRF-Token": csrfToken() },
         body: data
       })
-
-
-      if (user_answer_id === good_answer){
+      .then(response => response.json())
+      .then((data) => {
+        if (data.is_good_answer === true){
           corrected_target.classList.add("green-background")
-      } else {
+          good_answer_count_target.innerHTML = parseInt(good_answer_count_target.innerHTML) + 1
+        } else {
+          bad_answer_count_target.innerHTML = parseInt(bad_answer_count_target.innerHTML) + 1
           corrected_target.classList.add("red-background")
-          eval(`this.goodAnswer${question_number}Target.classList.add("green-background")`)
-      }
+          const answers_targets = eval(`self.goodAnswer${question_number}Targets`)
+          answers_targets.forEach ((answerTarget) => {
+            if (answerTarget.childNodes[1].innerHTML === data.good_answer){
+              answerTarget.classList.add("green-background")
+            }
+          })
+        }
+      })
     }
 
     if(quizz_level === "Difficile"){
-
-      console.log(quizz_level)
       const user_answer = eval(`this.form${question_number}Target.value`)
-
-      console.log(event.target)
-      console.log(event.target.children[2].value)
-
-      console.log(user_answer)
-
-
       const data = answerDataBuildingForDifficultLevel(question_id, quizz_answer_id, user_answer, quizz_level)
-
       const self = this
 
       // Remove focus from input field, so background color can be updated
@@ -131,34 +120,23 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         if (data.is_good_answer == true){
-          console.log(data)
-          console.log(self.form0Target.classList)
+          good_answer_count_target.innerHTML = parseInt(good_answer_count_target.innerHTML) + 1
           eval(`self.form${question_number}Target.classList.add("green-background")`)
         } else {
-          console.log(data)
+          bad_answer_count_target.innerHTML = parseInt(bad_answer_count_target.innerHTML) + 1
           eval(`self.form${question_number}Target.classList.add("red-background")`)
         }
       })
     }
-
-
-    const self = this
-
-    console.log(`next_question_number${next_question_number} && total question ${total_questions}`)
 
     delay(100).then(() => {
       if(next_question_number < total_questions){
         eval(`self.questionCard${question_number}Target.classList.add("d-none")`)
         eval(`self.questionCard${next_question_number}Target.classList.remove("d-none")`)
         if (quizz_level == "Difficile") {
-          // focus on text avoiding to re click
-          console.log(eval(`self.form${next_question_number}Target.parentElement.parentElement`))
-          console.log(eval(`self.form${next_question_number}Target.parentElement.parentElement.children[1]`))
-          console.log(eval(`self.form${next_question_number}Target.parentElement.parentElement.children[1].children[0]`))
           eval(`self.form${next_question_number}Target.parentElement.parentElement.children[1].children[0].focus()`)
         }
       } else if (question_number < total_questions) {
-        console.log("send end quizz data")
         const data = endQuizzBuilding(quizz_answer_id)
         fetch(`${record_url}`, {
           method: "POST",
@@ -172,9 +150,6 @@ export default class extends Controller {
             window.location = data.location;
           }
           if (data.inserted_item){
-            console.log(data)
-            console.log(data.inserted_item)
-            // even for last answer, d-none the div, to avoid to see it, if the quizz is redone
             eval(`self.questionCard${question_number}Target.classList.add("d-none")`)
             this.endButtonDisplayTarget.insertAdjacentHTML("beforeend", data.inserted_item)
             this.endButtonTarget.click()
@@ -205,7 +180,6 @@ function startTimer() {
   }
 
   if (tens > 99) {
-    // console.log("seconds");
     seconds++;
     appendSeconds.innerHTML = "0" + seconds;
     tens = 0;

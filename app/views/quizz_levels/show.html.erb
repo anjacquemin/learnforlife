@@ -22,8 +22,8 @@
           <%= render "shared/crowns", crown_class: "uncompleted-crown", number: 3-user_record.completion, level: @quizz_level %>
         </div>
         <div class="score-time-display">
-          <p class="me-3"><%= user_record.score_percentage %>%</p>
-          <p class="time-display"><i class="fa-solid fa-stopwatch"></i><%= user_record.seconds_duration %>s</p>
+          <p class="time-display"><i class="fa-solid fa-stopwatch"></i><%= seconds_to_minutes(user_record.seconds_duration) %>s</p>
+          <p class="ms-2"><%= user_record.score_percentage %>%</p>
         </div>
       <% end %>
     </div>
@@ -34,7 +34,14 @@
       <p>s</p>
     </div>
     <div class="good-bad-answer-count">
-
+      <div class="good-count">
+        <i class="fas fa-check-circle"></i>
+        <p data-quizz-answer-target="goodAnswerCount">0</p>
+      </div>
+      <div class="bad-count">
+        <i class="fas fa-times-circle"></i>
+        <p data-quizz-answer-target="badAnswerCount">0</p>
+      </div>
     </div>
   </div>
   <div class="my-3"></div>
@@ -54,10 +61,7 @@
             <% elsif @quizz.category.name == "Localisation"%>
                 <% img_path = "world_localisations" %>
             <% end %>
-
-            <%# <div class="white-container"> %>
-              <%= image_tag "#{img_path}/#{question_answer.image_src}" %>
-            <%# </div> %>
+            <%= image_tag "#{img_path}/#{question_answer.image_src}" %>
           <% end %>
         </div>
         <%# ANSWER DIV %>
@@ -76,7 +80,7 @@
             <% if @suggested_question_answers_id %>
               <% @suggested_question_answers_id[question_answer.id.to_s.to_sym].each do |suggested_question_answer_id| %>
                 <button class="card-answer"
-                  <%= "data-quizz-answer-target = 'goodAnswer#{index}'".html_safe if suggested_question_answer_id == question_answer.id %>
+                  <%= "data-quizz-answer-target = 'goodAnswer#{index}'".html_safe%>
                   data-action="click->quizz-answer#checkAnswer"
                   data-user-answer-id = <%= suggested_question_answer_id %>
                   data-user-answer = <%= @quizz.question_answers.find(suggested_question_answer_id).answer %>>

@@ -66,18 +66,34 @@
   .current-record{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 150px;
+    align-items: start;
+    width: 130px;
+    padding-left: 10px;
+    border-left: 5px solid $light-purple;
     p {
       color: $purple;
     }
-    border-radius: $border-radius-lg;
     .time-display{
       color: $orange;
     }
   }
   .good-bad-answer-count{
-    width: 150px;
+    display: flex;
+    align-items: center;
+    width: 130px;
+    font-size: 32px;
+    justify-content: center;
+    .good-count{
+      padding-right: 20px;
+      display: flex;
+      color: $green;
+      align-items: center;
+    }
+    .bad-count{
+      display: flex;
+      color: $red;
+      align-items: center;
+    }
   }
 }
 
@@ -171,13 +187,15 @@
   .questions{
     width: 70%;
   }
+  .display-record-time .good-bad-answer-count{
+    font-size: 20px;
+  }
 }
 
 @media(max-width: 768px) {
   .questions{
     width: 100%;
   }
-
 }
 
 @media(max-width: 570px) {
@@ -198,13 +216,18 @@
     img{
       height: 20px;
     }
+  }
+  .display-record-time .good-bad-answer-count{
+    flex-direction: column;
+    .good-count{
+      padding-right: 0px;
+    }
 
   }
 }
 
-@media ( max-height: 699px ) {
-  .card-question {
-    height: 240px;
-  }
-
-}
+// @media ( max-height: 699px ) {
+//   .card-question {
+//     height: 240px;
+//   }
+// }
