@@ -132,18 +132,15 @@ module ThemesSeed
     categories = []
 
     subthemes.each do |subtheme|
-      capitale = Category.new(subtheme: subtheme, name: "Capitales", objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>Capitale #{subtheme.name} Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge capitale</strong>", ordering: 1)
-      capitale.photo.attach(io: File.open(_IMAGE_DIR_ + 'tour-eiffel.png'), filename:"capitale.png")
+      capitale = Category.new(subtheme: subtheme, name: "Capitales", objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>Capitale #{subtheme.name} Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge capitale</strong>", ordering: 1, img_src: 'tour-eiffel.png')
       capitale.save!
       categories << capitale
 
-      localization = Category.new(subtheme: subtheme, name: "Localisation", objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>Localisation #{subtheme.name} Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge localisation</strong>", ordering: 2)
-      localization.photo.attach(io: File.open(_IMAGE_DIR_ + 'map.png'), filename:"map.png")
+      localization = Category.new(subtheme: subtheme, name: "Localisation", objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>Localisation #{subtheme.name} Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge localisation</strong>", ordering: 2, img_src: "map.png")
       localization.save!
       categories << localization
 
-      flag = Category.new(subtheme: subtheme, name: "Drapeaux", objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>Drapeaux #{subtheme.name} Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge drapeau</strong>", ordering: 3)
-      flag.photo.attach(io: File.open(_IMAGE_DIR_ + 'flag.png'), filename:"flag.png")
+      flag = Category.new(subtheme: subtheme, name: "Drapeaux", objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>Drapeaux #{subtheme.name} Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge drapeau</strong>", ordering: 3, img_src: "flag.png")
       flag.save!
       categories << flag
     end

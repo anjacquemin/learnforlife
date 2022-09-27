@@ -3,7 +3,6 @@ class Category < ApplicationRecord
   has_one :theme, through: :subtheme
   has_one :theme_level, through: :subtheme
   has_many :category_progresses
-  has_one_attached :photo
   has_many :quizzs, class_name: :Quizz
   has_many :quizz_progresses, through: :quizzs
   has_many :quizz_levels, through: :quizzs
@@ -17,6 +16,7 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
   validates :objective, presence: true
+  validates :img_src, presence: true
   validates_uniqueness_of :name, scope: :subtheme
 
 end

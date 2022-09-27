@@ -232,16 +232,15 @@ module AchievementSeed
       achievement_1.save!
 
       p "categorry seed"
-      theme.categories.select(:name).distinct.each do |category|
+      theme.categories.select(:name, :img_src).distinct.each do |category|
         p "category #{category}"
         p "category #{category.name}"
-        p "category #{category.photo.key}"
         achievement_1 = Achievement.new(
           name: "#{category.name} MASTER",
           unlocked_conditions: "Obtenir tous les badges #{category.name} de la thématique #{theme.name}",
           achievement_type: "category",
           achievement_category: theme.name,
-          img_src: "#{category.name}",
+          img_src: category.img_src,
           count: "100%"
           )
         achievement_1.save!
