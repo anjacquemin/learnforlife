@@ -17,6 +17,7 @@ class Category < ApplicationRecord
 
   validates :name, presence: true
   validates :objective, presence: true
+  validates_uniqueness_of :name, scope: :subtheme
 
 end
 

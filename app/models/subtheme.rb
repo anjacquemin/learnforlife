@@ -15,4 +15,5 @@ class Subtheme < ApplicationRecord
   has_one :theme, through: :theme_level
 
   validates :name, presence: true
+  validates_uniqueness_of :name, scope: :theme_level
 end

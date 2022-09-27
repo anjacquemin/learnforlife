@@ -1,4 +1,5 @@
 class QuestionAnswer < ApplicationRecord
+  belongs_to :level, optional: true
   has_many :user_answers
   has_many :quizz_question_answers
   has_many :quizzs, class_name: :Quizz, through: :quizz_question_answers

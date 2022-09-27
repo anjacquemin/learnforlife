@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_25_134836) do
+ActiveRecord::Schema.define(version: 2022_09_27_103940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,8 @@ ActiveRecord::Schema.define(version: 2022_09_25_134836) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_src"
+    t.bigint "level_id"
+    t.index ["level_id"], name: "index_question_answers_on_level_id"
   end
 
   create_table "quizz_answers", force: :cascade do |t|
@@ -283,6 +285,7 @@ ActiveRecord::Schema.define(version: 2022_09_25_134836) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image_src"
+    t.boolean "adventure_only"
   end
 
   create_table "user_achievements", force: :cascade do |t|
@@ -352,6 +355,7 @@ ActiveRecord::Schema.define(version: 2022_09_25_134836) do
   add_foreign_key "flashcards", "question_answers"
   add_foreign_key "flashcards", "themes"
   add_foreign_key "flashcards", "users"
+  add_foreign_key "question_answers", "levels"
   add_foreign_key "quizz_answers", "quizz_levels"
   add_foreign_key "quizz_answers", "users"
   add_foreign_key "quizz_level_progresses", "quizz_levels"

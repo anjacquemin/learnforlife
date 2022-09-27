@@ -40,7 +40,10 @@ class RecordsController < ApplicationController
       current_user.gold += @gold_win
       user_levels_unlocked = leveling_calculation(@xp_win)
       user_levels_unlocked_count = user_levels_unlocked.size
-      @unlocked_items[:user_levels] = user_levels_unlocked if user_levels_unlocked_count > 0
+      if user_levels_unlocked_count > 0
+        @unlocked_items[:user_levels] = user_levels_unlocked
+        unlock_flashcards_for_unlocked_levels(@unlocked_items[:user_levels])
+      end
       @record.dealt_with = true
       @record.save!
     end
@@ -157,6 +160,33 @@ class RecordsController < ApplicationController
       end
       count
     end
+
+    def unlock_flashcards_for_unlocked_levels(unlocked_levels)
+      unlocked_levels.each do |unlocked_level|
+        level_question_answers = Level.find(unlocked_level.id).question_answers
+        level_question_answers.each do |question_answer|
+          if !current_user.flashcards.find_by(question_answers: question_answer)
+            flashcard = Flashcard.new({
+              ease_factor: Flashcard::STARTING_EASE,
+              repetition: 0,
+              interval: 0,
+              day_of_last_repetition: "",
+              mistake_count: 0,
+              question_answer: question_answer,
+              day_of_next_repetition: DateTime.current,
+              status: "learning",
+              user: current_user,
+              steps_index: 0,
+              theme: Theme.find_by(adventure_only: true),
+              category: Theme.find_by(adventure_only: true).categories.first,
+              unlocked: true
+            })
+            flashcard.save!
+          end
+        end
+      end
+    end
+
 
     def leveling_calculation(xp_win, next_levels_unlocked=[])
       user = current_user
