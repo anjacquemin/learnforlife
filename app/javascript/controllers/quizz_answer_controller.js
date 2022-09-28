@@ -50,6 +50,7 @@ export default class extends Controller {
 
     //Enable to cancel click on the answer, so the purple color triggered by hovering disappear
     corrected_target.style.pointerEvents = "none"
+    corrected_target.style.touchAction = "none"
 
     const quizz_level = corrected_target.parentElement.dataset.quizzLevel
     const question_id = corrected_target.parentElement.dataset.questionId

@@ -9,7 +9,9 @@
 
 puts 'seed'
 require File.expand_path('../seed_files/levels_and_user', __FILE__)
-require File.expand_path('../seed_files/themes', __FILE__)
+require File.expand_path('../seed_files/geography_theme', __FILE__)
+require File.expand_path('../seed_files/cinema_theme', __FILE__)
+require File.expand_path('../seed_files/cinema_quizz', __FILE__)
 require File.expand_path('../seed_files/quizzs', __FILE__)
 require File.expand_path('../seed_files/achievements', __FILE__)
 require File.expand_path('../seed_files/mass_user', __FILE__)
@@ -39,22 +41,29 @@ ThemeLevel.destroy_all
 Theme.destroy_all
 
 
-LevelAndUserSeed::seed
-p "end level seed"
+# LevelAndUserSeed::seed
+# p "end level seed"
 
-ThemesSeed::seed
-p "end themes seed"
+# ThemesSeed::seed
+# p "end themes seed"
 
-QuizzSeed::seed
-p "end quizzs seed"
+# QuizzSeed::seed
+# p "end quizzs seed"
 
-AchievementSeed::seed
-p "end achievements seed"
+# AchievementSeed::seed
+# p "end achievements seed"
 
-MassUserSeed::seed
-p "end mass user seed"
+# MassUserSeed::seed
+# p "end mass user seed"
 
-HistoryFlashcards::seed
+# HistoryFlashcards::seed
+# p "end mass user seed"
+
+CinemaThemeSeed::seed
+p "Cinema seed"
+
+CinemaQuizzSeed::seed
+p "Cinema seed"
 
 
 # SPECIAL INFO FOR ANTHONY USER
