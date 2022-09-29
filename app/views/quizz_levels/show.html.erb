@@ -66,7 +66,7 @@
         </div>
         <%# ANSWER DIV %>
         <div class= "answer-div my-4">
-          <% answer_class = (@suggested_question_answers_id ? "class = 'answer'" : 'class = "answer align-answers"')  %>
+          <% answer_class = (@suggested_answers ? "class = 'answer'" : 'class = "answer align-answers"')  %>
           <div <%= answer_class.html_safe %>
               data-good-answer-id = <%= question_answer.id %>
               data-question-id = <%=question_answer.id%>
@@ -75,16 +75,13 @@
               data-question-number = <%=index%>
               data-total-questions = <%=@quizz.question_answers.count%>
               data-answer-url = <%= quizz_answer_user_answers_url(@quizz_answer) %>
-              data-record-url = <%= quizz_answer_records_url(@quizz_answer) %>
-              >
-            <% if @suggested_question_answers_id %>
-              <% @suggested_question_answers_id[question_answer.id.to_s.to_sym].each do |suggested_question_answer_id| %>
+              data-record-url = <%= quizz_answer_records_url(@quizz_answer) %>>
+            <% if @suggested_answers %>
+              <% @suggested_answers[question_answer.id.to_s.to_sym].each do |suggested_answer| %>
                 <button class="card-answer"
                   <%= "data-quizz-answer-target = 'goodAnswer#{index}'".html_safe%>
-                  data-action="click->quizz-answer#checkAnswer"
-                  data-user-answer-id = <%= suggested_question_answer_id %>
-                  data-user-answer = <%= @quizz.question_answers.find(suggested_question_answer_id).answer %>>
-                  <h2><%= @quizz.question_answers.find(suggested_question_answer_id).answer %></h2>
+                  data-action="click->quizz-answer#checkAnswer">
+                  <h2><%= suggested_answer %></h2>
                 </button>
               <% end %>
             <% else %>

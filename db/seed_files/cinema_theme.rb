@@ -2,96 +2,6 @@
 module CinemaThemeSeed
   def self.seed
 
-    level1 = Level.new(level: 1,
-                        required_xp: 20,
-                        beginning_year:-1000000,
-                        period:"Préhistoire",
-                        sub_period: "Paléolithique ancien",
-                        social_type: "Homo habilis")
-    level1.save!
-
-    level2 = Level.new(level: 2,
-                        required_xp: 25,
-                        beginning_year:-200000,
-                        period:"Préhistoire",
-                        sub_period: "Paléolithique moyen",
-                        social_type: "Homo Néendertal")
-    level2.save!
-    level3 = Level.new(level: 3,
-                        required_xp: 30,
-                        beginning_year:-35000,
-                        period:"Préhistoire",
-                        sub_period: "Paléolithique supérieur",
-                        social_type: "Homo sapiens")
-    level3.save!
-    level4 = Level.new(level: 4,
-                        required_xp: 35,
-                        beginning_year:-10000,
-                        period:"Préhistoire",
-                        sub_period: "Mésolithique ancien",
-                        social_type: "Meso 1")
-    level4.save!
-    level5 = Level.new(level: 5,
-                        required_xp: 40,
-                        beginning_year:-8000,
-                        period:"Préhistoire",
-                        sub_period: "Mésolithique moyen",
-                        social_type: "Meso 2")
-    level5.save!
-    level6 = Level.new(level: 6,
-                        required_xp: 40,
-                        beginning_year:-7000,
-                        period:"Préhistoire",
-                        sub_period: "Mésolithique récent",
-                        social_type: "Meso 3")
-    level6.save!
-    level7 = Level.new(level: 7,
-                        required_xp: 40,
-                        beginning_year:-6000,
-                        period:"Préhistoire",
-                        sub_period: "Neolithique supérieur",
-                        social_type: "neo 1")
-    level7.save!
-    level8 = Level.new(level: 8,
-                        required_xp: 40,
-                        beginning_year:-4500,
-                        period:"Préhistoire",
-                        sub_period: "Mésolithique supérieur",
-                        social_type: "neo 2")
-    level8.save!
-    level9 = Level.new(level: 9,
-                        required_xp: 40,
-                        beginning_year:-3500,
-                        period:"Préhistoire",
-                        sub_period: "Néolithique supérieur",
-                        social_type: "neo 3")
-    level9.save!
-
-
-    (10..40).each { |level|
-      level9 = Level.new(level: level,
-                        required_xp: 30,
-                        beginning_year:-3500,
-                        period:"period #{level}",
-                        sub_period: "sub period #{level}",
-                        social_type: "social type #{level}")
-      level9.save!
-    }
-
-    anthony = User.new(
-      name: "anthony",
-      email: "anthony@gmail.gmail",
-      password: "foobar",
-      password_confirmation: "foobar",
-      hp: 50,
-      hp_max: 50,
-      xp: 0,
-      gem: 0,
-      gold: 0,
-      level: level1,
-      admin: true
-    )
-    anthony.save!
 
     _IMAGE_DIR_ = "./app/assets/images/"
 
@@ -138,13 +48,13 @@ module CinemaThemeSeed
 
     # Geography subtheme
     subthemes = []
-    movies2004 = Subtheme.new(name: "Films 1990-2004", theme_level: level_1)
+    movies2004 = Subtheme.new(name: "Films 1990 - 2004", theme_level: level_1)
     movies2004.save!
 
-    movies2022 = Subtheme.new(name: "Films 2005-2022", theme_level: level_1)
+    movies2022 = Subtheme.new(name: "Films 2005 - 2022", theme_level: level_1)
     movies2022.save!
 
-    movies1989 = Subtheme.new(name: "Films 1960-1989", theme_level: level_2)
+    movies1989 = Subtheme.new(name: "Films 1960 - 1989", theme_level: level_2)
     movies1989.save!
 
     movies1960 = Subtheme.new(name: "Films < 1960", theme_level: level_3)
@@ -198,5 +108,58 @@ module CinemaThemeSeed
       subtheme_progress = SubthemeProgress.new(user: anthony, subtheme: subtheme, unlocked: unlocked)
       subtheme_progress.save!
     end
+
+    category_img = {
+      "Oscar meilleur film".to_sym => "academy-award.png",
+      "culture générale".to_sym => "movie-start.png",
+      "Année".to_sym => "clapperboard.png",
+      "Acteur".to_sym => "actor.png",
+      "Producteur".to_sym => "gopro.png"
+    }
+
+    # Seed all categories for last level
+
+    category_record = Category.new(subtheme: all_oscars, name: "Oscar meilleur film", objective: "Remporte des sphères de connaissance !", ordering: 1, img_src: category_img["Oscar meilleur film".to_sym])
+    category_record.save!
+    category_progress = CategoryProgress.new(user: anthony, category: category_record, unlocked: false)
+    category_progress.save!
+
+    category_record = Category.new(subtheme: all_culture, name: "culture générale", objective: "Remporte des sphères de connaissance !", ordering: 1, img_src: category_img["culture générale".to_sym])
+    category_record.save!
+    category_progress = CategoryProgress.new(user: anthony, category: category_record, unlocked: false)
+    category_progress.save!
+
+    category_record = Category.new(subtheme: all_movies, name: "Année", objective: "Remporte des sphères de connaissance !", ordering: 1, img_src: category_img["Année".to_sym])
+    category_record.save!
+    category_progress = CategoryProgress.new(user: anthony, category: category_record, unlocked: false)
+    category_progress.save!
+
+    category_record = Category.new(subtheme: all_movies, name: "Acteur", objective: "Remporte des sphères de connaissance !", ordering: 3, img_src: category_img["Acteur".to_sym])
+    category_record.save!
+    category_progress = CategoryProgress.new(user: anthony, category: category_record, unlocked: false)
+    category_progress.save!
+
+    category_record = Category.new(subtheme: all_movies, name: "Producteur", objective: "Remporte des sphères de connaissance !", ordering: 2, img_src: category_img["Producteur".to_sym])
+    category_record.save!
+    category_progress = CategoryProgress.new(user: anthony, category: category_record, unlocked: false)
+    category_progress.save!
+
+
+    cinema.theme_levels.last.categories.each do |category_record|
+      quizz = Quizz.new(category: category_record, name: "MASTER", ordering: 1, crown_or_sphere: "sphere")
+      quizz.save!
+
+      quizz_progress = QuizzProgress.new(user: anthony, quizz: quizz, unlocked: false)
+      quizz_progress.save!
+
+      ["Facile", "Moyen", "Difficile"].each do |level|
+        quizz_level = QuizzLevel.new(name: level, quizz: quizz, crown_or_sphere: "sphere")
+        quizz_level.save!
+
+        quizz_level_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level, unlocked: false)
+        quizz_level_progress.save!
+      end
+    end
+
   end
 end

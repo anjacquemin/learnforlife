@@ -3,10 +3,16 @@ class UserAnswersController < ApplicationController
     data = JSON.parse(params["json"])
     question_answer = QuestionAnswer.find(data["question_id"])
 
+    p "user answer : #{data["user_answer"]}"
+
     if data["quizz_level"] == "Facile" || data["quizz_level"] == "Moyen"
-      user_answer = UserAnswer.new(question_answer_id:  data["question_id"], answer_id: data["user_answer_id"], quizz_answer_id: data["quizz_answer_id"], answer: data["user_answer"])
+      user_answer = data["user_answer"]
+
+      answer_id = (user_answer == question_answer.answer) ? question_answer.id : 0
+      is_good_answer = (user_answer == question_answer.answer)
+
+      user_answer = UserAnswer.new(question_answer_id:  data["question_id"], answer_id: answer_id, quizz_answer_id: data["quizz_answer_id"], answer: user_answer)
       authorize(user_answer)
-      is_good_answer = (data["user_answer"] == question_answer.answer)
 
     elsif data["quizz_level"] == "Difficile"
       user_answer = I18n.transliterate(data["user_answer"], :locale => :en).downcase.strip

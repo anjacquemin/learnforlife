@@ -30,6 +30,7 @@ UserAnswer.destroy_all
 Record.destroy_all
 QuizzAnswer.destroy_all
 User.destroy_all
+SuggestedAnswer.destroy_all
 QuizzQuestionAnswer.destroy_all
 QuestionAnswer.destroy_all
 Level.destroy_all
@@ -41,23 +42,23 @@ ThemeLevel.destroy_all
 Theme.destroy_all
 
 
-# LevelAndUserSeed::seed
-# p "end level seed"
+LevelAndUserSeed::seed
+p "end level seed"
 
-# ThemesSeed::seed
-# p "end themes seed"
+ThemesSeed::seed
+p "end themes seed"
 
-# QuizzSeed::seed
-# p "end quizzs seed"
+QuizzSeed::seed
+p "end quizzs seed"
 
-# AchievementSeed::seed
-# p "end achievements seed"
+AchievementSeed::seed
+p "end achievements seed"
 
-# MassUserSeed::seed
-# p "end mass user seed"
+MassUserSeed::seed
+p "end mass user seed"
 
-# HistoryFlashcards::seed
-# p "end mass user seed"
+HistoryFlashcards::seed
+p "end mass user seed"
 
 CinemaThemeSeed::seed
 p "Cinema seed"

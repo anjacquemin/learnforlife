@@ -17,16 +17,20 @@ class QuizzLevelsController < ApplicationController
     end
     #create set of answers
     if @quizz_level.name != "Difficile"
-      @suggested_question_answers_id = {}
+      @suggested_answers = {}
       @quizz.question_answers.each{ |question_answer|
-        all_possible_answers = @quizz.question_answers.map(&:id)
+        if question_answer.suggested_answers.count < 3
+          all_possible_answers = @quizz.question_answers.map(&:answer)
+        else
+          all_possible_answers = question_answer.suggested_answers.map(&:answer)
+        end
         suggested_answers_builder = []
-        suggested_answers_builder << question_answer.id
-        all_possible_answers.delete(question_answer.id)
+        suggested_answers_builder << question_answer.answer
+        all_possible_answers.delete(question_answer.answer)
         #choose a random answer among the quizz
         wrong_answers = all_possible_answers.sample((number_of_suggested_answer - 1))
         suggested_answers_builder.concat(wrong_answers).shuffle!
-        @suggested_question_answers_id[question_answer.id.to_s.to_sym] = suggested_answers_builder
+        @suggested_answers[question_answer.id.to_s.to_sym] = suggested_answers_builder
       }
     end
   end

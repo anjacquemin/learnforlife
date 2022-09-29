@@ -41,16 +41,14 @@ export default class extends Controller {
     event.preventDefault()
 
     // To handle when a user click on the text of the answer and not the div
-    var corrected_target = event.target.hasAttribute("data-user-answer-id") ? event.target : event.target.parentElement
-
-
+    var corrected_target = event.target.hasAttribute("data-quizz-answer-target") ? event.target : event.target.parentElement
 
     //disable click on all answers
     Array.from(corrected_target.parentElement.children).forEach(answer => answer.dataset.action = " ")
 
     //Enable to cancel click on the answer, so the purple color triggered by hovering disappear
     corrected_target.style.pointerEvents = "none"
-    corrected_target.style.touchAction = "none"
+    // corrected_target.style.touchAction = "none"
 
     const quizz_level = corrected_target.parentElement.dataset.quizzLevel
     const question_id = corrected_target.parentElement.dataset.questionId
@@ -74,9 +72,8 @@ export default class extends Controller {
     const self = this
 
     if(quizz_level === "Facile" || quizz_level === "Moyen"){
-      const user_answer_id = corrected_target.dataset.userAnswerId
-      const user_answer = corrected_target.dataset.userAnswer
-      const data = answerDataBuilding(user_answer_id, question_id, quizz_answer_id, user_answer, quizz_level)
+      const user_answer = corrected_target.childNodes[1].innerHTML
+      const data = answerDataBuilding( question_id, quizz_answer_id, user_answer, quizz_level)
 
       fetch(`${answer_url}`, {
         method: "POST",
@@ -193,11 +190,10 @@ function startTimer() {
 }
 
 
-const answerDataBuilding = (user_answer_id, question_id, quizz_answer_id, user_answer, quizz_level) => {
+const answerDataBuilding = (question_id, quizz_answer_id, user_answer, quizz_level) => {
   let payload = {
     type: "user_answer",
     question_id: question_id,
-    user_answer_id: user_answer_id,
     user_answer: user_answer,
     quizz_answer_id: quizz_answer_id,
     quizz_level: quizz_level

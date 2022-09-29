@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_27_130124) do
+ActiveRecord::Schema.define(version: 2022_09_28_214753) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -261,6 +261,14 @@ ActiveRecord::Schema.define(version: 2022_09_27_130124) do
     t.index ["theme_level_id"], name: "index_subthemes_on_theme_level_id"
   end
 
+  create_table "suggested_answers", force: :cascade do |t|
+    t.string "answer"
+    t.bigint "question_answer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_answer_id"], name: "index_suggested_answers_on_question_answer_id"
+  end
+
   create_table "theme_level_progresses", force: :cascade do |t|
     t.boolean "unlocked"
     t.bigint "user_id", null: false
@@ -373,6 +381,7 @@ ActiveRecord::Schema.define(version: 2022_09_27_130124) do
   add_foreign_key "subtheme_progresses", "subthemes"
   add_foreign_key "subtheme_progresses", "users"
   add_foreign_key "subthemes", "theme_levels"
+  add_foreign_key "suggested_answers", "question_answers"
   add_foreign_key "theme_level_progresses", "theme_levels"
   add_foreign_key "theme_level_progresses", "users"
   add_foreign_key "theme_levels", "themes"

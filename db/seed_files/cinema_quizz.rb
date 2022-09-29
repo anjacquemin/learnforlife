@@ -3,6 +3,8 @@ module CinemaQuizzSeed
   def self.seed
     require "csv"
 
+
+
     anthony = User.first
 
     filepath = "#{Rails.root}/db/seed_input/cinema.csv"
@@ -26,6 +28,14 @@ module CinemaQuizzSeed
 
     subthemes = {}
 
+    category_img = {
+      "Oscar meilleur film".to_sym => "academy-award.png",
+      "culture générale".to_sym => "movie-start.png",
+      "Année".to_sym => "clapperboard.png",
+      "Acteur".to_sym => "actor.png",
+      "Producteur".to_sym => "gopro.png"
+    }
+
 
     cinema_questions.each do |cinema_question|
       subtheme = cinema_question[:subtheme].to_sym
@@ -42,12 +52,15 @@ module CinemaQuizzSeed
       subthemes[subtheme][category][quizz_ordering][question][:suggested_answer_3] = cinema_question[:suggested_answer_3]
     end
 
+
+
     subthemes.each do |subtheme, category|
       category_ordering = 1
       p subtheme
       p category.keys
       category.each do |category, quizz_ordering|
-        category_record = Category.new(subtheme: Subtheme.find_by(name: subtheme.to_s), name: category, objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>#{category} #{subtheme.name} Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge capitale</strong>", ordering: category_ordering, img_src: 'tour-eiffel.png')
+        p subtheme.to_s
+        category_record = Category.new(subtheme: Subtheme.find_by(name: subtheme.to_s), name: category, objective: "Obtiens <strong>2 couronnes</strong> au quizz <strong>Master</strong> niveau <strong>moyen</strong> pour obtenir le <strong>badge capitale</strong>", ordering: category_ordering, img_src: category_img[category.to_sym])
         category_record.save!
 
         category_progress = CategoryProgress.new(user: anthony, category: category_record, unlocked: false)
@@ -57,18 +70,33 @@ module CinemaQuizzSeed
         number_of_quizzs = quizz_ordering.keys.count
         quizzs_count = 1
 
-        quizz_ordering.each do |quizz_ordering, question|
-          quizz_name = (quizzs_count == number_of_quizzs || number_of_quizzs == 1) ? "MASER" : "QUIZZ #{quizz_ordering}"
-          p "Quizz ordering : #{quizz_ordering}"
-          quizz = Quizz.new(category: category_record, name: quizz_name, ordering: quizz_ordering, crown_or_sphere: "crown")
+        if number_of_quizzs != 1
+          quizz = Quizz.new(category: category_record, name: "MASTER", ordering: number_of_quizzs + 1, crown_or_sphere: "crown")
           quizz.save!
+          ["Facile", "Moyen", "Difficile"].each do |level|
+            crown_or_sphere = (quizz.category.subtheme.theme_level == quizz.theme.theme_levels.last) ? "sphere" : "crown"
+            quizz_level = QuizzLevel.new(name: level, quizz: quizz, crown_or_sphere: crown_or_sphere)
+            quizz_level.save!
+
+            unlocked = (quizz_level.quizz.ordering == 1 && quizz_level.quizz.theme_level.level == 1 && quizz_level.name == "Facile")
+            quizz_level_progress = QuizzLevelProgress.new(user: anthony, quizz_level: quizz_level, unlocked: unlocked)
+            quizz_level_progress.save!
+          end
+        end
+
+        quizz_ordering.each do |quizz_ordering, question|
+          quizz_name = (number_of_quizzs == 1) ? "MASTER" : "QUIZZ #{quizz_ordering}"
+          p "Quizz ordering : #{quizz_ordering}"
+          quizz = Quizz.new(category: category_record, name: quizz_name, ordering: quizz_ordering.to_s.to_i, crown_or_sphere: "crown")
+          quizz.save!
+          quizzs_count += 1
 
           unlocked = (quizz.ordering == 1 && quizz.theme_level.level == 1)
           quizz_progress = QuizzProgress.new(user: anthony, quizz: quizz, unlocked: unlocked)
           quizz_progress.save!
 
           ["Facile", "Moyen", "Difficile"].each do |level|
-            crown_or_sphere = (quizz.category.subtheme.theme_level == quizz.theme.theme_level.last) ? "sphere" : "crown"
+            crown_or_sphere = (quizz.category.subtheme.theme_level == quizz.theme.theme_levels.last) ? "sphere" : "crown"
             quizz_level = QuizzLevel.new(name: level, quizz: quizz, crown_or_sphere: crown_or_sphere)
             quizz_level.save!
 
@@ -79,14 +107,21 @@ module CinemaQuizzSeed
 
           # p question.keys
           question.each do |question, answer_type|
-            question_answer = QuestionAnswer.new(question: question, answer: answer_type[:good_answer], image_src: image_src)
+            question_answer = QuestionAnswer.new(question: question, answer: answer_type[:good_answer])
             question_answer.save!
 
             quizz_question_answers = QuizzQuestionAnswer.new(quizz: quizz, question_answer: question_answer)
             quizz_question_answers.save!
 
+            quizz_question_answers = QuizzQuestionAnswer.new(quizz: quizz.category.quizzs.find_by(name: "MASTER"), question_answer: question_answer)
+            quizz_question_answers.save!
+
+            quizz_question_answers = QuizzQuestionAnswer.new(quizz: quizz.theme.theme_levels.last.categories.find_by(name: quizz.category.name).quizzs.find_by(name: "MASTER"), question_answer: question_answer)
+            quizz_question_answers.save!
+
             answer_type.each do |answer_type, answer|
-              p answer if answer_type == :good_answer
+              quizz_question_answers = SuggestedAnswer.new(answer: answer, question_answer: question_answer)
+              quizz_question_answers.save!
             end
           end
         end

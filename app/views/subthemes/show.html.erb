@@ -18,7 +18,7 @@
         </div>
         <div class="my-3"></div>
         <div class="quizzs-display">
-          <% category.quizzs.includes([:quizz_levels]).each_with_index do |quizz, index| %>
+          <% category.quizzs.order(:ordering).includes([:quizz_levels]).each_with_index do |quizz, index| %>
             <% @user_quizz_progress_unlocked = is_unlocked_for_user?(quizz, "quizz", current_user) %>
             <%= render "quizz_separator", index: index %>
             <div class="quizz-card">
