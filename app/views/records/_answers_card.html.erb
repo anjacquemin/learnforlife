@@ -18,12 +18,14 @@
         <hr class="horizontal-divider-light">
         <% @synthesis.each_with_index do |question_synthese, index| %>
           <div class= "unique-answer">
-            <div class= "question-number">
-              <p> <%= index + 1 %> </p>
-            </div>
-            <div class = "question-answer">
-              <p> <strong><%=question_synthese[:question].capitalize%></strong> </p>
-              <p><%=question_synthese[:answer]%> - Réponse : <%=question_synthese[:user_answer]%></p>
+            <div class="question-number-answer">
+              <%# <div class= "question-number"> %>
+                <%# <p> <%= index + 1 %>
+              <%# </div> %>
+              <div class = "question-answer">
+                <p> <strong><%=question_synthese[:question].capitalize%></strong> </p>
+                <p><%=question_synthese[:answer]%> - Réponse : <%=question_synthese[:user_answer]%></p>
+              </div>
             </div>
             <% if question_synthese[:is_good] %>
               <i class="fas fa-check-circle good-answer" style="font-size:26px;"></i>

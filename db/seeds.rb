@@ -45,26 +45,26 @@ Theme.destroy_all
 LevelAndUserSeed::seed
 p "end level seed"
 
-ThemesSeed::seed
-p "end themes seed"
+# ThemesSeed::seed
+# p "end themes seed"
 
-QuizzSeed::seed
-p "end quizzs seed"
+# QuizzSeed::seed
+# p "end quizzs seed"
 
-AchievementSeed::seed
-p "end achievements seed"
+# AchievementSeed::seed
+# p "end achievements seed"
 
-MassUserSeed::seed
-p "end mass user seed"
+# MassUserSeed::seed
+# p "end mass user seed"
 
 HistoryFlashcards::seed
 p "end mass user seed"
 
-CinemaThemeSeed::seed
-p "Cinema seed"
+# CinemaThemeSeed::seed
+# p "Cinema seed"
 
-CinemaQuizzSeed::seed
-p "Cinema seed"
+# CinemaQuizzSeed::seed
+# p "Cinema seed"
 
 
 # SPECIAL INFO FOR ANTHONY USER

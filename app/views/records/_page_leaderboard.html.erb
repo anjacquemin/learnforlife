@@ -19,7 +19,7 @@
     <% background = "" %>
     <% background = "green-background" if current_user == best_record.record.user %>
     <% background = "purple-20-background" if index + 1 == 1 && is_first_page %>
-    <% background = "purple-10-background" if index + 1 == 2 && is_first_page %>  
+    <% background = "purple-10-background" if index + 1 == 2 && is_first_page %>
     <% background = "purple-5-background" if index + 1 == 3 && is_first_page %>
     <% class_best_record = "class = 'best-record-display #{background}'"%>
    <div <%= class_best_record.html_safe %>>
@@ -31,7 +31,7 @@
        <p> <%= best_record.record.score_percentage %></p>
        <div class="time-display">
          <p> <%= seconds_to_minutes(best_record.record.seconds_duration) %>.</p>
-         <p> <%= best_record.record.milliseconds_duration %>s</p>
+         <p> <%= best_record.record.milliseconds_duration %></p>
        </div>
      </div>
    </div>

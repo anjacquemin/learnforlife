@@ -11,17 +11,17 @@ module ThemesSeed
     geography.adventure_only = false
     geography.save!
 
-    history = Theme.new(name: "Histoire")
+    history = Theme.new(name: "A venir")
     history.image_src = '<i class="fas fa-atlas"> </i>'
     history.adventure_only = false
     history.save!
 
-    mnemotechnique = Theme.new(name: "Mnemotechnie")
+    mnemotechnique = Theme.new(name: "A venir")
     mnemotechnique.image_src = '<i class="fas fa-atlas"> </i>'
     mnemotechnique.adventure_only = false
     mnemotechnique.save!
 
-    sports = Theme.new(name: "Sports")
+    sports = Theme.new(name: "A venir")
     sports.image_src = '<i class="fas fa-atlas"> </i>'
     sports.adventure_only = false
     sports.save!
