@@ -356,8 +356,8 @@ module LevelAndUserSeed
       img_src: "sprites/helmets/brown_simple_helmet.png",
       name: "Casque marron simple",
       unlocked_condition: "Prérequis : niveau 10",
-      level: Level.find_by(level: 10),
-      price: 5000
+      level: Level.find_by(level: 12),
+      price: 3000
     )
     character_item.save!
 
@@ -440,7 +440,7 @@ module LevelAndUserSeed
       name: "Armure simple",
       unlocked_condition: "Prérequis : niveau 20",
       level: Level.find_by(level: 20),
-      price: 30000
+      price: 20000
     )
     character_item.save!
 
@@ -449,8 +449,8 @@ module LevelAndUserSeed
       img_src: "sprites/bodys/black_tunique.png",
       name: "Tunique noire",
       unlocked_condition: "Prérequis : niveau 5",
-      level: Level.find_by(level: 8),
-      price: 2000
+      level: Level.find_by(level: 5),
+      price: 1500
     )
     character_item.save!
 
@@ -480,7 +480,7 @@ module LevelAndUserSeed
       name: "Armure de chevalier",
       unlocked_condition: "Prérequis : niveau 45",
       level: Level.find_by(level: 45),
-      price: 30000
+      price: 35000
     )
     character_item.save!
 
@@ -513,7 +513,7 @@ module LevelAndUserSeed
       name: "Armure renforcée",
       unlocked_condition: "Prérequis : niveau 50",
       level: Level.find_by(level: 28),
-      price: 28000
+      price: 25000
     )
     character_item.save!
 
@@ -588,7 +588,7 @@ module LevelAndUserSeed
       name: "Fléau de combat",
       unlocked_condition: "Prérequis : niveau 22",
       level: Level.find_by(level: 22),
-      price: 10000
+      price: 15000
     )
     character_item.save!
 
@@ -598,7 +598,7 @@ module LevelAndUserSeed
       name: "Double hache",
       unlocked_condition: "Prérequis : niveau 24",
       level: Level.find_by(level: 24),
-      price: 13000
+      price: 18000
     )
     character_item.save!
 
@@ -617,8 +617,8 @@ module LevelAndUserSeed
       img_src: "sprites/weapons/little_knife.png",
       name: "Pierre taillée",
       unlocked_condition: "Prérequis : niveau 5",
-      level: Level.find_by(level: 5),
-      price: 1000
+      level: Level.find_by(level: 3),
+      price: 800
     )
     character_item.save!
 
@@ -670,7 +670,7 @@ module LevelAndUserSeed
       img_src: "sprites/shields/brown_little_shield.png",
       name: "Bouclier léger en bois certifié",
       unlocked_condition: "Prérequis : niveau 7",
-      level: Level.find_by(level: 7),
+      level: Level.find_by(level: 15),
       price: 2000
     )
     character_item.save!
@@ -681,7 +681,7 @@ module LevelAndUserSeed
       name: "Bouclier en bois certifié",
       unlocked_condition: "Prérequis : niveau 33",
       level: Level.find_by(level: 33),
-      price: 4000
+      price: 7000
     )
     character_item.save!
 
@@ -691,7 +691,7 @@ module LevelAndUserSeed
       name: "Bouclier rond en bois",
       unlocked_condition: "Prérequis : niveau 16",
       level: Level.find_by(level: 16),
-      price: 12000
+      price: 5000
     )
     character_item.save!
 
@@ -731,7 +731,7 @@ module LevelAndUserSeed
       name: "Bouclier en bois renforcé",
       unlocked_condition: "Prérequis : niveau 19",
       level: Level.find_by(level: 19),
-      price: 8000
+      price: 14000
     )
     character_item.save!
 

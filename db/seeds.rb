@@ -55,8 +55,8 @@ p "end quizzs seed"
 AchievementSeed::seed
 p "end achievements seed"
 
-MassUserSeed::seed
-p "end mass user seed"
+# MassUserSeed::seed
+# p "end mass user seed"
 
 HistoryFlashcards::seed
 p "end mass user seed"

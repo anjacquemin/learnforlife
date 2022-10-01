@@ -23,19 +23,19 @@ module HistoryFlashcards
 
 
     question_answers_data = [{
-      question: "A quel âge correspond le paléolithique inférieur ?",
+      question: "A quel âge correspond le Paléolithique inférieur ?",
       answer: "L'âge de la pierre taillée",
       level: 1
     },
 
     {
-      question: "Par quel 'découverte' est caractérisée le paléolitique inférieur ?",
+      question: "Par quelle 'découverte' est caractérisée le Paléolitique inférieur ?",
       answer: "La maitrise du feu (~400 000 av. JC)",
       level: 1
     },
 
     {
-      question: "Quel est la première période de la préhistoire",
+      question: "Quel est la première période de la Préhistoire",
       answer: "Le paléolithique inférieur",
       level: 1
     },
@@ -48,56 +48,56 @@ module HistoryFlashcards
     },
 
     {
-      question: "2 comportements évolués de paléolithique moyen ?",
+      question: "2 comportements évolués de Paléolithique moyen ?",
       answer: "Chasse de grands herbivores <br> Aménagement des habitats",
       level: 2
     },
 
     {
-      question: "2 représentants du genre Homo au paléolitique moyen",
+      question: "2 représentants du genre Homo au Paléolitique moyen",
       answer: "Afrique du Nord : Homo sapiens<br> Europe: Homme de Néendertal",
       level: 2
     },
 
 
     {
-      question: "Quand prend approximativement fin le paléolitique moyen ?",
+      question: "Quand prend approximativement fin le Paléolitique moyen ?",
       answer: "-45000 av J-C",
       level: 2
     },
 
     {
-      question: "Data d'apparation des premières formes d'art",
+      question: "Date d'apparation des premières formes d'art",
       answer: "-50000 av J-C",
       level: 2
     },
 
     {
-      question: "Quapporte l'Homo-sapiens à l'Europe lors du paléolithique supérieur ?",
+      question: "Qu'apporte l'Homo-sapiens à l'Europe lors du Paléolithique supérieur ?",
       answer: "Son industrie lithique, dite de 'mode 4', à savoir des lames et lamelles servant de base à la réalisation d'un outillage diversifié. Pour plus d'informations : https://fr.wikipedia.org/wiki/Pierre_taill%C3%A9e",
       level: 3
     },
 
     {
-      question: "Par quoi commence le paléolithique supérieur (~-40000)?",
+      question: "Par quoi commence le Paléolithique supérieur (~-40000)?",
       answer: "L'arrivée d'homo-sapiens en Europe </br> (cohabitation pendant plusieurs milliers d'année avec l'Homme de Néandertal qui disparait en -30000)",
       level: 3
     },
 
     {
-      question: "Par quoi s'achève le paléolithique supérieur ?",
+      question: "Par quoi s'achève le Paléolithique supérieur ?",
       answer: "La dernière ère glacière",
       level: 3
     },
 
     {
-      question: "Quand prend approximativement fin le paléolitique supérieur ?",
+      question: "Quand prend approximativement fin le Paléolitique supérieur ?",
       answer: "-10000 av J-C",
       level: 3
     },
 
     {
-      question: "Date peinture grotte de Lascaux?",
+      question: "Date des peintures des grottes de Lascaux?",
       answer: "-18000 av J-C",
       level: 3
     },
@@ -115,7 +115,7 @@ module HistoryFlashcards
     },
 
     {
-      question: "Periode de création des menhirs et Dolmen",
+      question: "Période de création des menhirs et Dolmen",
       answer: "-10000 av.JC",
       level: 5
     },
@@ -172,14 +172,14 @@ module HistoryFlashcards
 
 
     {
-      question: "A quel ère préhistorique est associée la systématisation des rites funéraires ?",
+      question: "A quelle ère préhistorique est associée la systématisation des rites funéraires ?",
       answer: "Néolithique",
       level: 9
     },
 
 
     {
-      question: "Quand s'achève approximativement le Néolitique, et donc la préhistoire ?",
+      question: "Quand s'achève approximativement le Néolitique, et donc la Préhistoire ?",
       answer: "-3000 (en Asie mineure)",
       level: 9
     }]
