@@ -1,11 +1,11 @@
 <div class="character-banner">
   <button class= "avatar-container" data-sprite-target= "avatar" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop100">
-    <%= image_tag asset_path(@user.character.hair), class: "character-hair", "data-sprite-target": "hair" %>
-    <%= image_tag asset_path(@user.character.head), class: "character-head", "data-sprite-target": "head" %>
-    <%= image_tag asset_path(@user.character.body), class: "character-body", "data-sprite-target": "body" %>
-    <%= image_tag asset_path(@user.character.helmet), class: "character-body", "data-sprite-target": "helmet" %>
-    <%= image_tag asset_path(@user.character.weapon), class: "character-body", "data-sprite-target": "weapon" %>
-    <%= image_tag asset_path(@user.character.shield), class: "character-body", "data-sprite-target": "shield" %>
+    <%= image_tag asset_path(@user.character.hair), class: "character-hair", "data-sprite-target": "hair" if @user.character.hair%>
+    <%= image_tag asset_path(@user.character.head), class: "character-head", "data-sprite-target": "head" if @user.character.head%>
+    <%= image_tag asset_path(@user.character.body), class: "character-body", "data-sprite-target": "body" if @user.character.body%>
+    <%= image_tag asset_path(@user.character.helmet), class: "character-helmet", "data-sprite-target": "helmet" if @user.character.helmet%>
+    <%= image_tag asset_path(@user.character.weapon), class: "character-weapon", "data-sprite-target": "weapon" if @user.character.weapon%>
+    <%= image_tag asset_path(@user.character.shield), class: "character-shield", "data-sprite-target": "shield" if @user.character.shield%>
   </button>
   <div class="character-description">
     <% jc_period = (@user.level.beginning_year < 0 ? "av J-C" : "ap. J-C")  %>

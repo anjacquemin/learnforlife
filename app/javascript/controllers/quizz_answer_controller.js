@@ -127,7 +127,7 @@ export default class extends Controller {
       })
     }
 
-    delay(100).then(() => {
+    delay(750).then(() => {
       if(next_question_number < total_questions){
         eval(`self.questionCard${question_number}Target.classList.add("d-none")`)
         eval(`self.questionCard${next_question_number}Target.classList.remove("d-none")`)

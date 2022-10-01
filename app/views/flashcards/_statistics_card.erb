@@ -22,7 +22,7 @@
         all_intervals[:"< 6 mois"] += 1 if  flashcard.interval > 30 && flashcard.interval <= 180
         all_intervals[:"> 6 mois"] += 1 if flashcard.interval > 180
       } %>
-      <%= bar_chart all_intervals, xtitle: "Nb. de flashcards", ytitle: "Jours avant révision", color: "purple", library: {backgroundColor: "#eee"}%>
+      <%= bar_chart all_intervals, id: "users-chart", xtitle: "Nb. de flashcards", stacked: true, ytitle: "Jours avant révision", color: "purple", library: {backgroundColor: "#eee"}%>
     </div>
   </div>
 </div>

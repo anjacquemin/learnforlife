@@ -70,7 +70,7 @@
       </div>
     </div>
     <div class="d-none" data-success-display-target="theme">
-      <% Theme.all.each do |theme| %>
+      <% Theme.all.reject{|theme| theme.adventure_only}.each do |theme| %>
         <div class="success-category">
           <div class="title">
             <h2><%= theme.name %></h2>

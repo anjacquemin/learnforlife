@@ -46,7 +46,7 @@
   </div>
   <div class="my-3"></div>
   <div class="container">
-    <%@quizz.question_answers.each_with_index do |question_answer, index| %>
+    <%@quizz.question_answers.shuffle.each_with_index do |question_answer, index| %>
       <% if index !=0 %>
         <% question_class = 'class = "questions d-none"' %>
       <% else %>

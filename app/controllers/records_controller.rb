@@ -43,6 +43,7 @@ class RecordsController < ApplicationController
       if user_levels_unlocked_count > 0
         @unlocked_items[:user_levels] = user_levels_unlocked
         unlock_flashcards_for_unlocked_levels(@unlocked_items[:user_levels])
+        unlock_character_items_for_unlocked_levels(@unlocked_items[:user_levels])
       end
       @record.dealt_with = true
       @record.save!
@@ -89,7 +90,7 @@ class RecordsController < ApplicationController
       quizz_level: quizz_level,
       seconds_duration: back_time_sec,
       milliseconds_duration: back_time_ms,
-      completion: completion_calculation(user_answers, back_time_sec, back_time_ms),
+      completion: completion_calculation(quizz_level, user_answers, back_time_sec, back_time_ms),
       score_percentage: score_percentage_calculation(user_answers),
       crown_or_sphere: quizz_level.crown_or_sphere,
       quizz_answer_id: quizz_answer_id,
@@ -111,8 +112,6 @@ class RecordsController < ApplicationController
           format.json { render json: { location: subtheme_path(quizz_level.category.subtheme) } }
         end
       end
-
-
   end
 
   private
@@ -187,6 +186,16 @@ class RecordsController < ApplicationController
       end
     end
 
+    def unlock_character_items_for_unlocked_levels(unlocked_levels)
+      unlocked_levels.each do |unlocked_level|
+        character_items = Level.find(unlocked_level.id).character_items
+        character_items.each do |character_item|
+          user_character_item = current_user.user_character_items.find_by(character_item: character_item)
+          user_character_item.unlocked = true
+          user_character_item.save!
+        end
+      end
+    end
 
     def leveling_calculation(xp_win, next_levels_unlocked=[])
       user = current_user
@@ -199,6 +208,7 @@ class RecordsController < ApplicationController
         user.xp = xp_win + user.xp - next_level.required_xp
         user.level = next_level
         user.hp += 1
+        user.hp_max += 1
         user.save
         next_levels_unlocked << next_level
         leveling_calculation(0, next_levels_unlocked)
@@ -238,13 +248,15 @@ class RecordsController < ApplicationController
       (answers_count[:good].to_f) / (answers_count[:good] + answers_count[:bad]) * 100
     end
 
-    def completion_calculation(answers, seconds, milliseconds)
+    def completion_calculation(quizz_level, answers, seconds, milliseconds)
       #number of question
       answers_count = good_and_bad_answers_count(answers)
       total_questions = answers_count[:bad] + answers_count[:good]
       one_crown_authorized_mitakes = 1
       time = time_to_ms(seconds, milliseconds)
-      threecrowns_autorized_time = time_to_ms(3, 0) * total_questions
+      time_per_question_for_3_crowns = (quizz_level.name == "Difficile" ? 8:4)
+      threecrowns_autorized_time = time_to_ms(time_per_question_for_3_crowns, 0) * total_questions
+      threecrowns_autorized_time = time_to_ms(time_per_question_for_3_crowns, 0) * total_questions
       completion = 0
       completion += 1 if answers_count[:bad] <= one_crown_authorized_mitakes
       completion += 1 if answers_count[:bad] == 0
@@ -281,16 +293,17 @@ class RecordsController < ApplicationController
         past_best_record_completion = 0
       end
       difficulty_coefs= { Facile: 1, Moyen: 2, Difficile: 5 }
-      crown_coefs = [1, 2, 3]
+      crown_coefs = [1, 1.5, 2]
       total_coef = 0
       total_coef = crown_coefs[past_best_record_completion, record_completion - past_best_record_completion].sum
       total_coef *= difficulty_coefs[record.quizz_level.name.to_sym]
-      total_coef * record.question_answers.count
+      (total_coef * record.question_answers.count).round(0)
     end
 
     # crown * difficulty * score_percentage * number_of_questions
     def gold_win_calculation(record)
       difficulty_coefs = { Facile: 1, Moyen: 2, Difficile: 5 }
+      # 4 to handle 0 crown case
       crown_coefs = [1, 2, 3, 5]
       (crown_coefs[record.completion] * difficulty_coefs[record.quizz_level.name.to_sym] * record.question_answers.count * record.score_percentage / 100).round
     end

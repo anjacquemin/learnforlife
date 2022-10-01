@@ -87,93 +87,35 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def character_items_seed(user)
-
-      user_character_item = UserCharacterItem.new(
-        user: user,
-        character_item: CharacterItem.find_by(name: "Red long hair"),
-        unlocked: true,
-        bought: true
-      )
-      user_character_item.save!
-
-      user_character_item = UserCharacterItem.new(
-        user: user,
-        character_item: CharacterItem.find_by(name: "Blond long hair"),
-        unlocked: true,
-        bought: true
-      )
-      user_character_item.save!
-
-      user_character_item = UserCharacterItem.new(
-        user: user,
-        character_item: CharacterItem.find_by(name: "Black long hair"),
-        unlocked: true,
-        bought: true
-      )
-      user_character_item.save!
-
-      user_character_item = UserCharacterItem.new(
-        user: user,
-        character_item: CharacterItem.find_by(name: "Black body"),
-        unlocked: true,
-        bought: true
-      )
-      user_character_item.save!
-
-      user_character_item = UserCharacterItem.new(
-        user: user,
-        character_item: CharacterItem.find_by(name: "Brown body"),
-        unlocked: true,
-        bought: true
-      )
-      user_character_item.save!
-
-      user_character_item = UserCharacterItem.new(
-        user: user,
-        character_item: CharacterItem.find_by(name: "Pink body"),
-        unlocked: true,
-        bought: true
-      )
-      user_character_item.save!
-
-
-      user_character_item = UserCharacterItem.new(
-        user: user,
-        character_item: CharacterItem.find_by(name: "Yellow head"),
-        unlocked: true,
-        bought: true
-      )
-      user_character_item.save!
-
-      user_character_item = UserCharacterItem.new(
-        user: user,
-        character_item: CharacterItem.find_by(name: "White head"),
-        unlocked: true,
-        bought: true
-      )
-      user_character_item.save!
-
-
-      character = Character.new(
-        user: user,
-        background: "purple",
-        body: "sprites/body_brown.png",
-        hair: "sprites/long_hair_black.png",
-        head: "sprites/head_white.png"
-      )
-      character.save!
-
       CharacterItem.all.each do |character_item|
-        if UserCharacterItem.where(user: user).where(character_item: character_item).size == 0
+        if character_item.level.level == 1
+          user_character_item = UserCharacterItem.new(
+            user: user,
+            character_item: character_item,
+            unlocked: true,
+            bought: true
+          )
+        else
           user_character_item = UserCharacterItem.new(
             user: user,
             character_item: character_item,
             unlocked: false,
             bought: false
           )
-          user_character_item.save!
         end
+        user_character_item.save!
       end
+      character = Character.new(
+        user: user,
+        background: "purple",
+        body: "sprites/bodys/white_body.png",
+        hair: "sprites/hairs/black_long_hair.png",
+        head: "sprites/heads/light_brown_head.png",
+        weapon: "",
+        helmet: "",
+        shield: ""
+      )
+      character.save!
     end
 
     def character_progresses_seed(user)

@@ -7,18 +7,19 @@
 <% blur_filter = "'filter: blur(1px); opacity:0.3;'" unless  user_achievement.unlocked%>
 
 <div class= "achievement-card">
-  <div class="achievement-badge" style=<%=blur_filter.html_safe%> title= <%=indication%> >
+  <div class="achievement-badge" style=<%=blur_filter.html_safe%> title= "<%=indication%>" >
     <% if achievement.achievement_category == "global" %>
-      <%=image_tag achievement.img_src, class: "global-achievement-img" %>
+      <%=image_tag achievement.img_src, class: "global-achievement-img", height: 40 %>
     <% else %>
       <% if achievement.achievement_type == "sphere_percentage" || achievement.achievement_type == "sphere_count"%>
-        <%= image_tag "sphere.png", class: "theme-achievement-img"%>
+        <%= image_tag "sphere.png", class: "theme-achievement-img", height: 16%>
+        <p><%= achievement.img_src.html_safe%></p>
       <% elsif achievement.achievement_type == "crown_percentage" %>
-        <%= image_tag "crown.png", class: "theme-achievement-img" %>
+        <%= image_tag "crown.png", class: "theme-achievement-img", height: 16 %>
+        <p><%= achievement.img_src.html_safe%></p>
       <% elsif achievement.achievement_type == "category" %>
-        <%= image_tag achievement.img_src, class: "theme-achievement-img" %>
+        <%= image_tag achievement.img_src, class: "theme-achievement-img", height: 40 %>
       <% end %>
-      <p><%= achievement.img_src.html_safe%></p>
     <% end %>
     <p><%=achievement.count%></p>
   </div>

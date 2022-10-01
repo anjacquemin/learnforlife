@@ -37,7 +37,7 @@ module LevelAndUserSeed
 
     level1 = Level.new(level: 1,
                         required_xp: level_xp[1],
-                        beginning_year:-2000000,
+                        beginning_year:-2400000,
                         period:"Préhistoire",
                         sub_period: "Paléolithique ancien",
                         social_type: "Homo habilis")
@@ -101,9 +101,9 @@ module LevelAndUserSeed
     level9.save!
 
 
-    (10..29).each { |level|
+    (10..100).each { |level|
       level9 = Level.new(level: level,
-                        required_xp: level_xp[level],
+                        required_xp: level_xp[level] || 100000,
                         beginning_year: "A completer",
                         period:"period #{level}",
                         sub_period: "sub period #{level}",
@@ -133,343 +133,448 @@ module LevelAndUserSeed
 
     character_item = CharacterItem.new(
       item_type: "hair",
-      img_src: "sprites/black_long_hair.png",
+      img_src: "sprites/hairs/black_long_hair.png",
       name: "Cheveux longs noirs",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "hair",
-      img_src: "sprites/black_short_hair.png",
+      img_src: "sprites/hairs/black_short_hair.png",
       name: "Cheveux courts noirs",
       unlocked_condition: "none",
-      price: 0
-    )
-    character_item.save!
-
-    # character_item = CharacterItem.new(
-    #   item_type: "hair",
-    #   img_src: "sprites/blond_short_hair.png",
-    #   name: "Cheveux longs blonds",
-    #   unlocked_condition: "none",
-    #   price: 0
-    # )
-    # character_item.save!
-
-    # character_item = CharacterItem.new(
-    #   item_type: "hair",
-    #   img_src: "sprites/blond_short_hair.png",
-    #   name: "Cheveux courts blonds",
-    #   unlocked_condition: "none",
-    #   price: 0
-    # )
-    # character_item.save!
-
-    character_item = CharacterItem.new(
-      item_type: "hair",
-      img_src: "sprites/red_short_hair.png",
-      name: "Cheveux courts rouges",
-      unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "hair",
-      img_src: "sprites/red_short_hair.png",
-      name: "Cheveux courts rouges",
+      img_src: "sprites/hairs/black_short_hair_2.png",
+      name: "Cheveux courts noirs",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
+      price: 0
+    )
+    character_item.save!
+
+    #
+
+    character_item = CharacterItem.new(
+      item_type: "hair",
+      img_src: "sprites/hairs/blond_long_hair.png",
+      name: "Cheveux longs blond",
+      unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "hair",
-      img_src: "sprites/white_long_hair.png",
-      name: "Cheveux longs blancs",
+      img_src: "sprites/hairs/blond_short_hair.png",
+      name: "Cheveux courts blond",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "hair",
-      img_src: "sprites/white_short_hair.png",
-      name: "Cheveux courts blancs",
+      img_src: "sprites/hairs/blond_short_hair_2.png",
+      name: "Cheveux courts blond",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
+      price: 0
+    )
+    character_item.save!
+
+    #
+    character_item = CharacterItem.new(
+      item_type: "hair",
+      img_src: "sprites/hairs/red_long_hair.png",
+      name: "Cheveux longs rouge",
+      unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "hair",
-      img_src: "sprites/yellow_long_hair.png",
-      name: "Cheveux courts jaunes",
+      img_src: "sprites/hairs/red_short_hair.png",
+      name: "Cheveux courts rouge",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "hair",
-      img_src: "sprites/yellow_short_hair.png",
-      name: "Cheveux courts jaunes",
+      img_src: "sprites/hairs/red_short_hair_2.png",
+      name: "Cheveux courts rouge",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
+      price: 0
+    )
+    character_item.save!
+
+    #
+
+    character_item = CharacterItem.new(
+      item_type: "hair",
+      img_src: "sprites/hairs/white_long_hair.png",
+      name: "Cheveux longs blanc",
+      unlocked_condition: "none",
+      level: Level.find_by(level:1),
+      price: 0
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "hair",
+      img_src: "sprites/hairs/white_short_hair.png",
+      name: "Cheveux courts blanc",
+      unlocked_condition: "none",
+      level: Level.find_by(level:1),
+      price: 0
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "hair",
+      img_src: "sprites/hairs/white_short_hair_2.png",
+      name: "Cheveux courts blanc",
+      unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     # head
 
+    character_item = CharacterItem.new(
+      item_type: "head",
+      img_src: "sprites/heads/bold_brown_head.png",
+      name: "Tête plus marron",
+      unlocked_condition: "none",
+      level: Level.find_by(level:1),
+      price: 0
+    )
+    character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "head",
-      img_src: "sprites/brown_head.png",
+      img_src: "sprites/heads/brown_head.png",
       name: "Tête marron",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "head",
-      img_src: "sprites/green_head.png",
-      name: "Tête verte",
+      img_src: "sprites/heads/light_brown_head.png",
+      name: "Tête marron",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
-    # character_item = CharacterItem.new(
-    #   item_type: "head",
-    #   img_src: "sprites/white_head.png",
-    #   name: "Tête blanche",
-    #   unlocked_condition: "none",
-    #   price: 0
-    # )
-    # character_item.save!
-
     character_item = CharacterItem.new(
       item_type: "head",
-      img_src: "sprites/orange_head.png",
-      name: "Tête orange #1",
+      img_src: "sprites/heads/light_yellow_head.png",
+      name: "Tête jaune",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "head",
-      img_src: "sprites/light_yellow_head.png",
-      name: "Tête jaune #2",
+      img_src: "sprites/heads/orange_head.png",
+      name: "Tête orange",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "head",
-      img_src: "sprites/red_head.png",
+      img_src: "sprites/heads/red_head.png",
       name: "Tête rouge",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "head",
+      img_src: "sprites/heads/very_light_brown_head.png",
+      name: "Tête légerement marron",
+      unlocked_condition: "none",
+      level: Level.find_by(level:1),
+      price: 0
+    )
+    character_item.save!
+
 
     # helmet
 
     character_item = CharacterItem.new(
       item_type: "helmet",
-      img_src: "sprites/black_turban.png",
+      img_src: "sprites/helmets/black_turban.png",
       name: "Turban noir",
-      unlocked_condition: "none",
-      price: 0
+      unlocked_condition: "Prérequis : niveau 5",
+      level: Level.find_by(level: 5),
+      price: 1000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "helmet",
-      img_src: "sprites/brown_simple_helmet.png",
+      img_src: "sprites/helmets/black_turban_2.png",
+      name: "Turban noir 2",
+      unlocked_condition: "Prérequis : niveau 8",
+      level: Level.find_by(level: 8),
+      price: 2000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "helmet",
+      img_src: "sprites/helmets/brown_simple_helmet.png",
       name: "Casque marron simple",
+      unlocked_condition: "Prérequis : niveau 10",
+      level: Level.find_by(level: 10),
+      price: 5000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "helmet",
+      img_src: "sprites/helmets/flower.png",
+      name: "Fleur",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "helmet",
-      img_src: "sprites/golden_helmet.png",
+      img_src: "sprites/helmets/golden_crown_2.png",
+      name: "Casque en or massif",
+      unlocked_condition: "Prérequis : niveau 50",
+      level: Level.find_by(level: 50),
+      price: 50000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "helmet",
+      img_src: "sprites/helmets/golden_helmet.png",
       name: "Casque en or",
-      unlocked_condition: "none",
-      price: 0
+      unlocked_condition: "Prérequis : niveau 40",
+      level: Level.find_by(level: 40),
+      price: 40000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "helmet",
-      img_src: "sprites/golden_red_helmet.png",
-      name: "Casque en or et ruby",
-      unlocked_condition: "none",
-      price: 0
+      img_src: "sprites/helmets/golden_red_helmet.png",
+      name: "Casque en or certi d'un ruby",
+      unlocked_condition: "Prérequis : niveau 60",
+      level: Level.find_by(level: 60),
+      price: 60000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "helmet",
-      img_src: "sprites/grey_helmet.png",
+      img_src: "sprites/helmets/grey_helmet.png",
+      name: "Casque renforcé",
+      unlocked_condition: "Prérequis : niveau 25",
+      level: Level.find_by(level: 25),
+      price: 10000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "helmet",
+      img_src: "sprites/helmets/grey_simple_helmet.png",
       name: "Casque simple",
-      unlocked_condition: "none",
-      price: 0
+      unlocked_condition: "Prérequis : niveau 18",
+      level: Level.find_by(level: 18),
+      price: 8000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "helmet",
-      img_src: "sprites/red_helmet.png",
-      name: "Casque rouge",
-      unlocked_condition: "none",
-      price: 0
+      img_src: "sprites/helmets/red_helmet.png",
+      name: "Casque de feu",
+      unlocked_condition: "Prérequis : niveau 32",
+      level: Level.find_by(level: 32),
+      price: 25000
     )
     character_item.save!
-
-
 
 
     # Body
 
     character_item = CharacterItem.new(
       item_type: "body",
-      img_src: "sprites/body_black.png",
-      name: "Corps noir",
-      unlocked_condition: "none",
-      price: 0
-    )
-    character_item.save!
-
-    # character_item = CharacterItem.new(
-    #   item_type: "body",
-    #   img_src: "sprites/body_red.png",
-    #   name: "Corps rouge",
-    #   unlocked_condition: "none",
-    #   price: 0
-    # )
-    # character_item.save!
-
-    character_item = CharacterItem.new(
-      item_type: "body",
-      img_src: "sprites/body_brown.png",
-      name: "Corps marron",
-      unlocked_condition: "none",
-      price: 0
+      img_src: "sprites/bodys/black_armor.png",
+      name: "Armure simple",
+      unlocked_condition: "Prérequis : niveau 20",
+      level: Level.find_by(level: 20),
+      price: 30000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "body",
-      img_src: "sprites/body_pink.png",
-      name: "Corps rose",
+      img_src: "sprites/bodys/black_tunique.png",
+      name: "Tunique noire",
+      unlocked_condition: "Prérequis : niveau 5",
+      level: Level.find_by(level: 8),
+      price: 2000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "body",
+      img_src: "sprites/bodys/blue_body.png",
+      name: "corps bleu",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "body",
-      img_src: "sprites/body_pink.png",
-      name: "Corps rose",
+      img_src: "sprites/bodys/blue_body_2.png",
+      name: "corps bleu 2",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "body",
-      img_src: "sprites/dark_grey_armor.png",
-      name: "Armure grise",
+      img_src: "sprites/bodys/golden_armor.png",
+      name: "Armure de chevalier",
+      unlocked_condition: "Prérequis : niveau 45",
+      level: Level.find_by(level: 45),
+      price: 30000
+    )
+    character_item.save!
+
+
+    character_item = CharacterItem.new(
+      item_type: "body",
+      img_src: "sprites/bodys/green_tunique.png",
+      name: "tunique vert",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
+      price: 0
+    )
+    character_item.save!
+
+
+    character_item = CharacterItem.new(
+      item_type: "body",
+      img_src: "sprites/bodys/green_tunique_2.png",
+      name: "tunique verte 2",
+      unlocked_condition: "none",
+      level: Level.find_by(level:1),
+      price: 0
+    )
+    character_item.save!
+
+
+    character_item = CharacterItem.new(
+      item_type: "body",
+      img_src: "sprites/bodys/grey_armor.png",
+      name: "Armure renforcée",
+      unlocked_condition: "Prérequis : niveau 50",
+      level: Level.find_by(level: 28),
+      price: 28000
+    )
+    character_item.save!
+
+
+    character_item = CharacterItem.new(
+      item_type: "body",
+      img_src: "sprites/bodys/pink_body.png",
+      name: "corps rose",
+      unlocked_condition: "none",
+      level: Level.find_by(level:1),
+      price: 0
+    )
+    character_item.save!
+
+
+    character_item = CharacterItem.new(
+      item_type: "body",
+      img_src: "sprites/bodys/pink_body_2.png",
+      name: "corps rose 2",
+      unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "body",
-      img_src: "sprites/pink_reinforced_armor.png",
-      name: "Armure rose de combat",
-      unlocked_condition: "none",
-      price: 0
+      img_src: "sprites/bodys/red_armor.png",
+      name: "Armure de feu",
+      unlocked_condition: "Prérequis : niveau 55",
+      level: Level.find_by(level: 55),
+      price: 100000
     )
     character_item.save!
 
-    # character_item = CharacterItem.new(
-    #   item_type: "body",
-    #   img_src: "sprites/pink_armor.png",
-    #   name: "Armure rose simple",
-    #   unlocked_condition: "none",
-    #   price: 0
-    # )
-    # character_item.save!
-
     character_item = CharacterItem.new(
       item_type: "body",
-      img_src: "sprites/purple_reinforced_armor.png",
-      name: "Armure violette de combat",
+      img_src: "sprites/bodys/white_body.png",
+      name: "Corps blanc",
       unlocked_condition: "none",
-      price: 0
-    )
-    character_item.save!
-
-    # character_item = CharacterItem.new(
-    #   item_type: "body",
-    #   img_src: "sprites/purple_armor.png",
-    #   name: "Armure violette simple",
-    #   unlocked_condition: "none",
-    #   price: 0
-    # )
-    # character_item.save!
-
-    # character_item = CharacterItem.new(
-    #   item_type: "body",
-    #   img_src: "sprites/red_reinforced_armor.png",
-    #   name: "Armure rouge de combat",
-    #   unlocked_condition: "none",
-    #   price: 0
-    # )
-    # character_item.save!
-
-    character_item = CharacterItem.new(
-      item_type: "body",
-      img_src: "sprites/white_armor.png",
-      name: "Armure blanche simple",
-      unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "body",
-      img_src: "sprites/white_reinforced_armor.png",
-      name: "Armure blanche de combat",
+      img_src: "sprites/bodys/white_body_2.png",
+      name: "Corps blanc #2",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
 
-    # character_item = CharacterItem.new(
-    #   item_type: "body",
-    #   img_src: "sprites/yellow_armor.png",
-    #   name: "Armure jaune simple",
-    #   unlocked_condition: "none",
-    #   price: 0
-    # )
-    # character_item.save!
-
     character_item = CharacterItem.new(
       item_type: "body",
-      img_src: "sprites/yellow_reinforced_armor.png",
-      name: "Armure jaune de combat",
+      img_src: "sprites/bodys/yellow_tunique.png",
+      name: "Tunique jaune",
       unlocked_condition: "none",
+      level: Level.find_by(level:1),
       price: 0
     )
     character_item.save!
@@ -479,46 +584,71 @@ module LevelAndUserSeed
 
     character_item = CharacterItem.new(
       item_type: "weapon",
-      img_src: "sprites/bowl_axe.png",
+      img_src: "sprites/weapons/bowl_axe.png",
       name: "Fléau de combat",
-      unlocked_condition: "none",
-      price: 0
+      unlocked_condition: "Prérequis : niveau 22",
+      level: Level.find_by(level: 22),
+      price: 10000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "weapon",
-      img_src: "sprites/double_axe.png",
+      img_src: "sprites/weapons/double_axe.png",
       name: "Double hache",
-      unlocked_condition: "none",
-      price: 0
+      unlocked_condition: "Prérequis : niveau 24",
+      level: Level.find_by(level: 24),
+      price: 13000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "weapon",
-      img_src: "sprites/golden_sword.png",
+      img_src: "sprites/weapons/golden_sword.png",
       name: "Epée en or",
-      unlocked_condition: "none",
-      price: 0
+      unlocked_condition: "Prérequis : niveau 42",
+      level: Level.find_by(level: 42),
+      price: 42000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "weapon",
-      img_src: "sprites/little_knife.png",
+      img_src: "sprites/weapons/little_knife.png",
       name: "Pierre taillée",
-      unlocked_condition: "none",
-      price: 0
+      unlocked_condition: "Prérequis : niveau 5",
+      level: Level.find_by(level: 5),
+      price: 1000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "weapon",
-      img_src: "sprites/red_sword.png",
-      name: "Epée rouge",
-      unlocked_condition: "none",
-      price: 0
+      img_src: "sprites/weapons/red_sword.png",
+      name: "Epée de feu",
+      unlocked_condition: "Prérequis : niveau 42",
+      level: Level.find_by(level: 42),
+      price: 50000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "weapon",
+      img_src: "sprites/weapons/simple_sword.png",
+      name: "Epée de combat",
+      unlocked_condition: "Prérequis : niveau 33",
+      level: Level.find_by(level: 33),
+      price: 25000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "weapon",
+      img_src: "sprites/weapons/blue_sword.png",
+      name: "Epée de glace",
+      unlocked_condition: "Prérequis : niveau 70",
+      level: Level.find_by(level: 70),
+      price: 150000
     )
     character_item.save!
 
@@ -527,74 +657,119 @@ module LevelAndUserSeed
 
     character_item = CharacterItem.new(
       item_type: "shield",
-      img_src: "sprites/brown_little_shield.png",
-      name: "Bouclier en bois",
-      unlocked_condition: "none",
-      price: 0
+      img_src: "sprites/shields/big_red_shield.png",
+      name: "Grand bouclier de feu",
+      unlocked_condition: "Prérequis : niveau 35",
+      level: Level.find_by(level: 35),
+      price: 30000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "shield",
-      img_src: "sprites/brown_white_little_shield.png",
+      img_src: "sprites/shields/brown_little_shield.png",
+      name: "Bouclier léger en bois certifié",
+      unlocked_condition: "Prérequis : niveau 7",
+      level: Level.find_by(level: 7),
+      price: 2000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "shield",
+      img_src: "sprites/shields/brown_white_little_shield.png",
       name: "Bouclier en bois certifié",
-      unlocked_condition: "none",
-      price: 0
-    )
-    character_item.save!
-
-    # character_item = CharacterItem.new(
-    #   item_type: "weapon",
-    #   img_src: "sprites/circle_brown_shield.png",
-    #   name: "Bouclier en bois renforcé",
-    #   unlocked_condition: "none",
-    #   price: 0
-    # )
-    # character_item.save!
-
-    character_item = CharacterItem.new(
-      item_type: "shield",
-      img_src: "sprites/dark_little_shield.png",
-      name: "Bouclier noir",
-      unlocked_condition: "none",
-      price: 0
+      unlocked_condition: "Prérequis : niveau 33",
+      level: Level.find_by(level: 33),
+      price: 4000
     )
     character_item.save!
 
     character_item = CharacterItem.new(
       item_type: "shield",
-      img_src: "sprites/golden_white_shield.png",
-      name: "Bouclier de chevalier",
-      unlocked_condition: "none",
-      price: 0
+      img_src: "sprites/shields/circle_brown_little_shield.png",
+      name: "Bouclier rond en bois",
+      unlocked_condition: "Prérequis : niveau 16",
+      level: Level.find_by(level: 16),
+      price: 12000
     )
     character_item.save!
 
-    # character_item = CharacterItem.new(
-    #   item_type: "weapon",
-    #   img_src: "sprites/red_golden_white_shield.png",
-    #   name: "Bouclier sacré",
-    #   unlocked_condition: "none",
-    #   price: 0
-    # )
-    # character_item.save!
+    character_item = CharacterItem.new(
+      item_type: "shield",
+      img_src: "sprites/shields/dark_little_shield.png",
+      name: "Bouclier en fer forgé",
+      unlocked_condition: "Prérequis : niveau 33",
+      level: Level.find_by(level: 24),
+      price: 13000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "shield",
+      img_src: "sprites/shields/golden_white_shield.png",
+      name: "Grand bouclier de chevalier",
+      unlocked_condition: "Prérequis : niveau 36",
+      level: Level.find_by(level: 36),
+      price: 20000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "shield",
+      img_src: "sprites/shields/big_red_shield.png",
+      name: "Bouclier de feu",
+      unlocked_condition: "Prérequis : niveau 60",
+      level: Level.find_by(level: 60),
+      price: 50000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "shield",
+      img_src: "sprites/shields/white_brown_shield.png",
+      name: "Bouclier en bois renforcé",
+      unlocked_condition: "Prérequis : niveau 19",
+      level: Level.find_by(level: 19),
+      price: 8000
+    )
+    character_item.save!
+
+    character_item = CharacterItem.new(
+      item_type: "shield",
+      img_src: "sprites/shields/white_shield.png",
+      name: "Bouclier certi",
+      unlocked_condition: "Prérequis : niveau 20",
+      level: Level.find_by(level: 20),
+      price: 20000
+    )
+    character_item.save!
 
     CharacterItem.all.each do |character_item|
-      user_character_item = UserCharacterItem.new(
-        user: anthony,
-        character_item: character_item,
-        unlocked: true,
-        bought: true
-      )
+      if character_item.level.level == 1
+        user_character_item = UserCharacterItem.new(
+          user: anthony,
+          character_item: character_item,
+          unlocked: true,
+          bought: true
+        )
+      else
+        user_character_item = UserCharacterItem.new(
+          user: anthony,
+          character_item: character_item,
+          unlocked: false,
+          bought: false
+        )
+      end
       user_character_item.save!
     end
 
     character = Character.new(
       user: anthony,
       background: "purple",
-      body: "sprites/body_brown.png",
-      hair: "sprites/long_hair_black.png",
-      head: "sprites/head_white.png",
+      body: "sprites/bodys/white_body.png",
+      hair: "sprites/hairs/black_long_hair.png",
+      head: "sprites/heads/light_brown_head.png",
       weapon: "",
       helmet: "",
       shield: ""

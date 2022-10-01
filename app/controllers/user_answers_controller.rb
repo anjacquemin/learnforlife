@@ -12,6 +12,8 @@ class UserAnswersController < ApplicationController
       is_good_answer = (user_answer == question_answer.answer)
 
       user_answer = UserAnswer.new(question_answer_id:  data["question_id"], answer_id: answer_id, quizz_answer_id: data["quizz_answer_id"], answer: user_answer)
+      # for test : always OK
+      # user_answer = UserAnswer.new(question_answer_id:  data["question_id"], answer_id: question_answer.id, quizz_answer_id: data["quizz_answer_id"], answer: question_answer.answer)
       authorize(user_answer)
 
     elsif data["quizz_level"] == "Difficile"
@@ -25,7 +27,9 @@ class UserAnswersController < ApplicationController
         answer_id = 0
         is_good_answer = false
       end
-      user_answer = UserAnswer.new(question_answer_id:  data["question_id"], answer_id: answer_id, quizz_answer_id: data["quizz_answer_id"], answer: data["user_answer"])
+      # user_answer = UserAnswer.new(question_answer_id:  data["question_id"], answer_id: answer_id, quizz_answer_id: data["quizz_answer_id"], answer: data["user_answer"])
+      # for test : always OK
+      user_answer = UserAnswer.new(question_answer_id:  data["question_id"], answer_id: answer_id, quizz_answer_id: data["quizz_answer_id"], answer: question_answer.answer)
       authorize(user_answer)
     end
     user_answer.save!
