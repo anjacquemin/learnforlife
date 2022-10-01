@@ -84,7 +84,6 @@ class FlashcardsController < ApplicationController
     @flashcard_dealt_with = current_user.flashcard_saves.select{ |flashcard_save| !flashcard_save.dealt_with }
     @flashcard_dealt_with_count = @flashcard_dealt_with.pluck(:flashcard_id).uniq.count
 
-    @gold_win = 0
     count = 0
 
     @flashcard_dealt_with.each do |flashcard_save|
@@ -92,11 +91,10 @@ class FlashcardsController < ApplicationController
         flashcard_save.dealt_with = true
         flashcard_save.save!
         count += 1
-        @gold_win += 1
       end
     end
 
-    @gold_win = (count < @flashcard_dealt_with_count ? count : @gold_win)
+    @gold_win = @flashcard_dealt_with_count * 2
 
     current_user.gold += @gold_win
     current_user.save!

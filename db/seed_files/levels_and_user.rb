@@ -658,7 +658,7 @@ module LevelAndUserSeed
     character_item = CharacterItem.new(
       item_type: "shield",
       img_src: "sprites/shields/big_red_shield.png",
-      name: "Grand bouclier de feu",
+      name: "Bouclier de feu",
       unlocked_condition: "Prérequis : niveau 35",
       level: Level.find_by(level: 35),
       price: 30000
@@ -770,9 +770,9 @@ module LevelAndUserSeed
       body: "sprites/bodys/white_body.png",
       hair: "sprites/hairs/black_long_hair.png",
       head: "sprites/heads/light_brown_head.png",
-      weapon: "",
-      helmet: "",
-      shield: ""
+      weapon: "sprites/weapons/empty.png",
+      helmet: "sprites/helmets/empty.png",
+      shield: "sprites/shields/empty.png"
     )
     character.save!
 

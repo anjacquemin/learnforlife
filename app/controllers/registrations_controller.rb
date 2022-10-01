@@ -111,9 +111,9 @@ class RegistrationsController < Devise::RegistrationsController
         body: "sprites/bodys/white_body.png",
         hair: "sprites/hairs/black_long_hair.png",
         head: "sprites/heads/light_brown_head.png",
-        weapon: "",
-        helmet: "",
-        shield: ""
+        weapon: "sprites/weapons/empty.png",
+        helmet: "sprites/helmets/empty.png",
+        shield: "sprites/shields/empty.png"
       )
       character.save!
     end

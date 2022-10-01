@@ -69,6 +69,9 @@ export default class extends Controller {
     console.log(hair)
     console.log(head)
     console.log(body)
+    console.log(helmet)
+    console.log(weapon)
+    console.log(shield)
     let data = answerDataBuilding(hair, head, body, helmet, weapon, shield)
 
     fetch(url, {

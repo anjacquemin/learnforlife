@@ -17,19 +17,15 @@
   <%data_bs_toggle = "data-bs-toggle='modal'" %>
 <% end %>
 
-<% img_style = "" %>
 <% blur_filter = "" %>
 <% indications = "" %>
-<% img_style = "clip-path: inset(0px 0px 35px 0px); top:0px;" if type == "hair" %>
-<% img_style = "clip-path: inset(35px 0px 0 0px); top:-20px;" if type == "body" %>
-<% img_style = "clip-path: inset(20px 0px 0 0px); top:-10px; right:55px;" if type == "weapon" %>
-<% img_style = "clip-path: inset(35px 0px 0 0px); top:-20px;" if type == "shield" %>
+<% item_class = "#{type}-item"%>
 
 <% blur_filter = 'filter: blur(2px); opacity:0.8;' if item_status == "To unlocked" %>
 <% indications = item.unlocked_condition if item_status == "To unlocked" %>
 
-<div class= "market-item-card" <%=data_bs_target.html_safe%> <%=data_bs_toggle.html_safe%> title="<%=indications.html_safe%>">
-  <%= image_tag item.img_src, style: img_style.html_safe + blur_filter.html_safe%>
+<div class= market-item-card <%=data_bs_target.html_safe%> <%=data_bs_toggle.html_safe%> title="<%=indications.html_safe%>">
+  <%= image_tag item.img_src, class: item_class, style: blur_filter.html_safe%>
   <p><%=item.name %></p>
   <% if item_status == "Already bought"%>
     <div class="price" style="background-color:#F0FCF8;">

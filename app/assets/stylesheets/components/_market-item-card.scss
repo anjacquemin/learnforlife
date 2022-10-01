@@ -15,7 +15,6 @@
   img{
     overflow: hidden;
     position: absolute;
-    top: 0;
   }
   p {
     text-align: center;
@@ -46,4 +45,28 @@
 
 .modal-body .market-item-card:hover{
   border: none;
+}
+
+.hair-item {
+  clip-path: inset(0px 0px 35px 0px);
+  top:0px;
+}
+.head-item {
+  top:0px;
+}
+.helmet-item {
+  top:0px;
+}
+.body-item {
+  clip-path: inset(35px 0px 0 0px);
+  top:-20px;
+}
+.weapon-item {
+  clip-path: inset(20px 0px 0 0px);
+  top:-10px;
+  right:55px;
+}
+.shield-item {
+  clip-path: inset(35px 0px 0 0px);
+  top:-20px;
 }

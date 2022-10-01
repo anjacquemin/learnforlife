@@ -38,6 +38,8 @@ export default class extends Controller {
   }
 
   checkAnswer(event) {
+
+    console.log(event)
     event.preventDefault()
 
     // To handle when a user click on the text of the answer and not the div
@@ -47,8 +49,12 @@ export default class extends Controller {
     Array.from(corrected_target.parentElement.children).forEach(answer => answer.dataset.action = " ")
 
     //Enable to cancel click on the answer, so the purple color triggered by hovering disappear
+    console.log(`##################"`)
     corrected_target.style.pointerEvents = "none"
-    // corrected_target.style.touchAction = "none"
+    corrected_target.style.touchAction = "none"
+    console.log(corrected_target.style)
+    console.log(corrected_target.style.touchAction)
+    console.log(corrected_target.style.pointerEvents)
 
     const quizz_level = corrected_target.parentElement.dataset.quizzLevel
     const question_id = corrected_target.parentElement.dataset.questionId

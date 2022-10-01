@@ -52,12 +52,6 @@ p "end themes seed"
 QuizzSeed::seed
 p "end quizzs seed"
 
-AchievementSeed::seed
-p "end achievements seed"
-
-# MassUserSeed::seed
-# p "end mass user seed"
-
 HistoryFlashcards::seed
 p "end mass user seed"
 
@@ -66,6 +60,12 @@ p "Cinema seed"
 
 CinemaQuizzSeed::seed
 p "Cinema seed"
+
+AchievementSeed::seed
+p "end achievements seed"
+
+# MassUserSeed::seed
+# p "end mass user seed"
 
 AllThemeSeed::seed
 p "Other theme seed"
