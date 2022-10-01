@@ -48,19 +48,19 @@ module CinemaThemeSeed
 
     # Geography subtheme
     subthemes = []
-    movies2004 = Subtheme.new(name: "Films 1990 - 2004", theme_level: level_1)
+    movies2004 = Subtheme.new(name: "Films 1990-2004", theme_level: level_1)
     movies2004.save!
 
-    movies2022 = Subtheme.new(name: "Films 2005 - 2022", theme_level: level_1)
+    movies2022 = Subtheme.new(name: "Films 2005-2022", theme_level: level_1)
     movies2022.save!
 
-    movies1989 = Subtheme.new(name: "Films 1960 - 1989", theme_level: level_2)
+    movies1989 = Subtheme.new(name: "Films 1960-1989", theme_level: level_2)
     movies1989.save!
 
-    movies1960 = Subtheme.new(name: "Films < 1960", theme_level: level_3)
+    movies1960 = Subtheme.new(name: "Films<1960", theme_level: level_3)
     movies1960.save!
 
-    oscar1960 = Subtheme.new(name: "Oscar < 1960", theme_level: level_3)
+    oscar1960 = Subtheme.new(name: "Oscar<1960", theme_level: level_3)
     oscar1960.save!
 
     oscar1989 = Subtheme.new(name: "Oscar 1960-1989", theme_level: level_2)

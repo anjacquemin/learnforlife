@@ -20,7 +20,7 @@
           <%= image_tag "homepage/Capture-quizz-level.PNG", id: "img2" %>
           <%= image_tag "homepage/capture-question.PNG", id: "img3" %>
           <%= image_tag "homepage/capture-record.PNG", id: "img4" %>
-          <%= image_tag "homepage/capture-hero-borderless.PNG", id: "img5" %>
+          <%= image_tag "homepage/Capture_sprite_advanced_hero_borderless.PNG", id: "img5" %>
         </div>
       </div>
 
@@ -67,6 +67,9 @@
           <%= image_tag @user.character.hair, class: "character-hair", "data-sprite-target": "hair" %>
           <%= image_tag @user.character.head, class: "character-head", "data-sprite-target": "head" %>
           <%= image_tag @user.character.body, class: "character-body", "data-sprite-target": "body" %>
+          <%= image_tag @user.character.helmet, class: "character-helmet", "data-sprite-target": "helmet" %>
+          <%= image_tag @user.character.weapon, class: "character-weapon", "data-sprite-target": "weapon" %>
+          <%= image_tag @user.character.shield, class: "character-shield", "data-sprite-target": "shield" %>
         </button>
         <div class= "mt-4"></div>
         <button class="btn btn-purple"><%= link_to "Continuer à apprendre", themes_path %></button>
@@ -88,7 +91,7 @@
     <h2>Incarne un héro</h2>
     <div class="my-3"></div>
     <div class="box">
-      <p> Retour à la préhistoire, - 800 000 av. JC, le genre Homo fait son apparition. <br>Incarne et personalise un Homo Habilis au début du Paléolithique ancien.</p>
+      <p> Retour en - 2 400 000 av. JC, le genre Homo fait son apparition. <br>Incarne et personalise un Homo Habilis au début de la préhistoire</p>
       <%= image_tag "homepage/Capture-perso-full.PNG" %>
     </div>
   </div>
@@ -108,6 +111,7 @@
     <div class="my-3"></div>
     <div class="box">
       <p> Remporte tes combats en développant les connaissances de ton héro et en développant des compétences uniques. </p>
+      <%= image_tag "homepage/duel.PNG" %>
     </div>
   </div>
 
@@ -142,7 +146,6 @@
     <div class="my-3"></div>
     <div class="box">
       <p> Pourquoi tout le monde se souvient de la célebre phrase:<br>"Mais ou est donc Ornicar ?" ... </p>
-      <%= image_tag "homepage/Capture-crowns.PNG" %>
     </div>
   </div>
 </div>

@@ -29,6 +29,7 @@ class PagesController < ApplicationController
     @character_items = CharacterItem.all
     @user = current_user
     @item_status = CharacterItem.set_character_item_lock_or_not(@user)
-    @all_types = ["hair", "body", "head", "weapon", "shield", "helmet"]
+    # dont pur hair / head : no item to unlocked (to be added)
+    @all_types = ["weapon", "shield", "helmet","body"]
   end
 end

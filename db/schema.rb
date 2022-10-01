@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_01_015228) do
+ActiveRecord::Schema.define(version: 2022_10_01_141649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 2022_10_01_015228) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price"
     t.string "unlocked_condition"
+    t.bigint "level_id"
+    t.index ["level_id"], name: "index_character_items_on_level_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -360,6 +362,7 @@ ActiveRecord::Schema.define(version: 2022_10_01_015228) do
   add_foreign_key "categories", "subthemes"
   add_foreign_key "category_progresses", "categories"
   add_foreign_key "category_progresses", "users"
+  add_foreign_key "character_items", "levels"
   add_foreign_key "characters", "users"
   add_foreign_key "flashcard_saves", "flashcards"
   add_foreign_key "flashcards", "categories"

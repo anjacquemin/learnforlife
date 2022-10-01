@@ -92,6 +92,7 @@ class FlashcardsController < ApplicationController
         flashcard_save.dealt_with = true
         flashcard_save.save!
         count += 1
+        @gold_win += 1
       end
     end
 

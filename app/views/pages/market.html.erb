@@ -18,7 +18,7 @@
         <div class="title">
           <h2><%= type %></h2>
         </div>
-        <% character_items_type = @character_items.select{|e| e.item_type == type}  %>
+        <% character_items_type = @character_items.select{|e| e.item_type == type && e.level.level != 1}  %>
         <%# <% character_items_type_bought = character_items_type.select{|e| current_user.user_character_items.find_by(character_item: e).bought}  %>
         <%# <% character_items_type_unlocked = character_items_type.select{|e| current_user.user_character_items.find_by(character_item: e).unlocked} %>
         <%# <% character_items_type_locked = character_items_type.select{|e| !current_user.user_character_items.find_by(character_item: e).unlocked} %>

@@ -14,7 +14,7 @@ export default class extends Controller {
 
     window.theme_index = 0;
 
-     myLoop(this, themeCount)
+    myLoop(this, themeCount)
   }
 
 }
@@ -31,7 +31,7 @@ function myLoop(itself, themeCount) {
     console.log(targets[1])
     console.log(targets[2])
     theme_index++;
-    if (theme_index < themeCount-1) {
+    if (theme_index < themeCount) {
       myLoop(itself, themeCount);
     }
   }, 200)

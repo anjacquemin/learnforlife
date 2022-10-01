@@ -1,4 +1,6 @@
 class CharacterItem < ApplicationRecord
+  belongs_to :level, optional: true
+
   validates :name, presence: true
   validates :item_type, presence: true
   validates :img_src, presence: true
