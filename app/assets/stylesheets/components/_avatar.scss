@@ -42,28 +42,40 @@
 
 .character-hair {
   position: absolute;
-  top: 50px;
-  left: 69px;
+  top: 32px;
+  left: 50px;
   // clip-path: inset(0px 360px 0px 0px);
 }
 
 .character-head {
   position: absolute;
   top: 38px;
-  left: 69px;
+  left: 50px;
+  // clip-path: inset(0px 1960px 0px 0px);
+}
+.character-helmet {
+  position: absolute;
+  top: 30px;
+  left: 50px;
   // clip-path: inset(0px 1960px 0px 0px);
 }
 
 .character-body {
   position: absolute;
-  top: 38px;
-  left: 69px;
+  top: 28px;
+  left: 50px;
   // clip-path: inset(0px 620px 0px 0px);
 }
 
 .character-weapon {
   position: absolute;
-  left: 30px;
-  top: 9px;
-  // clip-path: inset(0px 6790px 0px 0px);
+  top: 30px;
+  left: 39px;
+  // clip-path: inset(0px 1960px 0px 0px);
+}
+.character-shield {
+  position: absolute;
+  top: 40px;
+  left: 69px;
+  // clip-path: inset(0px 1960px 0px 0px);
 }

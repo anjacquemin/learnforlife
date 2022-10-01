@@ -6,6 +6,9 @@ class CharactersController < ApplicationController
     body = data["body"]
     hair = data["hair"]
     head = data["head"]
+    helmet = data["helmet"]
+    weapon = data["weapon"]
+    shield = data["shield"]
 
     @character = Character.find(params[:id])
     authorize @character
@@ -13,6 +16,9 @@ class CharactersController < ApplicationController
     @character.body = body
     @character.hair = hair
     @character.head = head
+    @character.helmet = helmet
+    @character.weapon = weapon
+    @character.shield = shield
 
     @character.save!
 

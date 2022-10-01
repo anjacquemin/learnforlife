@@ -57,8 +57,8 @@ p "end level seed"
 # MassUserSeed::seed
 # p "end mass user seed"
 
-HistoryFlashcards::seed
-p "end mass user seed"
+# HistoryFlashcards::seed
+# p "end mass user seed"
 
 # CinemaThemeSeed::seed
 # p "Cinema seed"

@@ -40,15 +40,10 @@ module HistoryFlashcards
       level: 1
     },
 
-    {
-      question: "Citez 1 représentant du genre homo ?",
-      answer: "Homo Habilis",
-      level: 1
-    },
 
     {
-      question: "Quand prend approximativement fin le paléolitique ancien ?",
-      answer: "300000 av. JC",
+      question: "Date d'apaprition de l'Homo Sapiens, appelé homme moderne (concordant avec la fin du paléolitique ancien) ?",
+      answer: "~300000 av. JC",
       level: 1
     },
 
@@ -59,7 +54,7 @@ module HistoryFlashcards
     },
 
     {
-      question: "2 représentant du genre Homo au paléolitique moyen",
+      question: "2 représentants du genre Homo au paléolitique moyen",
       answer: "Afrique du Nord : Homo sapiens<br> Europe: Homme de Néendertal",
       level: 2
     },
@@ -67,13 +62,13 @@ module HistoryFlashcards
 
     {
       question: "Quand prend approximativement fin le paléolitique moyen ?",
-      answer: "- 45000 av J-C",
+      answer: "-45000 av J-C",
       level: 2
     },
 
     {
       question: "Data d'apparation des premières formes d'art",
-      answer: "- 50000 av J-C",
+      answer: "-50000 av J-C",
       level: 2
     },
 
@@ -84,8 +79,8 @@ module HistoryFlashcards
     },
 
     {
-      question: "Par quoi commence le paléolithique supérieur ?",
-      answer: "L'arrivée d'homo-sapiens en Europe (cohabitation pendant plusieurs milliers d'année avec l'Homme de Néandertal",
+      question: "Par quoi commence le paléolithique supérieur (~-40000)?",
+      answer: "L'arrivée d'homo-sapiens en Europe </br> (cohabitation pendant plusieurs milliers d'année avec l'Homme de Néandertal qui disparait en -30000)",
       level: 3
     },
 
@@ -97,13 +92,13 @@ module HistoryFlashcards
 
     {
       question: "Quand prend approximativement fin le paléolitique supérieur ?",
-      answer: "- 10000 av J-C",
+      answer: "-10000 av J-C",
       level: 3
     },
 
     {
       question: "Date peinture grotte de Lascaux?",
-      answer: "- 18000 av J-C",
+      answer: "-18000 av J-C",
       level: 3
     },
 
@@ -114,8 +109,8 @@ module HistoryFlashcards
     },
 
     {
-      question: "Quel arme est fortement dévoloppée au Mésolitique",
-      answer: "L'arc (A noter qu'il n'y a pas de consensus sur la date)",
+      question: "Quelle arme est fortement dévoloppée au Mésolitique",
+      answer: "L'arc (à noter qu'il n'y a pas de consensus sur la date d'apparition)",
       level: 4
     },
 
@@ -127,51 +122,51 @@ module HistoryFlashcards
 
     {
       question: "Estimation de la population en France au Mésolitique",
-      answer: "~50-75000",
+      answer: "~75000",
       level: 5
     },
 
 
     {
-      question: "Quand s'achève approximativement le Mésolithique ?",
+      question: "Quand s'achève approximativement le Mésolithique en Europe ?",
       answer: "-6500 (en Europe)",
       level: 6
     },
 
     {
       question: "Par quoi est caractérisé la fin du Mésolithique",
-      answer: "Passage d'une économie de chasse / ceuillette à une économie agro-pastorale (pastoralisme: élevage extensif) avec la domestication de certains animaux",
+      answer: "Passage d'une économie de chasse / ceuillette à une économie agro-pastorale (pastoralisme: pratique de l'élevage) avec la domestication de certains animaux",
       level: 6
     },
 
 
     {
-      question: "A quel âge correspond le néolithique ?",
+      question: "A quel âge correspond le Néolithique ?",
       answer: "L'âge de la pierre polie",
       level: 7
     },
 
     {
-      question: "3 principales innovations du néolitique",
+      question: "3 principales innovations du Néolitique",
       answer: "Pierre polie, poterie, tissage",
       level: 7
     },
 
     {
-      question: "Quels sont les 2 changements majeurs du néolitique ?",
-      answer: "Apparition de l'agriculture </br> sédentarisation des peuples",
+      question: "Quels sont les 2 changements majeurs du Néolitique ?",
+      answer: "Apparition de l'agriculture </br> Sédentarisation des peuples",
       level: 8
     },
 
     {
-      question: "A quel époque apparaissent les premiers villages ??",
-      answer: "- 10000 av. JC",
+      question: "A quelle époque apparaissent les premiers villages ?",
+      answer: "-10000 av. JC",
       level: 8
     },
 
     {
-      question: "A quel période historique début le commerce ??",
-      answer: "Néolithique : sans monnaie, on pratique le troc",
+      question: "A quelle ère historique débute le commerce ??",
+      answer: "Néolithique (sous forme de troc)",
       level: 9
     },
 

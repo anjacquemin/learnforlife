@@ -7,7 +7,7 @@ import { Modal } from "bootstrap"
 export default class extends Controller {
 
   // number of circle target = number of subthemes
-  static targets = ["avatar", "head", "hair", "body","headModal", "hairModal", "bodyModal", "characterInfo"]
+  static targets = ["avatar", "head", "hair", "body","helmet", "weapon","shield", "headModal", "hairModal","helmetModal", "weaponModal" , "shieldModal", "bodyModal", "characterInfo"]
 
   connect() {
     console.log(`hello from controller sprite!!!`)
@@ -30,6 +30,10 @@ export default class extends Controller {
     const type = corrected_target.dataset.type
     console.log(type)
 
+    console.log(this.weaponModalTarget)
+    console.log(this.helmetModalTarget)
+    console.log(this.hairModalTarget)
+
 
     let img_to_change = ""
 
@@ -39,6 +43,12 @@ export default class extends Controller {
       img_to_change = this.bodyModalTarget
     } else if (type === "head") {
       img_to_change = this.headModalTarget
+    } else if (type === "helmet") {
+      img_to_change = this.helmetModalTarget
+    } else if (type === "weapon") {
+      img_to_change = this.weaponModalTarget
+    } else if (type === "shield") {
+      img_to_change = this.shieldModalTarget
     }
 
     console.log(img_to_change)
@@ -53,10 +63,13 @@ export default class extends Controller {
     const hair = this.hairModalTarget.src
     const head = this.headModalTarget.src
     const body = this.bodyModalTarget.src
+    const helmet = this.helmetModalTarget.src
+    const weapon = this.weaponModalTarget.src
+    const shield = this.shieldModalTarget.src
     console.log(hair)
     console.log(head)
     console.log(body)
-    let data = answerDataBuilding(hair, head, body)
+    let data = answerDataBuilding(hair, head, body, helmet, weapon, shield)
 
     fetch(url, {
       method: "PATCH",
@@ -72,12 +85,15 @@ export default class extends Controller {
 }
 
 
-const answerDataBuilding = (hair, head, body) => {
+const answerDataBuilding = (hair, head, body, helmet, weapon, shield) => {
   let payload = {
     type: "character-info",
     hair: hair,
     head: head,
-    body: body
+    body: body,
+    helmet: helmet,
+    weapon: weapon,
+    shield: shield
   }
 
   let data = new FormData();
