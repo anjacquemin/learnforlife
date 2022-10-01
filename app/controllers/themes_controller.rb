@@ -1,6 +1,7 @@
 class ThemesController < ApplicationController
   def index
-    @themes = policy_scope(Theme)
+    # Sort theme according to unlocked flashcards or not
+    @themes = policy_scope(Theme).sort_by { |theme| current_user.flashcards.where(theme: theme).count > 0 ? 0 : 1}
     @user = current_user
 
     @item_status = CharacterItem::set_character_item_lock_or_not(@user)

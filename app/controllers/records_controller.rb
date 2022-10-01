@@ -198,6 +198,7 @@ class RecordsController < ApplicationController
       else
         user.xp = xp_win + user.xp - next_level.required_xp
         user.level = next_level
+        user.hp += 1
         user.save
         next_levels_unlocked << next_level
         leveling_calculation(0, next_levels_unlocked)

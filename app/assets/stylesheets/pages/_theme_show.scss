@@ -64,6 +64,21 @@
   .subthemes-display{
     grid-template-columns: 1fr;
   }
+
+  .subtheme-card-enhanced {
+    height: 100px;
+    .badge-progress {
+      width: 20%;
+    }
+  }
+  .subtheme-card-enhanced .badge-progress .badge-display {
+    flex-direction: column;
+     img {
+      height: 25px;
+      margin: 2px;
+    }
+  }
+
 }
 
 @media(max-width: 500px) {

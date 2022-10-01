@@ -5,7 +5,7 @@ class CharacterItem < ApplicationRecord
   validates :unlocked_condition, presence: true
 
   def self.types
-    ["hair", "body", "head", "weapon"]
+    ["hair", "body", "head", "helmet", "weapon", "shield"]
   end
 
   def self.set_character_item_lock_or_not(user)

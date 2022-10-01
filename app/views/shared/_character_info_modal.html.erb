@@ -12,11 +12,14 @@
           <%= image_tag asset_path(@user.character.hair), class: "character-hair", "data-sprite-target": "hairModal" %>
           <%= image_tag asset_path(@user.character.head), class: "character-head", "data-sprite-target": "headModal" %>
           <%= image_tag asset_path(@user.character.body), class: "character-body", "data-sprite-target": "bodyModal" %>
+          <%= image_tag asset_path(@user.character.helmet), class: "character-helmet", "data-sprite-target": "helmetModal" %>
+          <%= image_tag asset_path(@user.character.weapon), class: "character-weapon", "data-sprite-target": "weaponModal" %>
+          <%= image_tag asset_path(@user.character.shield), class: "character-shield", "data-sprite-target": "shieldModal" %>
         </div>
         <div class="my-3"></div>
         <div class="img-choices">
           <div class="my-2"></div>
-          <% ["hair", "head", "body"].each do |item_type|%>
+          <% ["hair", "head", "body", "helmet", "weapon", "shield"].each do |item_type|%>
             <div class="body-category">
               <% @item_status[:unlocked][item_type.to_sym].each do |hair| %>
                 <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite" data-type=<%=item_type%> data-src= <%=asset_path("#{hair.img_src}")%> >

@@ -29,6 +29,6 @@ class PagesController < ApplicationController
     @character_items = CharacterItem.all
     @user = current_user
     @item_status = CharacterItem.set_character_item_lock_or_not(@user)
-    @all_types = ["hair", "body", "head", "weapon"]
+    @all_types = ["hair", "body", "head", "weapon", "shield", "helmet"]
   end
 end

@@ -26,7 +26,7 @@
 <% blur_filter = 'filter: blur(2px); opacity:0.8;' if item_status == "To unlocked" %>
 <% indications = item.unlocked_condition if item_status == "To unlocked" %>
 
-<div class= "market-item-card" title=<%=indications%> <%=data_bs_target.html_safe%> <%=data_bs_toggle.html_safe%>>
+<div class= "market-item-card" <%=data_bs_target.html_safe%> <%=data_bs_toggle.html_safe%> title=<%=indications.html_safe%>>
   <%= image_tag item.img_src, style: img_style.html_safe + blur_filter.html_safe%>
   <p><%=item.name %></p>
   <% if item_status == "Already bought"%>
