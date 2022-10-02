@@ -7,68 +7,68 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # the ../ just removes `seeds.rb` filename from the path which is given by __FILE__
 
-# puts 'seed'
-# require File.expand_path('../seed_files/levels_and_user', __FILE__)
-# require File.expand_path('../seed_files/geography_theme', __FILE__)
-# require File.expand_path('../seed_files/cinema_theme', __FILE__)
-# require File.expand_path('../seed_files/cinema_quizz', __FILE__)
-# require File.expand_path('../seed_files/quizzs', __FILE__)
-# require File.expand_path('../seed_files/achievements', __FILE__)
-# require File.expand_path('../seed_files/mass_user', __FILE__)
-# require File.expand_path('../seed_files/history_flashcards', __FILE__)
-# require File.expand_path('../seed_files/all_theme', __FILE__)
+puts 'seed'
+require File.expand_path('../seed_files/levels_and_user', __FILE__)
+require File.expand_path('../seed_files/geography_theme', __FILE__)
+require File.expand_path('../seed_files/cinema_theme', __FILE__)
+require File.expand_path('../seed_files/cinema_quizz', __FILE__)
+require File.expand_path('../seed_files/quizzs', __FILE__)
+require File.expand_path('../seed_files/achievements', __FILE__)
+require File.expand_path('../seed_files/mass_user', __FILE__)
+require File.expand_path('../seed_files/history_flashcards', __FILE__)
+require File.expand_path('../seed_files/all_theme', __FILE__)
 
 
-# UserAchievement.destroy_all
-# Achievement.destroy_all
-# Character.destroy_all
-# UserCharacterItem.destroy_all
-# CharacterItem.destroy_all
-# FlashcardSave.destroy_all
-# BestRecord.destroy_all
-# QuizzLevelProgress.destroy_all
-# UserAnswer.destroy_all
-# Record.destroy_all
-# QuizzAnswer.destroy_all
-# User.destroy_all
-# SuggestedAnswer.destroy_all
-# QuizzQuestionAnswer.destroy_all
-# QuestionAnswer.destroy_all
-# Level.destroy_all
-# QuizzLevel.destroy_all
-# Quizz.destroy_all
-# Category.destroy_all
-# Subtheme.destroy_all
-# ThemeLevel.destroy_all
-# Theme.destroy_all
+UserAchievement.destroy_all
+Achievement.destroy_all
+Character.destroy_all
+UserCharacterItem.destroy_all
+CharacterItem.destroy_all
+FlashcardSave.destroy_all
+BestRecord.destroy_all
+QuizzLevelProgress.destroy_all
+UserAnswer.destroy_all
+Record.destroy_all
+QuizzAnswer.destroy_all
+User.destroy_all
+SuggestedAnswer.destroy_all
+QuizzQuestionAnswer.destroy_all
+QuestionAnswer.destroy_all
+Level.destroy_all
+QuizzLevel.destroy_all
+Quizz.destroy_all
+Category.destroy_all
+Subtheme.destroy_all
+ThemeLevel.destroy_all
+Theme.destroy_all
 
 
-# LevelAndUserSeed::seed
-# p "end level seed"
+LevelAndUserSeed::seed
+p "end level seed"
 
-# ThemesSeed::seed
-# p "end themes seed"
+ThemesSeed::seed
+p "end themes seed"
 
-# QuizzSeed::seed
-# p "end quizzs seed"
+QuizzSeed::seed
+p "end quizzs seed"
 
-# HistoryFlashcards::seed
+HistoryFlashcards::seed
+p "end mass user seed"
+
+CinemaThemeSeed::seed
+p "Cinema seed"
+
+CinemaQuizzSeed::seed
+p "Cinema seed"
+
+AchievementSeed::seed
+p "end achievements seed"
+
+# MassUserSeed::seed
 # p "end mass user seed"
 
-# CinemaThemeSeed::seed
-# p "Cinema seed"
-
-# CinemaQuizzSeed::seed
-# p "Cinema seed"
-
-# AchievementSeed::seed
-# p "end achievements seed"
-
-# # MassUserSeed::seed
-# # p "end mass user seed"
-
-# AllThemeSeed::seed
-# p "Other theme seed"
+AllThemeSeed::seed
+p "Other theme seed"
 
 
 # SPECIAL INFO FOR ANTHONY USER
