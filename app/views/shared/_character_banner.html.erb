@@ -1,3 +1,6 @@
+<% @user = @user_profile || @user %>
+
+
 <div class="character-banner">
   <button class= "avatar-container" data-sprite-target= "avatar" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop100">
     <%= image_tag asset_path(@user.character.hair), class: "character-hair", "data-sprite-target": "hair" if @user.character.hair%>

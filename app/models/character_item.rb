@@ -12,16 +12,16 @@ class CharacterItem < ApplicationRecord
 
   def self.set_character_item_lock_or_not(user)
     item_status = {}
-    item_status[:unlocked] = {}
+    item_status[:bought] = {}
     self.types.each { |item_type|
-      unlocked_item = user.character_items.where(character_items: {item_type: item_type}).where(user_character_items: {unlocked: true})
-      item_status[:unlocked][item_type.to_sym] = unlocked_item
+      bought_item = user.character_items.where(character_items: {item_type: item_type}).where(user_character_items: {bought: true})
+      item_status[:bought][item_type.to_sym] = bought_item
     }
 
-    item_status[:locked] = {}
+    item_status[:unbought] = {}
     self.types.each { |item_type|
-      locked_item = user.character_items.where(character_items: {item_type: item_type}).where(user_character_items: {unlocked: false})
-      item_status[:locked][item_type.to_sym] = locked_item.to_a
+      unbought_item = user.character_items.where(character_items: {item_type: item_type}).where(user_character_items: {bought: false})
+      item_status[:unbought][item_type.to_sym] = unbought_item.to_a
     }
 
      item_status

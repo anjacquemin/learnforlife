@@ -35,6 +35,21 @@
       padding-bottom: 0;
     }
   }
+
+  .item-to-unlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    background-color: rgba($red, 0.1);
+    color: $red;
+    border-radius: 0 0 8px 8px;
+    p {
+      padding-bottom: 0;
+    }
+  }
+
   &:hover{
     border: 1px solid $purple;
     border-radius: $border-radius-lg;
