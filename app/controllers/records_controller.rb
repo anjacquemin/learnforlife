@@ -15,6 +15,8 @@ class RecordsController < ApplicationController
     @is_new_record = (find_best_user_record(quizz_level) == @record)
 
     # need to store unlocked items in cookie if page reload ?
+
+
     if @is_new_record
       @unlocked_items = unlocked_items_calculation(@record)
       set_new_record(@record)
@@ -314,7 +316,6 @@ class RecordsController < ApplicationController
     #Also unlock level 1 of the unlocked quizz
     #NEED TO CHECK IF ALREADY UNLOCKED
     def unlocked_items_calculation(record)
-
       unlocked_items = {}
       return nil if record.completion == 0
 
@@ -367,7 +368,6 @@ class RecordsController < ApplicationController
 
     def unlock_category(category)
       category_progress_to_unlock = current_user.category_progresses.find_by(category: category)
-
       return nil if !category_progress_to_unlock
 
       return nil if category_progress_to_unlock.unlocked
@@ -392,7 +392,6 @@ class RecordsController < ApplicationController
 
     def unlock_subtheme(subtheme)
       subtheme_progress_to_unlock = current_user.subtheme_progresses.find_by(subtheme: subtheme)
-
       return nil if !subtheme_progress_to_unlock
 
       return nil if subtheme_progress_to_unlock.unlocked
@@ -408,29 +407,30 @@ class RecordsController < ApplicationController
     def unlock_theme_level_and_children(category)
       theme_level = category.theme_level
       subthemes = theme_level.subthemes
-      categories = subthemes.map { |subtheme| Category.find_by(subtheme: subtheme, name: category.name)}
-
+      categories = subthemes.map { |subtheme| Category.find_by(subtheme: subtheme, name: category.name)}.compact
       categories_progresses = categories.map { |category| current_user.category_progresses.find_by(category: category) }
       if categories_progresses.all? {|category_progress| category_progress.unlocked}
-        theme_level_to_unlock = ThemeLevel.find_by(level: theme_level.level + 1)
+        theme_level_to_unlock = ThemeLevel.find_by(level: theme_level.level + 1,theme: theme_level.theme)
 
-        theme_level_and_children = {}
+        # if it is last theme level nothing to do
+        if theme_level_to_unlock
+          theme_level_and_children = {}
 
-        theme_level_and_children[:theme_level] = unlock_theme_level(theme_level_to_unlock)
-        subthemes_to_unlock = theme_level_to_unlock.subthemes
+          theme_level_and_children[:theme_level] = unlock_theme_level(theme_level_to_unlock)
 
-        theme_level_and_children[:subthemes] = []
-        subthemes_to_unlock.each {|subtheme_to_unlock| theme_level_and_children[:subthemes] << unlock_subtheme(subtheme_to_unlock)}
-        categories_to_unlock = subthemes_to_unlock.map { |subtheme_to_unlock| Category.find_by(subtheme: subtheme_to_unlock, name: category.name)}
-
-        theme_level_and_children[:quizzs] = []
-        theme_level_and_children[:quizz_levels] = []
-        categories_to_unlock.map{ |category_to_unlock|
-          quizz_to_unlock = Quizz.find_by(category: category_to_unlock, ordering:1)
-          theme_level_and_children[:quizzs] << unlock_quizz(quizz_to_unlock)
-          theme_level_and_children[:quizz_levels] << unlock_quizz_level(quizz_to_unlock, "Facile")
-        }
+          subthemes_to_unlock = theme_level_to_unlock.subthemes.select{|subtheme| subtheme.categories.find_by(name: category.name)}
+          theme_level_and_children[:subthemes] = []
+          subthemes_to_unlock.each {|subtheme_to_unlock| theme_level_and_children[:subthemes] << unlock_subtheme(subtheme_to_unlock)}
+          categories_to_unlock = subthemes_to_unlock.map { |subtheme_to_unlock| Category.find_by(subtheme: subtheme_to_unlock, name: category.name)}
+          theme_level_and_children[:quizzs] = []
+          theme_level_and_children[:quizz_levels] = []
+          categories_to_unlock.map{ |category_to_unlock|
+            quizz_to_unlock = Quizz.find_by(category: category_to_unlock, ordering:1)
+            theme_level_and_children[:quizzs] << unlock_quizz(quizz_to_unlock)
+            theme_level_and_children[:quizz_levels] << unlock_quizz_level(quizz_to_unlock, "Facile")
+          }
+        end
+        theme_level_and_children
       end
-      theme_level_and_children
     end
 end

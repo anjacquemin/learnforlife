@@ -16,7 +16,7 @@
     <div class="market-type" data-market-display-target="equipement">
       <% @all_types.each do |type|  %>
         <div class="title">
-          <h2><%= type %></h2>
+          <h2><%= type.capitalize %></h2>
         </div>
         <% character_items_type = @character_items.select{|e| e.item_type == type && e.level.level != 1}  %>
         <%# <% character_items_type_bought = character_items_type.select{|e| current_user.user_character_items.find_by(character_item: e).bought}  %>
@@ -39,7 +39,7 @@
         <h2>Quêtes</h2>
       </div>
       <div class="container">
-        <p><strong> Les quêtes sont en cours d'écriture, en attendant continues de d'entrainer et de faire évoluer ton personnage !</strong></p>
+        <p><strong> Les quêtes sont en cours d'écriture, en attendant continue de t'entrainer et de faire évoluer ton héro !</strong></p>
       </div>
     </div>
   </div>

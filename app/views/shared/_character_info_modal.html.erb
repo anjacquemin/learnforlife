@@ -27,7 +27,7 @@
                 </button>
               <% end %>
               <% @item_status[:unbought][item_type.to_sym].each do |hair| %>
-                <div class= "single-item locked", title="A débloquer au marché", data-type=<%=item_type%>, data-src= <%=asset_path("#{hair.img_src}")%> >
+                <div class= "single-item locked", title="A débloquer chez le marchand", data-type=<%=item_type%>, data-src= <%=asset_path("#{hair.img_src}")%> >
                   <%= image_tag hair.img_src, height: 50, class:"#{item_type}-img"  %>
                 </div>
               <% end %>
