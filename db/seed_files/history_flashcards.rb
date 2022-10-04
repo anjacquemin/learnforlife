@@ -74,7 +74,7 @@ module HistoryFlashcards
 
     {
       question: "Qu'apporte l'Homo-sapiens à l'Europe lors du Paléolithique supérieur ?",
-      answer: "Son industrie lithique, dite de 'mode 4', à savoir des lames et lamelles servant de base à la réalisation d'un outillage diversifié. Pour plus d'informations : https://fr.wikipedia.org/wiki/Pierre_taill%C3%A9e",
+      answer: "Son industrie lithique, dite de 'mode 4', à savoir des lames et lamelles servant de base à la réalisation d'un outillage diversifié. Pour plus d'informations : <a href='https://fr.wikipedia.org/wiki/Pierre_taill%C3%A9e' target='_blank' style='display:inline;'><strong>cf. wikipédia</strong></a>",
       level: 3
     },
 
