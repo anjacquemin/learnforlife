@@ -48,14 +48,14 @@ module LevelAndUserSeed
                         beginning_year:-400000,
                         period:"Préhistoire",
                         sub_period: "Paléolithique moyen",
-                        social_type: "Homo Néendertal")
+                        social_type: "Homme de Néandertal")
     level2.save!
     level3 = Level.new(level: 3,
                         required_xp: level_xp[3],
                         beginning_year:-35000,
                         period:"Préhistoire",
                         sub_period: "Paléolithique supérieur",
-                        social_type: "Homo Néendertal")
+                        social_type: "Homme de Néandertal")
     level3.save!
     level4 = Level.new(level: 4,
                         required_xp: level_xp[4],
