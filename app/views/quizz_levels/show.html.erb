@@ -87,7 +87,7 @@
             <% else %>
               <div>
                 <%= simple_form_for([@quizz_answer,@user_answer], data: {action:"submit->quizz-answer#checkAnswer"}) do |f| %>
-                  <%= f.input :answer, label: false, placeholder: 'Votre réponse', input_html: {data: {quizz_answer_target: "form#{index}"}, class: "border-radius"} %>
+                  <%= f.input :answer, label: false, placeholder: 'Votre réponse', input_html: {data: {quizz_answer_target: "form#{index}"}, class: "border-radius", autocomplete: "off"} %>
                   <%= f.button :submit, "Valider", class: "btn btn-purple my-4 margin-auto" %>
                 <% end %>
               </div>
