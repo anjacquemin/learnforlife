@@ -35,6 +35,8 @@ gem "pundit"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# To compute distance bewteen 2 strings"s
+gem 'levenshtein', '~> 0.2.2'
 
 gem "devise"
 gem "autoprefixer-rails"

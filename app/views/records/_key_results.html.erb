@@ -21,5 +21,23 @@
       </div>
     </div>
   </div>
-  <%= link_to "Rejouer", quizz_level_path(@record.quizz_level), class:"btn btn-purple mt-5" %>
+
+  <div class= "d-flex">
+    <%= link_to "Rejouer <br> (#{@record.quizz_level.name})".html_safe, quizz_level_path(@record.quizz_level), class:"btn btn-purple mt-5 mx-2" %>
+    <% level_name = @record.quizz_level.name %>
+    <% quizz = @record.quizz_level.quizz%>
+    <% if level_name == "Facile" %>
+      <% next_level_or_quizz_level = quizz.quizz_levels.find_by(name: "Moyen") %>
+      <% link_to_name = "Niveau suivant <br> (Moyen)" %>
+    <% elsif level_name == "Moyen" %>
+      <% link_to_name = "Niveau suivant <br> (Difficile)" %>
+      <% next_level_or_quizz_level = quizz.quizz_levels.find_by(name: "Difficile") %>
+    <% else %>
+      <% next_level_or_quizz_level = @record.quizz_level.quizz.quizz_levels.find_by(ordering: quizz.oredering + 1) %>
+      <% link_to_name = "Quizz suivant <br> (#{quizz_level.name})" %>
+    <% end %>
+    <% if next_level_or_quizz_level %>
+      <%= link_to link_to_name.html_safe, quizz_level_path(next_level_or_quizz_level), class:"btn btn-green mt-5 mx-2" %>
+    <% end %>
+  </div>
 </div>

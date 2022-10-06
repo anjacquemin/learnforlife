@@ -1,8 +1,8 @@
-.theme-title.subtheme-show{
+.theme-title.quizz-title{
   background-color: rgba($light-purple, 0.3);
   width:100%;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   color: $purple;
@@ -92,7 +92,7 @@
   .level_crowns img{
     height: 16px;
   }
-  .theme-title.subtheme-show {
+  .theme-title.quizz-title {
     padding: 10px 0;
   }
 }

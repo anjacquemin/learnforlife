@@ -1,4 +1,9 @@
 fr:
+  Weapon: Armes
+  Shield: Boucliers
+  Helmet: Casques
+  Body: Corps
+
   activerecord:
     errors:
       messages:

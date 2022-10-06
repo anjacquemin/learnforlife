@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get root to: "pages#home"
+  get root to: "themes#index"
+  get "acceuil", to: "pages#home"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => {:registrations => "registrations", sessions: "sessions"}
 
