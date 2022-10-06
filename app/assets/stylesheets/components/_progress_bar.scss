@@ -71,9 +71,11 @@
 .card-count-details{
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 100%;
+  justify-content: center;
+  // width: 80%;
   height: 25px;
+  flex-grow: 1;
+  margin: 0 10px;
   p{
     margin-bottom: 0;
   }
@@ -94,7 +96,7 @@
 
 
 .level-show .card-progressbar-wrapper{
-  width:80%;
+  width:100%;
   height: 100%;
   .card-completion{
     height: 100%;

@@ -1,7 +1,7 @@
 <div class="theme-title theme-show">
   <h1><i class="fas fa-atlas"></i><%=@theme.name.upcase%></h1>
 </div>
-
+<% url = "/theme/#{@theme.id}/flashcards/results" %>
 <div class="my-3"></div>
 <div class="level-show flashcard" data-controller="flashcard-answer" data-flashcards-to-display-count = <%=@flashcards.count%> data-flashcards-count = "0" data-flashcards-total-count = <%=@flashcards.count%> data-stimulus-connect-count= "0">
   <div class="questions_count">
@@ -12,6 +12,7 @@
       <div class= "card-number">
         <p data-flashcard-answer-target = "cardCountNumber">0/<%=@flashcards.count%></p>
       </div>
+      <a class= "btn btn-purple replay-button" href= <%=url.html_safe%> ><p><i class="fas fa-sign-out-alt"></i></p></a>
     </div>
   </div>
   <div class="my-3"></div>
@@ -20,7 +21,6 @@
       <%= render "unique_flashcard", index: index, flashcard: flashcard %>
     <% end %>
     <div>
-      <% url = "/theme/#{@theme.id}/flashcards/results" %>
       <a class="d-none" data-flashcard-answer-target="endButton" href= <%=url%>></a>
     </div>
   </div>

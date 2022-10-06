@@ -11,6 +11,7 @@
         <p data-quizz-answer-target = "cardCountNumber">0/<%= @quizz.question_answers.count %></p>
       </div>
     </div>
+    <%= link_to "<p><i class='fa fa-repeat' aria-hidden='true'></i></p>".html_safe, quizz_level_path(@quizz_level), class: "btn btn-purple replay-button"%>
   </div>
   <div class="my-3"></div>
   <div class="display-record-time">

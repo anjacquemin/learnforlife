@@ -16,7 +16,7 @@
     <div class="market-type" data-market-display-target="equipement">
       <% @all_types.each do |type|  %>
         <div class="title">
-          <h2><%= type.capitalize %></h2>
+          <h2><%= I18n.t(type.capitalize) %></h2>
         </div>
         <% character_items_type = @character_items.select{|e| e.item_type == type && e.level.level != 1}  %>
         <%# <% character_items_type_bought = character_items_type.select{|e| current_user.user_character_items.find_by(character_item: e).bought}  %>
