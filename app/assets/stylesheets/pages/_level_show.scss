@@ -1,3 +1,24 @@
+.theme-title.quizz-title{
+  background-color: rgba($light-purple, 0.3);
+  width:100%;
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: $purple;
+  padding: 20px 0;
+  i{
+    font-size: 30px;
+    margin-right: 10px;
+  }
+  h1{
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
 .level-show{
   // display: flex;
   // flex-direction: column;
@@ -216,6 +237,9 @@
 }
 
 @media(max-width: 570px) {
+  .theme-title.quizz-title {
+    padding: 10px 0;
+  }
   .card-question img{
     // height: 150px;
   }
