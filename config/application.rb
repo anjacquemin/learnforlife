@@ -27,5 +27,9 @@ module Learnforlife
     I18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}')]
     config.i18n.default_locale = :fr
     I18n.available_locales = [:fr, :en]
+
+    # for devise custom failures
+    config.autoload_paths << Rails.root.join('lib')
+
   end
 end
