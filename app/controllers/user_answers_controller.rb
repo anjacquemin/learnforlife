@@ -20,11 +20,6 @@ class UserAnswersController < ApplicationController
       user_answer = I18n.transliterate(data["user_answer"], :locale => :en).downcase.strip.gsub("-", " ")
       answer = I18n.transliterate(question_answer.answer,:locale => :en).downcase.strip.gsub("-", " ")
 
-      p "####################"
-      p "#######LEVENSHTEIN#############"
-      p "user_answer: #{user_answer}"
-      p "answer: #{answer}"
-      p "distance: #{Levenshtein.distance(user_answer, answer)}"
       if Levenshtein.distance(user_answer, answer) <= 1
         answer_id = question_answer.id
         is_good_answer = true
