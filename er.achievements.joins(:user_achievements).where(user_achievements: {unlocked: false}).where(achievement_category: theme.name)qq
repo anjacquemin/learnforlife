@@ -1,0 +1,678 @@
+=> [[32m#<Achievement:0x000055629ef222f8[0m
+  id: [1;34m2183[0m,
+  name: [31m[1;31m"[0m[31mSavoir niveau 4[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.669291000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.669291000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mcrown.png[1;31m"[0m[31m[0m,
+  count: [1;34m500[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 500 couronnes[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f139690[0m
+  id: [1;34m2184[0m,
+  name: [31m[1;31m"[0m[31mSavoir niveau 5[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.673113000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.673113000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mcrown.png[1;31m"[0m[31m[0m,
+  count: [1;34m1000[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 1000 couronnes[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f139578[0m
+  id: [1;34m2185[0m,
+  name: [31m[1;31m"[0m[31mSavoir niveau 6[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.676906000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.676906000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mcrown.png[1;31m"[0m[31m[0m,
+  count: [1;34m2000[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 2000 couronnes[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f139488[0m
+  id: [1;34m2186[0m,
+  name: [31m[1;31m"[0m[31mSavoir niveau 7[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.683742000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.683742000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mcrown.png[1;31m"[0m[31m[0m,
+  count: [1;34m5000[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 5000 couronnes[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1392f8[0m
+  id: [1;34m2187[0m,
+  name: [31m[1;31m"[0m[31mSavoir niveau 8[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.687738000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.687738000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mcrown.png[1;31m"[0m[31m[0m,
+  count: [1;34m10000[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 10000 couronnes[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1391e0[0m
+  id: [1;34m2188[0m,
+  name: [31m[1;31m"[0m[31mMaitre du savoir niveau 1[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.691754000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.691754000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31msphere.png[1;31m"[0m[31m[0m,
+  count: [1;34m1[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 1 sphère de connaissance[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f138c90[0m
+  id: [1;34m2189[0m,
+  name: [31m[1;31m"[0m[31mMaitre du savoir niveau 2[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.695542000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.695542000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31msphere.png[1;31m"[0m[31m[0m,
+  count: [1;34m5[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 5 sphères de connaissance[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f138b28[0m
+  id: [1;34m2190[0m,
+  name: [31m[1;31m"[0m[31mMaitre du savoir niveau 3[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.699506000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.699506000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31msphere.png[1;31m"[0m[31m[0m,
+  count: [1;34m10[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 10 sphères de connaissance[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1389e8[0m
+  id: [1;34m2191[0m,
+  name: [31m[1;31m"[0m[31mMaitre du savoir niveau 4[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.703938000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.703938000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31msphere.png[1;31m"[0m[31m[0m,
+  count: [1;34m20[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 20 sphère de connaissance[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1388f8[0m
+  id: [1;34m2192[0m,
+  name: [31m[1;31m"[0m[31mMaitre du savoir niveau 5[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.707763000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.707763000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31msphere.png[1;31m"[0m[31m[0m,
+  count: [1;34m50[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 50 sphère de connaissance[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f138830[0m
+  id: [1;34m2193[0m,
+  name: [31m[1;31m"[0m[31mMaitre du savoir niveau 6[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.711805000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.711805000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31msphere.png[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 100 sphère de connaissance[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f138600[0m
+  id: [1;34m2194[0m,
+  name: [31m[1;31m"[0m[31mMaitre du savoir niveau 7[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.715783000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.715783000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31msphere.png[1;31m"[0m[31m[0m,
+  count: [1;34m200[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 200 sphère de connaissance[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f138538[0m
+  id: [1;34m2195[0m,
+  name: [31m[1;31m"[0m[31mMaitre du savoir niveau 8[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.719662000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.719662000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31msphere.png[1;31m"[0m[31m[0m,
+  count: [1;34m500[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 500 sphère de connaissance[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f138420[0m
+  id: [1;34m2199[0m,
+  name: [31m[1;31m"[0m[31mSavoir Geographie de niveau 4[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.736626000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.736626000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 100% des couronnes de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1382e0[0m
+  id: [1;34m2200[0m,
+  name:
+   [31m[1;31m"[0m[31mMaitre savoir Geographie de niveau 1[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.740515000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.740515000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m1[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 1 sphères de connaissance de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f138218[0m
+  id: [1;34m2201[0m,
+  name: [31m[1;31m"[0m[31mSavoir Geographie de niveau 2[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.744785000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.744785000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m50[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 50% des sphères de connaissance de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1380d8[0m
+  id: [1;34m2202[0m,
+  name: [31m[1;31m"[0m[31mSavoir Geographie de niveau 3[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.748614000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.748614000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m75[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 75% des sphères de connaissance de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12be28[0m
+  id: [1;34m2203[0m,
+  name: [31m[1;31m"[0m[31mGeographie MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.752895000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.752895000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 100% des sphères de connaissance de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12bc98[0m
+  id: [1;34m2204[0m,
+  name: [31m[1;31m"[0m[31mCapitales MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.761178000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.761178000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcategory[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mtour-eiffel.png[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir tous les badges Capitales de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12b720[0m
+  id: [1;34m2205[0m,
+  name: [31m[1;31m"[0m[31mDrapeaux MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.765851000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.765851000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcategory[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mflag.png[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir tous les badges Drapeaux de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12b5b8[0m
+  id: [1;34m2206[0m,
+  name: [31m[1;31m"[0m[31mLocalisation MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.769967000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.769967000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcategory[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mmap.png[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir tous les badges Localisation de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12b428[0m
+  id: [1;34m2207[0m,
+  name:
+   [31m[1;31m"[0m[31mSavoir Période historique de niveau 1[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.773704000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.773704000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m25[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 25% des couronnes de la thématique Période historique[1;31m"[0m[31m[0m,
+  achievement_category:
+   [31m[1;31m"[0m[31mPériode historique[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12b130[0m
+  id: [1;34m2208[0m,
+  name:
+   [31m[1;31m"[0m[31mSavoir Période historique de niveau 2[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.778374000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.778374000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m50[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 50% des couronnes de la thématique Période historique[1;31m"[0m[31m[0m,
+  achievement_category:
+   [31m[1;31m"[0m[31mPériode historique[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12aff0[0m
+  id: [1;34m2209[0m,
+  name:
+   [31m[1;31m"[0m[31mSavoir Période historique de niveau 3[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.782633000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.782633000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m75[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 75% des couronnes de la thématique Période historique[1;31m"[0m[31m[0m,
+  achievement_category:
+   [31m[1;31m"[0m[31mPériode historique[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12ad70[0m
+  id: [1;34m2210[0m,
+  name:
+   [31m[1;31m"[0m[31mSavoir Période historique de niveau 4[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.788180000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.788180000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 100% des couronnes de la thématique Période historique[1;31m"[0m[31m[0m,
+  achievement_category:
+   [31m[1;31m"[0m[31mPériode historique[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12abe0[0m
+  id: [1;34m2211[0m,
+  name:
+   [31m[1;31m"[0m[31mMaitre savoir Période historique de niveau 1[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.793159000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.793159000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m1[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 1 sphères de connaissance de la thématique Période historique[1;31m"[0m[31m[0m,
+  achievement_category:
+   [31m[1;31m"[0m[31mPériode historique[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12ab18[0m
+  id: [1;34m2212[0m,
+  name:
+   [31m[1;31m"[0m[31mSavoir Période historique de niveau 2[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.796959000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.796959000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m50[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 50% des sphères de connaissance de la thématique Période historique[1;31m"[0m[31m[0m,
+  achievement_category:
+   [31m[1;31m"[0m[31mPériode historique[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12a9d8[0m
+  id: [1;34m2213[0m,
+  name:
+   [31m[1;31m"[0m[31mSavoir Période historique de niveau 3[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.800992000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.800992000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m75[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 75% des sphères de connaissance de la thématique Période historique[1;31m"[0m[31m[0m,
+  achievement_category:
+   [31m[1;31m"[0m[31mPériode historique[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12a910[0m
+  id: [1;34m2214[0m,
+  name: [31m[1;31m"[0m[31mPériode historique MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.805099000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.805099000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 100% des sphères de connaissance de la thématique Période historique[1;31m"[0m[31m[0m,
+  achievement_category:
+   [31m[1;31m"[0m[31mPériode historique[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12a7a8[0m
+  id: [1;34m2215[0m,
+  name: [31m[1;31m"[0m[31mtimeline MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.811109000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.811109000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcategory[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mnone[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir tous les badges timeline de la thématique Période historique[1;31m"[0m[31m[0m,
+  achievement_category:
+   [31m[1;31m"[0m[31mPériode historique[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12a690[0m
+  id: [1;34m2219[0m,
+  name: [31m[1;31m"[0m[31mSavoir Cinema de niveau 4[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.827714000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.827714000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 100% des couronnes de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12a4d8[0m
+  id: [1;34m2220[0m,
+  name: [31m[1;31m"[0m[31mMaitre savoir Cinema de niveau 1[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.831555000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.831555000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m1[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 1 sphères de connaissance de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12a3e8[0m
+  id: [1;34m2221[0m,
+  name: [31m[1;31m"[0m[31mSavoir Cinema de niveau 2[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.835500000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.835500000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m50[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 50% des sphères de connaissance de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12a2a8[0m
+  id: [1;34m2222[0m,
+  name: [31m[1;31m"[0m[31mSavoir Cinema de niveau 3[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.840087000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.840087000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m75[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 75% des sphères de connaissance de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12a1e0[0m
+  id: [1;34m2223[0m,
+  name: [31m[1;31m"[0m[31mCinema MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.844192000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.844192000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31msphere_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 100% des sphères de connaissance de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12a0f0[0m
+  id: [1;34m2224[0m,
+  name: [31m[1;31m"[0m[31mActeur MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.850125000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.850125000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcategory[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mactor.png[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir tous les badges Acteur de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f12a000[0m
+  id: [1;34m2225[0m,
+  name: [31m[1;31m"[0m[31mAnnée MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.854364000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.854364000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcategory[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mclapperboard.png[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir tous les badges Année de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f129ec0[0m
+  id: [1;34m2226[0m,
+  name: [31m[1;31m"[0m[31mOscar meilleur film MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.858466000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.858466000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcategory[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31macademy-award.png[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir tous les badges Oscar meilleur film de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f129da8[0m
+  id: [1;34m2227[0m,
+  name: [31m[1;31m"[0m[31mProducteur MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.862567000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.862567000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcategory[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mgopro.png[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir tous les badges Producteur de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f129c90[0m
+  id: [1;34m2228[0m,
+  name: [31m[1;31m"[0m[31mculture générale MASTER[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.866890000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.866890000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcategory[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mmovie-start.png[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir tous les badges culture générale de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f129ad8[0m
+  id: [1;34m2196[0m,
+  name: [31m[1;31m"[0m[31mSavoir Geographie de niveau 1[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.724726000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.724726000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m25[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 25% des couronnes de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1298a8[0m
+  id: [1;34m2197[0m,
+  name: [31m[1;31m"[0m[31mSavoir Geographie de niveau 2[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.728859000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.728859000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m50[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 50% des couronnes de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1297b8[0m
+  id: [1;34m2198[0m,
+  name: [31m[1;31m"[0m[31mSavoir Geographie de niveau 3[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.732773000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.732773000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m75[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 75% des couronnes de la thématique Geographie[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mGeographie[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1296c8[0m
+  id: [1;34m2216[0m,
+  name: [31m[1;31m"[0m[31mSavoir Cinema de niveau 1[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.815062000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.815062000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m25[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 25% des couronnes de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1295d8[0m
+  id: [1;34m2217[0m,
+  name: [31m[1;31m"[0m[31mSavoir Cinema de niveau 2[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.819226000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.819226000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m50[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 50% des couronnes de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1294c0[0m
+  id: [1;34m2218[0m,
+  name: [31m[1;31m"[0m[31mSavoir Cinema de niveau 3[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.823744000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.823744000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_percentage[1;31m"[0m[31m[0m,
+  img_src:
+   [31m[1;31m"[0m[31m<i class=[1;35m\"[0m[31mfas fa-atlas[1;35m\"[0m[31m> </i>[1;31m"[0m[31m[0m,
+  count: [1;34m75[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir plus de 75% des couronnes de la thématique Cinema[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mCinema[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1293f8[0m
+  id: [1;34m2181[0m,
+  name: [31m[1;31m"[0m[31mSavoir niveau 2[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.660603000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.660603000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mcrown.png[1;31m"[0m[31m[0m,
+  count: [1;34m100[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 100 couronnes[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f1292b8[0m
+  id: [1;34m2182[0m,
+  name: [31m[1;31m"[0m[31mSavoir niveau 3[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.664743000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.664743000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mcrown.png[1;31m"[0m[31m[0m,
+  count: [1;34m200[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 200 couronnes[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m,
+ [32m#<Achievement:0x000055629f129178[0m
+  id: [1;34m2180[0m,
+  name: [31m[1;31m"[0m[31mSavoir niveau 1[1;31m"[0m[31m[0m,
+  created_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.656099000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  updated_at:
+   [1;34;4mMon[0m, [1;34m03[0m [1;34;4mOct[0m [1;34m2022[0m [1;34m22[0m:[1;34m25[0m:[1;35m21.656099000[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+  achievement_type: [31m[1;31m"[0m[31mcrown_count[1;31m"[0m[31m[0m,
+  img_src: [31m[1;31m"[0m[31mcrown.png[1;31m"[0m[31m[0m,
+  count: [1;34m50[0m,
+  unlocked_conditions:
+   [31m[1;31m"[0m[31mObtenir 50 couronnes[1;31m"[0m[31m[0m,
+  achievement_category: [31m[1;31m"[0m[31mglobal[1;31m"[0m[31m[0m[32m>[0m]

@@ -42,35 +42,36 @@ class ThemesController < ApplicationController
   end
 
   def unlocked_theme_achievements_calculation(theme, theme_stats)
-    locked_achievements = current_user.achievements.joins(:user_achievements).where(user_achievements: {unlocked: false}).where(achievement_category: theme.name)
+    locked_achievements = current_user.achievements.joins(:user_achievements).where(user_achievements: {unlocked: false}).where(achievement_category: theme.name).distinct
 
     achievements_to_unlocked = []
 
     total_theme_crowns = theme.quizz_levels.joins(:quizz).where(quizz: {crown_or_sphere: "crown"}).count * 3
-    crown_completion = (theme_stats[:crowns] / (total_theme_crowns.nonzero? || 1))
+    crown_completion = (total_theme_crowns.nonzero? ? (theme_stats[:crowns].to_f / total_theme_crowns) : 0)
 
     total_theme_spheres = theme.quizz_levels.joins(:quizz).where(quizz: {crown_or_sphere: "sphere"}).count * 3
-    sphere_completion = (theme_stats[:crowns] / (total_theme_crowns.nonzero? || 1))
-
+    sphere_completion = (total_theme_spheres.nonzero? ? (theme_stats[:spheres].to_f / total_theme_spheres) : 0)
+    # check if all badges from a category have been won
     theme_categories = theme.categories.pluck(:name).uniq
     theme_categories_count = Hash[theme_categories.map { |category_name| [category_name.to_sym, theme.categories.where(name: category_name).count]}]
 
     locked_achievements.each do |achievement|
       achievement_type = achievement.achievement_type
       if achievement_type == "crown_percentage"
-        if crown_completion > (achievement.count.to_i / 100)
+        if crown_completion >= (achievement.count.to_i.to_f / 100)
           achievements_to_unlocked << unlock_achievement(achievement)
         end
       elsif achievement_type ==  "sphere_percentage"
-        if sphere_completion > (achievement.count.to_i / 100)
+        if sphere_completion >= (achievement.count.to_i.to_f / 100)
           achievements_to_unlocked << unlock_achievement(achievement)
         end
       elsif achievement_type ==  "crown_count"
-        if theme_stats[:crowns] > achievement.count.to_i
+
+        if theme_stats[:crowns] >= achievement.count.to_i
           achievements_to_unlocked << unlock_achievement(achievement)
         end
       elsif achievement_type ==  "sphere_count"
-        if theme_stats[:spheres] > achievement.count.to_i
+        if theme_stats[:spheres] >= achievement.count.to_i
           achievements_to_unlocked << unlock_achievement(achievement)
         end
       elsif achievement_type ==  "category"
@@ -88,7 +89,7 @@ end
 def unlocked_global_achievements_calculation(themes_stats)
   total_crowns = themes_stats.values.map {|value| value[:crowns]}.reduce(&:+)
   total_spheres = themes_stats.values.map {|value| value[:spheres]}.reduce(&:+)
-  locked_achievements = current_user.achievements.joins(:user_achievements).where(user_achievements: {unlocked: false}).where(achievement_category: "global")
+  locked_achievements = current_user.achievements.joins(:user_achievements).where(user_achievements: {unlocked: false}).where(achievement_category: "global").distinct
 
   achievements_to_unlocked = []
 
