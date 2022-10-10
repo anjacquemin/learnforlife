@@ -3,7 +3,7 @@
 <%# <% end %>
 
 <%- if devise_mapping.registerable? && form_type == "log_in" %>
-  <%= link_to "S'enregistrer", new_registration_path(resource_name), "data-action": "click->home#displayLoginSignIn" %>
+  <%= link_to "S'inscrire", new_registration_path(resource_name), "data-action": "click->home#displayLoginSignIn" %>
 <% end %>
 
 <%- if devise_mapping.registerable? && form_type == "sign_in" %>
