@@ -18,14 +18,14 @@ module ThemesSeed
     geography_level_1 = ThemeLevel.new(
         name: "niveau 1",
         level: 1,
-        objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux</strong> de niveau 1 pour accéder au <strong>niveau 2 Géographie</strong> !",
+        objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> ou <strong>Drapeaux</strong> du niveau 1 pour accéder au <strong>niveau 2 Géographie</strong> !",
         theme: geography)
     geography_level_1.save!
 
     geography_level_2 = ThemeLevel.new(
         name: "Niveau 2",
         level: 2,
-        objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux</strong> de niveau 2 pour accéder au <strong>niveau 3 Géographie</strong> !",
+        objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> ou <strong>Drapeaux</strong> du niveau 2 pour accéder au <strong>niveau 3 Géographie</strong> !",
         theme: geography)
     geography_level_2.save!
 
@@ -33,7 +33,7 @@ module ThemesSeed
     geography_level_3 = ThemeLevel.new(
         name: "Niveau 3",
         level: 3,
-        objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> et <strong>Drapeaux</strong> de niveau 3 pour <strong>collecter des sphères de connaissances niveau 3 Géographie</strong> !",
+        objective: "Débloque tous les <strong>badges Capitales</strong>, <strong>Localisation</strong> ou <strong>Drapeaux</strong> du niveau 3 pour <strong>collecter des sphères de connaissances niveau 3 Géographie</strong> !",
         theme: geography)
     geography_level_3.save!
 

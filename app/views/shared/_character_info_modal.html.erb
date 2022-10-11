@@ -16,11 +16,23 @@
           <%= image_tag asset_path(@user.character.weapon), class: "character-weapon", "data-sprite-target": "weaponModal" %>
           <%= image_tag asset_path(@user.character.shield), class: "character-shield", "data-sprite-target": "shieldModal" %>
         </div>
-        <div class="my-3"></div>
+        <div>
+          <div class="item-type-tabs">
+            <% ["hair", "head", "body", "helmet", "weapon", "shield"].each_with_index do |item_type, index|%>
+              <% tab_class = "'btn-tab tab'"%>
+              <% tab_class = "'btn-tab tab active-tab'" if index.zero? %>
+              <button class= <%=tab_class.html_safe%> data-sprite-target="itemTabs" data-action="click->sprite#displayTab" data-item-type=<%=item_type%>>
+                <%= I18n.t(item_type.capitalize) %>
+              </button>
+            <% end %>
+          </div>
+        </div>
         <div class="img-choices">
           <div class="my-2"></div>
-          <% ["hair", "head", "body", "helmet", "weapon", "shield"].each do |item_type|%>
-            <div class="body-category">
+          <% ["hair", "head", "body", "helmet", "weapon", "shield"].each_with_index do |item_type, index|%>
+            <% div_class = "'item-type'"%>
+            <% div_class = "'item-type d-none'" unless index.zero? %>
+            <div class=<%=div_class.html_safe%> data-sprite-target= "itemDivs" data-item-type=<%=item_type%>>
               <% @item_status[:bought][item_type.to_sym].each do |hair| %>
                 <button class= "single-item btn btn-purple" data-action="click->sprite#changeUserSprite" data-type=<%=item_type%> data-src= <%=asset_path("#{hair.img_src}")%> >
                   <%= image_tag hair.img_src, height: 50, class:"#{item_type}-img"  %>

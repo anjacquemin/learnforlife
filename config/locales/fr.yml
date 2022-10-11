@@ -3,6 +3,8 @@ fr:
   Shield: Boucliers
   Helmet: Casques
   Body: Corps
+  Head: Tête
+  Hair: Cheveux
 
   activerecord:
     errors:

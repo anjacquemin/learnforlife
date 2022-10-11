@@ -7,7 +7,7 @@ import { Modal } from "bootstrap"
 export default class extends Controller {
 
   // number of circle target = number of subthemes
-  static targets = ["avatar", "head", "hair", "body","helmet", "weapon","shield", "headModal", "hairModal","helmetModal", "weaponModal" , "shieldModal", "bodyModal", "characterInfo"]
+  static targets = ["avatar", "head", "hair", "body","helmet", "weapon","shield", "headModal", "hairModal","helmetModal", "weaponModal" , "shieldModal", "bodyModal", "characterInfo",  "itemDivs", "itemTabs"]
 
   connect() {
     console.log(`hello from controller sprite!!!`)
@@ -18,6 +18,34 @@ export default class extends Controller {
       const modal = new Modal(this.characterInfoTarget)
       modal.show()
     }
+  }
+
+  displayTab(event) {
+    console.log("detection")
+    console.log(event)
+    console.log(event.target.dataset)
+    const itemType = event.target.dataset.itemType
+
+    this.itemTabsTargets.forEach ((itemtab) => {itemtab.classList.remove("active-tab")})
+    event.target.classList.add("active-tab")
+
+    this.itemDivsTargets.forEach ((itemdiv) => {
+      if (itemdiv.dataset.itemType === itemType){
+        itemdiv.classList.remove("d-none")
+      }
+      else{
+        itemdiv.classList.add("d-none")
+      }
+    })
+
+
+
+    // this.equipementTarget.classList.toggle("d-none")
+    // this.questTarget.classList.toggle("d-none")
+    // this.equipementTabTarget.classList.toggle("active-tab")
+    // console.log(this.questTabTarget)
+
+    // this.questTabTarget.classList.toggle("active-tab")
   }
 
   changeUserSprite(event) {
