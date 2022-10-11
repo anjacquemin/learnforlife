@@ -50,8 +50,8 @@ module RecordsHelper
   end
 
   def userTotalCrownsAndSpheres(user)
-    user_total_crowns =  Record.where(user: current_user, crown_or_sphere: "crown").group(:quizz_level_id).maximum(:completion).sum{|k,v|v}
-    user_total_spheres =  Record.where(user: current_user, crown_or_sphere: "sphere").group(:quizz_level_id).maximum(:completion).sum{|k,v|v}
+    user_total_crowns =  Record.where(user: user, crown_or_sphere: "crown").group(:quizz_level_id).maximum(:completion).sum{|k,v|v}
+    user_total_spheres =  Record.where(user: user, crown_or_sphere: "sphere").group(:quizz_level_id).maximum(:completion).sum{|k,v|v}
     {sphere_completion: user_total_spheres, crown_completion: user_total_crowns}
   end
 end

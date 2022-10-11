@@ -2,7 +2,6 @@
 
   <%  total_crowns_and_spheres = userTotalCrownsAndSpheres(@user_profile) %>
 
-
   <%= render 'shared/character_banner' %>
   <div class="theme-title theme-show">
     <h1>Statistiques <%= @user_profile.name %></h1>
@@ -89,6 +88,5 @@
   </div>
 
   <div class= my-5></div>
-
-  <%= render "shared/character_info_modal" %>
+  <%= render "shared/character_info_modal" if @user == current_user %>
 </div>
