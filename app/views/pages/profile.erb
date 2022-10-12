@@ -76,8 +76,8 @@
           </div>
           <div class="container">
             <div class="items-list">
-              <% global_achievements = Achievement.where(achievement_category: theme.name) %>
-              <% global_achievements.each do |achievement| %>
+              <% theme_achievements = Achievement.where(theme: theme) %>
+              <% theme_achievements.each do |achievement| %>
                 <%= render "achievement-item", achievement: achievement %>
               <% end %>
             </div>

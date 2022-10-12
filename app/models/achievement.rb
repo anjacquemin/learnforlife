@@ -1,5 +1,8 @@
 class Achievement < ApplicationRecord
   has_many :user_achievements
+  belongs_to :theme, optional: true
+  belongs_to :category, optional: true
+
 
   validates :name, presence: true
   validates :achievement_type, presence: true

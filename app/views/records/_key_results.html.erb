@@ -28,9 +28,9 @@
     <% quizz = @record.quizz_level.quizz%>
     <% if level_name == "Facile" %>
       <% next_level_or_quizz_level = quizz.quizz_levels.find_by(name: "Moyen") %>
-      <% link_to_name = "Niveau suivant <br> (Moyen)" %>
+      <% link_to_name = "Difficulté <br> (moyen)" %>
     <% elsif level_name == "Moyen" %>
-      <% link_to_name = "Niveau suivant <br> (Difficile)" %>
+      <% link_to_name = "Difficulté <br> difficile" %>
       <% next_level_or_quizz_level = quizz.quizz_levels.find_by(name: "Difficile") %>
     <% elsif level_name == "Difficile" && @record.quizz.ordering != @record.quizz.category.quizzs.count%>
       <% next_level_or_quizz_level = @record.quizz_level.category.quizzs.find_by(ordering: quizz.ordering + 1).quizz_levels.find_by(name: "Facile") %>

@@ -42,7 +42,7 @@ class ThemesController < ApplicationController
   end
 
   def unlocked_theme_achievements_calculation(theme, theme_stats)
-    locked_achievements = current_user.achievements.joins(:user_achievements).where(user_achievements: {unlocked: false}).where(achievement_category: theme.name).distinct
+    locked_achievements = current_user.achievements.joins(:user_achievements).where(user_achievements: {unlocked: false}).where(theme: theme).distinct
 
     achievements_to_unlocked = []
 
@@ -75,9 +75,8 @@ class ThemesController < ApplicationController
           achievements_to_unlocked << unlock_achievement(achievement)
         end
       elsif achievement_type ==  "category"
-        achievement_category_name = achievement.img_src
-        unlocked_category_count = User.first.category_progresses.joins(:category).where(unlocked: true).where({category: {name: achievement_category_name}}).count
-        if unlocked_category_count == theme_categories_count[achievement_category_name.to_sym]
+        unlocked_category_count = current_user.category_progresses.joins(:category).where({category: {name: achievement.category.name}}).where(unlocked: true).count
+        if unlocked_category_count == theme_categories_count[achievement.category.name.to_sym]
           achievements_to_unlocked << unlock_achievement(achievement)
         end
       end
