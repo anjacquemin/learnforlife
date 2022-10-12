@@ -53,7 +53,7 @@ fr:
       forgot_your_password?: "Mot de passe oublié ?"
       hello: "Bonjour"
       sign_in: "Se connecter"
-      sign_up: "S'enregistrer"
+      sign_up: "S'inscrire"
     shared:
       links:
         didnt_receive_confirmation_instructions?: "Vous n'avez pas reçu de courriel de confirmation ?"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_01_141649) do
+ActiveRecord::Schema.define(version: 2022_10_12_130737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 2022_10_01_141649) do
     t.integer "count"
     t.text "unlocked_conditions"
     t.text "achievement_category"
+    t.bigint "category_id"
+    t.bigint "theme_id"
+    t.index ["category_id"], name: "index_achievements_on_category_id"
+    t.index ["theme_id"], name: "index_achievements_on_theme_id"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -354,6 +358,8 @@ ActiveRecord::Schema.define(version: 2022_10_01_141649) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "achievements", "categories"
+  add_foreign_key "achievements", "themes"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "best_records", "quizz_levels"

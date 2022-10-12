@@ -3,7 +3,7 @@
   <% @count = 0 %>
   <% @unlocked_categories_achievements.values.each do |unlocked_category_achievements| %>
     <% unlocked_category_achievements.each do |achievement|  %>
-      <% unlocked_achievement_sentence = "<p><strong> Nouveau succes débloqué</strong> atteint !" %>
+      <% unlocked_achievement_sentence = "<p><strong> Nouveau succès débloqué</strong> !" %>
       <% @count += 1 %>
       <%= render 'shared/achievement_modal', type: "achievement", sentence: unlocked_achievement_sentence, achievement: achievement%>
     <% end %>

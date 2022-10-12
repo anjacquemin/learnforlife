@@ -20,7 +20,11 @@ export default class extends Controller {
     counter_page_loaded ++;
     this.element.dataset.stimulusConnectCount = counter_page_loaded
 
+    const quizz_level = this.element.dataset.quizzLevel
 
+    if(quizz_level === "Difficile"){
+      this.form0Target.parentElement.parentElement.children[1].children[0].focus()
+    }
 
     if (counter_page_loaded === 1) {
       window.seconds = 0;
@@ -56,7 +60,7 @@ export default class extends Controller {
     console.log(corrected_target.style.touchAction)
     console.log(corrected_target.style.pointerEvents)
 
-    const quizz_level = corrected_target.parentElement.dataset.quizzLevel
+    const quizz_level = this.element.dataset.quizzLevel
     const question_id = corrected_target.parentElement.dataset.questionId
     const question_number = parseInt(corrected_target.parentElement.dataset.questionNumber)
     const next_question_number = parseInt(question_number) + 1
@@ -105,6 +109,7 @@ export default class extends Controller {
     }
 
     if(quizz_level === "Difficile"){
+      eval(`this.form${question_number}Target.parentElement.parentElement.children[1].children[0].focus()`)
       const user_answer = eval(`this.form${question_number}Target.value`)
       const data = answerDataBuildingForDifficultLevel(question_id, quizz_answer_id, user_answer, quizz_level)
       const self = this
@@ -133,7 +138,7 @@ export default class extends Controller {
       })
     }
 
-    delay(750).then(() => {
+    delay(0).then(() => {
       if(next_question_number < total_questions){
         eval(`self.questionCard${question_number}Target.classList.add("d-none")`)
         eval(`self.questionCard${next_question_number}Target.classList.remove("d-none")`)

@@ -250,17 +250,19 @@
     align-items: center;
     width: 100%;
     overflow-y: scroll;
+    height: 190px;
   }
-  .body-category{
-    display: flex;
-    // align-items: center;
-    // justify-content: center;
-    width: 90%;
-    background-color: white;
+  .item-type{
+    height: 95%;
+    width: 100%;
+    overflow-y: scroll;
+    background-color: $purple-10;
     border-radius: $border-radius-lg;
-    padding: 10px 0;
-    overflow-x: scroll;
-    margin: 10px 0;
+    margin: 0 5px;
+    padding: 10px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 16px;
   }
 
   .single-item{
@@ -270,6 +272,7 @@
     min-width: 50px;
     width: 50px;
     height: 50px;
+    justify-self: center;
     position: relative;
     flex-grow: 1;
     margin: 0 5px;
@@ -322,11 +325,49 @@
   }
 }
 
+.item-type-tabs{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  .tab {
+    margin: 5px;
+    margin-bottom: 5px;
+    font-weight: 300;
+  }
+  .active-tab{
+    color:black;
+    border-bottom: 3px solid $purple;
+    font-weight: 600;
+  }
+}
+
+@media(max-width: 570px) {
+  .item-type-tabs{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+}
+@media(max-width: 500px) {
+  .character-modal .item-type{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media(max-width: 450px) {
+  .character-modal .item-type{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
 .img-choices::-webkit-scrollbar {
   display: none;
 }
 
-.character-modal .body-category::-webkit-scrollbar {
+.character-modal .item-type::-webkit-scrollbar {
   display: none;
   // height: 0px; /* If value is 0px, the horizontal bar will disappear but still works*/
 }

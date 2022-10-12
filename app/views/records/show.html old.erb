@@ -46,7 +46,6 @@
       </div>
     </div>
     <%= link_to "continue", themes_path, class: "btn btn-purple my-4" %>
-    <p>ADD SEE UNLOCKED ITEMS</p>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="height: 40px; background-color:black;">
   </div>
 
@@ -64,7 +63,7 @@
 
   <% if  @unlocked_items && @unlocked_items[:category] %>
     <% @count += 1 %>
-    <%= render 'achievement_modal', type: "category", sentence: "Tous les quizz #{@unlocked_items[:category].name} de niveau #{@unlocked_items[:category].subtheme.theme_level.name} terminées !<br> #{@unlocked_items[:theme_level].name} de #{@unlocked_items[:theme_level].theme.name} débloqué !"%>
+    <%= render 'achievement_modal', type: "category", sentence: "Tous les quizzs #{@unlocked_items[:category].name} de niveau #{@unlocked_items[:category].subtheme.theme_level.name} terminées !<br> #{@unlocked_items[:theme_level].name} de #{@unlocked_items[:theme_level].theme.name} débloqué !"%>
   <% end %>
 </div>
 
