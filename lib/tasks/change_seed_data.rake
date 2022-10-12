@@ -47,3 +47,13 @@ task :change_orthograph => :environment do
   producteur.name = "Réalisateur"
   producteur.save!
 end
+
+desc "Change movies year questions"
+task :change_movies_questions => :environment do
+  Category.find_by(name: "Année").question_answers.each do |question_answer|
+    p "question #{question_answer.question}"
+    question_answer.question.gsub!("En quelle année a été réalisé", "En quelle année est sorti")
+    question_answer.save!
+    p "question #{question_answer.question}"
+  end
+end
