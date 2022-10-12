@@ -131,7 +131,7 @@ class RecordsController < ApplicationController
 
       return nil if user_answers.count != quizz_question_answers_count
 
-      return nil if back_time_difference < quizz_question_answers_count * 0
+      return nil if back_time_difference < quizz_question_answers_count * 0.750
 
       true
     end

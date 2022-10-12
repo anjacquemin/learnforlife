@@ -28,15 +28,15 @@
     <% quizz = @record.quizz_level.quizz%>
     <% if level_name == "Facile" %>
       <% next_level_or_quizz_level = quizz.quizz_levels.find_by(name: "Moyen") %>
-      <% link_to_name = "Difficulté <br> (moyen)" %>
+      <% link_to_name = "Difficulté suiv. <br> (moyen)" %>
     <% elsif level_name == "Moyen" %>
-      <% link_to_name = "Difficulté <br> difficile" %>
+      <% link_to_name = "Difficulté suiv. <br> (difficile)" %>
       <% next_level_or_quizz_level = quizz.quizz_levels.find_by(name: "Difficile") %>
     <% elsif level_name == "Difficile" && @record.quizz.ordering != @record.quizz.category.quizzs.count%>
       <% next_level_or_quizz_level = @record.quizz_level.category.quizzs.find_by(ordering: quizz.ordering + 1).quizz_levels.find_by(name: "Facile") %>
       <% link_to_name = "Quizz suivant <br> (#{next_level_or_quizz_level.name})" %>
     <% end %>
-    <% if next_level_or_quizz_level %>
+    <% if next_level_or_quizz_level && next_level_or_quizz_level.quizz_level_progresses.find_by(user: current_user).unlocked%>
       <%= link_to link_to_name.html_safe, quizz_level_path(next_level_or_quizz_level), class:"btn btn-green mt-5 mx-2" %>
     <% end %>
   </div>
