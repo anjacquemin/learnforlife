@@ -57,3 +57,15 @@ task :change_movies_questions => :environment do
     p "question #{question_answer.question}"
   end
 end
+
+desc "Change achievement name (accents)"
+task :change_achievement_accents => :environment do
+  achievements_to_change = Achievement.where.not(achievement_category: "global")
+  achievements_to_change.each do |achievement_to_change|
+    achievement_to_change.name.gsub!("Cinema", "Cinéma")
+    achievement_to_change.name.gsub!("Geographie", "Géographie")
+    achievement_to_change.name.gsub!("culture générale", "Culture Générale")
+    p "achievement_to_change #{achievement_to_change.name}"
+    achievement_to_change.save!
+  end
+end
