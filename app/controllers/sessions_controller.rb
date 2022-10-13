@@ -5,7 +5,7 @@ class SessionsController < Devise::SessionsController
         sign_in(:user, @user)
         redirect_to root_path
       else
-        flash[:alert] = "Invalid Email or Password"
+        flash[:alert] = I18n.t('devise.failure.invalid')
         redirect_back(fallback_location: root_path)
       end
     end

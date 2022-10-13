@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get root to: "themes#index"
   get "accueil", to: "pages#home", as: "accueil"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, :controllers => {:registrations => "registrations", sessions: "sessions"}
+  devise_for :users, :controllers => {:registrations => "registrations", sessions: "sessions", :passwords => "passwords"}
 
   resources :users do
     get "profile", to: "pages#profile"
