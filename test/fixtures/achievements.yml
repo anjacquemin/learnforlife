@@ -1,9 +1,16 @@
 achievement_1:
   name: Roi de la connexion
-  description: 5 jours de suite
-  xp_to_win: 10
+  achievement_type: "crown_count"
+  img_src: "img.src"
+  count: 10
+  unlocked_conditions: "TBD"
+  achievement_category: "global"
+
 
 achievement_2:
-  name: Boss de la connexion
-  description: 10 jours de suite
-  xp_to_win: 10
+  name: Roi de la connexion
+  achievement_type: "crown_count"
+  img_src: "img.src"
+  count: 10
+  unlocked_conditions: "TBD"
+  achievement_category: "global"

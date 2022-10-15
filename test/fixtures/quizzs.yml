@@ -2,8 +2,10 @@ europe_capitales_1:
   category: europe_capitales
   name: capitale 1
   ordering: 1
+  crown_or_sphere: crown
 
 europe_capitales_2:
   category: europe_capitales
   name: capitale 2
   ordering: 2
+  crown_or_sphere: crown

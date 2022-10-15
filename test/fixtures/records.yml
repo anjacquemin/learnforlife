@@ -5,6 +5,7 @@ record_1:
   milliseconds_duration: 4
   crown_or_sphere: crown
   completion: 1
+  score_percentage: 90
 
 record_2:
   user: mickael
@@ -13,3 +14,4 @@ record_2:
   milliseconds_duration: 4
   crown_or_sphere: crown
   completion: 1
+  score_percentage: 90
