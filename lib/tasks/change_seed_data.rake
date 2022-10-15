@@ -43,9 +43,6 @@ task :change_orthograph => :environment do
   cine = Theme.find_by(name: "Cinema")
   cine.name = "Cinéma"
   cine.save!
-  producteur = Category.find_by(name: "Producteur")
-  producteur.name = "Réalisateur"
-  producteur.save!
 end
 
 desc "Change movies year questions"
@@ -55,5 +52,14 @@ task :change_movies_questions => :environment do
     question_answer.question.gsub!("En quelle année a été réalisé", "En quelle année est sorti")
     question_answer.save!
     p "question #{question_answer.question}"
+  end
+end
+
+desc "Orthograph change : cinaema category"
+task :change_orthograph_of_all_categories => :environment do
+  Category.where(name: "Producteur").each do |category|
+    p category
+    category.name = "Réalisateur"
+    category.save!
   end
 end
