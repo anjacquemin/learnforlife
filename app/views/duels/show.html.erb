@@ -1,0 +1,19 @@
+<div class="container"
+  data-controller="duel-subscription"
+  data-duel-subscription-duel-id-value="<%= @duel.id %>"
+>
+  <h1>#<%= @duel.id %></h1>
+
+  <div class=<%=@display_waiting_class%> data-duel-subscription-target="waiting">
+    <p>Waiting for an other player to join</p>
+    <p>You can directly share the URL : XXX</p>
+  </div>
+  <div class=<%=@display_duel_class%> data-duel-subscription-target="display">
+    <p> DUEL INFO</p>
+    <p> Joueur qui commence : <%= @duel.player_to_play.name %> </p>
+    <div class=<%=@display_theme_choice_class%> data-duel-subscription-target="themeChoice">
+      <% @theme_choices.each do |theme| %>
+        <%= button_to theme.name, duel_duel_quizzs_path(@duel), data: { confirm: "Confirmer ?" }, params: { theme_id: theme.id}, method: :post, class: "btn btn-link" %>
+      <% end %>
+    </div>
+  </div>

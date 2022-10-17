@@ -1,0 +1,22 @@
+<%= render 'shared/character_banner' %>
+<div class="theme-title theme-show">
+  <h1>Arène</h1>
+</div>
+
+<div class="container my-5">
+  <div>
+    <h2>Duels</h2>
+    <div>
+
+    </div>
+  </div>
+  <div>
+    <h2>Affonter un héro</h2>
+    <% User.all.each do |user| %>
+      <div>
+        <%= "#{user.name}, #{user.level.level}" %>
+        <%= button_to "X", duels_path, data: { confirm: "Affronter ?" }, params: { player_1: current_user.id, player_2: user.id }, method: :post, class: "btn btn-link" %>
+      </div>
+    <% end %>
+  </div>
+</div>

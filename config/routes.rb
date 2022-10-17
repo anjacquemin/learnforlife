@@ -24,7 +24,12 @@ Rails.application.routes.draw do
 
   resources :characters, only: [:update]
 
-  resources :duels, only: [:index, :create, :update]
+  resources :duels, only: [:index, :create, :update, :show] do
+    resources :duel_quizzs, only: [:create] do
+      resources :duel_quizz_questions, only: [:index]
+    end
+  end
+
 
   # post "subtheme/:subtheme_id", to: "subthemes#show"
   get "theme/:theme_id/flashcards/results", to: "flashcards#results"
