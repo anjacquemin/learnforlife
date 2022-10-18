@@ -7,17 +7,20 @@ class DuelsController < ApplicationController
     authorize @duel
 
     #if player_session not defined, it means that it is the second player who joins (the session of the first player is created when the duel is)
-    unless (player_session = session["player-#{@duel.id}".to_sym] && !@duel.is_ready)
-      player_session = "player2"
+    unless (session["player-duel-#{@duel.id}".to_sym] || @duel.is_ready)
+      session["player-duel-#{@duel.id}".to_sym] = "player2"
       @duel.update_attribute(:is_ready, true)
       @duel.update_attribute(:player_to_play, [@duel.player_1, @duel.player_2].sample)
-      DuelChannel.broadcast_to(@duel, type: "ready_to_play")
+      DuelChannel.broadcast_to(@duel, type: "ready_to_play", player_to_play: @duel.player_to_play.name)
     end
-    #initialize all variable needed for the view for stimulus JS
+
+    player_session = session["player-duel-#{@duel.id}".to_sym]
     @theme_choices = [Theme.find_by(name: "Géographie"), Theme.find_by(name: "Cinéma")]
-    @display_duel_class = set_if_player2_or_not(player_session, "d", "d-none")
-    @display_waiting_class = set_if_player2_or_not(player_session, "d-none", "d")
-    @display_theme_choice_class = set_if_player2_or_not(player_session, "d-none", "d")
+
+    @display_duel_class = (@duel.is_ready ? "d" : "d-none")
+    @display_waiting_class = (@duel.is_ready ? "d-none" : "d")
+
+    @display_theme_choice_class = set_if_player_or_not(current_user, @duel.player_to_play , "d", "d-none")
   end
 
   def index
@@ -41,7 +44,7 @@ class DuelsController < ApplicationController
 
     # @duel.number_of_players = 1
     if @duel.save!
-      session["player-#{@duel.id}".to_sym] = "player1"
+      session["player-duel-#{@duel.id}".to_sym] = "player1"
       redirect_to(@duel)
     else
       @duel.valid?
@@ -60,8 +63,8 @@ class DuelsController < ApplicationController
     @all_types = ["weapon", "shield", "helmet","body"]
   end
 
-  def set_if_player2_or_not(player_session, arg1, arg2)
-    player_session == "player2" ? arg1 : arg2
+  def set_if_player_or_not(player_session, player_expected, arg1, arg2)
+    player_session == player_expected ? arg1 : arg2
   end
 
 end

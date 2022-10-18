@@ -1,5 +1,4 @@
 class DuelQuizzQuestionPolicy < ApplicationPolicy
-
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve
@@ -7,6 +6,5 @@ class DuelQuizzQuestionPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
-
   end
 end

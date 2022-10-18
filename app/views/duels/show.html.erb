@@ -10,10 +10,15 @@
   </div>
   <div class=<%=@display_duel_class%> data-duel-subscription-target="display">
     <p> DUEL INFO</p>
-    <p> Joueur qui commence : <%= @duel.player_to_play.name %> </p>
+    <p data-duel-subscription-target="playerToPlay" ></p>
     <div class=<%=@display_theme_choice_class%> data-duel-subscription-target="themeChoice">
       <% @theme_choices.each do |theme| %>
-        <%= button_to theme.name, duel_duel_quizzs_path(@duel), data: { confirm: "Confirmer ?" }, params: { theme_id: theme.id}, method: :post, class: "btn btn-link" %>
+        <button class= "btn btn-purple" data-theme-id= <%=theme.id%> data-url= <%=duel_duel_quizzs_url(@duel)%> data-action="click->duel-subscription#themeChoice"> <%=theme.name%></button>
+
       <% end %>
     </div>
   </div>
+  <div >
+    <%= button_to "", "a", data: { confirm: "Confirmer ?", "duel-subscription-target" => "playButton" }, method: :get, class: "btn btn-link btn-purple d-none" %>
+  </div>
+</div>

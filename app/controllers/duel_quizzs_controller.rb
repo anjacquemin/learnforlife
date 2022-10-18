@@ -1,7 +1,8 @@
 class DuelQuizzsController < ApplicationController
   def create
+    data = JSON.parse(params["json"])
     @duel = Duel.find(params[:duel_id].to_i)
-    @theme = Theme.find(params[:theme_id])
+    @theme = Theme.find(data["theme_id"].to_i)
     @duel_quizz = DuelQuizz.new(duel: @duel, theme: @theme)
 
     question_answers_building = @theme.question_answers.joins(quizzs: :category).where.not(quizzs: {name: "MASTER"}).pluck('question_answers.id, categories.id').sample(10)
@@ -14,7 +15,10 @@ class DuelQuizzsController < ApplicationController
     authorize @duel_quizz
 
     if @duel_quizz.save!
-      redirect_to duel_duel_quizz_duel_quizz_questions_url(@duel,@duel_quizz)
+      DuelChannel.broadcast_to(@duel, type: "quizz_begin", duel_id: @duel.id, duel_quizz_id: @duel_quizz.id )
+      respond_to do |format|
+        format.json {render json: {duel_quizz_created: "true"}}
+      end
     else
       @duel_quizz.valid?
       flash[:info] = @duel_quizz.errors.messages.map{|k, v| "#{k} #{v.first} \n" }.join(" & ")
