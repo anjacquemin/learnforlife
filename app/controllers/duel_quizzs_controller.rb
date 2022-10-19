@@ -5,10 +5,10 @@ class DuelQuizzsController < ApplicationController
     @theme = Theme.find(data["theme_id"].to_i)
     @duel_quizz = DuelQuizz.new(duel: @duel, theme: @theme)
 
-    question_answers_building = @theme.question_answers.joins(quizzs: :category).where.not(quizzs: {name: "MASTER"}).pluck('question_answers.id, categories.id').sample(10)
+    question_answers_building = @theme.question_answers.joins(quizzs: :category).where.not(quizzs: {name: "MASTER"}).pluck('question_answers.id, categories.id, quizzs.id').sample(10)
 
     question_answers_building.each do |question_answer_building|
-      duel_quizz_question = DuelQuizzQuestion.new(duel_quizz: @duel_quizz, question_answer:  QuestionAnswer.find(question_answer_building[0]), category: Category.find(question_answer_building[1]))
+      duel_quizz_question = DuelQuizzQuestion.new(duel_quizz: @duel_quizz, question_answer:  QuestionAnswer.find(question_answer_building[0]), category: Category.find(question_answer_building[1]), quizz: Quizz.find(question_answer_building[2]))
       duel_quizz_question.save!
     end
 

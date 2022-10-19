@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_17_143503) do
+ActiveRecord::Schema.define(version: 2022_10_19_104221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,9 +135,11 @@ ActiveRecord::Schema.define(version: 2022_10_17_143503) do
     t.bigint "question_answer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "quizz_id"
     t.index ["category_id"], name: "index_duel_quizz_questions_on_category_id"
     t.index ["duel_quizz_id"], name: "index_duel_quizz_questions_on_duel_quizz_id"
     t.index ["question_answer_id"], name: "index_duel_quizz_questions_on_question_answer_id"
+    t.index ["quizz_id"], name: "index_duel_quizz_questions_on_quizz_id"
   end
 
   create_table "duel_quizzs", force: :cascade do |t|
@@ -423,6 +425,7 @@ ActiveRecord::Schema.define(version: 2022_10_17_143503) do
   add_foreign_key "duel_quizz_questions", "categories"
   add_foreign_key "duel_quizz_questions", "duel_quizzs"
   add_foreign_key "duel_quizz_questions", "question_answers"
+  add_foreign_key "duel_quizz_questions", "quizzs"
   add_foreign_key "duel_quizzs", "duels"
   add_foreign_key "duel_quizzs", "themes"
   add_foreign_key "duels", "users", column: "player_1_id"

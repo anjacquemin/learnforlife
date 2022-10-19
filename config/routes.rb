@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :records, only: [:create]
   end
 
+  resources :duel_answers, only: [:create, :update]
+
   resources :user_character_items, only: [:update]
 
   resources :characters, only: [:update]

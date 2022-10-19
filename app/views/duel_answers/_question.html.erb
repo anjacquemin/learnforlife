@@ -1,0 +1,49 @@
+<% question_answer = @duel_quizz_question.question_answer %>
+<% quizz =  @duel_quizz_question.quizz%>
+
+<div data-controller="duel-answer">
+  <div data-duel-answer-target = <%="questionCard"%>>
+    <div class = "card-question">
+      <h2><%=question_answer.question %></h2>
+      <% if question_answer.image_src %>
+        <% if quizz.category.name == "Drapeaux" %>
+          <% img_path = "world_flags" %>
+        <% elsif quizz.category.name == "Localisation"%>
+            <% img_path = "world_localisations" %>
+        <% end %>
+        <%= image_tag "#{img_path}/#{question_answer.image_src}" %>
+      <% end %>
+    </div>
+    <%# ANSWER DIV %>
+    <div class= "answer-div my-4">
+      <% answer_class = (@suggested_answers ? "class = 'answer'" : 'class = "answer align-answers"')  %>
+      <div <%= answer_class.html_safe %>
+          data-question-id = <%=question_answer.id%>
+          data-duel-answer-id = <%=@duel_answer.id%>
+          data-duel-quizz-id = <%=@duel_answer.duel_quizz.id%>
+          data-difficulty = <%=@duel_answer.difficulty%>
+          data-answer-url = <%= duel_answer_url(@duel_answer) %>
+          data-duel-quizz-questions-url = <%=duel_duel_quizz_duel_quizz_questions_url(@duel_answer.duel, @duel_answer.duel_quizz)%>
+          data-duel-url = <%= duel_answer_url(@duel_answer.duel) %>>
+        <% if @suggested_answers %>
+          <% @suggested_answers.each do |suggested_answer| %>
+            <button class="card-answer"
+              <%= "data-duel-answer-target = 'goodAnswer'".html_safe%>
+              data-action="click->duel-answer#checkAnswer">
+              <h2><%= suggested_answer %></h2>
+            </button>
+          <% end %>
+        <% else %>
+          <div>
+            <%= simple_form_for(@duel_answer, data: {action:"submit->duel-answer#checkAnswer"}) do |f| %>
+              <%= f.input :answer, label: false, placeholder: 'Votre réponse', input_html: {data: {duel_answer_target: "form"}, class: "border-radius", autocomplete: "off"} %>
+              <%= f.button :submit, "Valider", class: "btn btn-purple my-4 margin-auto" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div data-duel-answer-target = "endButtonDisplay" >
+      </div>
+    </div>
+  </div>
+</div>
