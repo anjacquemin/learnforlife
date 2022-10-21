@@ -15,7 +15,10 @@ class DuelQuizzsController < ApplicationController
     authorize @duel_quizz
 
     if @duel_quizz.save!
-      DuelChannel.broadcast_to(@duel, type: "quizz_begin", duel_id: @duel.id, duel_quizz_id: @duel_quizz.id )
+
+      @duel.step = "ongoing_quizz"
+      @duel.save!
+      DuelChannel.broadcast_to(@duel, type: "quizz_begin", duel_id: @duel.id, duel_quizz_id: @duel_quizz.id, url: duel_url(@duel) )
       respond_to do |format|
         format.json {render json: {duel_quizz_created: "true"}}
       end

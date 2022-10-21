@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_19_104221) do
+ActiveRecord::Schema.define(version: 2022_10_20_101553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -153,6 +153,15 @@ ActiveRecord::Schema.define(version: 2022_10_19_104221) do
     t.index ["theme_id"], name: "index_duel_quizzs_on_theme_id"
   end
 
+  create_table "duel_theme_choices", force: :cascade do |t|
+    t.bigint "duel_id", null: false
+    t.bigint "theme_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["duel_id"], name: "index_duel_theme_choices_on_duel_id"
+    t.index ["theme_id"], name: "index_duel_theme_choices_on_theme_id"
+  end
+
   create_table "duels", force: :cascade do |t|
     t.integer "player_1_hp"
     t.integer "player_2_hp"
@@ -162,6 +171,7 @@ ActiveRecord::Schema.define(version: 2022_10_19_104221) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_ready", default: false
+    t.string "step"
     t.index ["player_1_id"], name: "index_duels_on_player_1_id"
     t.index ["player_2_id"], name: "index_duels_on_player_2_id"
     t.index ["player_to_play_id"], name: "index_duels_on_player_to_play_id"
@@ -428,6 +438,8 @@ ActiveRecord::Schema.define(version: 2022_10_19_104221) do
   add_foreign_key "duel_quizz_questions", "quizzs"
   add_foreign_key "duel_quizzs", "duels"
   add_foreign_key "duel_quizzs", "themes"
+  add_foreign_key "duel_theme_choices", "duels"
+  add_foreign_key "duel_theme_choices", "themes"
   add_foreign_key "duels", "users", column: "player_1_id"
   add_foreign_key "duels", "users", column: "player_2_id"
   add_foreign_key "duels", "users", column: "player_to_play_id"

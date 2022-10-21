@@ -5,6 +5,7 @@ class Duel < ApplicationRecord
   has_many :duel_quizzs
   has_many :duel_quizzs_questions, through: :duel_quizzs
   has_many :duel_quizz_questions, through: :duel_quizzs
+  has_many :duel_theme_choices
 
   validates :player_1_hp, numericality: { greater_than: 0 }
   validates :player_2_hp, numericality: { greater_than: 0 }

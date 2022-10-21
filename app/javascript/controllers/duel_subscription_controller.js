@@ -11,22 +11,46 @@ export default class extends Controller {
     this.channel = consumer.subscriptions.create(
       { channel: "DuelChannel", id: this.duelIdValue },
       { received: data => {
-          console.log(data.type)
+          console.log(data)
           if (data["type"] === "ready_to_play") {
-            this.displayTarget.classList.remove("d-none")
-            this.waitingTarget.classList.add("d-none")
-            this.themeChoiceTarget.classList.remove("d-none")
-            this.playerToPlayTarget.innerHTML = `${data["player_to_play"]} choisis un thème`
+            fetch(data["url"], {
+              method: "GET",
+              headers: { "Accept": "application/json"},
+            })
+            .then(response => response.json())
+            .then((data) => {
+              console.log(data.inserted_item)
+              this.element.innerHTML = data.inserted_item
+            })
+            // this.playButtonTarget.classList.remove("d-none")
           } else if (data["type"] === "quizz_begin"){
-            this.playButtonTarget.value = "Play"
-            console.log(this.playButtonTarget.parentElement)
-            console.log(this.playButtonTarget.formAction)
-            this.playButtonTarget.classList.remove("d-none")
-            this.playButtonTarget.parentElement.action = `/duels/${data["duel_id"]}/duel_quizzs/${data["duel_quizz_id"]}/duel_quizz_questions`
+            fetch(data["url"], {
+              method: "GET",
+              headers: { "Accept": "application/json"},
+            })
+            .then(response => response.json())
+            .then((data) => {
+              console.log(data.inserted_item)
+              this.element.innerHTML = data.inserted_item
+            })
+          } else if (data["type"] === "end_quizz"){
+            fetch(data["url"], {
+              method: "GET",
+              headers: { "Accept": "application/json"},
+            })
+            .then(response => response.json())
+            .then((data) => {
+              console.log(data.inserted_item)
+              this.element.innerHTML = data.inserted_item
+            })
           }
         }
       }
     )
+  }
+
+  showThemeChoice(event) {
+    this.themeChoiceTarget.classList.remove("d-none")
   }
 
   themeChoice(event) {

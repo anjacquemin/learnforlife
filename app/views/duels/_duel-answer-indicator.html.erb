@@ -1,0 +1,11 @@
+<div class= <%= "'duel-answer-indicator #{is_good_answer.to_s}-answer'".html_safe %>>
+  <div class="d-flex">
+    <i class="fas fa-star"></i>
+    <% if difficulty == "medium" || difficulty == "hard"  %>
+      <i class="fas fa-star"></i>
+    <% end %>
+    </div>
+  <% if difficulty == "hard" %>
+    <i class="fas fa-star"></i>
+  <% end %>
+</div>

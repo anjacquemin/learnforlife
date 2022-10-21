@@ -86,9 +86,10 @@ export default class extends Controller {
           })
         }
       })
+
     }
 
-    delay(1000).then(() => {
+    delay(100).then(() => {
       console.log(duel_quizz_questions_url)
       fetch(duel_quizz_questions_url, {
         method: "GET",

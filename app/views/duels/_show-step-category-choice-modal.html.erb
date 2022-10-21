@@ -1,0 +1,25 @@
+<!-- Modal -->
+<div class="modal fade character-modal" id="staticBackdrop1000" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" data-sprite-target= <%="characterInfo"%>>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1> Choisis une thématique </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="my-3"></div>
+      <div class="modal-body">
+        <div>
+          <p data-duel-subscription-target="playerToPlay" ></p>
+          <div class=<%=@display_theme_choice_class%> data-duel-subscription-target="themeChoice">
+            <% @theme_choices.each do |theme_choice| %>
+              <button class= "btn btn-purple" data-bs-dismiss="modal" data-theme-id= <%=theme_choice.theme.id%> data-url= <%=duel_duel_quizzs_url(@duel)%> data-action="click->duel-subscription#themeChoice"> <%=theme_choice.theme.name%></button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-purple" >Confirmer</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -68,7 +68,7 @@ class DuelAnswersController < ApplicationController
       answer_id = (user_answer == question_answer.answer) ? question_answer.id : 0
       is_good_answer = (user_answer == question_answer.answer)
 
-    elsif @duel_answer.difficulty == "Difficile"
+    elsif @duel_answer.difficulty == "hard"
       user_answer = I18n.transliterate(data["user_answer"], :locale => :en).downcase.strip.gsub("-", " ")
       answer = I18n.transliterate(question_answer.answer,:locale => :en).downcase.strip.gsub("-", " ")
       is_good_answer = (Levenshtein.distance(user_answer, answer) <= 1)

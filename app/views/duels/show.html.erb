@@ -1,24 +1,43 @@
-<div class="container"
+<div class=""
   data-controller="duel-subscription"
-  data-duel-subscription-duel-id-value="<%= @duel.id %>"
->
-  <h1>#<%= @duel.id %></h1>
+  data-duel-subscription-duel-id-value="<%= @duel.id %>">
 
-  <div class=<%=@display_waiting_class%> data-duel-subscription-target="waiting">
-    <p>Waiting for an other player to join</p>
-    <p>You can directly share the URL : XXX</p>
-  </div>
+  <%= render "show-step-created" if @duel.step == "created" %>
+
   <div class=<%=@display_duel_class%> data-duel-subscription-target="display">
-    <p> DUEL INFO</p>
-    <p data-duel-subscription-target="playerToPlay" ></p>
-    <div class=<%=@display_theme_choice_class%> data-duel-subscription-target="themeChoice">
-      <% @theme_choices.each do |theme| %>
-        <button class= "btn btn-purple" data-theme-id= <%=theme.id%> data-url= <%=duel_duel_quizzs_url(@duel)%> data-action="click->duel-subscription#themeChoice"> <%=theme.name%></button>
-
-      <% end %>
+    <div class="players-display character-duel-banner">
+      <div class= "player-display">
+          <%= render "character_duel", user: @duel.player_1 %>
+      </div>
+      <div class="versus">
+        <p>VS</p>
+      </div>
+      <div class= "player-display">
+        <%= render "character_duel", user: @duel.player_2 %>
+      </div>
     </div>
+    <div class="my-3"></div>
+    <div class="container score-section">
+      <div class="scores-display">
+        <% @duel.duel_quizzs.each do |duel_quizz| %>
+          <%= render "score-display", duel_quizz: duel_quizz %>
+        <% end %>
+        <% if @duel.step != "end" && @duel.step != "ongoing_quizz" %>
+          <%= render "score-display", new_duel: true  %>
+        <% end %>
+      </div>
+    </div>
+
   </div>
+
+  <div >
+    <%= button_to "Choisir", "a", data: { confirm: "Confirmer ?", "duel-subscription-target" => "showTheme" }, method: :get, class: "btn btn-link btn-purple d-none" %>
+  </div>
+
   <div >
     <%= button_to "", "a", data: { confirm: "Confirmer ?", "duel-subscription-target" => "playButton" }, method: :get, class: "btn btn-link btn-purple d-none" %>
   </div>
 </div>
+
+
+<%= current_user.name %>
