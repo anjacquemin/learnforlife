@@ -1,0 +1,11 @@
+  <% if @duel.player_to_play == current_user %>
+    <button type="button" class="btn btn-purple btn-width-90" data-bs-toggle="modal"  data-bs-target="#staticBackdrop1000">
+      <%= "#{@duel.player_to_play.name} </br> Choisis un thème".html_safe%>
+    </button>
+  <% else %>
+     <div class="score-display">
+      <p><%= "#{@duel.player_to_play.name} est en train de choisir un thème..." %></p>
+     </div>
+  <% end %>
+
+<%= render "show-step-category-choice-modal" %>

@@ -1,31 +1,29 @@
-<% if defined? new_duel %>
-  <% if @duel.player_to_play == current_user %>
-    <button type="button" class="btn btn-purple btn-width-90" data-bs-toggle="modal"  data-bs-target="#staticBackdrop1000">
-      <%= "#{@duel.player_to_play.name} </br> Choisis un thème".html_safe%>
-    </button>
-  <% else %>
-     <div class="score-display">
-      <p><%= "#{@duel.player_to_play.name} est en train de choisir un thème..." %></p>
-     </div>
-  <% end %>
-<% else %>
-  <div class="score-display">
-    <% if duel_quizz.score_player_1 %>
-      <%= render "quizz_answers", duel_quizz: duel_quizz, player: @duel.player_1 %>
-    <% elsif !duel_quizz.score_player_1%>
-      <%= button_to "Jouer", duel_duel_quizz_duel_quizz_questions_url(@duel, duel_quizz), data: { "duel-subscription-target" => "playButton" }, method: :get, class: "btn btn-purple" %>
+<div class="score-display">
+  <% if duel_quizz.score_player_1 %>
+    <%= render "quizz_answers", duel_quizz: duel_quizz, player: @duel.player_1 %>
+  <% elsif !duel_quizz.score_player_1%>
+    <% if @duel.player_1 == current_user %>
+      <%= button_to "Jouer", duel_duel_quizz_duel_quizz_questions_url(@duel, duel_quizz), data: { "duel-subscription-target" => "playButton" }, method: :get, class: "btn btn-purple  btn-little-width" %>
+    <% else %>
+      <div class="answer-status btn-little-width">
+        <p>Réponse <br> en cours...</p>
+      </div>
     <% end %>
-    <div class="quizz-number">
-      <p>CINEMA</p>
-    </div>
-    <div class="score-player">
-      <% if duel_quizz.score_player_2 %>
-        <%= render "quizz_answers", duel_quizz: duel_quizz, player: @duel.player_2 %>
-      <% elsif !duel_quizz.score_player_2%>
-        <%= button_to "Jouer", duel_duel_quizz_duel_quizz_questions_url(@duel, duel_quizz), data: { "duel-subscription-target" => "playButton" }, method: :get, class: "btn btn-purple" %>
-      <% end %>
-    </div>
+  <% end %>
+  <div class="quizz-number">
+    <p><%= duel_quizz.theme.name.upcase! %></p>
   </div>
-<% end %>
-
-<%= render "show-step-category-choice-modal" %>
+  <div class="score-player">
+    <% if duel_quizz.score_player_2 %>
+      <%= render "quizz_answers", duel_quizz: duel_quizz, player: @duel.player_2 %>
+    <% elsif !duel_quizz.score_player_2%>
+      <% if @duel.player_2 == current_user %>
+        <%= button_to "Jouer", duel_duel_quizz_duel_quizz_questions_url(@duel, duel_quizz), data: { "duel-subscription-target" => "playButton" }, method: :get, class: "btn btn-purple btn-little-width" %>
+      <% else %>
+        <div class="answer-status btn-little-width">
+          <p>Réponse <br> en cours...</p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

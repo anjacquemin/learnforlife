@@ -9,8 +9,15 @@ class DuelsController < ApplicationController
     # 3 : ongoing quizz
     # 4 : end
 
+    p "------------------"
+    p "------------------"
+    p "------------------"
+    p "DANS SHOW"
+
     @duel = Duel.find(params[:id])
     authorize @duel
+
+    p "DUEL STEP : #{@duel.step}"
 
     @theme_choices = @duel.duel_theme_choices
     @display_duel_class = (@duel.is_ready ? "d" : "d-none")
@@ -42,22 +49,6 @@ class DuelsController < ApplicationController
 
     if @duel.step == "ongoing_quizz"
       # know if current_user has finished his last quel_quizzs
-      if both_player_finished_last_quizz? @duel
-        if @duel.player_1_hp <= 0 || @duel.player_2_hp <= 0
-          @duel.step = "end"
-          @duel.save!
-        else
-          @duel.step = "category_choice"
-          @duel.player_to_play = [@duel.player_1, @duel.player_2].sample
-          @duel.save!
-          @theme_choices = [Theme.find_by(name: "Géographie"), Theme.find_by(name: "Cinéma")]
-          @duel.duel_theme_choices.each_with_index do |duel_theme_choice, i|
-            duel_theme_choice.theme = @theme_choices[0]
-            duel_theme_choice.save!
-          end
-          @duel.duel_theme_choices
-        end
-      end
     end
 
     if @duel.step == "end"
@@ -131,5 +122,4 @@ class DuelsController < ApplicationController
     player_X = (duel.player_1 == current_user ? "player_1" : "player_2")
     duel.duel_quizzs.any? { |duel_quizz| duel_quizz.send("score_#{player_X}")}
   end
-
 end

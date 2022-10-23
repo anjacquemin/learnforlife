@@ -1,1 +1,1 @@
-json.inserted_item render(partial: "duel-info-partial", formats: :html)
+json.inserted_item render(partial: "show-partial", formats: :html)

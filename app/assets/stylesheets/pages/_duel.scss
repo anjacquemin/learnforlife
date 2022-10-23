@@ -79,6 +79,7 @@
 // }
 
 .score-player {
+  width: 110px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,7 +93,7 @@
   align-items: center;
   align-self: center;
   height: 50px;
-  width: 100px;
+  width: 130px;
   background-color: $very-light-purple;
   color: $purple;
   border-radius: 4px;
@@ -110,4 +111,11 @@
 .damage {
   color: $purple;
   font-weight: bold;
+}
+
+.answer-status {
+  p {
+    text-align: center;
+    margin-bottom: 0;
+  }
 }

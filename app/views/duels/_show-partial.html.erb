@@ -1,4 +1,5 @@
 <%= render "show-step-created" if @duel.step == "created" %>
+
 <div class=<%=@display_duel_class%> data-duel-subscription-target="display">
   <div class="players-display character-duel-banner">
     <div class= "player-display">
@@ -17,8 +18,9 @@
       <% @duel.duel_quizzs.each do |duel_quizz| %>
         <%= render "score-display", duel_quizz: duel_quizz %>
       <% end %>
-      <%# IF GAME NOT ENDED and not ongoing quizzs%>
-      <%= render "score-display", new_duel: true  %>
+      <% if @duel.step != "ongoing_quizz" && @duel.step != "end" %>
+        <%= render "display-theme-choice"%>
+      <% end %>
     </div>
   </div>
 </div>
@@ -28,6 +30,3 @@
 <div >
   <%= button_to "", "a", data: { confirm: "Confirmer ?", "duel-subscription-target" => "playButton" }, method: :get, class: "btn btn-link btn-purple d-none" %>
 </div>
-
-
-<%= current_user.name %>

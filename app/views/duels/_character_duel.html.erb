@@ -12,6 +12,7 @@
   <div class="character-health">
     <% next_level_xp =  Level.find_by(level: user.level.level + 1).required_xp %>
     <p class="icon"><i class="fa-solid fa-heart"></i></p>
-    <%= render "shared/progress_bar", value: (user.hp.to_f * 100 / user.hp_max).round, display_with: "#{user.hp}\/#{user.hp_max}"   %>
+    <% player_X = (@duel.player_1 == user ? "player_1" : "player_2") %>
+    <%= render "shared/progress_bar", value: (@duel.send("#{player_X}_hp").to_f * 100 / user.hp_max).round, display_with: "#{@duel.send("#{player_X}_hp")}\/#{user.hp_max}"   %>
   </div>
 </div>
