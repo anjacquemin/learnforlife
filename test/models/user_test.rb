@@ -128,4 +128,8 @@ class UserTest < ActiveSupport::TestCase
   test "user should have several user_achievements" do
     assert @user.user_achievements
   end
+
+  test "user should have several duels"  do
+    assert @user.duels
+  end
 end

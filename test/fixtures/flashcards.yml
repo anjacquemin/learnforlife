@@ -1,4 +1,5 @@
 flashcard_1:
+  day_of_next_repetition: Time.now
   user: anthony
   unlocked: false
   trick: "A good trick"
@@ -7,8 +8,9 @@ flashcard_1:
   repetition: 1
   interval: 2
   day_of_last_repetition: Time.now
-  day_of_next_repetition: Time.now + 3.days
   mistake_count: 4
   question_answer: question_answer_1
   theme: geography
   category: europe_capitales
+  status: empty
+  steps_index: 1

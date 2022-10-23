@@ -1,0 +1,5 @@
+duel_quizz_1:
+  theme: geography
+  score_player_1: 50
+  score_player_2: 60
+  duel: duel_1

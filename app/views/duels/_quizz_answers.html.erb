@@ -1,0 +1,12 @@
+<div class="score-player">
+<%# IF QUIZZ END FOR THIS USER %>
+  <div class="quizz-answer">
+    <% duel_quizz.duel_answers.where(user: player).each do |duel_answer| %>
+      <%= render "duel-answer-indicator", difficulty: duel_answer.difficulty, is_good_answer: duel_answer.is_good_answer %>
+    <% end %>
+  </div>
+  <div class="damage">
+    <% player_X = (player == @duel.player_1 ? "player_1" : "player_2") %>
+    <p>+ <%=duel_quizz.send("score_#{player_X}")%></p>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<button class= "avatar-container" data-sprite-target= "avatar" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop100">
+  <%= image_tag asset_path(user.character.hair), class: "character-hair", "data-sprite-target": "hair" if user.character.hair%>
+  <%= image_tag asset_path(user.character.head), class: "character-head", "data-sprite-target": "head" if user.character.head%>
+  <%= image_tag asset_path(user.character.body), class: "character-body", "data-sprite-target": "body" if user.character.body%>
+  <%= image_tag asset_path(user.character.helmet), class: "character-helmet", "data-sprite-target": "helmet" if user.character.helmet%>
+  <%= image_tag asset_path(user.character.weapon), class: "character-weapon", "data-sprite-target": "weapon" if user.character.weapon%>
+  <%= image_tag asset_path(user.character.shield), class: "character-shield", "data-sprite-target": "shield" if user.character.shield%>
+</button>
+<div class="player-information">
+  <p><%= user.name %></p>
+  <p>Lvl <%= user.level.level %> - <%= user.level.social_type %> </p>
+  <div class="character-health">
+    <% next_level_xp =  Level.find_by(level: user.level.level + 1).required_xp %>
+    <p class="icon"><i class="fa-solid fa-heart"></i></p>
+    <% player_X = (@duel.player_1 == user ? "player_1" : "player_2") %>
+    <%= render "shared/progress_bar", value: (@duel.send("#{player_X}_hp").to_f * 100 / user.hp_max).round, display_with: "#{@duel.send("#{player_X}_hp")}\/#{user.hp_max}"   %>
+  </div>
+</div>

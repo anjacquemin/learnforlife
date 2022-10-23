@@ -1,0 +1,6 @@
+duel_answer_1:
+  duel_quizz_question: duel_quizz_question_1
+  user: anthony
+  answer: super_answer
+  is_good_answer: true
+  difficulty: "hard"

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get root to: "themes#index"
   get "accueil", to: "pages#home", as: "accueil"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, :controllers => {:registrations => "registrations", sessions: "sessions"}
+  devise_for :users, :controllers => {:registrations => "registrations", sessions: "sessions", :passwords => "passwords"}
 
   resources :users do
     get "profile", to: "pages#profile"
@@ -20,9 +20,18 @@ Rails.application.routes.draw do
     resources :records, only: [:create]
   end
 
+  resources :duel_answers, only: [:create, :update]
+
   resources :user_character_items, only: [:update]
 
   resources :characters, only: [:update]
+
+  resources :duels, only: [:index, :create, :update, :show] do
+    resources :duel_quizzs, only: [:create] do
+      resources :duel_quizz_questions, only: [:index]
+    end
+  end
+
 
   # post "subtheme/:subtheme_id", to: "subthemes#show"
   get "theme/:theme_id/flashcards/results", to: "flashcards#results"

@@ -1,7 +1,7 @@
 @mixin banner-and-record-card($color){
   .banner {
     display: flex;
-    align-self: start;
+    align-self: flex-start;
     margin-bottom: 5px;
     margin-top: 3rem;
     > h2{
@@ -165,7 +165,7 @@
   }
   .flashcard-number{
     width: 100px;
-    text-align: start;
+    text-align: flex-start;
     margin-left: 5px;
   }
 }
@@ -361,7 +361,7 @@
      width: 40px;
     }
     a {
-      text-align: start;
+      text-align: flex-start;
       font-weight: bold;
     }
   }

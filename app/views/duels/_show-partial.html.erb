@@ -1,0 +1,32 @@
+<%= render "show-step-created" if @duel.step == "created" %>
+
+<div class=<%=@display_duel_class%> data-duel-subscription-target="display">
+  <div class="players-display character-duel-banner">
+    <div class= "player-display">
+        <%= render "character_duel", user: @duel.player_1 %>
+    </div>
+    <div class="versus">
+      <p>VS</p>
+    </div>
+    <div class= "player-display">
+      <%= render "character_duel", user: @duel.player_2 %>
+    </div>
+  </div>
+  <div class="my-3"></div>
+  <div class="container score-section">
+    <div class="scores-display">
+      <% @duel.duel_quizzs.each do |duel_quizz| %>
+        <%= render "score-display", duel_quizz: duel_quizz %>
+      <% end %>
+      <% if @duel.step != "ongoing_quizz" && @duel.step != "end" %>
+        <%= render "display-theme-choice"%>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div >
+  <%= button_to "Choisir", "a", data: { confirm: "Confirmer ?", "duel-subscription-target" => "showTheme" }, method: :get, class: "btn btn-link btn-purple d-none" %>
+</div>
+<div >
+  <%= button_to "", "a", data: { confirm: "Confirmer ?", "duel-subscription-target" => "playButton" }, method: :get, class: "btn btn-link btn-purple d-none" %>
+</div>

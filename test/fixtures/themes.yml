@@ -1,5 +1,9 @@
 geography:
   name: geography
+  image_src: <i class="fas fa-atlas"> </i>
+  adventure_only: false
 
 history:
   name: history
+  image_src: <i class="fas fa-atlas"> </i>
+  adventure_only: false

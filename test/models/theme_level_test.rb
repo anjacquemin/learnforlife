@@ -20,11 +20,6 @@ class ThemeLevelTest < ActiveSupport::TestCase
     assert_not @theme_level.valid?
   end
 
-  test "objective length should be less than 140 characters" do
-    @theme_level.objective = "a" * 141
-    assert_not @theme_level.valid?
-  end
-
   test "Theme level should have 2 subtheme" do
     assert_equal @theme_level.subthemes.count, 2
   end

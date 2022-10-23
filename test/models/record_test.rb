@@ -10,7 +10,7 @@ class RecordTest < ActiveSupport::TestCase
     end
 
     test "record should be valid" do
-      assert @record.valid?
+      assert @record.valid?, @record.errors.messages
     end
 
     test "record crown_or_sphere should be crown or sphere" do

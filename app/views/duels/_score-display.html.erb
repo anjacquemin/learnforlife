@@ -1,0 +1,29 @@
+<div class="score-display">
+  <% if duel_quizz.score_player_1 %>
+    <%= render "quizz_answers", duel_quizz: duel_quizz, player: @duel.player_1 %>
+  <% elsif !duel_quizz.score_player_1%>
+    <% if @duel.player_1 == current_user %>
+      <%= button_to "Jouer", duel_duel_quizz_duel_quizz_questions_url(@duel, duel_quizz), data: { "duel-subscription-target" => "playButton" }, method: :get, class: "btn btn-purple  btn-little-width" %>
+    <% else %>
+      <div class="answer-status btn-little-width">
+        <p>Réponse <br> en cours...</p>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="quizz-number">
+    <p><%= duel_quizz.theme.name.upcase! %></p>
+  </div>
+  <div class="score-player">
+    <% if duel_quizz.score_player_2 %>
+      <%= render "quizz_answers", duel_quizz: duel_quizz, player: @duel.player_2 %>
+    <% elsif !duel_quizz.score_player_2%>
+      <% if @duel.player_2 == current_user %>
+        <%= button_to "Jouer", duel_duel_quizz_duel_quizz_questions_url(@duel, duel_quizz), data: { "duel-subscription-target" => "playButton" }, method: :get, class: "btn btn-purple btn-little-width" %>
+      <% else %>
+        <div class="answer-status btn-little-width">
+          <p>Réponse <br> en cours...</p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

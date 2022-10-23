@@ -24,6 +24,9 @@ class User < ApplicationRecord
   has_many :user_achievements, dependent: :destroy
   has_many :achievements, through: :user_achievements
 
+  has_many :duels
+
+
 
 
   VALID_EMAIL_REGEX =  /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i

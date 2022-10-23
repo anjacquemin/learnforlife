@@ -1,0 +1,7 @@
+duel_1:
+  player_1: mickael
+  player_2: anthony
+  player_to_play: anthony
+  player_1_hp: 50
+  player_2_hp: 60
+  is_ready: false
