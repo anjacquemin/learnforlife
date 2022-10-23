@@ -1,9 +1,14 @@
+<% if defined? level %>
+  <% difficulty = level.name  %>
+<% elsif defined? difficulty_choice %>
+  <% difficulty = difficulty_choice %>
+<% end %>
 <div class="stars">
-  <%if level.name == "Facile"%>
+  <%if difficulty == "Facile"%>
     <%@stars_count = 1%>
-  <%elsif level.name == "Moyen"%>
+  <%elsif difficulty == "Moyen"%>
     <%@stars_count = 2%>
-  <%else level.name == "Difficile"%>
+  <%else difficulty == "Difficile"%>
     <%@stars_count = 3%>
   <%end%>
   <% @stars_count.times do %>

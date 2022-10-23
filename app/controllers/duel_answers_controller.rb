@@ -4,8 +4,6 @@ class DuelAnswersController < ApplicationController
     @duel_quizz_question = DuelQuizzQuestion.find(data["duel_quizz_question_id"].to_i)
     @difficulty = data["difficulty_choice"]
 
-    p @difficulty
-
     @duel_answer = DuelAnswer.new(
       duel_quizz_question: @duel_quizz_question,
       user: current_user,
@@ -16,17 +14,17 @@ class DuelAnswersController < ApplicationController
 
     @quizz =  @duel_quizz_question.quizz
 
-    if @difficulty == "easy"
+    if @difficulty == "Facile"
       number_of_suggested_answer = 2
       @stars_count = 1
-    elsif @difficulty == "medium"
+    elsif @difficulty == "Moyen"
       number_of_suggested_answer = 4
       @stars_count = 2
-    else @difficulty == "hard"
+    else @difficulty == "Difficile"
       @stars_count = 3
     end
     #create set of answers
-    if @difficulty != "hard"
+    if @difficulty != "Difficile"
       @suggested_answers = []
       @duel_quizz_question.quizz.question_answers.each{ |question_answer|
         if question_answer.suggested_answers.count < 3
@@ -63,12 +61,12 @@ class DuelAnswersController < ApplicationController
     question_answer = @duel_answer.question_answer
     p "user answer : #{data["user_answer"]}"
 
-    if @duel_answer.difficulty == "easy" || @duel_answer.difficulty == "medium"
+    if @duel_answer.difficulty == "facile" || @duel_answer.difficulty == "moyen"
       user_answer = data["user_answer"]
       answer_id = (user_answer == question_answer.answer) ? question_answer.id : 0
       is_good_answer = (user_answer == question_answer.answer)
 
-    elsif @duel_answer.difficulty == "hard"
+    elsif @duel_answer.difficulty == "difficile"
       user_answer = I18n.transliterate(data["user_answer"], :locale => :en).downcase.strip.gsub("-", " ")
       answer = I18n.transliterate(question_answer.answer,:locale => :en).downcase.strip.gsub("-", " ")
       is_good_answer = (Levenshtein.distance(user_answer, answer) <= 1)

@@ -119,3 +119,38 @@
     margin-bottom: 0;
   }
 }
+
+.white-container.clue{
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 320px;
+  > p {
+    padding: 5px;
+    margin-bottom: 5px;
+    color: #6066D0;
+    background-color: $very-light-purple;
+  }
+}
+
+.clue{
+  display: flex;
+  align-items: center;
+  p {
+    color: black;
+    margin-bottom: 0;
+    margin-right: 5px;
+  }
+}
+
+.clue-category{
+  display: flex;
+  align-items: center;
+}
+
+.auto-evaluation-buttons.margin-1{
+  > * {
+    margin: 1px;
+  }
+}

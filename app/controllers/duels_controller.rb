@@ -9,15 +9,8 @@ class DuelsController < ApplicationController
     # 3 : ongoing quizz
     # 4 : end
 
-    p "------------------"
-    p "------------------"
-    p "------------------"
-    p "DANS SHOW"
-
     @duel = Duel.find(params[:id])
     authorize @duel
-
-    p "DUEL STEP : #{@duel.step}"
 
     @theme_choices = @duel.duel_theme_choices
     @display_duel_class = (@duel.is_ready ? "d" : "d-none")
