@@ -1,8 +1,8 @@
 <% question_answer = @duel_quizz_question.question_answer %>
 <% quizz =  @duel_quizz_question.quizz%>
 
-<div data-controller="duel-answer">
-  <div data-duel-answer-target = <%="questionCard"%>>
+<div>
+  <div class= "duel-question-answer" data-duel-answer-target = <%="questionCard"%>>
     <div class = "card-question">
       <h2><%=question_answer.question %></h2>
       <% if question_answer.image_src %>
@@ -14,7 +14,6 @@
         <%= image_tag "#{img_path}/#{question_answer.image_src}" %>
       <% end %>
     </div>
-    <%# ANSWER DIV %>
     <div class= "answer-div my-4">
       <% answer_class = (@suggested_answers ? "class = 'answer'" : 'class = "answer align-answers"')  %>
       <div <%= answer_class.html_safe %>

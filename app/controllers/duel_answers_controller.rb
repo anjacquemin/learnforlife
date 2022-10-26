@@ -26,20 +26,20 @@ class DuelAnswersController < ApplicationController
     #create set of answers
     if @difficulty != "Difficile"
       @suggested_answers = []
-      @duel_quizz_question.quizz.question_answers.each{ |question_answer|
-        if question_answer.suggested_answers.count < 3
-          all_possible_answers = @quizz.question_answers.map(&:answer)
-        else
-          all_possible_answers = question_answer.suggested_answers.map(&:answer)
-        end
-        suggested_answers_builder = []
-        suggested_answers_builder << question_answer.answer
-        all_possible_answers.delete(question_answer.answer)
-        #choose a random answer among the quizz
-        wrong_answers = all_possible_answers.sample((number_of_suggested_answer - 1))
-        suggested_answers_builder.concat(wrong_answers).shuffle!
-        @suggested_answers = suggested_answers_builder
-      }
+      question_answer = @duel_quizz_question.question_answer
+      if question_answer.suggested_answers.count < 3
+        all_possible_answers = @quizz.question_answers.map(&:answer)
+      else
+        all_possible_answers = question_answer.suggested_answers.map(&:answer)
+      end
+      suggested_answers_builder = []
+      suggested_answers_builder << question_answer.answer
+      all_possible_answers.delete(question_answer.answer)
+      #choose a random answer among the quizz
+      wrong_answers = all_possible_answers.sample((number_of_suggested_answer - 1))
+      suggested_answers_builder.concat(wrong_answers).shuffle!
+      @suggested_answers = suggested_answers_builder
+
     end
 
     authorize @duel_answer
@@ -59,18 +59,24 @@ class DuelAnswersController < ApplicationController
     data = JSON.parse(params["json"])
     @duel_answer = DuelAnswer.find(data["duel_answer_id"])
     question_answer = @duel_answer.question_answer
+    p "UPDATE DUEL ANSWER"
+    p "----------------------"
+    p "----------------------"
+    p "----------------------"
     p "user answer : #{data["user_answer"]}"
+    p "difficulty : #{@duel_answer.difficulty}"
 
-    if @duel_answer.difficulty == "facile" || @duel_answer.difficulty == "moyen"
+
+    if @duel_answer.difficulty == "Facile" || @duel_answer.difficulty == "Moyen"
       user_answer = data["user_answer"]
       answer_id = (user_answer == question_answer.answer) ? question_answer.id : 0
       is_good_answer = (user_answer == question_answer.answer)
-
-    elsif @duel_answer.difficulty == "difficile"
+    elsif @duel_answer.difficulty == "Difficile"
       user_answer = I18n.transliterate(data["user_answer"], :locale => :en).downcase.strip.gsub("-", " ")
       answer = I18n.transliterate(question_answer.answer,:locale => :en).downcase.strip.gsub("-", " ")
       is_good_answer = (Levenshtein.distance(user_answer, answer) <= 1)
     end
+
 
     authorize(@duel_answer)
 

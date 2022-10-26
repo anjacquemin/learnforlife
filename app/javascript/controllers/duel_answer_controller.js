@@ -2,11 +2,49 @@ import { Controller } from "@hotwired/stimulus"
 import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
-  static targets = ["questionDiv", "goodAnswer", "form", "endButtonDisplay", "endButton"]
+  static targets = ["questionDiv", "goodAnswer", "form", "endButtonDisplay", "endButton", "seconds", "tens"]
 
   connect() {
     console.log("duel answer controller")
     console.log("ici")
+
+    window.Interval
+    clearInterval(window.Interval);
+
+    // if the user leave the quizz and then come back, only call 1 time setInterval
+    var counter_page_loaded = parseInt(this.element.dataset.stimulusConnectCount);
+    console.log(counter_page_loaded)
+
+    counter_page_loaded ++;
+    this.element.dataset.stimulusConnectCount = counter_page_loaded
+
+    const quizz_level = this.element.dataset.quizzLevel
+
+    if(quizz_level === "Difficile"){
+      this.form0Target.parentElement.parentElement.children[1].children[0].focus()
+    }
+
+    if (counter_page_loaded === 1) {
+      window.seconds = 0;
+      window.tens = 0;
+      console.log("UPDATE VIEW")
+      window.appendTens = this.tensTarget;
+      window.appendSeconds = this.secondsTarget;
+      window.Interval = setInterval(startTimer, 10);
+      if (window.appendSeconds < 0) {
+        // DO STG + REDIRECTION
+        // if difficile, send current result, else send no answer
+      }
+
+    } else {
+      // if back and force on the page, set all the value to their value
+      window.seconds = parseInt(this.secondsTarget.innerHTML);
+      window.tens = parseInt(this.tensTarget.innerHTML);
+      window.appendTens = this.tensTarget;
+      window.appendSeconds = this.secondsTarget;
+      console.log("UPDATE VIEW")
+      console.log(window.appendSeconds)
+    }
   }
 
   difficultyChoice(event) {
@@ -60,7 +98,7 @@ export default class extends Controller {
 
     self = this
 
-    if(difficulty === "facile" || difficulty === "moyen"){
+    if(difficulty === "Facile" || difficulty === "Moyen"){
       const user_answer = event.currentTarget.childNodes[1].innerHTML
       const data = answerDataBuilding(question_id, duel_answer_id, user_answer)
 
@@ -139,4 +177,24 @@ const answerDataBuilding = (question_id, duel_answer_id, user_answer) => {
 
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
+}
+
+function startTimer() {
+  tens++;
+
+
+  if(tens <= 9){
+    // appendTens.innerHTML = "0" + tens;
+  }
+
+  if (tens > 9){
+    // appendTens.innerHTML = tens;
+
+  }
+
+  if (tens > 99) {
+    seconds++;
+    appendSeconds.innerHTML = 9 - seconds;
+    tens = 0;
+  }
 }

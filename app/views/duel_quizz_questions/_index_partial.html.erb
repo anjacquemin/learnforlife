@@ -4,72 +4,68 @@
 
 <div class="my-3"></div>
 
-<div class="questions_count">
-  <div class="card-count-details">
-    <div class="card-progressbar-wrapper">
-      <div title="card-count" class="progressbar card-completion"  data-quizz-answer-target = "cardCountBar"></div>
-    </div>
-    <div class= "card-number">
-      <p data-quizz-answer-target = "cardCountNumber">0/5</p>
-    </div>
-  </div>
-</div>
-<div class="my-3"></div>
-<div class="display-record-time">
-  <div class="yellow-container">
-    <p><i class="fa-solid fa-stopwatch"></i></p>
-    <p data-quizz-answer-target="seconds">00</p>
-    <p class="d-none"data-quizz-answer-target="tens"></p>
-    <p>s</p>
-  </div>
-  <div class="good-bad-answer-count">
-    <div class="good-count">
-      <i class="fas fa-check-circle"></i>
-      <p data-quizz-answer-target="goodAnswerCount">0</p>
-    </div>
-    <div class="bad-count">
-      <i class="fas fa-times-circle"></i>
-      <p data-quizz-answer-target="badAnswerCount">0</p>
+<div data-controller="duel-answer" data-url= <%=duel_answers_url%> data-quizz-question-id = <%=@current_duel_quizz_question.id%> data-stimulus-connect-count = "0">
+  <div class="questions_count">
+    <div class="card-count-details">
+      <div class="card-progressbar-wrapper">
+        <div title="card-count" class="progressbar card-completion"  data-quizz-answer-target = "cardCountBar"></div>
+      </div>
+      <div class= "card-number">
+        <% user_answers = @duel_quizz.duel_answers.select { |duel_answer| duel_answer.user == current_user } %>
+        <% question_count = user_answers.count %>
+        <% good_answers_count = user_answers.count { |user_answer| user_answer.is_good_answer } %>
+        <% bad_answers_count = user_answers.count { |user_answer| !user_answer.is_good_answer } %>
+        <p><%= question_count %>/5</p>
+      </div>
     </div>
   </div>
-</div>
+  <div class="my-3"></div>
+  <div class="display-record-time">
+    <div class="yellow-container">
+      <p><i class="fa-solid fa-stopwatch"></i></p>
+      <p data-duel-answer-target="seconds">9</p>
+      <p class="d-none"data-duel-answer-target="tens"></p>
+      <p>s</p>
+    </div>
+    <div class="good-bad-answer-count">
+      <div class="good-count">
+        <i class="fas fa-check-circle"></i>
+        <p><%= good_answers_count %></p>
+      </div>
+      <div class="bad-count">
+        <i class="fas fa-times-circle"></i>
+        <p><%= bad_answers_count %></p>
+      </div>
+    </div>
+  </div>
 
-<div class="my-3"></div>
+  <div class="my-3"></div>
 
-<div class="container" data-controller="duel-answer" data-url= <%=duel_answers_url%> data-quizz-question-id = <%=@current_duel_quizz_question.id%>>
-  <div class="questions" style="height: calc(100vh - 190px)" data-duel-answer-target= "questionDiv" >
-    <div class = card-question>
-      <p>Choisis le niveau de difficulté pour cette question</p>
-      <div>
-        <div class="white-container clue">
-          <p>INDICE</p>
-          <div class= "clue-category">
-            <p><%= @current_duel_quizz_question.category.name %></p>
-            <%= image_tag @current_duel_quizz_question.category.img_src, height: 20 %>
+  <div class="container">
+    <div class="questions" style="height: calc(100vh - 190px)" data-duel-answer-target= "questionDiv" >
+      <div class = card-question>
+        <p>Choisis le niveau de difficulté pour cette question</p>
+        <div>
+          <div class="white-container clue">
+            <p>INDICE</p>
+            <div class= "clue-category">
+              <p><%= @current_duel_quizz_question.category.name %></p>
+              <%= image_tag @current_duel_quizz_question.category.img_src, height: 20 %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class= "my-3"></div>
-    <div class="auto-evaluation-buttons margin-1">
-      <button class= "btn btn-purple btn-big-no-padding" data-difficulty-choice = "Facile" data-action="click->duel-answer#difficultyChoice">
-        <div class="difficulty">
-          <p><%= render "shared/level_stars", difficulty_choice: "Facile" %></p>
-          <p>Duo</p>
-        </div>
-      </button>
-      <button class= "btn btn-purple btn-big-no-padding" data-difficulty-choice = "Moyen" data-action="click->duel-answer#difficultyChoice">
-        <div class="difficulty">
-          <p><%= render "shared/level_stars", difficulty_choice: "Moyen" %></p>
-          <p>Carré</p>
-        </div>
-      </button>
-      <button class= "btn btn-purple btn-big-no-padding"  data-difficulty-choice = "Difficile" data-action="click->duel-answer#difficultyChoice">
-        <div class="difficulty">
-          <p><%= render "shared/level_stars", difficulty_choice: "Difficile" %></p>
-          <p>Cash</p>
-        </div>
-      </button>
+      <div class= "my-3"></div>
+      <div class="auto-evaluation-buttons margin-1">
+        <% { Facile: "Duo", Moyen: "Carré", Difficile: "Cash" }.each do |difficulty, name| %>
+          <button class= "btn btn-purple btn-big-no-padding" data-difficulty-choice = <%=difficulty.to_s%> data-action="click->duel-answer#difficultyChoice">
+            <div class="difficulty">
+              <p><%= render "shared/level_stars", difficulty_choice: difficulty.to_s %></p>
+              <p><%=name%></p>
+            </div>
+          </button>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
