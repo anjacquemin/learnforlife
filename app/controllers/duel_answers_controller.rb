@@ -59,13 +59,6 @@ class DuelAnswersController < ApplicationController
     data = JSON.parse(params["json"])
     @duel_answer = DuelAnswer.find(data["duel_answer_id"])
     question_answer = @duel_answer.question_answer
-    p "UPDATE DUEL ANSWER"
-    p "----------------------"
-    p "----------------------"
-    p "----------------------"
-    p "user answer : #{data["user_answer"]}"
-    p "difficulty : #{@duel_answer.difficulty}"
-
 
     if @duel_answer.difficulty == "Facile" || @duel_answer.difficulty == "Moyen"
       user_answer = data["user_answer"]
@@ -77,13 +70,11 @@ class DuelAnswersController < ApplicationController
       is_good_answer = (Levenshtein.distance(user_answer, answer) <= 1)
     end
 
-
     authorize(@duel_answer)
 
     @duel_answer.answer = user_answer
     @duel_answer.is_good_answer = is_good_answer
     @duel_answer.save!
-
 
     respond_to do |format|
       data = {is_good_answer: is_good_answer, good_answer: question_answer.answer}

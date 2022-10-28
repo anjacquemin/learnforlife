@@ -13,7 +13,7 @@ class DuelQuizzQuestionsController < ApplicationController
     end
 
     if (@quizz_end = check_end_duel_quizz(@duel_quizz))
-      score_compute(@duel_quizz)
+      score_hp_compute(@duel_quizz)
       if both_player_finished_last_quizz? @duel
         if @duel.player_1_hp <= 0 || @duel.player_2_hp <= 0
           @duel.step = "end"
@@ -38,31 +38,44 @@ class DuelQuizzQuestionsController < ApplicationController
       format.json
     end
   end
-end
 
 
-def check_end_duel_quizz(duel_quizz)
-  p duel_quizz.duel_answers.count { |duel_answer| duel_answer.user == current_user }
-  duel_quizz.duel_answers.count { |duel_answer| duel_answer.user == current_user } > 1
-end
+  def check_end_duel_quizz(duel_quizz)
+    duel_quizz.duel_answers.count { |duel_answer| duel_answer.user == current_user } > 1
+  end
 
-def score_compute(duel_quizz)
-  duel_quizz.duel_answers.where(user: current_user)
-  score = 5
-  if duel_quizz.duel.player_1 == current_user
-    duel_quizz.update(score_player_1: score)
-    hp_other_player = @duel.player_2_hp - score
-    hp_other_player = (hp_other_player > 0) ? hp_other_player : 0
-    @duel.update(player_2_hp: hp_other_player)
-  else
-    duel_quizz.update(score_player_2: score)
-    hp_other_player = @duel.player_1_hp - score
-    hp_other_player = (hp_other_player > 0) ? hp_other_player : 0
-    @duel.update(player_1_hp: hp_other_player)
+  def score_hp_compute(duel_quizz)
+    duel_quizz.duel_answers.where(user: current_user)
+    score = score_compute(duel_quizz)
+    if duel_quizz.duel.player_1 == current_user
+      duel_quizz.update(score_player_1: score)
+      hp_other_player = @duel.player_2_hp - score
+      hp_other_player = (hp_other_player > 0) ? hp_other_player : 0
+      @duel.update(player_2_hp: hp_other_player)
+    else
+      duel_quizz.update(score_player_2: score)
+      hp_other_player = @duel.player_1_hp - score
+      hp_other_player = (hp_other_player > 0) ? hp_other_player : 0
+      @duel.update(player_1_hp: hp_other_player)
+    end
   end
 
   def both_player_finished_last_quizz? duel
     duel.duel_quizzs.all? { |duel_quizz| duel_quizz.score_player_1 && duel_quizz.score_player_2}
+  end
+
+  def score_compute(duel_quizz)
+    player_answers = duel_quizz.duel_answers.select { |duel_answer| duel_answer.user == current_user }
+    score = 0
+    difficulty_points = {
+      Facile: 1,
+      Moyen: 3,
+      Difficile: 5
+    }
+    player_answers.each { |player_answer|
+      score += difficulty_points[player_answer.difficulty.to_sym] if player_answer.is_good_answer
+    }
+    score
   end
 
 end
