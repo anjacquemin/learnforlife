@@ -1,10 +1,10 @@
-<div class="theme-title theme-show">
-  <h1><i class="fas fa-atlas"></i><%=@duel_quizz.theme.name%></h1>
-</div>
-
-<div class="my-3"></div>
 
 <div data-controller="duel-answer" data-url= <%=duel_answers_url%> data-quizz-question-id = <%=@current_duel_quizz_question.id%> data-stimulus-connect-count = "0">
+  <div class="theme-title theme-show">
+    <h1><i class="fas fa-atlas"></i><%=@duel_quizz.theme.name%></h1>
+  </div>
+
+  <div class="my-3"></div>
   <div class="questions_count">
     <div class="card-count-details">
       <div class="card-progressbar-wrapper">

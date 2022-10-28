@@ -6,45 +6,6 @@ export default class extends Controller {
 
   connect() {
     console.log("duel answer controller")
-    console.log("ici")
-
-    window.Interval
-    clearInterval(window.Interval);
-
-    // if the user leave the quizz and then come back, only call 1 time setInterval
-    var counter_page_loaded = parseInt(this.element.dataset.stimulusConnectCount);
-    console.log(counter_page_loaded)
-
-    counter_page_loaded ++;
-    this.element.dataset.stimulusConnectCount = counter_page_loaded
-
-    const quizz_level = this.element.dataset.quizzLevel
-
-    if(quizz_level === "Difficile"){
-      this.form0Target.parentElement.parentElement.children[1].children[0].focus()
-    }
-
-    if (counter_page_loaded === 1) {
-      window.seconds = 0;
-      window.tens = 0;
-      console.log("UPDATE VIEW")
-      window.appendTens = this.tensTarget;
-      window.appendSeconds = this.secondsTarget;
-      window.Interval = setInterval(startTimer, 10);
-      if (window.appendSeconds < 0) {
-        // DO STG + REDIRECTION
-        // if difficile, send current result, else send no answer
-      }
-
-    } else {
-      // if back and force on the page, set all the value to their value
-      window.seconds = parseInt(this.secondsTarget.innerHTML);
-      window.tens = parseInt(this.tensTarget.innerHTML);
-      window.appendTens = this.tensTarget;
-      window.appendSeconds = this.secondsTarget;
-      console.log("UPDATE VIEW")
-      console.log(window.appendSeconds)
-    }
   }
 
   difficultyChoice(event) {
@@ -71,6 +32,9 @@ export default class extends Controller {
     .then((data) => {
       console.log(data)
       this.questionDivTarget.innerHTML=data.inserted_item
+      console.log("ici")
+      self = this
+      start_chrono(self)
     })
   }
 
@@ -95,8 +59,9 @@ export default class extends Controller {
     console.log(`question_id ${question_id}`)
     console.log(`duel_answer_id ${duel_answer_id}`)
     console.log(`answer_url ${answer_url}`)
+    console.log(`current target ${event.currentTarget}`)
 
-    self = this
+    let current_target = event.currentTarget
 
     if(difficulty === "Facile" || difficulty === "Moyen"){
       const user_answer = event.currentTarget.childNodes[1].innerHTML
@@ -109,12 +74,12 @@ export default class extends Controller {
       })
       .then(response => response.json())
       .then((data) => {
+        console.log(data)
+        console.log(`current target ${current_target}`)
         if (data.is_good_answer === true){
-          event.currentTarget.classList.add("green-background")
-          // good_answer_count_target.innerHTML = parseInt(good_answer_count_target.innerHTML) + 1
+          current_target.classList.add("green-background")
         } else {
-          // bad_answer_count_target.innerHTML = parseInt(bad_answer_count_target.innerHTML) + 1
-          event.currentTarget.classList.add("red-background")
+          current_target.classList.add("red-background")
           self.goodAnswerTargets.forEach ((answerTarget) => {
             if (answerTarget.childNodes[1].innerHTML === data.good_answer){
               answerTarget.classList.add("green-background")
@@ -134,9 +99,6 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
         // if end of the duel quizz
-        console.log("Get answer controller")
-        console.log(data)
-        console.log(data.end)
         if (data.end) {
           this.endButtonDisplayTarget.insertAdjacentHTML("beforeend", data.end)
           this.endButtonTarget.click()
@@ -175,23 +137,46 @@ const answerDataBuilding = (question_id, duel_answer_id, user_answer) => {
   return data
 }
 
+function start_chrono() {
+  window.Interval
+  clearInterval(window.Interval);
+  // if the user leave the quizz and then come back, only call 1 time setInterval
+  var counter_page_loaded = parseInt(self.element.dataset.stimulusConnectCount);
+  console.log(counter_page_loaded)
+  counter_page_loaded ++;
+  self.element.dataset.stimulusConnectCount = counter_page_loaded
+  const quizz_level = self.element.dataset.quizzLevel
+  if(quizz_level === "Difficile"){
+    self.form0Target.parentElement.parentElement.children[1].children[0].focus()
+  }
+  if (counter_page_loaded === 1) {
+    window.seconds = 0;
+    window.tens = 0;
+    console.log("UPDATE VIEW")
+    window.appendTens = self.tensTarget;
+    window.appendSeconds = self.secondsTarget;
+    window.Interval = setInterval(startTimer, 10);
+    if (window.appendSeconds < 0) {
+      // DO STG + REDIRECTION
+      // if difficile, send current result, else send no answer
+    }
+  } else {
+    // if back and force on the page, set all the value to their value
+    window.seconds = parseInt(self.secondsTarget.innerHTML);
+    window.tens = parseInt(self.tensTarget.innerHTML);
+    window.appendTens = self.tensTarget;
+    window.appendSeconds = self.secondsTarget;
+    console.log("UPDATE VIEW")
+    console.log(window.appendSeconds)
+  }
+}
+
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
 
 function startTimer() {
   tens++;
-
-
-  if(tens <= 9){
-    // appendTens.innerHTML = "0" + tens;
-  }
-
-  if (tens > 9){
-    // appendTens.innerHTML = tens;
-
-  }
-
   if (tens > 99) {
     seconds++;
     appendSeconds.innerHTML = 9 - seconds;
