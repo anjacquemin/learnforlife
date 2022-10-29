@@ -42,6 +42,7 @@ export default class extends Controller {
             .then((data) => {
               console.log(data.inserted_item)
               this.element.innerHTML = data.inserted_item
+              // DISPLAY MODAL WITH RESULTS + BONUS POINTS SI TOUT JUSTE (+ 20%)
             })
           }
         }

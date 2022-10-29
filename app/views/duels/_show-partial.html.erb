@@ -15,7 +15,7 @@
   <div class="my-3"></div>
   <div class="container score-section">
     <div class="scores-display">
-      <% @duel.duel_quizzs.each do |duel_quizz| %>
+      <% @duel.duel_quizzs.order(:id).each do |duel_quizz| %>
         <%= render "score-display", duel_quizz: duel_quizz %>
       <% end %>
       <% if @duel.step != "ongoing_quizz" && @duel.step != "end" %>

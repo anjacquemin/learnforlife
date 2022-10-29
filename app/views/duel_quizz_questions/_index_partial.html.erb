@@ -1,5 +1,6 @@
 
 <div data-controller="duel-answer" data-url= <%=duel_answers_url%> data-quizz-question-id = <%=@current_duel_quizz_question.id%> data-stimulus-connect-count = "0">
+  <%# <%= render "shared/show-quizz-score-modal", duel_quizz_id: @duel_quizz.id, player_id: current_user.id%>
   <div class="theme-title theme-show">
     <h1><i class="fas fa-atlas"></i><%=@duel_quizz.theme.name%></h1>
   </div>

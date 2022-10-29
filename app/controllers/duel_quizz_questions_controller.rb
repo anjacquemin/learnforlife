@@ -25,7 +25,7 @@ class DuelQuizzQuestionsController < ApplicationController
         @duel.save!
       else
         @duel.step = "category_choice"
-        @duel.player_to_play = [@duel.player_1, @duel.player_2].sample
+        @duel.player_to_play = (duel.player_to_play == duel.player_1 ? duel.player_2 : duel.player_1)
         @duel.save!
         theme_choices = [Theme.find_by(name: "Géographie"), Theme.find_by(name: "Cinéma")]
         @duel.duel_theme_choices.each_with_index do |duel_theme_choice, i|
@@ -46,7 +46,7 @@ class DuelQuizzQuestionsController < ApplicationController
     end
 
     def check_end_duel_quizz(duel_quizz)
-      duel_quizz.duel_answers.count { |duel_answer| duel_answer.user == current_user } > 1
+      duel_quizz.duel_answers.count { |duel_answer| duel_answer.user == current_user } > 4
     end
 
     def score_hp_compute(duel_quizz)

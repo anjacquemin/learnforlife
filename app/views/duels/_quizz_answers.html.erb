@@ -1,8 +1,10 @@
-<div class="score-player">
+<% modal_id = "#staticBackdrop-#{duel_quizz.id}-#{player.id}" %>
+
+<div class="score-player" data-bs-toggle="modal" data-bs-target=<%=modal_id.html_safe%>>
 <%# IF QUIZZ END FOR THIS USER %>
   <div class="quizz-answer">
     <% duel_quizz.duel_answers.where(user: player).each do |duel_answer| %>
-      <%= render "duel-answer-indicator", difficulty: duel_answer.difficulty, is_good_answer: duel_answer.is_good_answer %>
+      <%= render "shared/duel-answer-indicator", difficulty: duel_answer.difficulty, is_good_answer: duel_answer.is_good_answer %>
     <% end %>
   </div>
   <div class="damage">
@@ -10,3 +12,5 @@
     <p>+ <%=duel_quizz.send("score_#{player_X}")%></p>
   </div>
 </div>
+
+<%= render "shared/show-quizz-score-modal", duel_quizz_id: duel_quizz.id, player_id: player.id %>

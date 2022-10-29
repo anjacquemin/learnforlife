@@ -1,8 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 import { csrfToken } from "@rails/ujs"
+import { Modal } from "bootstrap"
 
 export default class extends Controller {
-  static targets = ["questionDiv", "goodAnswer", "form", "endButtonDisplay", "endButton", "seconds", "tens"]
+  static targets = ["questionDiv", "goodAnswer", "form", "endButtonDisplay", "endButton", "seconds", "tens", "scoreModal"]
 
   connect() {
     console.log("duel answer controller")
@@ -100,13 +101,19 @@ export default class extends Controller {
       .then((data) => {
         // if end of the duel quizz
         if (data.end) {
-          this.endButtonDisplayTarget.insertAdjacentHTML("beforeend", data.end)
-          this.endButtonTarget.click()
+          this.element.insertAdjacentHTML("beforeend", data.end)
+          const modal = new Modal(this.scoreModalTarget)
+          modal.show()
         } else {
           this.element.innerHTML=data.inserted_item
         }
       })
     });
+  }
+
+  menu(){
+    // this.endButtonDisplayTarget.insertAdjacentHTML("beforeend", this.element.dataset.endQuizz)
+    this.endButtonTarget.click()
   }
 }
 

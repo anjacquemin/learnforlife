@@ -1,0 +1,47 @@
+<!-- Modal -->
+<% id = "staticBackdrop-#{duel_quizz_id}-#{player_id}" %>
+
+<% duel_quizz = DuelQuizz.find(duel_quizz_id)%>
+<% duel = duel_quizz.duel%>
+<% player = User.find(player_id) %>
+<% player_X = (duel.player_1 == player ? "player_1" : "player_2") %>
+
+<div class="modal fade character-modal" id= <%=id%> data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-modal="true" data-duel-answer-target="scoreModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1> Score </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="my-3"></div>
+      <div class="modal-body">
+        <div class="flex-row-center">
+          <div>
+            <% duel_answers = duel_quizz.duel_answers.where(user_id: player_id) %>
+            <% score = 0 %>
+            <% duel_answers.each do |duel_answer| %>
+              <div class="duel-answer-score">
+                <% answer_score = anwser_score_compute(duel_answer) %>
+                <% score += answer_score %>
+                <%= render "shared/duel-answer-indicator", difficulty: duel_answer.difficulty, is_good_answer: duel_answer.is_good_answer %>
+                <p><strong>+ <%= answer_score %></strong></p>
+              </div>
+            <% end %>
+          </div>
+          <div class="score-synthesis">
+            <p>Score : <%=score%></p>
+            <% bonus_sentence = (bonus?(duel_quizz, User.find(player_id)) ? "+20%" : "0")  %>
+            <p>Bonus : <%= bonus_sentence.html_safe %></p>
+            <div class="horizontal-divider-light"></div>
+            <h2><%= duel_quizz.send("score_#{player_X}") %></h2>
+            <p>points de dégats infligés à ton adversaire</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a class= "d-none" data-duel-answer-target="endButton" href="/duels/<%=duel_quizz.duel.id%>"></a>
+        <button type="button" data-action= "click->duel-answer#menu" data-bs-dismiss="modal" class="btn btn-purple" >Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
